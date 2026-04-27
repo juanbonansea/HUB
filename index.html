@@ -1111,14 +1111,14 @@ tr.project-detail-row td { padding: 0; }
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Abril 2026</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Abr - 1 May 2026</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
             <button class="btn" id="refreshBtn" onclick="triggerRefresh()" style="font-size:12px;padding:4px 12px;">Actualizar</button>
             <button class="btn" onclick="showSettingsModal()" title="Configurar GitHub" style="font-size:12px;padding:4px 8px;">&#9881;</button>
           </div>
-          <div id="refreshStatus" style="font-size:11px;color:var(--text-tertiary)">Ultima actualizacion: Mie 22 Abr</div>
+          <div id="refreshStatus" style="font-size:11px;color:var(--text-tertiary)">Ultima actualizacion: Lun 27 Abr</div>
         </div>
       </div>
 
@@ -1358,58 +1358,79 @@ function saveData() {
   }));
 }
 
-const DAYS = ['Lun 20','Mar 21','Mie 22','Jue 23','Vie 24'];
+const DAYS = ['Lun 27','Mar 28','Mie 29','Jue 30','Vie 1'];
 const DAY_KEYS = ['mon','tue','wed','thu','fri'];
-const DAY_NAMES_LONG = ['Lunes 20 Abril','Martes 21 Abril','Miercoles 22 Abril','Jueves 23 Abril','Viernes 24 Abril'];
-const DAY_DATES = [20,21,22,23,24];
+const DAY_NAMES_LONG = ['Lunes 27 Abril','Martes 28 Abril','Miercoles 29 Abril','Jueves 30 Abril','Viernes 1 Mayo'];
+const DAY_DATES = [27,28,29,30,1];
 
 // Dynamic today detection
 function getTodayIndex() {
   const now = new Date();
   const d = now.getDate();
   const m = now.getMonth(); // 0-indexed, April = 3
-  if (m === 3 && d >= 20 && d <= 24) return d - 20; // 0=Mon, 1=Tue, etc.
+  if (m === 3 && d >= 27 && d <= 30) return d - 27;
+  if (m === 4 && d === 1) return 4; // Friday May 1
   return -1; // outside this week
 }
 const TODAY_IDX = getTodayIndex();
 
 const EVENTS = {
   mon: [
-    { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:16, org:'isabela.gomez@rappi.com', type:'team' },
-    { time:'10:30-11:15', title:'Meik <> Juan', attendees:2, org:'meiker.munera@rappi.com', type:'1:1' },
-    { time:'11:30-12:00', title:'Juan Pablo / Yeimy Alejandra', attendees:2, org:'yeimy.perez@rappi.com', type:'1:1' },
-    { time:'12:30-13:00', title:'Weekly Check - Evals', attendees:11, org:'valeria.badiola@rappi.com', type:'team' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'9:00-9:30', title:'Alineacion chat soporte / rest portal unificado', attendees:5, org:'juliana@rappi.com', type:'team' },
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'14:00-14:45', title:'Assembled food live', attendees:4, org:'veronica.ferro@rappi.com', type:'team' }
   ],
   tue: [
-    { time:'10:30-11:00', title:'Juan Pablo / Andres', attendees:2, org:'f.diaz@rappi.com', type:'1:1' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1:1', note:'Weekly 1:1' }
   ],
   wed: [
+    { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:46, org:'eugenio.larosa@rappi.com', type:'team' },
+    { time:'11:30-12:30', title:'Shadowing Offenders OPs (Non Food)', attendees:16, type:'shadowing' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:00-16:00', title:'Shadowing Offenders OPs (Non Food)', attendees:16, org:'elias.rivera@rappi.com', type:'shadowing' },
+    { time:'15:00-15:30', title:'Horas Deal', attendees:0, type:'learning', note:'Learning time' },
     { time:'16:30-17:30', title:'Shadowing Merchant (TU)', attendees:15, org:'carla.capristan@rappi.com', type:'shadowing' }
   ],
   thu: [
-    { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team' },
     { time:'9:00-10:00', title:'Shadowing Merchant (TU)', attendees:15, type:'shadowing' },
-    { time:'10:00-11:00', title:'Capacitacion: Voz y Audicion', attendees:0, type:'learning', note:'SST Colombia' },
+    { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team' },
+    { time:'11:00-12:00', title:'Global Business Connect : All hands', attendees:0, type:'team', note:'CPG deep dive' },
+    { time:'12:00-12:30', title:'Assembled Assist <> Rappi Weekly Sync', attendees:9, org:'bea@assembledhq.com', type:'external', note:'Zoom' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   fri: [
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-15:00', title:'Shadowing 2 | Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing' }
+    { time:'14:00-14:15', title:'Weekly QA AI', attendees:8, org:'m.granada@rappi.com', type:'team' },
+    { time:'14:00-15:00', title:'Shadowing 2 Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing' }
   ]
 };
 
 const NOTES = [
   {
+    id:25, title:'Shadowing 2 Offenders OPs (Non Food)', date:'Abr 23',
+    summary:'Sesion monitoreo. Refuerzo necesario sobre reglas comerciales. Casos sobre permisos admin y gestion archivos.',
+    sections:['Revision casos operativos','Evaluacion desempeno'],
+    actions:[
+      { text:'Reforzar reglas de negocio con agentes - sin macros ni docs viejos', owner:'Enrique Sosa', phase:'qa' },
+      { text:'Derivar caso pedido no visible al area de Pagos', owner:'Xiomi Pardave', phase:'discovery' }
+    ]
+  },
+  {
+    id:24, title:'Shadowing Offenders OPs (Non Food)', date:'Abr 22',
+    summary:'Validacion formulario pagos y tipificacion casos. Entrenamiento practico en compensaciones. Cross training viernes 24.',
+    sections:['Alineacion operativa','Entrenamiento practico','Programacion sesiones'],
+    actions:[
+      { text:'Alinear detalles transferencias pagos con Jona y Mari', owner:'Santiago Guasca', phase:'discovery' },
+      { text:'Informar negocio sobre nota interna faltante en tipificacion', owner:'Santiago Guasca', phase:'design' },
+      { text:'Programar sesion Cross Training con XOMI viernes 24', owner:'Grupo', phase:'discovery' }
+    ]
+  },
+  {
     id:20, title:'Juan Pablo / Andres', date:'Abr 21',
-    summary:'Flujo del bot Food Life. Automatizar solicitudes falta RT y pedidos cancelados. Depurar 36% de tickets no identificados.',
+    summary:'Flujo del bot Food Life. Automatizar solicitudes falta RT y pedidos cancelados. Depurar 36% tickets no identificados.',
     sections:['Analisis automatizacion bot','Gestion inventario critico','Optimizacion procesos'],
     actions:[
       { text:'Enviar query Snowflake + documento issues mapeados a Andres', owner:'Juan Pablo', phase:'discovery', priority:'P1' },
-      { text:'Agendar llamada conjunta con Andres para revisar data', owner:'Juan Pablo, Andres', phase:'discovery', priority:'P1' },
       { text:'Revisar data Snowflake - identificar issues verdaderos (36% ciego)', owner:'Andres Diaz', phase:'discovery', priority:'P1' },
       { text:'Entregar copies desactualizadas al equipo', owner:'Andres Diaz', phase:'design' }
     ]
@@ -1417,58 +1438,37 @@ const NOTES = [
   {
     id:19, title:'Meik <> Juan', date:'Abr 20',
     summary:'Estructura tecnica y configuracion de flujos en Assemble. Integracion APIs con endpoints, transferir a humano si falla.',
-    sections:['Configuracion inicial workflow','Gestion tecnica endpoints','Optimizacion flujo'],
+    sections:['Configuracion workflow','Endpoints','Optimizacion flujo'],
     actions:[
-      { text:'Entrenar Cloud/AI con guia Assemble enviada por Isa', owner:'Juan Pablo', phase:'build', priority:'P1' },
-      { text:'Ajustar Figma - eliminar macro references antes de Tech', owner:'Juan Pablo', phase:'design', priority:'P1' },
-      { text:'Codificar Figma con colores diferentes para Tech', owner:'Juan Pablo', phase:'design', priority:'P2' },
-      { text:'Compartir Figma con multiples ramas', owner:'Meiker', phase:'design' }
-    ]
-  },
-  {
-    id:18, title:'Juan Pablo / Yeimy Alejandra', date:'Abr 20',
-    summary:'Analisis de 11K casos: falta RT y demoras son desafios criticos. Actualizar textos WhatsApp bot con terminologia actual.',
-    sections:['Analisis flujos operativos','Gestion incidencias repartidor','Optimizacion plataformas aliadas'],
-    actions:[
-      { text:'Probar flujo cancelacion producto no disponible en tienda real', owner:'Yeimy', phase:'qa', priority:'P1' },
-      { text:'Compartir capturas sobre producto agotado a Juan Pablo', owner:'Yeimy', phase:'discovery' }
+      { text:'Entrenar Cloud/AI con guia Assemble (Isa)', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Ajustar Figma - eliminar macro references', owner:'Juan Pablo', phase:'design', priority:'P1' },
+      { text:'Codificar Figma con colores diferentes para Tech', owner:'Juan Pablo', phase:'design', priority:'P2' }
     ]
   },
   {
     id:17, title:'Check Figma - Food_Live', date:'Abr 17',
-    summary:'Analisis 17 casos. Flujo general en Fjam diferenciando RT vs otros. Metodologia Pareto 80% casos. FJAM listo lunes/martes.',
-    sections:['Analisis y flujo Fjam','Diseno automatizacion tecnica','Pruebas nuevo canal'],
+    summary:'Analisis 17 casos. Flujo general en Fjam. Pareto 80% casos. FJAM listo lunes/martes para Tech.',
+    sections:['Flujo Fjam','Diseno tecnico','Pruebas canal'],
     actions:[
-      { text:'Tener FJAM listo entre lunes o martes - borrador general Assemble para Tech', owner:'Juan Pablo', phase:'design', priority:'P0' },
+      { text:'FJAM listo - borrador general en Assemble para Tech', owner:'Juan Pablo', phase:'design', priority:'P0' },
       { text:'Continuar flujo para suspensiones', owner:'Juan Pablo', phase:'design', priority:'P1' },
       { text:'Seguimiento metadata con Vero o Jona', owner:'Juan Pablo', phase:'discovery', priority:'P2' }
-    ]
-  },
-  {
-    id:16, title:'CX Product PRD & design reviews', date:'Abr 16',
-    summary:'Modelo 3 niveles para delays proactivos. Sistema alerta desvios con IA. Opcion contactar agente en desvios recurrentes.',
-    sections:['Estrategias proactivas comunicacion','Soporte desvios operativos','Gestion desvios multiples'],
-    actions:[
-      { text:'Solicitar a Tech integrar delay proactivo al bot status ordenes', owner:'Maria Granada', phase:'build', priority:'P1' },
-      { text:'Incorporar validacion L3/L4 al pedido para triggerear modal proactivo', owner:'Daniel Trejos', phase:'build', priority:'P1' },
-      { text:'Agregar exit rule para que MAFE consuma el flujo en bot soporte', owner:'Daniel Trejos', phase:'build' },
-      { text:'Actualizar modal desvio con CTA entendido + hablar con agente', owner:'Daniel Trejos', phase:'design' }
     ]
   }
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t30', text:'Enviar query Snowflake + issues mapeados a Andres', phase:'discovery', priority:'P1', source:'Andres 1:1', day:'tue', completed:true },
-  { id:'t31', text:'Agendar llamada conjunta con Andres para revisar data', phase:'discovery', priority:'P1', source:'Andres 1:1', day:'wed', completed:false },
-  { id:'t32', text:'Entrenar Cloud/AI con guia Assemble (Isa)', phase:'build', priority:'P1', source:'Meik 1:1', day:'wed', completed:false },
-  { id:'t33', text:'Ajustar Figma - eliminar macro references', phase:'design', priority:'P1', source:'Meik 1:1', day:'wed', completed:false },
-  { id:'t34', text:'Codificar Figma con colores para Tech', phase:'design', priority:'P2', source:'Meik 1:1', day:'thu', completed:false },
-  { id:'t35', text:'Tener FJAM listo - borrador general Assemble', phase:'design', priority:'P0', source:'Check Figma Food_Live', day:'mon', completed:true },
-  { id:'t36', text:'Continuar flujo para suspensiones', phase:'design', priority:'P1', source:'Check Figma Food_Live', day:'thu', completed:false },
-  { id:'t37', text:'Seguimiento metadata con Vero (ya envie mensaje Slack)', phase:'discovery', priority:'P2', source:'Check Figma Food_Live', day:'fri', completed:true },
-  { id:'t38', text:'Coordinar con Vero espacio lunes/martes proxima semana', phase:'discovery', priority:'P2', source:'Slack Vero', day:'fri', completed:false },
-  { id:'t39', text:'Revisar capturas producto agotado cuando Yeimy las envie', phase:'qa', priority:'P3', source:'Yeimy 1:1', day:'unscheduled', completed:false },
-  { id:'t40', text:'Preparar PRD para design review jueves', phase:'design', priority:'P1', source:'CX PRD review', day:'wed', completed:false }
+  { id:'t40', text:'Reunion con Vero hoy 2pm - Assembled food live', phase:'discovery', priority:'P1', source:'Slack Vero', day:'mon', completed:true },
+  { id:'t41', text:'Alineacion chat soporte con Juliana 9am', phase:'discovery', priority:'P1', source:'Cal Lun', day:'mon', completed:true },
+  { id:'t42', text:'Continuar flujo para suspensiones en FJAM', phase:'design', priority:'P1', source:'Check Figma', day:'tue', completed:false },
+  { id:'t43', text:'Llevar avances a 1:1 con Maria - update Food Live bot', phase:'discovery', priority:'P1', source:'Maria 1:1', day:'tue', completed:false },
+  { id:'t44', text:'Preparar PRD para CX Product review jueves', phase:'design', priority:'P0', source:'PRD review', day:'wed', completed:false },
+  { id:'t45', text:'Agendar follow-up con Andres - revisar data 36% ciego', phase:'discovery', priority:'P1', source:'Andres 1:1', day:'wed', completed:false },
+  { id:'t46', text:'Coordinar sync con Bea (Assembled) - jueves 12pm', phase:'build', priority:'P2', source:'Cal Jue', day:'thu', completed:false },
+  { id:'t47', text:'Atender Global Business Connect - CPG deep dive', phase:'discovery', priority:'P3', source:'All hands', day:'thu', completed:false },
+  { id:'t48', text:'Documentar bloqueos para Weekly QA AI viernes', phase:'qa', priority:'P2', source:'Weekly QA', day:'fri', completed:false },
+  { id:'t49', text:'Recibir copies actualizadas de Andres', phase:'design', priority:'P2', source:'Andres 1:1', day:'unscheduled', completed:false },
+  { id:'t50', text:'Probar flujo Assemble en staging', phase:'qa', priority:'P1', source:'Meik 1:1', day:'unscheduled', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1478,41 +1478,38 @@ const DEFAULT_BOTS = [
 ];
 
 const DEFAULT_PROJECTS = [
-  { id:'pr1', name:'Merchant Live Bot', status:'En progreso', phase:'Discovery', owner:'Juan Pablo', deadline:'Apr 25', progress:50, desc:'Automatizar soporte Merchant Live via Assemble con endpoints tech. Incluye discovery de tickets, definicion de flujos y construccion de workflow.', meetings:['Juan Pablo / Andres','Shadowing Assembled WFs'], actionItems:['Completar Discovery - definir endpoints','Descargar base de tickets','Construir workflow en Assemble'] },
-  { id:'pr2', name:'Order Status ETA Bot', status:'En progreso', phase:'QA Review', owner:'Maria / Juan Pablo', deadline:'Apr 18', progress:90, desc:'Bot para resolver errores de reembolsos y propinas en ordenes dentro del ETA. En fase de QA antes de escalar al 30%.', meetings:['Weekly QA AI'], actionItems:['Revisar bot Order Status within ETA - evaluar antes de escalar al 30%'] },
+  { id:'pr1', name:'Merchant Live Bot', status:'En progreso', phase:'Discovery', owner:'Juan Pablo', deadline:'Apr 25', progress:70, desc:'Automatizar soporte Merchant Live via Assemble con endpoints tech. Incluye discovery de tickets, definicion de flujos y construccion de workflow.', meetings:['Juan Pablo / Andres','Shadowing Assembled WFs'], actionItems:['Completar Discovery - definir endpoints','Descargar base de tickets','Construir workflow en Assemble'] },
+  { id:'pr2', name:'Order Status ETA Bot', status:'Done', phase:'QA Review', owner:'Maria / Juan Pablo', deadline:'Apr 18', progress:100, desc:'Bot para resolver errores de reembolsos y propinas en ordenes dentro del ETA. En fase de QA antes de escalar al 30%.', meetings:['Weekly QA AI'], actionItems:['Revisar bot Order Status within ETA - evaluar antes de escalar al 30%'] },
   { id:'pr3', name:'Referrals Bot', status:'En progreso', phase:'Metrics', owner:'Angela', deadline:'Apr 20', progress:85, desc:'Bot de referidos que gestiona pagos y estados. Midiendo disat vs baseline.', meetings:['Weekly QA AI'], actionItems:['Analizar metrica disat del bot Referrals vs baseline','Actualizar documento con fechas y observaciones'] },
   { id:'pr4', name:'Outage Response System', status:'Planning', phase:'Design', owner:'Maria / Andres', deadline:'Apr 30', progress:15, desc:'Sistema de respuesta a outages criticos con mensajeria neutral y config estatica manual.', meetings:['Brainstorming - Outage modelos'], actionItems:['Crear propuesta de tipos de problemas y usuarios','Gestionar permisos en STAX'] },
   { id:'pr5', name:'Email Channel Automation', status:'Backlog', phase:'Discovery', owner:'Maria / Andy', deadline:'TBD', progress:5, desc:'Automatizacion del canal de email para soporte. Pendiente de discovery y definicion de alcance.', meetings:['Display Keys AI configuration'], actionItems:['Buscar espacio con Jona para canal mail'] },
-  { id:'pr6', name:'Merchant Live Metadata', status:'En progreso', phase:'Discovery', owner:'Maria / Juan Pablo', deadline:'Apr 24', progress:60, desc:'Definir requisitos de metadata para Merchant Live, integracion con Snowflake.', meetings:['Display Keys AI configuration'], actionItems:['Definir requisitos metadata Merchant Live','Determinar metodo para Snowflake Cloud'] }
+  { id:'pr6', name:'Merchant Live Metadata', status:'En progreso', phase:'Discovery', owner:'Maria / Juan Pablo', deadline:'Apr 24', progress:80, desc:'Definir requisitos de metadata para Merchant Live, integracion con Snowflake.', meetings:['Display Keys AI configuration'], actionItems:['Definir requisitos metadata Merchant Live','Determinar metodo para Snowflake Cloud'] }
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d20', text:'Revisar data Snowflake - identificar issues reales (36% ciego)', owner:'Andres Diaz', source:'Andres 1:1 Abr 21', status:'pendiente' },
-  { id:'d21', text:'Entregar copies desactualizadas al equipo', owner:'Andres Diaz', source:'Andres 1:1 Abr 21', status:'pendiente' },
-  { id:'d22', text:'Probar flujo cancelacion producto en tienda real', owner:'Yeimy Perez', source:'Yeimy 1:1 Abr 20', status:'pendiente' },
-  { id:'d23', text:'Compartir capturas producto agotado', owner:'Yeimy Perez', source:'Yeimy 1:1 Abr 20', status:'pendiente' },
-  { id:'d24', text:'Compartir Figma con multiples ramas', owner:'Meiker Munera', source:'Meik 1:1 Abr 20', status:'pendiente' },
-  { id:'d25', text:'Integrar delay proactivo al bot status ordenes', owner:'Maria Granada', source:'CX PRD review Abr 16', status:'pendiente' },
-  { id:'d26', text:'Validar L3/L4 pedido para modal proactivo', owner:'Daniel Trejos', source:'CX PRD review', status:'pendiente' },
-  { id:'d27', text:'Agregar exit rule bot para consumo MAFE', owner:'Daniel Trejos', source:'CX PRD review', status:'pendiente' },
-  { id:'d28', text:'Actualizar modal desvio con CTAs', owner:'Daniel Trejos', source:'CX PRD review', status:'pendiente' }
+  { id:'d30', text:'Revisar data Snowflake - 36% ciego', owner:'Andres Diaz', source:'Andres 1:1 Abr 21', status:'pendiente' },
+  { id:'d31', text:'Entregar copies desactualizadas al equipo', owner:'Andres Diaz', source:'Andres 1:1 Abr 21', status:'pendiente' },
+  { id:'d32', text:'Probar flujo cancelacion producto en tienda real', owner:'Yeimy Perez', source:'Yeimy 1:1 Abr 20', status:'pendiente' },
+  { id:'d33', text:'Compartir capturas producto agotado', owner:'Yeimy Perez', source:'Yeimy 1:1 Abr 20', status:'completado' },
+  { id:'d34', text:'Compartir Figma con multiples ramas', owner:'Meiker Munera', source:'Meik 1:1 Abr 20', status:'completado' },
+  { id:'d35', text:'Compartir info chat soporte / portal unificado', owner:'Juliana', source:'Alineacion Lun', status:'pendiente' },
+  { id:'d36', text:'Reforzar reglas de negocio con agentes', owner:'Enrique Sosa', source:'Shadowing Abr 23', status:'pendiente' },
+  { id:'d37', text:'Alinear pagos con Jona y Mari', owner:'Santiago Guasca', source:'Shadowing Abr 22', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
   { from: 'Veronica Ferro', text: 'listo, en el transcurso de la semana te compartimos la info', time: 'Abr 21', type: 'dm', actionable: true },
   { from: 'Veronica Ferro', text: 'Te saco espacio tipo lunes/martes', time: 'Abr 21', type: 'dm', actionable: true },
-  { from: 'Veronica Ferro', text: 'En donde me pediste la metadata?', time: 'Abr 21', type: 'dm', actionable: false },
-  { from: 'Isabela Gomez', text: 'Juan pregunta: usaste github para subir la pagina de hub de tareas?', time: 'Abr 21', type: 'dm', actionable: true },
-  { from: 'Andres Diaz', text: 'avisame si te gustaria participar mas de espacios operativos', time: 'Abr 20', type: 'dm', actionable: false },
-  { from: 'Maria Granada', text: 'team les deje comments en los copys - whatsapp tenemos oportunidad de ser mas directos', time: 'Abr 20', type: 'group', actionable: true },
-  { from: 'Meiker Munera', text: 'compartio Google Doc', time: 'Abr 20', type: 'dm', actionable: false }
+  { from: 'Isabela Gomez', text: 'pregunta: usaste github para subir la pagina del hub?', time: 'Abr 21', type: 'dm', actionable: true },
+  { from: 'Maria Granada', text: 'team comments en copys WhatsApp - ser mas directos', time: 'Abr 20', type: 'group', actionable: true },
+  { from: 'Andres Diaz', text: 'avisame si te gustaria participar mas espacios operativos', time: 'Abr 20', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '14:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:30', '11:00-13:00', '14:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-13:00', '14:00-15:00'] },
-  { day: 'Jue', blocks: ['11:00-13:00', '14:00-18:00'] },
+  { day: 'Lun', blocks: ['9:30-13:00', '15:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-13:00', '14:30-18:00'] },
+  { day: 'Mie', blocks: ['8:00-11:00', '14:00-15:00', '15:30-16:30'] },
+  { day: 'Jue', blocks: ['10:00-11:00', '12:30-13:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
 
@@ -1557,7 +1554,7 @@ function renderDashboard() {
   const botCount = STATE.bots.length;
 
   // Date header
-  const todayLabel = TODAY_IDX >= 0 ? DAY_NAMES_LONG[TODAY_IDX] : 'Semana 20-24 Abril';
+  const todayLabel = TODAY_IDX >= 0 ? DAY_NAMES_LONG[TODAY_IDX] : 'Semana 27 Abr - 1 May';
   document.getElementById('dashDateHeader').textContent =
     'Hoy, ' + todayLabel;
 
@@ -2183,6 +2180,9 @@ function saveGithubConfig(pat, repo) {
   localStorage.setItem('pm-hub-github', JSON.stringify({ pat: pat, repo: repo }));
 }
 
+// Claude trigger ID for the Rappi PM Hub Weekly Refresh
+var CLAUDE_TRIGGER_URL = 'https://claude.ai/code/scheduled/trig_017f2ZRB18W73S6sRCZzhfMw';
+
 function triggerRefresh() {
   var btn = document.getElementById('refreshBtn');
   var status = document.getElementById('refreshStatus');
@@ -2191,7 +2191,7 @@ function triggerRefresh() {
   btn.textContent = 'Actualizando...';
   btn.disabled = true;
 
-  // Priority 1: GitHub Actions (works from anywhere, no local server needed)
+  // Priority 1: GitHub Actions (only if PAT configured manually via gear icon)
   if (gh && gh.pat && gh.repo) {
     status.textContent = 'Disparando GitHub Action...';
     status.style.color = 'var(--accent)';
@@ -2211,7 +2211,7 @@ function triggerRefresh() {
         setTimeout(function() {
           btn.textContent = 'Actualizar';
           btn.disabled = false;
-          status.textContent = 'Recarga la pagina en ~2 min';
+          status.textContent = 'Recarga en ~2 min';
           status.style.color = 'var(--green)';
         }, 3000);
       } else {
@@ -2220,19 +2220,18 @@ function triggerRefresh() {
     }).catch(function(err) {
       btn.textContent = 'Actualizar';
       btn.disabled = false;
-      status.textContent = 'Error: ' + err.message;
-      status.style.color = 'var(--red)';
-      showToast('Error. Revisa PAT en settings (icono engranaje)');
+      status.textContent = 'Error PAT: abriendo dispatch...';
+      status.style.color = 'var(--accent)';
+      window.open(CLAUDE_TRIGGER_URL, '_blank');
     });
     return;
   }
 
-  // Priority 2: Local Python server
-  status.textContent = 'Conectando con Claude local...';
+  // Priority 2: Local Python server (if running)
   fetch('/api/refresh', { method: 'POST' })
     .then(function(r) {
       if (r.status === 202) {
-        status.textContent = 'Refresh en progreso... (~1 min)';
+        status.textContent = 'Refresh local en progreso... (~1 min)';
         status.style.color = 'var(--accent)';
         pollRefreshStatus();
       } else if (r.status === 409) {
@@ -2243,10 +2242,17 @@ function triggerRefresh() {
       }
     })
     .catch(function() {
+      // Priority 3: Open Claude trigger page (works always, no setup needed)
       btn.textContent = 'Actualizar';
       btn.disabled = false;
-      showSettingsModal();
-      showToast('Configura GitHub para auto-refresh sin servidor local');
+      status.textContent = 'Abriendo dispatch en Claude...';
+      status.style.color = 'var(--accent)';
+      window.open(CLAUDE_TRIGGER_URL, '_blank');
+      showToast('Click "Run now" en Claude — actualiza en ~1 min');
+      setTimeout(function() {
+        status.textContent = 'Recarga esta pagina cuando termine el dispatch';
+        status.style.color = 'var(--text-tertiary)';
+      }, 3500);
     });
 }
 
