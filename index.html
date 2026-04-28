@@ -1471,7 +1471,8 @@ const EVENTS = {
   tue: [
     { time:'9:30-10:00', title:'Alineacion chat soporte / rest portal unificado', attendees:5, org:'juliana@rappi.com', type:'team' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1:1', note:'Weekly 1:1' }
+    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1:1', note:'Weekly 1:1' },
+    { time:'16:00-16:30', title:'Sync', attendees:4, org:'m.granada@rappi.com', type:'team', note:'Maria, Susana, Meiker' }
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:46, org:'eugenio.larosa@rappi.com', type:'team' },
@@ -1566,8 +1567,9 @@ const DEFAULT_TASKS = [
   { id:'t59', text:'Enviar query Snowflake + doc issues mapeados a Andres Diaz', phase:'discovery', priority:'P1', source:'JP/Andres Abr 21', day:'unscheduled', completed:false },
   { id:'t60', text:'Probar flujo Assemble en staging antes de pasar a produccion', phase:'qa', priority:'P1', source:'Assembled Abr 27', day:'fri', completed:false },
   { id:'t61', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'wed', completed:false },
-  { id:'t62', text:'Compartir figJam con Camilo Esquivel y darle acceso', phase:'build', priority:'P0', source:'Slack Abr 28', day:'tue', completed:false },
-  { id:'t63', text:'Responder a Maria Granada: canales food_live/suspensiones (WhatsApp, portal aliados, portal partners) y entry issue del aliado', phase:'discovery', priority:'P1', source:'Slack Abr 28 14:59', day:'tue', completed:false }
+  { id:'t62', text:'Pasar capturas de pantalla al Word doc para Camilo (PDF no muestra bien las imagenes)', phase:'build', priority:'P0', source:'Slack Abr 28 16:40', day:'tue', completed:false },
+  { id:'t63', text:'Responder a Maria Granada: canales food_live/suspensiones (WhatsApp, portal aliados, portal partners) y entry issue del aliado', phase:'discovery', priority:'P1', source:'Slack Abr 28 14:59', day:'tue', completed:false },
+  { id:'t64', text:'Enviar a Vero Ferro: listado de canales e entry issues de merchants con ejemplo de cada uno', phase:'discovery', priority:'P1', source:'Slack Abr 28 15:50 (grupo Vero/Mafe)', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1599,17 +1601,17 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Camilo Esquivel', text: 'en el pdf no se alcanza a visualizar bien las capturas de pantalla, por el momento sigo en otros tickets', time: 'Abr 28 16:40', type: 'dm', actionable: true },
   { from: 'Maria Granada', text: 'para food_live y suspensiones: cuales son los canales (whatsapp/portal aliados/portal partners) y cual es el entry issue que ve el aliado?', time: 'Abr 28 14:59', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel', text: 'no puedo abrir el figJam - revisar acceso y compartir link correcto', time: 'Abr 28', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel', text: 'los issue_type son codigos internos para identificar el motivo de contacto del agente; se registran en Connect', time: 'Abr 28', type: 'dm', actionable: false },
-  { from: 'Yeimy Perez', text: 'Hola Juan! (disponible para consultas sobre canales y configuracion)', time: 'Abr 28 13:40', type: 'dm', actionable: false },
-  { from: 'Susana Paniagua', text: 'tip handoffs bot: nota interna breve - Problema / Resumen Bot / Datos Clave / Accion Requerida. El agente debe entender el caso en menos de 10 segundos.', time: 'Abr 24', type: 'group', actionable: true },
-  { from: 'Andres Diaz', text: 'Hey juan, como te ayudo? - disponible para revisar data Snowflake juntos', time: 'Abr 27', type: 'dm', actionable: true }
+  { from: 'Maria Granada', text: 'hablando con Vero necesita para iniciativas merchants: cuales son los canales y entry issues (con ejemplo de cada uno)?', time: 'Abr 28 15:50', type: 'group', actionable: true },
+  { from: 'Maria Granada', text: 'team tienen 10 minuticos? [sync improvisado 16:00]', time: 'Abr 28 16:22', type: 'group', actionable: false },
+  { from: 'Yeimy Perez', text: 'Hola Juan!', time: 'Abr 28 13:40', type: 'dm', actionable: false },
+  { from: 'Susana Paniagua', text: 'tip handoffs bot: nota interna breve - Problema / Resumen Bot / Datos Clave / Accion Requerida. El agente debe entender el caso en menos de 10 segundos.', time: 'Abr 24', type: 'group', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-13:00', '14:45-18:00'] },
-  { day: 'Mar', blocks: ['8:00-9:30', '10:00-13:00', '14:30-18:00'] },
+  { day: 'Mar', blocks: ['8:00-9:30', '10:00-13:00', '14:30-16:00', '16:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-15:00', '15:30-16:30'] },
   { day: 'Jue', blocks: ['9:45-11:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
