@@ -1076,9 +1076,98 @@ tr.project-detail-row td { padding: 0; }
 .retro-notes-textarea:focus {
   border-color: var(--accent);
 }
+
+/* Password gate */
+.gate-overlay {
+  position: fixed; inset: 0;
+  background: var(--bg);
+  z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+}
+.gate-box {
+  max-width: 320px; width: 90%;
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-align: center;
+}
+.gate-box .gate-brand { font-size: 22px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+.gate-box .gate-sub { font-size: 12px; color: var(--text-secondary); margin-bottom: 24px; }
+.gate-box input {
+  width: 100%; padding: 10px 14px;
+  border: 1px solid var(--border); border-radius: 6px;
+  font-size: 14px; box-sizing: border-box;
+  margin-bottom: 12px; outline: none;
+}
+.gate-box input:focus { border-color: var(--accent); }
+.gate-box button {
+  width: 100%; padding: 10px;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 6px;
+  font-size: 14px; font-weight: 500; cursor: pointer;
+}
+.gate-box button:hover { opacity: .9; }
+.gate-error { color: var(--red); font-size: 12px; margin-top: 8px; min-height: 16px; }
+body.locked { overflow: hidden; }
+body.locked > *:not(#gate) { display: none !important; }
 </style>
 </head>
-<body>
+<body class="locked">
+
+<!-- Password gate (client-side) -->
+<div class="gate-overlay" id="gate">
+  <div class="gate-box">
+    <div class="gate-brand">rappi</div>
+    <div class="gate-sub">PM Hub - Acceso restringido</div>
+    <input type="password" id="gatePass" placeholder="Password" autocomplete="off" autofocus>
+    <button onclick="checkGate()">Entrar</button>
+    <div class="gate-error" id="gateError"></div>
+  </div>
+</div>
+
+<script>
+// SHA-256 hash of "JPC194512" - never stores plaintext
+var GATE_HASH = 'c162f082ea61844ca14fb0b20bf362ca2a1d272b53705fb7649eb4e9244904c6';
+
+async function sha256Hex(msg) {
+  var buf = new TextEncoder().encode(msg);
+  var hash = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+}
+
+async function checkGate(silent) {
+  var inp = document.getElementById('gatePass');
+  var err = document.getElementById('gateError');
+  var pass = silent || (inp ? inp.value : '');
+  if (!pass) return;
+  var h = await sha256Hex(pass);
+  if (h === GATE_HASH) {
+    try { localStorage.setItem('pm-hub-unlock', '1'); } catch(e) {}
+    document.getElementById('gate').style.display = 'none';
+    document.body.classList.remove('locked');
+  } else if (!silent) {
+    err.textContent = 'Password incorrecto';
+    inp.value = ''; inp.focus();
+  }
+}
+
+// Auto-unlock if previously authenticated on this device
+(function(){
+  try {
+    if (localStorage.getItem('pm-hub-unlock') === '1') {
+      document.getElementById('gate').style.display = 'none';
+      document.body.classList.remove('locked');
+    }
+  } catch(e) {}
+  // Enter key submits
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && document.getElementById('gate').style.display !== 'none') {
+      checkGate();
+    }
+  });
+})();
+</script>
 
 <div class="mobile-header">
   <button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
@@ -2325,15 +2414,31 @@ function pollRefreshStatus() {
    INIT
    ================================================================ */
 function setLastUpdatedLabel() {
-  // The HTML is committed to git — use the file's last commit date as best proxy
-  // For now, show today's date dynamically (refresh status updates when button is clicked)
-  var d = new Date();
-  var dayNames = ['Dom','Lun','Mar','Mie','Jue','Vie','Sab'];
-  var monthNames = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-  var label = dayNames[d.getDay()] + ' ' + d.getDate() + ' ' + monthNames[d.getMonth()];
+  // Show next auto-refresh time (every 2h work hours, weekdays Bogota)
+  // Cron: 12,14,16,18,20,22 UTC Mon-Fri = 7,9,11,13,15,17 Bogota
+  var now = new Date();
+  var bogotaOffset = -5; // Bogota is UTC-5
+  var utcHour = now.getUTCHours();
+  var utcMin = now.getUTCMinutes();
+  var bogotaHour = (utcHour + bogotaOffset + 24) % 24;
+  var dow = now.getUTCDay(); // 0=Sun, 1=Mon, ..., 6=Sat (UTC)
+
+  var refreshHours = [7, 9, 11, 13, 15, 17]; // Bogota
+  var nextLabel = '';
+  if (dow >= 1 && dow <= 5) {
+    var nextHour = refreshHours.find(function(h){ return h > bogotaHour || (h === bogotaHour && utcMin === 0); });
+    if (nextHour !== undefined) {
+      nextLabel = 'Proximo refresh: ' + nextHour + ':00';
+    } else {
+      nextLabel = 'Proximo refresh: 7:00 manana';
+    }
+  } else {
+    nextLabel = 'Proximo refresh: lunes 7:00';
+  }
+
   var el = document.getElementById('refreshStatus');
   if (el && !el.textContent.trim()) {
-    el.textContent = 'Hoy: ' + label + ' · daily refresh 7am';
+    el.innerHTML = 'Auto-refresh cada 2h · <span style="color:var(--accent)">' + nextLabel + '</span>';
   }
 }
 
