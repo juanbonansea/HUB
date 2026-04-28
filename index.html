@@ -1405,6 +1405,17 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:28, title:'Alineacion chat soporte / Portal Unificado', date:'Abr 28',
+    summary:'Reunion tecnica sobre migracion de portal y unificacion flujos de soporte. Equipo soporte tiene potestad sobre ubicacion y apariencia del widget chat. Cambios mayores relegados a Q3-Q4 por carga operativa. Flujo aliados priorizado por alto volumen.',
+    sections:['Migracion y control chat','Priorizacion y retos tecnicos','Decision unificacion chat'],
+    actions:[
+      { text:'Definir diseno del chat en nueva plataforma web: ubicacion y apariencia visual', owner:'Grupo', phase:'design', priority:'P1' },
+      { text:'Revisar implementacion chat movil iOS/Android y priorizacion en Q3', owner:'Juliana Sarabia', phase:'design', priority:'P1' },
+      { text:'Mapear cambios requeridos en chat por eliminacion Partner ID y RapiAliados ID', owner:'Carlos Natera', phase:'design', priority:'P2' },
+      { text:'Sizing interno unificacion canales chat y escalar revision prioridades con ISA', owner:'Andres De Las Casas', phase:'design', priority:'P1' }
+    ]
+  },
+  {
     id:27, title:'Assembled food live - Flujos y Endpoints (Parte 2)', date:'Abr 27',
     summary:'Revision tecnica de flujos operativos y endpoints de gestion de ordenes. Validaciones para ordenes sin repartidor y stock agotado. Pruebas en staging antes de produccion.',
     sections:['Requisitos integracion tecnica','Flujos ordenes y stock','Desarrollo y estrategia final'],
@@ -1464,7 +1475,9 @@ const DEFAULT_TASKS = [
   { id:'t57', text:'Atender Global Business Connect - CPG deep dive por pais', phase:'discovery', priority:'P3', source:'All hands Jue', day:'thu', completed:false },
   { id:'t58', text:'Seguimiento con Bea (Assembled) - Sync Jue 12pm', phase:'build', priority:'P2', source:'Assembled Sync', day:'thu', completed:false },
   { id:'t59', text:'Enviar query Snowflake + doc issues mapeados a Andres Diaz', phase:'discovery', priority:'P1', source:'JP/Andres Abr 21', day:'unscheduled', completed:false },
-  { id:'t60', text:'Probar flujo Assemble en staging antes de pasar a produccion', phase:'qa', priority:'P1', source:'Assembled Abr 27', day:'fri', completed:false }
+  { id:'t60', text:'Probar flujo Assemble en staging antes de pasar a produccion', phase:'qa', priority:'P1', source:'Assembled Abr 27', day:'fri', completed:false },
+  { id:'t61', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'wed', completed:false },
+  { id:'t62', text:'Compartir figJam con Camilo Esquivel y darle acceso', phase:'build', priority:'P0', source:'Slack Abr 28', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1489,20 +1502,24 @@ const DEFAULT_DELEGATED = [
   { id:'d36', text:'Reforzar reglas de negocio con agentes - sin macros ni docs viejos', owner:'Enrique Sosa', source:'Shadowing Abr 23', status:'pendiente' },
   { id:'d39', text:'Derivar caso pedido no visible para pago al area de Pagos', owner:'Xiomi Pardave', source:'Shadowing Abr 23', status:'pendiente' },
   { id:'d37', text:'Alinear detalles transferencias pagos con Jona y Mari', owner:'Santiago Guasca', source:'Shadowing Abr 22', status:'pendiente' },
-  { id:'d35', text:'Compartir info y contexto chat soporte / portal unificado', owner:'Juliana', source:'Alineacion Mar 28', status:'pendiente' }
+  { id:'d35', text:'Compartir info y contexto chat soporte / portal unificado', owner:'Juliana', source:'Alineacion Abr 28', status:'pendiente' },
+  { id:'d40', text:'Revisar implementacion chat movil iOS/Android y priorizacion en Q3', owner:'Juliana Sarabia', source:'Chat Portal Abr 28', status:'pendiente' },
+  { id:'d41', text:'Mapear cambios en chat por eliminacion Partner ID y RapiAliados ID', owner:'Carlos Natera', source:'Chat Portal Abr 28', status:'pendiente' },
+  { id:'d42', text:'Sizing unificacion canales chat y escalar prioridades con ISA', owner:'Andres De Las Casas', source:'Chat Portal Abr 28', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Veronica Ferro', text: 'Reunion Assembled food live - confirmada 2pm lunes. Avanzamos endpoints y flujo bot.', time: 'Abr 27', type: 'dm', actionable: true },
-  { from: 'Juan Esquivel', text: 'Pendiente retomar reunion 15min para continuar integracion Assembled', time: 'Abr 27', type: 'dm', actionable: true },
-  { from: 'Isabela Gomez', text: 'pregunta: usaste github para subir la pagina del hub?', time: 'Abr 21', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'team comments en copys WhatsApp - ser mas directos en los mensajes', time: 'Abr 20', type: 'group', actionable: true },
-  { from: 'Andres Diaz', text: 'avisame si te gustaria participar mas espacios operativos esta semana', time: 'Abr 20', type: 'dm', actionable: false }
+  { from: 'Camilo Esquivel', text: 'no puedo abrir el figJam - revisar acceso y compartir link correcto', time: 'Abr 28', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel', text: 'los issue_type son codigos internos para identificar el motivo de contacto del agente; se registran en Connect', time: 'Abr 28', type: 'dm', actionable: false },
+  { from: 'Maria Granada', text: 'hola juan bien y tu? (previo a 1:1 hoy 2pm - llevar avances bot Food Live)', time: 'Abr 28', type: 'dm', actionable: true },
+  { from: 'Susana Paniagua', text: 'tip handoffs bot: nota interna breve estructurada - Problema / Resumen Bot / Datos Clave / Accion Requerida. El agente debe entender el caso en menos de 10 segundos.', time: 'Abr 24', type: 'group', actionable: true },
+  { from: 'Carla Capristan / Maria Granada', text: 'confirmar nombres de botones en 3 idiomas para portal aliados antes de comunicar al equipo', time: 'Abr 23', type: 'group', actionable: true },
+  { from: 'Andres Diaz', text: 'Hey juan, como te ayudo? - disponible para revisar data Snowflake juntos', time: 'Abr 27', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-13:00', '14:45-18:00'] },
-  { day: 'Mar', blocks: ['10:00-13:00', '14:30-18:00'] },
+  { day: 'Mar', blocks: ['8:00-9:30', '10:00-13:00', '14:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-15:00', '15:30-16:30'] },
   { day: 'Jue', blocks: ['9:45-11:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
