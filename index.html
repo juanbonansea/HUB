@@ -1566,7 +1566,8 @@ const DEFAULT_TASKS = [
   { id:'t59', text:'Enviar query Snowflake + doc issues mapeados a Andres Diaz', phase:'discovery', priority:'P1', source:'JP/Andres Abr 21', day:'unscheduled', completed:false },
   { id:'t60', text:'Probar flujo Assemble en staging antes de pasar a produccion', phase:'qa', priority:'P1', source:'Assembled Abr 27', day:'fri', completed:false },
   { id:'t61', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'wed', completed:false },
-  { id:'t62', text:'Compartir figJam con Camilo Esquivel y darle acceso', phase:'build', priority:'P0', source:'Slack Abr 28', day:'tue', completed:false }
+  { id:'t62', text:'Compartir figJam con Camilo Esquivel y darle acceso', phase:'build', priority:'P0', source:'Slack Abr 28', day:'tue', completed:false },
+  { id:'t63', text:'Responder a Maria Granada: canales food_live/suspensiones (WhatsApp, portal aliados, portal partners) y entry issue del aliado', phase:'discovery', priority:'P1', source:'Slack Abr 28 14:59', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1598,11 +1599,11 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada', text: 'para food_live y suspensiones: cuales son los canales (whatsapp/portal aliados/portal partners) y cual es el entry issue que ve el aliado?', time: 'Abr 28 14:59', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel', text: 'no puedo abrir el figJam - revisar acceso y compartir link correcto', time: 'Abr 28', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel', text: 'los issue_type son codigos internos para identificar el motivo de contacto del agente; se registran en Connect', time: 'Abr 28', type: 'dm', actionable: false },
-  { from: 'Maria Granada', text: 'hola juan bien y tu? (previo a 1:1 hoy 2pm - llevar avances bot Food Live)', time: 'Abr 28', type: 'dm', actionable: true },
-  { from: 'Susana Paniagua', text: 'tip handoffs bot: nota interna breve estructurada - Problema / Resumen Bot / Datos Clave / Accion Requerida. El agente debe entender el caso en menos de 10 segundos.', time: 'Abr 24', type: 'group', actionable: true },
-  { from: 'Carla Capristan / Maria Granada', text: 'confirmar nombres de botones en 3 idiomas para portal aliados antes de comunicar al equipo', time: 'Abr 23', type: 'group', actionable: true },
+  { from: 'Yeimy Perez', text: 'Hola Juan! (disponible para consultas sobre canales y configuracion)', time: 'Abr 28 13:40', type: 'dm', actionable: false },
+  { from: 'Susana Paniagua', text: 'tip handoffs bot: nota interna breve - Problema / Resumen Bot / Datos Clave / Accion Requerida. El agente debe entender el caso en menos de 10 segundos.', time: 'Abr 24', type: 'group', actionable: true },
   { from: 'Andres Diaz', text: 'Hey juan, como te ayudo? - disponible para revisar data Snowflake juntos', time: 'Abr 27', type: 'dm', actionable: true }
 ];
 
