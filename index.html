@@ -1118,7 +1118,7 @@ tr.project-detail-row td { padding: 0; }
             <button class="btn" id="refreshBtn" onclick="triggerRefresh()" style="font-size:12px;padding:4px 12px;">Actualizar</button>
             <button class="btn" onclick="showSettingsModal()" title="Configurar GitHub" style="font-size:12px;padding:4px 8px;">&#9881;</button>
           </div>
-          <div id="refreshStatus" style="font-size:11px;color:var(--text-tertiary)">Ultima actualizacion: Lun 27 Abr</div>
+          <div id="refreshStatus" style="font-size:11px;color:var(--text-tertiary)"></div>
         </div>
       </div>
 
@@ -2312,6 +2312,19 @@ function pollRefreshStatus() {
 /* ================================================================
    INIT
    ================================================================ */
+function setLastUpdatedLabel() {
+  // The HTML is committed to git — use the file's last commit date as best proxy
+  // For now, show today's date dynamically (refresh status updates when button is clicked)
+  var d = new Date();
+  var dayNames = ['Dom','Lun','Mar','Mie','Jue','Vie','Sab'];
+  var monthNames = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  var label = dayNames[d.getDay()] + ' ' + d.getDate() + ' ' + monthNames[d.getMonth()];
+  var el = document.getElementById('refreshStatus');
+  if (el && !el.textContent.trim()) {
+    el.textContent = 'Hoy: ' + label + ' · daily refresh 7am';
+  }
+}
+
 function init() {
   renderDashboard();
   renderCalendar();
@@ -2320,6 +2333,7 @@ function init() {
   renderProjects();
   renderPipeline();
   renderRetro();
+  setLastUpdatedLabel();
 }
 
 init();
