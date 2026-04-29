@@ -1496,6 +1496,15 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:31, title:'Juan Pablo / Andres - Metricas Suspensiones', date:'Abr 29',
+    summary:'Revision de metricas de incidencias RT y ajustes de datos para optimizar flujos de soporte tecnico. Filtros Nivel 1 representan el 22% del volumen total. Se identificaron 649 casos de stockout y ~765 suspensiones de tiendas (~4% del volumen). Se estandarizo la consulta de datos para mejorar calidad de identificadores usados en rastreo de agentes.',
+    sections:['Analisis incidencias RT','Evaluacion stock y suspension','Optimizacion flujos operativos'],
+    actions:[
+      { text:'Enviar consulta utilizada para suspensiones al equipo y buscar data mas fresca para validar metricas', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Compartir consulta de datos a Juan Pablo por Slack y asegurar visual de inconvenientes', owner:'Santiago Garcia', phase:'build', priority:'P0' }
+    ]
+  },
+  {
     id:30, title:'Shadowing Offenders OPs (Non Food)', date:'Abr 29',
     summary:'Revision operativa de casos regionales y estandarizacion de procesos para documentacion interna. Validacion reactivacion tienda inactiva en Mexico, pagos pendientes Argentina, beneficio activacion anticipada Peru y registro Colombia. Acuerdo de reforzar macros y notas en escalamientos de segundo nivel.',
     sections:['Gestion casos Mexico Argentina','Ordenes Peru registro Colombia','Estandarizacion notas internas'],
@@ -1560,7 +1569,8 @@ const NOTES = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t66', text:'Confirmar a Vero Ferro: flujos AI Phase I Triage Food Live y Non Live Suspension estan en los 3 canales (portal, aliados, whatsapp)?', phase:'discovery', priority:'P0', source:'Slack Vero Abr 29 11:44', day:'wed', completed:false },
+  { id:'t66', text:'Confirmar a Vero Ferro: flujos AI Phase I Triage Food Live y Non Live Suspension estan en los 3 canales (portal, aliados, whatsapp)?', phase:'discovery', priority:'P0', source:'Slack Vero Abr 29 11:44', day:'wed', completed:true },
+  { id:'t68', text:'Enviar consulta de suspensiones al equipo (Andres Diaz) y buscar data mas fresca para validar metricas - Nivel 1 = 22% volumen', phase:'build', priority:'P0', source:'JP/Andres Abr 29 14:30', day:'wed', completed:false },
   { id:'t52', text:'Compartir documento endpoints completo con capturas en formato acordado', phase:'build', priority:'P0', source:'Assembled Abr 27', day:'wed', completed:false },
   { id:'t62', text:'Pasar capturas de pantalla al Word doc para Camilo (PDF no muestra bien las imagenes)', phase:'build', priority:'P0', source:'Slack Abr 28 16:40', day:'wed', completed:false },
   { id:'t51', text:'Notificar Juan Camilo Esquivel - retomar reunion 15min (Assembled)', phase:'build', priority:'P0', source:'Assembled Abr 27', day:'wed', completed:false },
@@ -1592,6 +1602,7 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d46', text:'Compartir consulta de datos merchants a Juan Pablo por Slack (columna motivos de suspension)', owner:'Santiago Garcia', source:'DM Abr 29 14:57', status:'pendiente' },
   { id:'d43', text:'Entrenar Quality (Jaime, Cata, Jessie) sobre Assemble para ajustar prompts directamente', owner:'MAFE', source:'CX WBR Abr 29', status:'pendiente' },
   { id:'d44', text:'Ajustar umbral contador multiples releases de ordenes - iniciar hilo con Jose Castellon', owner:'Yerick Martinez', source:'CX WBR Abr 29', status:'pendiente' },
   { id:'d45', text:'Compartir ejercicio priorizacion tipos issue para reduccion RT (revisar con Josefina, Checho)', owner:'Luis Rozo', source:'CX WBR Abr 29', status:'pendiente' },
@@ -1606,7 +1617,8 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Veronica Ferro', text: 'Confirmar si AI Bot Phase I Triage Food Live (fila 35 gantt) y Food Non Live Suspension (fila 36) estan en los 3 canales: portal, aliados y whatsapp', time: 'Abr 29 11:44', type: 'group', actionable: true },
+  { from: 'Santiago Garcia', text: 'Motivos de suspension? Comparte archivo con ejercicio de data merchants. Busca la columna X para tipificaciones. Query DATA Merchants compartida.', time: 'Abr 29 14:57', type: 'dm', actionable: true },
+  { from: 'Veronica Ferro', text: 'Confirmar si AI Bot Phase I Triage Food Live (fila 35 gantt) y Food Non Live Suspension (fila 36) estan en los 3 canales: portal, aliados y whatsapp', time: 'Abr 29 11:44', type: 'group', actionable: false },
   { from: 'Yeimy Perez', text: 'Te paso el inventario de copys (RS | Shortcuts y Macros) de food live - se actualiza constantemente', time: 'Abr 29 9:17', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel', text: 'PDF no muestra bien las capturas de pantalla — pendiente entregar Word con capturas', time: 'Abr 28 16:40', type: 'dm', actionable: true },
   { from: 'Maria Granada', text: 'hablando con Vero necesita para iniciativas merchants: cuales son los canales y entry issues (con ejemplo de cada uno)?', time: 'Abr 28 15:50', type: 'group', actionable: true },
