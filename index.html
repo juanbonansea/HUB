@@ -1487,6 +1487,7 @@ const EVENTS = {
     { time:'11:00-12:00', title:'Global Business Connect : All hands', attendees:0, type:'team', note:'CPG deep dive por pais' },
     { time:'12:00-12:30', title:'Assembled Assist <> Rappi Weekly Sync', attendees:9, org:'bea@assembledhq.com', type:'external', note:'Zoom' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'15:00-16:00', title:'Shadowing Merchant (TU)', attendees:15, org:'carla.capristan@rappi.com', type:'shadowing', note:'Opcional - Food Live agents' },
     { time:'16:00-16:30', title:'Revision Food Live Assembled', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'JP organizer' }
   ],
   fri: [
@@ -1618,13 +1619,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Santiago Garcia', text: 'Motivos de suspension? Comparte archivo con ejercicio de data merchants. Busca la columna X para tipificaciones. Query DATA Merchants compartida.', time: 'Abr 29 14:57', type: 'dm', actionable: true },
+  { from: 'Maria Granada', text: 'si quieres de 4 a 4:30 — Revision Food Live Assembled confirmada. JP: "ya acabe el bot de food live, me ayudas con feedback 15-20 min?"', time: 'Abr 30 15:38', type: 'dm', actionable: false },
+  { from: 'Santiago Garcia', text: 'Columna X = issue_description (ultima opcion del aliado antes del enrutamiento). Hay escenarios donde el aliado elige cualquier opcion por el afan — los LV1>LV2>L3 cambian. Archivo data merchants compartido.', time: 'Abr 29 15:08', type: 'dm', actionable: true },
   { from: 'Veronica Ferro', text: 'Confirmar si AI Bot Phase I Triage Food Live (fila 35 gantt) y Food Non Live Suspension (fila 36) estan en los 3 canales: portal, aliados y whatsapp', time: 'Abr 29 11:44', type: 'group', actionable: false },
   { from: 'Yeimy Perez', text: 'Te paso el inventario de copys (RS | Shortcuts y Macros) de food live - se actualiza constantemente', time: 'Abr 29 9:17', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel', text: 'PDF no muestra bien las capturas de pantalla — pendiente entregar Word con capturas', time: 'Abr 28 16:40', type: 'dm', actionable: true },
   { from: 'Maria Granada', text: 'hablando con Vero necesita para iniciativas merchants: cuales son los canales y entry issues (con ejemplo de cada uno)?', time: 'Abr 28 15:50', type: 'group', actionable: true },
-  { from: 'Maria Granada', text: 'para food_live y suspensiones: canales (whatsapp/portal aliados/portal partners) y entry issue del aliado', time: 'Abr 28 14:59', type: 'dm', actionable: false },
-  { from: 'Maria Granada', text: 'team tienen 10 minuticos? [sync improvisado 16:00]', time: 'Abr 28 16:22', type: 'group', actionable: false },
   { from: 'Susana Paniagua', text: 'tip handoffs bot: nota interna breve - Problema / Resumen Bot / Datos Clave / Accion Requerida. El agente entiende el caso en menos de 10 segundos.', time: 'Abr 24', type: 'group', actionable: true }
 ];
 
@@ -1632,7 +1632,7 @@ const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-13:00', '14:45-18:00'] },
   { day: 'Mar', blocks: ['8:00-9:30', '10:00-13:00', '14:30-16:00', '16:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '15:30-18:00'] },
-  { day: 'Jue', blocks: ['9:45-11:00', '14:00-16:00', '16:30-18:00'] },
+  { day: 'Jue', blocks: ['9:45-11:00', '14:00-15:00', '16:30-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
 
