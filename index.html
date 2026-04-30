@@ -1497,6 +1497,21 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:33, title:'Revision Food Live Assembled', date:'Abr 30',
+    summary:'La reunion estandarizo flujos de soporte para aliados mediante integracion de procesos y autogestion tecnologica. Se mejoro visibilidad ante demoras de repartidores y ordenes no visibles en plataforma. Flujo unico para faltantes: decidir entre cancelar o preparar. Cancelacion sin costo ante fallas de integracion Rapi. Autogestión de inventario para reducir carga operativa de agentes.',
+    sections:['Optimizacion visibilidad operativa','Resolucion faltantes tecnicos','Estandarizacion flujos masivos'],
+    actions:[
+      { text:'Coordinar KFCA: hablar con Tech para implementar mensaje Cafca y determinar instanciacion requerida', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Integrar logica Order Hold al flujo pedido no visible (escenarios con y sin Order ID)', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Incluir RT Demorado obligatoriamente en construccion del flujo Live', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Consultar Jaie como resuelven ordenes no aparecidas en tiendas no integradas', owner:'Juan Pablo', phase:'discovery', priority:'P1' },
+      { text:'Confirmar si ordenes no aparecidas en tablet se pagan via Rapi y asegurar liquidacion', owner:'Juan Pablo', phase:'discovery', priority:'P1' },
+      { text:'Obtener de Tech el ID reason de cancelacion para fallas tecnicas sin costo al aliado', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Agendar seguimiento proxima semana: revisar flujos Live y Suspensions', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Pasar la matriz de cancelaciones con todos los reasons incluyendo stockout', owner:'Maria Granada', phase:'build', priority:'P1' }
+    ]
+  },
+  {
     id:32, title:'CX Product PRD & design reviews', date:'Abr 30',
     summary:'La reunion analizo problemas de soporte que afectan la retencion usando datos y entrevistas cualitativas. Se definieron 7 perfiles de usuario para estudiar el abandono tras contactos insatisfactorios. Los usuarios perciben el soporte como impersonal y sin empatia, especialmente tras cobros incorrectos. Prioridades: optimizar canal semi-automatizado, atencion diferenciada a usuarios premium y transparencia en cobros.',
     sections:['Analisis problemas soporte','Hallazgos experiencia usuario','Prioridades mejora estrategica'],
@@ -1549,53 +1564,21 @@ const NOTES = [
       { text:'Sizing interno unificacion canales chat y escalar revision prioridades con ISA', owner:'Andres De Las Casas', phase:'design', priority:'P1' }
     ]
   },
-  {
-    id:27, title:'Assembled food live - Flujos y Endpoints (Parte 2)', date:'Abr 27',
-    summary:'Revision tecnica de flujos operativos y endpoints de gestion de ordenes. Validaciones para ordenes sin repartidor y stock agotado. Pruebas en staging antes de produccion.',
-    sections:['Requisitos integracion tecnica','Flujos ordenes y stock','Desarrollo y estrategia final'],
-    actions:[
-      { text:'Compartir documento endpoints completo hoy/manana con capturas en formato acordado', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Definir nombre del estado cuando producto esta sin stock', owner:'Juan Pablo', phase:'design', priority:'P1' },
-      { text:'Identificar como saber si un producto es el principal', owner:'Juan Pablo', phase:'design', priority:'P1' }
-    ]
-  },
-  {
-    id:26, title:'Assembled food live - Requerimientos Bot (Parte 1)', date:'Abr 27',
-    summary:'Definicion de requerimientos para implementar el bot. Punto exacto de insercion en flujo. Optimizacion JSON para evitar saturar contexto en Assemble. Metadatos garantizados desde contacto inicial.',
-    sections:['Especificacion flujo bot','Optimizacion datos JSON','Gestion metadatos mapeados'],
-    actions:[
-      { text:'Notificar a Juan Camilo Esquivel para retomar reunion de 15 minutos', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Documentar endpoints con puntos de entrada y respuestas en archivo compartido', owner:'Grupo', phase:'build', priority:'P1' }
-    ]
-  },
-  {
-    id:25, title:'Shadowing 2 Offenders OPs (Non Food)', date:'Abr 23',
-    summary:'Sesion monitoreo evalua gestiones operativas. Refuerzo necesario sobre reglas comerciales. Casos sobre permisos admin y gestion archivos.',
-    sections:['Revision casos operativos','Evaluacion desempeno'],
-    actions:[
-      { text:'Reforzar reglas de negocio con agentes - sin macros ni docs viejos', owner:'Enrique Sosa', phase:'qa' },
-      { text:'Derivar caso pedido no visible al area de Pagos', owner:'Xiomi Pardave', phase:'discovery' }
-    ]
-  }
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t66', text:'Confirmar a Vero Ferro: flujos AI Phase I Triage Food Live y Non Live Suspension estan en los 3 canales (portal, aliados, whatsapp)?', phase:'discovery', priority:'P0', source:'Slack Vero Abr 29 11:44', day:'wed', completed:true },
+  { id:'t70', text:'Coordinar KFCA: hablar con Tech para implementar mensaje Cafca y determinar instanciacion requerida', phase:'build', priority:'P0', source:'Food Live Assembled Abr 30', day:'fri', completed:false },
+  { id:'t71', text:'Integrar logica Order Hold al flujo pedido no visible (escenarios con y sin Order ID)', phase:'build', priority:'P0', source:'Food Live Assembled Abr 30', day:'fri', completed:false },
+  { id:'t72', text:'Incluir RT Demorado obligatoriamente en construccion del flujo Live', phase:'build', priority:'P0', source:'Food Live Assembled Abr 30', day:'fri', completed:false },
   { id:'t68', text:'Enviar consulta de suspensiones al equipo (Andres Diaz) y buscar data mas fresca para validar metricas - Nivel 1 = 22% volumen', phase:'build', priority:'P0', source:'JP/Andres Abr 29 14:30', day:'wed', completed:false },
-  { id:'t52', text:'Compartir documento endpoints completo con capturas en formato acordado', phase:'build', priority:'P0', source:'Assembled Abr 27', day:'wed', completed:false },
-  { id:'t62', text:'Pasar capturas de pantalla al Word doc para Camilo (PDF no muestra bien las imagenes)', phase:'build', priority:'P0', source:'Slack Abr 28 16:40', day:'wed', completed:false },
-  { id:'t51', text:'Notificar Juan Camilo Esquivel - retomar reunion 15min (Assembled)', phase:'build', priority:'P0', source:'Assembled Abr 27', day:'wed', completed:false },
-  { id:'t65', text:'Revisar inventario copys food live (RS Shortcuts y Macros) compartido por Yeimy - incorporar al doc endpoints', phase:'build', priority:'P1', source:'Slack Abr 29 9:17', day:'wed', completed:false },
-  { id:'t53', text:'Definir nombre del estado cuando producto esta sin stock', phase:'design', priority:'P1', source:'Assembled Abr 27', day:'wed', completed:false },
-  { id:'t54', text:'Identificar logica para saber si un producto es el principal', phase:'design', priority:'P1', source:'Assembled Abr 27', day:'wed', completed:false },
-  { id:'t61', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'wed', completed:false },
-  { id:'t64', text:'Enviar a Vero Ferro: listado de canales e entry issues de merchants con ejemplo de cada uno', phase:'discovery', priority:'P1', source:'Slack Abr 28 15:50 (grupo Vero/Mafe)', day:'wed', completed:false },
-  { id:'t69', text:'Escribirle a Diego Villaroel para que asigne asiento y poder compartir archivo con Daniel Trejos', phase:'build', priority:'P2', source:'DM Daniel Trejos Abr 30', day:'thu', completed:false },
   { id:'t67', text:'Enviar iniciativas con impacto para calcular proyeccion de 30 agentes en julio (CX WBR)', phase:'discovery', priority:'P1', source:'CX WBR Abr 29', day:'thu', completed:false },
-  { id:'t57', text:'Atender Global Business Connect - CPG deep dive por pais', phase:'discovery', priority:'P3', source:'All hands Jue', day:'thu', completed:false },
-  { id:'t58', text:'Seguimiento con Bea (Assembled) - Sync Jue 12pm', phase:'build', priority:'P2', source:'Assembled Sync', day:'thu', completed:false },
+  { id:'t73', text:'Agendar seguimiento proxima semana: revisar flujos Live y Suspensions con Assembled', phase:'build', priority:'P1', source:'Food Live Assembled Abr 30', day:'fri', completed:false },
+  { id:'t61', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'unscheduled', completed:false },
   { id:'t59', text:'Enviar query Snowflake + doc issues mapeados a Andres Diaz', phase:'discovery', priority:'P1', source:'JP/Andres Abr 21', day:'unscheduled', completed:false },
-  { id:'t60', text:'Probar flujo Assemble en staging antes de pasar a produccion', phase:'qa', priority:'P1', source:'Assembled Abr 27', day:'fri', completed:false }
+  { id:'t60', text:'Probar flujo Assemble en staging antes de pasar a produccion', phase:'qa', priority:'P1', source:'Assembled Abr 27', day:'fri', completed:false },
+  { id:'t69', text:'Escribirle a Diego Villaroel para que asigne asiento y poder compartir archivo con Daniel Trejos', phase:'build', priority:'P2', source:'DM Daniel Trejos Abr 30', day:'thu', completed:true },
+  { id:'t57', text:'Atender Global Business Connect - CPG deep dive por pais', phase:'discovery', priority:'P3', source:'All hands Jue', day:'thu', completed:true },
+  { id:'t58', text:'Seguimiento con Bea (Assembled) - Sync Jue 3pm', phase:'build', priority:'P2', source:'Assembled Sync', day:'thu', completed:true }
 ];
 
 const DEFAULT_BOTS = [
@@ -1614,6 +1597,7 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d49', text:'Pasar la matriz de cancelaciones con todos los reasons incluyendo stockout', owner:'Maria Granada', source:'Food Live Assembled Abr 30', status:'pendiente' },
   { id:'d47', text:'Revisar datos usuarios categorizados como "otros" - determinar si baja cantidad es correcta o problema de categorizacion', owner:'Andres De Las Casas', source:'CX PRD Review Abr 30', status:'pendiente' },
   { id:'d48', text:'Enviar presentacion, grabacion y documento de analisis CX PRD al equipo para revision de hallazgos', owner:'Tatiana Oquendo', source:'CX PRD Review Abr 30', status:'pendiente' },
   { id:'d46', text:'Compartir consulta de datos merchants a Juan Pablo por Slack (columna motivos de suspension)', owner:'Santiago Garcia', source:'DM Abr 29 14:57', status:'pendiente' },
@@ -1631,13 +1615,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Maria Granada', text: 'Hola juan! puedes mover la sesion a las 4:30 para que andy se pueda sumar — JP confirmo. Revision Food Live Assembled movida a 16:30 (Andy se suma).', time: 'Abr 30 14:43', type: 'dm', actionable: false },
-  { from: 'Maria Granada', text: 'Team: flujos a lanzar esta semana — AI Bot Disagree Refunds 95% (Meiker), Order Status delayed 70% (Mafe), Debts 30% (Mafe), Earnings 30% (Meiker), Referral 100% (Susana), ATM 70% (Jaime). Avisenme si llegamos al % hoy EOD.', time: 'Abr 30 14:20', type: 'group', actionable: true },
-  { from: 'Diego Villaroel', text: 'Hola Juan! todo bien y tu? — JP le pidio asiento de FigJam para poder compartir archivos con Daniel Trejos. Pendiente resolucion.', time: 'Abr 30 11:40', type: 'dm', actionable: true },
-  { from: 'Daniel Trejos', text: 'Para compartir el archivo necesitas que Diego Villaroel (gestiona asientos) te asigne uno. Escribele para que te de acceso. Si no se resuelve me cuentas.', time: 'Abr 30 10:40-11:00', type: 'dm', actionable: true },
-  { from: 'Santiago Garcia', text: 'El flujo NonFood viene para todos los Aliados CPGs. La columna que buscas es issue_description (ultima opcion del aliado antes del enrutamiento).', time: 'Abr 30 9:44', type: 'dm', actionable: false },
-  { from: 'Veronica Ferro', text: 'Confirmar si AI Bot Phase I Triage Food Live (fila 35 gantt) y Food Non Live Suspension (fila 36) estan en los 3 canales: portal, aliados y whatsapp', time: 'Abr 29 11:44', type: 'group', actionable: false },
-  { from: 'Yeimy Perez', text: 'Te paso el inventario de copys (RS | Shortcuts y Macros) de food live - se actualiza constantemente', time: 'Abr 29 9:17', type: 'dm', actionable: true }
+  { from: 'Maria Granada', text: 'Mi recomendacion: coge lo que ya tiene el DT con subproblemas y automatiza. 1. Problemas con el RT (prioriza este), 2. Problemas con la tienda, 3. Problemas con el usuario. Del pareto de cada uno lo demas lo mandas a agente.', time: 'Abr 30 17:12', type: 'dm', actionable: true },
+  { from: 'Maria Granada', text: 'El lunes deberíamos decirles que lo queremos pegar antes de los DTs de live. Asegurar que lo que esta en los DTs quede en los bots.', time: 'Abr 30 17:07', type: 'dm', actionable: true },
+  { from: 'Maria Granada', text: 'Ya alineamos con Tech desde que punto vamos a pegar los flujos?', time: 'Abr 30 17:06', type: 'dm', actionable: true },
+  { from: 'Diego Villaroel', text: 'Si, ya te doy Collab seat — con ese puedes usar FigJam y compartir files. Ya lo tienes.', time: 'Abr 30 16:47', type: 'dm', actionable: false },
+  { from: 'Maria Granada', text: 'Hola juan! puedes mover la sesion a las 4:30 para que andy se pueda sumar — JP confirmo. Revision Food Live Assembled movida a 16:30.', time: 'Abr 30 14:43', type: 'dm', actionable: false },
+  { from: 'Santiago Garcia', text: 'El flujo NonFood viene para todos los Aliados CPGs. La columna que buscas es issue_description (ultima opcion del aliado antes del enrutamiento).', time: 'Abr 30 9:44', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
