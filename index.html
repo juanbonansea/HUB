@@ -1497,6 +1497,16 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:32, title:'CX Product PRD & design reviews', date:'Abr 30',
+    summary:'La reunion analizo problemas de soporte que afectan la retencion usando datos y entrevistas cualitativas. Se definieron 7 perfiles de usuario para estudiar el abandono tras contactos insatisfactorios. Los usuarios perciben el soporte como impersonal y sin empatia, especialmente tras cobros incorrectos. Prioridades: optimizar canal semi-automatizado, atencion diferenciada a usuarios premium y transparencia en cobros.',
+    sections:['Analisis problemas soporte','Hallazgos experiencia usuario','Prioridades mejora estrategica'],
+    actions:[
+      { text:'Revisar datos usuarios categorizados como "otros" y determinar si existe problema de categorizacion', owner:'Andres De Las Casas', phase:'discovery', priority:'P1' },
+      { text:'Enviar presentacion, grabacion y documento de analisis de datos al equipo', owner:'Tatiana Oquendo', phase:'build', priority:'P1' },
+      { text:'Asegurar que lideres operacionales (EUG) revisen presentacion y recopilen feedback sobre hallazgos', owner:'Andres De Las Casas', phase:'build', priority:'P2' }
+    ]
+  },
+  {
     id:31, title:'Juan Pablo / Andres - Metricas Suspensiones', date:'Abr 29',
     summary:'Revision de metricas de incidencias RT y ajustes de datos para optimizar flujos de soporte tecnico. Filtros Nivel 1 representan el 22% del volumen total. Se identificaron 649 casos de stockout y ~765 suspensiones de tiendas (~4% del volumen). Se estandarizo la consulta de datos para mejorar calidad de identificadores usados en rastreo de agentes.',
     sections:['Analisis incidencias RT','Evaluacion stock y suspension','Optimizacion flujos operativos'],
@@ -1580,6 +1590,7 @@ const DEFAULT_TASKS = [
   { id:'t54', text:'Identificar logica para saber si un producto es el principal', phase:'design', priority:'P1', source:'Assembled Abr 27', day:'wed', completed:false },
   { id:'t61', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'wed', completed:false },
   { id:'t64', text:'Enviar a Vero Ferro: listado de canales e entry issues de merchants con ejemplo de cada uno', phase:'discovery', priority:'P1', source:'Slack Abr 28 15:50 (grupo Vero/Mafe)', day:'wed', completed:false },
+  { id:'t69', text:'Escribirle a Diego Villaroel para que asigne asiento y poder compartir archivo con Daniel Trejos', phase:'build', priority:'P2', source:'DM Daniel Trejos Abr 30', day:'thu', completed:false },
   { id:'t67', text:'Enviar iniciativas con impacto para calcular proyeccion de 30 agentes en julio (CX WBR)', phase:'discovery', priority:'P1', source:'CX WBR Abr 29', day:'thu', completed:false },
   { id:'t57', text:'Atender Global Business Connect - CPG deep dive por pais', phase:'discovery', priority:'P3', source:'All hands Jue', day:'thu', completed:false },
   { id:'t58', text:'Seguimiento con Bea (Assembled) - Sync Jue 12pm', phase:'build', priority:'P2', source:'Assembled Sync', day:'thu', completed:false },
@@ -1603,6 +1614,8 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d47', text:'Revisar datos usuarios categorizados como "otros" - determinar si baja cantidad es correcta o problema de categorizacion', owner:'Andres De Las Casas', source:'CX PRD Review Abr 30', status:'pendiente' },
+  { id:'d48', text:'Enviar presentacion, grabacion y documento de analisis CX PRD al equipo para revision de hallazgos', owner:'Tatiana Oquendo', source:'CX PRD Review Abr 30', status:'pendiente' },
   { id:'d46', text:'Compartir consulta de datos merchants a Juan Pablo por Slack (columna motivos de suspension)', owner:'Santiago Garcia', source:'DM Abr 29 14:57', status:'pendiente' },
   { id:'d43', text:'Entrenar Quality (Jaime, Cata, Jessie) sobre Assemble para ajustar prompts directamente', owner:'MAFE', source:'CX WBR Abr 29', status:'pendiente' },
   { id:'d44', text:'Ajustar umbral contador multiples releases de ordenes - iniciar hilo con Jose Castellon', owner:'Yerick Martinez', source:'CX WBR Abr 29', status:'pendiente' },
@@ -1619,12 +1632,12 @@ const DEFAULT_DELEGATED = [
 
 const SLACK_FEED = [
   { from: 'Maria Granada', text: 'si quieres de 4 a 4:30 — Revision Food Live Assembled confirmada. JP: "ya acabe el bot de food live, me ayudas con feedback 15-20 min?"', time: 'Abr 30 15:38', type: 'dm', actionable: false },
-  { from: 'Santiago Garcia', text: 'Columna X = issue_description (ultima opcion del aliado antes del enrutamiento). Hay escenarios donde el aliado elige cualquier opcion por el afan — los LV1>LV2>L3 cambian. Archivo data merchants compartido.', time: 'Abr 29 15:08', type: 'dm', actionable: true },
+  { from: 'Daniel Trejos', text: 'Para compartir el archivo necesitas que Diego Villaroel (gestiona asientos) te asigne uno. Escríbele para que te de acceso. Si no se resuelve me cuentas.', time: 'Abr 30 10:40-11:00', type: 'dm', actionable: true },
+  { from: 'Santiago Garcia', text: 'El flujo NonFood que ves viene para todos los Aliados CPGs. El que me compartiste es de tiendas integradas. El link de Rest normal es el de suspensiones de restaurantes. La columna que buscas es issue_description (ultima opcion del aliado antes del enrutamiento).', time: 'Abr 30 9:44', type: 'dm', actionable: false },
   { from: 'Veronica Ferro', text: 'Confirmar si AI Bot Phase I Triage Food Live (fila 35 gantt) y Food Non Live Suspension (fila 36) estan en los 3 canales: portal, aliados y whatsapp', time: 'Abr 29 11:44', type: 'group', actionable: false },
   { from: 'Yeimy Perez', text: 'Te paso el inventario de copys (RS | Shortcuts y Macros) de food live - se actualiza constantemente', time: 'Abr 29 9:17', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel', text: 'PDF no muestra bien las capturas de pantalla — pendiente entregar Word con capturas', time: 'Abr 28 16:40', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'hablando con Vero necesita para iniciativas merchants: cuales son los canales y entry issues (con ejemplo de cada uno)?', time: 'Abr 28 15:50', type: 'group', actionable: true },
-  { from: 'Susana Paniagua', text: 'tip handoffs bot: nota interna breve - Problema / Resumen Bot / Datos Clave / Accion Requerida. El agente entiende el caso en menos de 10 segundos.', time: 'Abr 24', type: 'group', actionable: true }
+  { from: 'Maria Granada', text: 'hablando con Vero necesita para iniciativas merchants: cuales son los canales y entry issues (con ejemplo de cada uno)?', time: 'Abr 28 15:50', type: 'group', actionable: true }
 ];
 
 const DEEP_WORK = [
