@@ -1531,13 +1531,15 @@ const NOTES = [
     ]
   },
   {
-    id:30, title:'Shadowing Offenders OPs (Non Food)', date:'Abr 29',
-    summary:'Revision operativa de casos regionales y estandarizacion de procesos para documentacion interna. Validacion reactivacion tienda inactiva en Mexico, pagos pendientes Argentina, beneficio activacion anticipada Peru y registro Colombia. Acuerdo de reforzar macros y notas en escalamientos de segundo nivel.',
-    sections:['Gestion casos Mexico Argentina','Ordenes Peru registro Colombia','Estandarizacion notas internas'],
+    id:27, title:'Assembled food live', date:'Abr 27',
+    summary:'Definicion de requerimientos para implementar el bot Food Live y optimizar la gestion de datos mediante servicios eficientes. Se define el punto exacto en el flujo para insertar el bot. La informacion de retorno de servicios se limita a valores especificos para no saturar el contexto en Assemble. Se acuerda pruebas exhaustivas en staging antes de produccion.',
+    sections:['Especificacion flujo bot','Optimizacion datos JSON','Gestion metadatos mapeados'],
     actions:[
-      { text:'Escalar caso al segundo nivel con toda la informacion necesaria en Jira', owner:'Massiell Meza', phase:'build' },
-      { text:'Validar numero de referencia del caso y revisar info de Massiell', owner:'Enrique Sosa', phase:'build' },
-      { text:'Reforzar uso de macros, procesos y notas internas en la operacion', owner:'Enrique Sosa', phase:'design' }
+      { text:'Escribir a Juan Camilo Esquivel para retomar reunion de 15 minutos sobre flujo bot', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Enviar documento completo con capturas de pantalla en formato acordado hoy o manana', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Definir nombre del estado que debe aparecer cuando producto esta sin stock en flujo Live', owner:'Juan Pablo', phase:'design', priority:'P1' },
+      { text:'Averiguar como identificar si un producto es principal en el flujo de stockout', owner:'Juan Pablo', phase:'discovery', priority:'P1' },
+      { text:'Documentar endpoints con puntos de entrada y respuestas en archivo de trabajo', owner:'Grupo', phase:'build', priority:'P1' }
     ]
   },
   {
@@ -1577,6 +1579,8 @@ const DEFAULT_TASKS = [
   { id:'t61', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'unscheduled', completed:false },
   { id:'t59', text:'Enviar query Snowflake + doc issues mapeados a Andres Diaz', phase:'discovery', priority:'P1', source:'JP/Andres Abr 21', day:'unscheduled', completed:false },
   { id:'t60', text:'Probar flujo Assemble en staging antes de pasar a produccion', phase:'qa', priority:'P1', source:'Assembled Abr 27', day:'fri', completed:false },
+  { id:'t75', text:'Definir nombre del estado sin stock en flujo Live aliados (para endpoint de stockout)', phase:'design', priority:'P1', source:'Assembled food live Abr 27', day:'unscheduled', completed:false },
+  { id:'t76', text:'Averiguar como identificar si un producto es principal en el flujo de stockout aliados', phase:'discovery', priority:'P1', source:'Assembled food live Abr 27', day:'unscheduled', completed:false },
   { id:'t69', text:'Escribirle a Diego Villaroel para que asigne asiento y poder compartir archivo con Daniel Trejos', phase:'build', priority:'P2', source:'DM Daniel Trejos Abr 30', day:'thu', completed:true },
   { id:'t57', text:'Atender Global Business Connect - CPG deep dive por pais', phase:'discovery', priority:'P3', source:'All hands Jue', day:'thu', completed:true },
   { id:'t58', text:'Seguimiento con Bea (Assembled) - Sync Jue 3pm', phase:'build', priority:'P2', source:'Assembled Sync', day:'thu', completed:true }
