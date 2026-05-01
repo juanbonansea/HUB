@@ -1566,6 +1566,18 @@ const NOTES = [
       { text:'Sizing interno unificacion canales chat y escalar revision prioridades con ISA', owner:'Andres De Las Casas', phase:'design', priority:'P1' }
     ]
   },
+  {
+    id:27, title:'Assembled Food Live - Especificacion Endpoints Bot', date:'Abr 27',
+    summary:'Definicion de requerimientos para implementar el bot Food Live y optimizar gestion de datos mediante servicios eficientes. Se requiere definir el punto exacto en el flujo para insertar el bot. Decision: limitar informacion JSON de retorno a valores especificos para no saturar contexto en Assemble. Validaciones para ordenes sin repartidor y manejo de stockout mediante nuevos endpoints. Pruebas exhaustivas en staging antes de desplegar a produccion.',
+    sections:['Especificacion flujo bot y punto de insercion','Optimizacion datos JSON y endpoints','Validaciones ordenes y stockout'],
+    actions:[
+      { text:'Notificar a Juan Camilo Esquivel para retomar reunion de 15 minutos (Assembled)', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Enviar documento completo de endpoints con capturas de pantalla en formato acordado', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Definir nombre del estado que debe aparecer cuando producto esta sin stock en flujo aliados', owner:'Juan Pablo', phase:'design', priority:'P1' },
+      { text:'Averiguar como identificar si un producto es principal en el flujo de stockout aliados', owner:'Juan Pablo', phase:'discovery', priority:'P1' },
+      { text:'Documentar puntos de entrada y respuestas de endpoints en archivo de trabajo', owner:'Grupo', phase:'build', priority:'P1' }
+    ]
+  },
 ];
 
 const DEFAULT_TASKS = [
@@ -1623,11 +1635,12 @@ const DEFAULT_DELEGATED = [
 
 const SLACK_FEED = [
   { from: 'Maria Granada', text: 'Me cuentas si tienes dudas, o si quieres buscamos un espacio con Yeimy Perez o con Andres Diaz para profundizar.', time: 'Abr 30 17:15', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'Mi recomendacion: coge lo que ya tiene el DT con subproblemas y automatiza. 1. Problemas con el RT (prioriza este), 2. Problemas con la tienda, 3. Problemas con el usuario. Del pareto de cada uno lo demas lo mandas a agente.', time: 'Abr 30 17:12', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'El lunes deberíamos decirles que lo queremos pegar antes de los DTs de live. Asegurar que lo que esta en los DTs quede en los bots.', time: 'Abr 30 17:07', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'Ya alineamos con Tech desde que punto vamos a pegar los flujos?', time: 'Abr 30 17:06', type: 'dm', actionable: true },
-  { from: 'Diego Villaroel', text: 'Si, ya te doy Collab seat — con ese puedes usar FigJam y compartir files. Ya lo tienes.', time: 'Abr 30 16:47', type: 'dm', actionable: false },
-  { from: 'Maria Granada', text: 'Hola juan! puedes mover la sesion a las 4:30 para que andy se pueda sumar — JP confirmo. Revision Food Live Assembled movida a 16:30.', time: 'Abr 30 14:43', type: 'dm', actionable: false }
+  { from: 'Maria Granada', text: 'Mi recomendacion: coge lo que ya tiene el DT con subproblemas y automatiza esos. 1. Problemas con el RT (prioriza este), 2. Problemas con la tienda, 3. Problemas con el usuario. Del pareto de cada uno, lo demas lo mandas a agente.', time: 'Abr 30 17:12', type: 'dm', actionable: true },
+  { from: 'Maria Granada', text: 'El lunes deberíamos decirles que lo queremos pegar antes de los DTs de Live. Hay que asegurar que lo que esta en los DTs quede en los bots.', time: 'Abr 30 17:07', type: 'dm', actionable: true },
+  { from: 'Maria Granada', text: 'Ya alineamos con Tech desde que punto vamos a pegar los flujos? (JP: no se ha alineado, el lunes hay kickoff)', time: 'Abr 30 17:06', type: 'dm', actionable: true },
+  { from: 'Maria Granada (grupo)', text: 'Flujos a lanzar esta semana con %: AI Bot Disagree/Refunds 95% (Meiker), Order delayed 70% ✅ (Maria), Debts/Return not reflected 30% ✅ (Maria), Weekly profit incomplete 30% (Meiker), Referral earning 100% (Susana), Notification ATM 70% ✅ (Jaime).', time: 'Abr 30 14:21', type: 'group', actionable: true },
+  { from: 'Maria Granada', text: 'Hola juan! puedes mover la sesion a las 4:30 para que andy se pueda sumar.', time: 'Abr 30 14:43', type: 'dm', actionable: false },
+  { from: 'Diego Villaroel', text: 'Si, ya te doy Collab seat — con ese puedes usar FigJam y compartir files. Ya lo tienes.', time: 'Abr 30 16:47', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
