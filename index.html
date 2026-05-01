@@ -1507,6 +1507,8 @@ const NOTES = [
       { text:'Consultar Jaie como resuelven ordenes no aparecidas en tiendas no integradas', owner:'Juan Pablo', phase:'discovery', priority:'P1' },
       { text:'Confirmar si ordenes no aparecidas en tablet se pagan via Rapi y asegurar liquidacion', owner:'Juan Pablo', phase:'discovery', priority:'P1' },
       { text:'Obtener de Tech el ID reason de cancelacion para fallas tecnicas sin costo al aliado', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Anadir paso Analy antes de respuesta conversacional mostrando detalles de orden activa y productos solicitados', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Agregar guia de autogestión de stockouts en Rapialiados para tiendas no integradas', owner:'Juan Pablo', phase:'build', priority:'P1' },
       { text:'Agendar seguimiento proxima semana: revisar flujos Live y Suspensions', owner:'Juan Pablo', phase:'build', priority:'P1' },
       { text:'Pasar la matriz de cancelaciones con todos los reasons incluyendo stockout', owner:'Maria Granada', phase:'build', priority:'P1' }
     ]
@@ -1531,15 +1533,13 @@ const NOTES = [
     ]
   },
   {
-    id:27, title:'Assembled food live', date:'Abr 27',
-    summary:'Definicion de requerimientos para implementar el bot Food Live y optimizar la gestion de datos mediante servicios eficientes. Se define el punto exacto en el flujo para insertar el bot. La informacion de retorno de servicios se limita a valores especificos para no saturar el contexto en Assemble. Se acuerda pruebas exhaustivas en staging antes de produccion.',
-    sections:['Especificacion flujo bot','Optimizacion datos JSON','Gestion metadatos mapeados'],
+    id:34, title:'Shadowing Offenders OPs (Non Food)', date:'Abr 29',
+    summary:'Revision operativa de casos regionales: reactivacion de tienda inactiva tras cambio de local en Mexico, pagos pendientes en Argentina, activacion anticipada en Peru y datos faltantes en Colombia. Se acuerda reforzar uso de macros y notas internas para evitar perdida de informacion en escalamientos de segundo nivel.',
+    sections:['Gestion casos Mexico Argentina','Ordenes Peru registro Colombia','Estandarizacion notas internas'],
     actions:[
-      { text:'Escribir a Juan Camilo Esquivel para retomar reunion de 15 minutos sobre flujo bot', owner:'Juan Pablo', phase:'build', priority:'P1' },
-      { text:'Enviar documento completo con capturas de pantalla en formato acordado hoy o manana', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Definir nombre del estado que debe aparecer cuando producto esta sin stock en flujo Live', owner:'Juan Pablo', phase:'design', priority:'P1' },
-      { text:'Averiguar como identificar si un producto es principal en el flujo de stockout', owner:'Juan Pablo', phase:'discovery', priority:'P1' },
-      { text:'Documentar endpoints con puntos de entrada y respuestas en archivo de trabajo', owner:'Grupo', phase:'build', priority:'P1' }
+      { text:'Escalar el caso al segundo nivel incluyendo toda la informacion necesaria por Jira', owner:'Massiell Ivonne Meza', phase:'build', priority:'P1' },
+      { text:'Validar el numero de referencia del caso revisando informacion proporcionada', owner:'Enrique Sosa', phase:'build', priority:'P1' },
+      { text:'Reforzar uso de macros, procesos y notas internas con la operacion', owner:'Enrique Sosa', phase:'build', priority:'P2' }
     ]
   },
   {
@@ -1576,6 +1576,8 @@ const DEFAULT_TASKS = [
   { id:'t74', text:'Lunes kickoff: alinear con Tech desde que punto se pegan los flujos a los DTs de Live (Maria confirmo pendiente esta alineacion)', phase:'build', priority:'P0', source:'DM Maria Granada May 1', day:'unscheduled', completed:false },
   { id:'t67', text:'Enviar iniciativas con impacto para calcular proyeccion de 30 agentes en julio (CX WBR)', phase:'discovery', priority:'P1', source:'CX WBR Abr 29', day:'fri', completed:false },
   { id:'t73', text:'Agendar seguimiento proxima semana: revisar flujos Live y Suspensions con Assembled', phase:'build', priority:'P1', source:'Food Live Assembled Abr 30', day:'fri', completed:false },
+  { id:'t77', text:'Consultar Jaie como resuelven ordenes no aparecidas en tiendas no integradas', phase:'discovery', priority:'P1', source:'Food Live Assembled Abr 30', day:'fri', completed:false },
+  { id:'t78', text:'Confirmar si ordenes no aparecidas en tablet se pagan via Rapi y asegurar liquidacion de la orden', phase:'discovery', priority:'P1', source:'Food Live Assembled Abr 30', day:'fri', completed:false },
   { id:'t61', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'unscheduled', completed:false },
   { id:'t59', text:'Enviar query Snowflake + doc issues mapeados a Andres Diaz', phase:'discovery', priority:'P1', source:'JP/Andres Abr 21', day:'unscheduled', completed:false },
   { id:'t60', text:'Probar flujo Assemble en staging antes de pasar a produccion', phase:'qa', priority:'P1', source:'Assembled Abr 27', day:'fri', completed:false },
