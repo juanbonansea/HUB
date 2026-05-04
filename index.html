@@ -1478,6 +1478,7 @@ const EVENTS = {
     { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1' }
   ],
   wed: [
+    { time:'11:00-12:00', title:'Check- Food Live & Suspensiones', attendees:3, org:'m.granada@rappi.com', type:'team', note:'Espacio creado por Maria Granada hoy - revision estado flujos Food Live y Suspensiones post-kickoff' },
     { time:'11:30-12:30', title:'Shadowing | Offenders OPs (Non Food)', attendees:16, org:'elias.rivera@rappi.com', type:'shadowing' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'16:30-17:30', title:'Shadowing Merchant (TaskUs)', attendees:16, org:'carla.capristan@rappi.com', type:'shadowing' }
@@ -1596,7 +1597,8 @@ const DEFAULT_TASKS = [
   { id:'t91', text:'Averiguar como identificar si producto es principal en el flujo de stockout aliados', phase:'discovery', priority:'P1', source:'Assembled Food Live Abr 27', day:'thu', completed:false },
   { id:'t92', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'unscheduled', completed:false },
   { id:'t93', text:'Anadir paso Analy antes de respuesta conversacional mostrando detalles de orden activa', phase:'build', priority:'P2', source:'Food Live Assembled Abr 30', day:'unscheduled', completed:false },
-  { id:'t94', text:'Agregar guia autogestión stockouts en Rapialiados para tiendas no integradas', phase:'build', priority:'P2', source:'Food Live Assembled Abr 30', day:'unscheduled', completed:false }
+  { id:'t94', text:'Agregar guia autogestión stockouts en Rapialiados para tiendas no integradas', phase:'build', priority:'P2', source:'Food Live Assembled Abr 30', day:'unscheduled', completed:false },
+  { id:'t95', text:'Preparar estado actualizado de flujos Food Live & Suspensiones para check-in con Maria Granada (Mie 11:00)', phase:'build', priority:'P0', source:'Check Food Live Mie 6 Mayo', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1633,19 +1635,19 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana. Juan Pablo: 1) AI Bot Phase I Triage Food Live — Kickoff con tech & pulir WF en Assembled, 2) AI Bot Phase I Food Non Live Suspension — Kickoff con tech & pulir WF en Assembled, 3) AI Bot Exp Problems with order (incorrectos/danados/faltantes) — Discovery con Meiker y Maria.', time: 'Lun 04 8:12', type: 'group', actionable: true },
+  { from: 'Maria Granada (grupo)', text: 'AR muy bajito en Earnings/Referral y Identification document — ver como reducir inflow en esos flujos. Susana: escalar Referral earning al 100%.', time: 'Lun 04 8:20', type: 'group', actionable: true },
+  { from: 'Juan Pablo → Camilo Esquivel', text: 'ya me dieron acceso a compartir figjam - te comparto el de Food Live y el de Suspensiones de una [FigJam Food_Live + Food Non Live Suspension]', time: 'Lun 04 8:41', type: 'dm', actionable: false },
   { from: 'Maria Granada', text: 'Me cuentas si tienes dudas, o si quieres buscamos un espacio con Yeimy Perez o con Andres Diaz para profundizar.', time: 'Abr 30 17:15', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'Mi recomendacion: coge lo que ya tiene el DT con subproblemas y automatiza esos. 1. Problemas con el RT (prioriza este), 2. Problemas con la tienda, 3. Problemas con el usuario. Del pareto de cada uno, lo demas lo mandas a agente.', time: 'Abr 30 17:12', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'El lunes deberíamos decirles que lo queremos pegar antes de los DTs de Live. Hay que asegurar que lo que esta en los DTs quede en los bots.', time: 'Abr 30 17:07', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'Ya alineamos con Tech desde que punto vamos a pegar los flujos? (JP: no se ha alineado, el lunes hay kickoff)', time: 'Abr 30 17:06', type: 'dm', actionable: true },
-  { from: 'Maria Granada (grupo)', text: 'Flujos a lanzar esta semana con %: AI Bot Disagree/Refunds 95% (Meiker), Order delayed 70% ✅ (Maria), Debts/Return not reflected 30% ✅ (Maria), Weekly profit incomplete 30% (Meiker), Referral earning 100% (Susana), Notification ATM 70% ✅ (Jaime).', time: 'Abr 30 14:21', type: 'group', actionable: true },
-  { from: 'Maria Granada', text: 'Hola juan! puedes mover la sesion a las 4:30 para que andy se pueda sumar.', time: 'Abr 30 14:43', type: 'dm', actionable: false },
-  { from: 'Diego Villaroel', text: 'Si, ya te doy Collab seat — con ese puedes usar FigJam y compartir files. Ya lo tienes.', time: 'Abr 30 16:47', type: 'dm', actionable: false }
+  { from: 'Maria Granada', text: 'Mi recomendacion: coge lo que ya tiene el DT con subproblemas y automatiza esos. 1. Problemas con RT (prioriza), 2. Problemas con la tienda, 3. Problemas con usuario. Del pareto, lo demas va a agente.', time: 'Abr 30 17:12', type: 'dm', actionable: true },
+  { from: 'Maria Granada', text: 'El lunes decirle a Tech que queremos pegar los flujos antes de los DTs de Live. Asegurar que lo de los DTs quede en los bots.', time: 'Abr 30 17:07', type: 'dm', actionable: true },
+  { from: 'Maria Granada', text: 'Ya alineamos con Tech desde que punto vamos a pegar los flujos? (JP: no se habia alineado — kickoffs son hoy)', time: 'Abr 30 17:06', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-12:00', '14:30-18:00'] },
   { day: 'Mar', blocks: ['8:00-13:00', '16:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-11:30', '14:00-16:30'] },
+  { day: 'Mie', blocks: ['8:00-11:00', '14:00-16:30'] },
   { day: 'Jue', blocks: ['11:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
@@ -1766,11 +1768,11 @@ function renderDashboard() {
    ================================================================ */
 function renderCalendar() {
   const dayLabels = [
-    { name:'Lunes 13 Abril', key:'mon' },
-    { name:'Martes 14 Abril', key:'tue' },
-    { name:'Miercoles 15 Abril', key:'wed' },
-    { name:'Jueves 16 Abril', key:'thu' },
-    { name:'Viernes 17 Abril', key:'fri' }
+    { name:'Lunes 4 Mayo', key:'mon' },
+    { name:'Martes 5 Mayo', key:'tue' },
+    { name:'Miercoles 6 Mayo', key:'wed' },
+    { name:'Jueves 7 Mayo', key:'thu' },
+    { name:'Viernes 8 Mayo', key:'fri' }
   ];
 
   document.getElementById('calContent').innerHTML = dayLabels.map((d,i) => {
