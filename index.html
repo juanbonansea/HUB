@@ -1481,6 +1481,7 @@ const EVENTS = {
     { time:'11:00-12:00', title:'Check- Food Live & Suspensiones', attendees:3, org:'m.granada@rappi.com', type:'team', note:'Espacio creado por Maria Granada hoy - revision estado flujos Food Live y Suspensiones post-kickoff' },
     { time:'11:30-12:30', title:'Shadowing | Offenders OPs (Non Food)', attendees:16, org:'elias.rivera@rappi.com', type:'shadowing' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'15:00-16:00', title:'Assembled Merchants', attendees:6, org:'f.diaz@rappi.com', type:'external', note:'Mafe ensena Assembled para llevar flujos de pagos - Juan Pablo needsAction' },
     { time:'16:30-17:30', title:'Shadowing Merchant (TaskUs)', attendees:16, org:'carla.capristan@rappi.com', type:'shadowing' }
   ],
   thu: [
@@ -1637,7 +1638,8 @@ const DEFAULT_TASKS = [
   { id:'t100', text:'Publicar hilo con endpoints y claves de pantalla - incluir impacto 19891 tickets mensuales', phase:'build', priority:'P0', source:'Kickoff AI Bot Triage Food Live 4 May', day:'mon', completed:false },
   { id:'t101', text:'Detallar pasos de accion para flujo Otro repartidor se llevo el pedido', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false },
   { id:'t102', text:'Confirmar si se requiere endpoint adicional y verificar historial RT asignados a una orden especifica', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false },
-  { id:'t103', text:'Terminar diseno Figma del flujo AI Bot Triage Food Live con informacion acordada en kickoff', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false }
+  { id:'t103', text:'Terminar diseno Figma del flujo AI Bot Triage Food Live con informacion acordada en kickoff', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false },
+  { id:'t104', text:'Liderar implementacion agentes AI en Assembled para Merchants (Mayo-Junio) — definir issue types con Mafe y coordinar onboarding equipo Elias Rivera', phase:'build', priority:'P0', source:'Grupo DM Lun 04 16:52', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1656,6 +1658,7 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d58', text:'Apoyar a Juan Pablo y Mafe en implementacion agentes AI en Assembled para Merchants Mayo-Junio (issue types por definir en sesion de training)', owner:'Elias Rivera y equipo', source:'Grupo DM Lun 04 16:50', status:'pendiente' },
   { id:'d57', text:'Buscar arbol principal del menu dinamico y compartir menu principal + usuario de prueba para puntos de anclaje del bot', owner:'Juan Camilo Esquivel', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
   { id:'d56', text:'Realizar doble verificacion de pruebas con Juan Esquivel para los 3 canales y enviar capturas de pantalla', owner:'Grupo', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
   { id:'d55', text:'Agregar detalles sobre busqueda Cafka y ganancias al documento compartido del bot', owner:'Maria Granada', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
@@ -1682,6 +1685,8 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada (grupo)', text: 'de una team! les cito un espacio — la idea es que trabajen de la mano de @juan.bonansea que va a estar llevando lo de merchants', time: 'Lun 04 16:52', type: 'group', actionable: true },
+  { from: 'Eugenio La Rosa (grupo)', text: 'durante Mayo y Junio, debemos acelerar implementacion de agentes AI en Assembled para Merchants. Andy: propongo que Elias y equipo ayuden en estos dos meses con los issue types que Mafe defina. Mafe: agenda training o comparte videos para su onboarding', time: 'Lun 04 16:50', type: 'group', actionable: true },
   { from: 'Maria Granada', text: 'Hola juan mira este es el figjam que vimos ahorita [FigJam Food_Live compartido post-kickoff para revision de flujos]', time: 'Lun 04 11:58', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel', text: 'listo Juan, gracias (confirma recepcion FigJam Food Live y FigJam Suspensiones compartidos para kickoff)', time: 'Lun 04 10:03', type: 'dm', actionable: false },
   { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana. Juan Pablo: 1) AI Bot Phase I Triage Food Live — Kickoff con tech & pulir WF en Assembled, 2) AI Bot Phase I Food Non Live Suspension — Kickoff con tech & pulir WF en Assembled, 3) AI Bot Exp Problems with order — Discovery con Meiker y Maria.', time: 'Lun 04 8:12', type: 'group', actionable: true },
@@ -1694,7 +1699,7 @@ const SLACK_FEED = [
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-12:00', '14:00-16:00', '16:45-18:00'] },
   { day: 'Mar', blocks: ['8:00-10:30', '12:00-13:00', '14:30-15:30', '16:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-11:00', '14:00-16:30'] },
+  { day: 'Mie', blocks: ['8:00-11:00', '14:00-15:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
