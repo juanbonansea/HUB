@@ -1468,7 +1468,7 @@ const EVENTS = {
     { time:'10:30-11:00', title:'[Kickoff] AI Bot Phase I - Triage Food Live', attendees:5, org:'veronica.ferro@rappi.com', type:'team', note:'Kickoff iniciativa AI Bot Triage Food Live' },
     { time:'12:00-12:30', title:'Weekly QA <> Producto', attendees:7, org:'m.granada@rappi.com', type:'team' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'16:00-16:45', title:'Review food live - suspensions', attendees:3, org:'andres.delascasas@rappi.com', type:'team', note:'Revision flujo Live y Suspensiones - espacio creado hoy por Juan Pablo' }
+    { time:'16:00-16:45', title:'Review food live - suspensions', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'Revision flujo Live y Suspensiones - creado por Juan Pablo, con Andres y Maria' }
   ],
   tue: [
     { time:'10:30-11:00', title:'[Kickoff] AI Bot Phase I - Food Non Live Suspension', attendees:5, org:'veronica.ferro@rappi.com', type:'team', note:'Kickoff bot suspension Food Non Live' },
@@ -1498,6 +1498,24 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:36, title:'[Kickoff] AI Bot Phase I - Triage Food Live', date:'4 May',
+    summary:'La reunion definio la integracion tecnica del bot de soporte mediante puntos de conexion y flujos optimizados. Bot integrado en Decision Tree tras seleccion de la orden en vivo. Flujo Food Live automatizara el 80% de problemas de repartidores y ordenes ahorrando 19891 tickets mensuales. Se establecieron validaciones para repartidores, sustitucion de productos y cancelaciones. Seguridad antifraude es prioridad.',
+    sections:['Integracion del bot soporte','Gestion de ordenes Food Live','Finalizacion de flujos tecnicos'],
+    actions:[
+      { text:'Hablar con Andy sobre flujo de sustitucion de producto y detallar requerimientos del endpoint de sustitutos', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Definir codigos especificos de razon de cancelacion y compartirlos al equipo tecnico', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Revisar casos de discovery de WhatsApp, portal y RapiAliados - identificar opciones del DT para integracion del bot', owner:'Juan Pablo', phase:'discovery', priority:'P0' },
+      { text:'Publicar hilo con endpoints y claves de pantalla - incluir impacto de 19891 tickets mensuales', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Detallar pasos de accion para el flujo Otro repartidor se llevo el pedido', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Confirmar si se requiere endpoint adicional y verificar historial de RT asignados a una orden especifica', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Terminar diseno Figma con informacion acordada en el kickoff', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Buscar arbol principal del menu dinamico y compartir menu principal + usuario de prueba para puntos de anclaje', owner:'Juan Camilo Esquivel', phase:'build', priority:'P0' },
+      { text:'Revisar casos del workflow switch - asegurar un ID de chat y un ID de ticket por flujo', owner:'Maria Granada', phase:'build', priority:'P1' },
+      { text:'Agregar detalles sobre busqueda Cafka y ganancias al documento compartido', owner:'Maria Granada', phase:'build', priority:'P1' },
+      { text:'Realizar doble verificacion de pruebas con Juan Esquivel para los 3 canales y enviar capturas de pantalla', owner:'Grupo', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:35, title:'Prioridades de la Semana - Support Product', date:'4 May',
     summary:'Revision de flujos operativos y escalamientos tecnicos para optimizar procesos y reducir costos. Se planea escalar Order Delay al 95% y Return al 70% esta semana. El equipo integra el orquestador en flujos activos y evalua facturacion por tickets. Se revisara el encendido del sistema Breakdown al 10% para comparaciones.',
@@ -1612,7 +1630,14 @@ const DEFAULT_TASKS = [
   { id:'t93', text:'Anadir paso Analy antes de respuesta conversacional mostrando detalles de orden activa', phase:'build', priority:'P2', source:'Food Live Assembled Abr 30', day:'unscheduled', completed:false },
   { id:'t94', text:'Agregar guia autogestión stockouts en Rapialiados para tiendas no integradas', phase:'build', priority:'P2', source:'Food Live Assembled Abr 30', day:'unscheduled', completed:false },
   { id:'t95', text:'Preparar estado actualizado de flujos Food Live & Suspensiones para check-in con Maria Granada (Mie 11:00)', phase:'build', priority:'P0', source:'Check Food Live Mie 6 Mayo', day:'tue', completed:false },
-  { id:'t96', text:'Preparar puntos clave para revision flujo Live y Suspensiones con Andres De Las Casas (hoy 16:00)', phase:'build', priority:'P0', source:'Prioridades Support Product 4 May', day:'mon', completed:false }
+  { id:'t96', text:'Preparar puntos clave para revision flujo Live y Suspensiones con Andres De Las Casas (hoy 16:00)', phase:'build', priority:'P0', source:'Prioridades Support Product 4 May', day:'mon', completed:false },
+  { id:'t97', text:'Kickoff AI Bot: hablar con Andy sobre flujo de sustitucion de producto y detallar requerimientos del endpoint', phase:'build', priority:'P0', source:'Kickoff AI Bot Triage Food Live 4 May', day:'mon', completed:false },
+  { id:'t98', text:'Kickoff AI Bot: definir codigos especificos de razon de cancelacion y compartir al equipo tecnico', phase:'build', priority:'P0', source:'Kickoff AI Bot Triage Food Live 4 May', day:'mon', completed:false },
+  { id:'t99', text:'Kickoff AI Bot: revisar casos de discovery WhatsApp, portal y RapiAliados - identificar opciones DT para integracion bot', phase:'discovery', priority:'P0', source:'Kickoff AI Bot Triage Food Live 4 May', day:'mon', completed:false },
+  { id:'t100', text:'Publicar hilo con endpoints y claves de pantalla - incluir impacto 19891 tickets mensuales', phase:'build', priority:'P0', source:'Kickoff AI Bot Triage Food Live 4 May', day:'mon', completed:false },
+  { id:'t101', text:'Detallar pasos de accion para flujo Otro repartidor se llevo el pedido', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false },
+  { id:'t102', text:'Confirmar si se requiere endpoint adicional y verificar historial RT asignados a una orden especifica', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false },
+  { id:'t103', text:'Terminar diseno Figma del flujo AI Bot Triage Food Live con informacion acordada en kickoff', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1631,6 +1656,11 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d57', text:'Buscar arbol principal del menu dinamico y compartir menu principal + usuario de prueba para puntos de anclaje del bot', owner:'Juan Camilo Esquivel', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
+  { id:'d56', text:'Realizar doble verificacion de pruebas con Juan Esquivel para los 3 canales y enviar capturas de pantalla', owner:'Grupo', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
+  { id:'d55', text:'Agregar detalles sobre busqueda Cafka y ganancias al documento compartido del bot', owner:'Maria Granada', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
+  { id:'d54', text:'Revisar casos del workflow switch - asegurar un ID de chat y un ID de ticket por flujo', owner:'Maria Granada', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
+  { id:'d53', text:'Validar funcionamiento integrado del bot con Andy post-kickoff', owner:'Maria Granada', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
   { id:'d52', text:'Compartir fechas de los 3 nuevos flujos que requieren endpoints de Tech', owner:'Andres De Las Casas', source:'Prioridades Support Product 4 May', status:'pendiente' },
   { id:'d51', text:'Escalar experimento Return al 70% esta semana', owner:'Maria Granada', source:'Prioridades Support Product 4 May', status:'pendiente' },
   { id:'d50', text:'Escalar experimento Order Delay al 95% esta semana', owner:'Maria Granada', source:'Prioridades Support Product 4 May', status:'pendiente' },
@@ -1652,21 +1682,20 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada', text: 'Hola juan mira este es el figjam que vimos ahorita [FigJam Food_Live compartido post-kickoff para revision de flujos]', time: 'Lun 04 11:58', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel', text: 'listo Juan, gracias (confirma recepcion FigJam Food Live y FigJam Suspensiones compartidos para kickoff)', time: 'Lun 04 10:03', type: 'dm', actionable: false },
   { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana. Juan Pablo: 1) AI Bot Phase I Triage Food Live — Kickoff con tech & pulir WF en Assembled, 2) AI Bot Phase I Food Non Live Suspension — Kickoff con tech & pulir WF en Assembled, 3) AI Bot Exp Problems with order — Discovery con Meiker y Maria.', time: 'Lun 04 8:12', type: 'group', actionable: true },
   { from: 'Maria Granada (grupo)', text: 'AR muy bajito en Earnings/Referral y Identification document — ver como reducir inflow en esos flujos. Susana: escalar Referral earning al 100%.', time: 'Lun 04 8:20', type: 'group', actionable: true },
   { from: 'Juan Pablo → Camilo Esquivel', text: 'ya me dieron acceso a compartir figjam - te comparto el de Food Live y el de Suspensiones de una [FigJam Food_Live + Food Non Live Suspension]', time: 'Lun 04 8:41', type: 'dm', actionable: false },
-  { from: 'Maria Granada', text: 'Me cuentas si tienes dudas, o si quieres buscamos un espacio con Yeimy Perez o con Andres Diaz para profundizar.', time: 'Abr 30 17:15', type: 'dm', actionable: true },
   { from: 'Maria Granada', text: 'Mi recomendacion: coge lo que ya tiene el DT con subproblemas y automatiza esos. 1. Problemas con RT (prioriza), 2. Problemas con la tienda, 3. Problemas con usuario. Del pareto, lo demas va a agente.', time: 'Abr 30 17:12', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'El lunes decirle a Tech que queremos pegar los flujos antes de los DTs de Live. Asegurar que lo de los DTs quede en los bots.', time: 'Abr 30 17:07', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'Ya alineamos con Tech desde que punto vamos a pegar los flujos? (JP: no se habia alineado — kickoffs son hoy)', time: 'Abr 30 17:06', type: 'dm', actionable: true }
+  { from: 'Maria Granada', text: 'El lunes decirle a Tech que queremos pegar los flujos antes de los DTs de Live. Asegurar que lo de los DTs quede en los bots.', time: 'Abr 30 17:07', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-12:00', '14:00-16:00', '16:45-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:30', '12:00-13:00', '16:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-10:30', '12:00-13:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-16:30'] },
-  { day: 'Jue', blocks: ['11:00-13:00', '14:00-15:00', '16:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
 
