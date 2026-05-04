@@ -1467,13 +1467,13 @@ const EVENTS = {
     { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:16, org:'isabela.gomez@rappi.com', type:'team' },
     { time:'10:30-11:00', title:'[Kickoff] AI Bot Phase I - Triage Food Live', attendees:5, org:'veronica.ferro@rappi.com', type:'team', note:'Kickoff iniciativa AI Bot Triage Food Live' },
     { time:'12:00-12:30', title:'Weekly QA <> Producto', attendees:7, org:'m.granada@rappi.com', type:'team' },
-    { time:'12:30-13:00', title:'Weekly Check - Evals', attendees:11, org:'valeria.badiola@rappi.com', type:'team' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'[Kickoff] AI Bot Phase I - Food Non Live Suspension', attendees:5, org:'veronica.ferro@rappi.com', type:'team', note:'Kickoff bot suspension Food Non Live' }
+    { time:'16:00-16:45', title:'Review food live - suspensions', attendees:3, org:'andres.delascasas@rappi.com', type:'team', note:'Revision flujo Live y Suspensiones - espacio creado hoy por Juan Pablo' }
   ],
   tue: [
+    { time:'10:30-11:00', title:'[Kickoff] AI Bot Phase I - Food Non Live Suspension', attendees:5, org:'veronica.ferro@rappi.com', type:'team', note:'Kickoff bot suspension Food Non Live' },
+    { time:'11:30-12:00', title:'Assembled Assist <> Rappi Weekly Sync', attendees:10, org:'monica@assembledhq.com', type:'external', note:'Sync semanal Assembled - plan de implementacion Rappi' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'13:30-14:00', title:'Assembled Assist <> Rappi Weekly Sync', attendees:10, org:'monica@assembledhq.com', type:'external', note:'Sync semanal Assembled - coincide con fin de lunch' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'Weekly 1:1 con Maria' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1' }
   ],
@@ -1498,6 +1498,19 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:35, title:'Prioridades de la Semana - Support Product', date:'4 May',
+    summary:'Revision de flujos operativos y escalamientos tecnicos para optimizar procesos y reducir costos. Se planea escalar Order Delay al 95% y Return al 70% esta semana. El equipo integra el orquestador en flujos activos y evalua facturacion por tickets. Se revisara el encendido del sistema Breakdown al 10% para comparaciones.',
+    sections:['Escalamiento flujos automaticos','Coordinacion tecnica y operativa','Alineacion experimentos tecnicos'],
+    actions:[
+      { text:'Agendar espacio con Andres De Las Casas para revisar flujo Live y Suspensiones (ya agendado hoy 16:00)', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Escalar experimento Order Delay al 95% esta semana', owner:'Maria Granada', phase:'build', priority:'P0' },
+      { text:'Cerrar casos KIS pendientes e investigar por que no pasan por agentes AI en User Life', owner:'Maria Granada', phase:'build', priority:'P1' },
+      { text:'Escalar experimento Return al 70% esta semana', owner:'Maria Granada', phase:'build', priority:'P1' },
+      { text:'Automatizar deuda por owner - consultar al equipo RTS para mayor inteligencia', owner:'Maria Granada', phase:'discovery', priority:'P1' },
+      { text:'Compartir fechas de los 3 nuevos flujos que requieren endpoints de Tech', owner:'Andres De Las Casas', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:33, title:'Revision Food Live Assembled', date:'Abr 30',
     summary:'La reunion estandarizo flujos de soporte para aliados mediante integracion de procesos y autogestion tecnologica. Se mejoro visibilidad ante demoras de repartidores y ordenes no visibles en plataforma. Flujo unico para faltantes: decidir entre cancelar o preparar. Cancelacion sin costo ante fallas de integracion Rapi. Autogestión de inventario para reducir carga operativa de agentes.',
@@ -1598,7 +1611,8 @@ const DEFAULT_TASKS = [
   { id:'t92', text:'Definir diseno y ubicacion del chat en nueva plataforma web unificada', phase:'design', priority:'P1', source:'Chat Portal Abr 28', day:'unscheduled', completed:false },
   { id:'t93', text:'Anadir paso Analy antes de respuesta conversacional mostrando detalles de orden activa', phase:'build', priority:'P2', source:'Food Live Assembled Abr 30', day:'unscheduled', completed:false },
   { id:'t94', text:'Agregar guia autogestión stockouts en Rapialiados para tiendas no integradas', phase:'build', priority:'P2', source:'Food Live Assembled Abr 30', day:'unscheduled', completed:false },
-  { id:'t95', text:'Preparar estado actualizado de flujos Food Live & Suspensiones para check-in con Maria Granada (Mie 11:00)', phase:'build', priority:'P0', source:'Check Food Live Mie 6 Mayo', day:'tue', completed:false }
+  { id:'t95', text:'Preparar estado actualizado de flujos Food Live & Suspensiones para check-in con Maria Granada (Mie 11:00)', phase:'build', priority:'P0', source:'Check Food Live Mie 6 Mayo', day:'tue', completed:false },
+  { id:'t96', text:'Preparar puntos clave para revision flujo Live y Suspensiones con Andres De Las Casas (hoy 16:00)', phase:'build', priority:'P0', source:'Prioridades Support Product 4 May', day:'mon', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1617,6 +1631,9 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d52', text:'Compartir fechas de los 3 nuevos flujos que requieren endpoints de Tech', owner:'Andres De Las Casas', source:'Prioridades Support Product 4 May', status:'pendiente' },
+  { id:'d51', text:'Escalar experimento Return al 70% esta semana', owner:'Maria Granada', source:'Prioridades Support Product 4 May', status:'pendiente' },
+  { id:'d50', text:'Escalar experimento Order Delay al 95% esta semana', owner:'Maria Granada', source:'Prioridades Support Product 4 May', status:'pendiente' },
   { id:'d49', text:'Pasar la matriz de cancelaciones con todos los reasons incluyendo stockout', owner:'Maria Granada', source:'Food Live Assembled Abr 30', status:'pendiente' },
   { id:'d47', text:'Revisar datos usuarios categorizados como "otros" - determinar si baja cantidad es correcta o problema de categorizacion', owner:'Andres De Las Casas', source:'CX PRD Review Abr 30', status:'pendiente' },
   { id:'d48', text:'Enviar presentacion, grabacion y documento de analisis CX PRD al equipo para revision de hallazgos', owner:'Tatiana Oquendo', source:'CX PRD Review Abr 30', status:'pendiente' },
@@ -1635,7 +1652,8 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana. Juan Pablo: 1) AI Bot Phase I Triage Food Live — Kickoff con tech & pulir WF en Assembled, 2) AI Bot Phase I Food Non Live Suspension — Kickoff con tech & pulir WF en Assembled, 3) AI Bot Exp Problems with order (incorrectos/danados/faltantes) — Discovery con Meiker y Maria.', time: 'Lun 04 8:12', type: 'group', actionable: true },
+  { from: 'Camilo Esquivel', text: 'listo Juan, gracias (confirma recepcion FigJam Food Live y FigJam Suspensiones compartidos para kickoff)', time: 'Lun 04 10:03', type: 'dm', actionable: false },
+  { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana. Juan Pablo: 1) AI Bot Phase I Triage Food Live — Kickoff con tech & pulir WF en Assembled, 2) AI Bot Phase I Food Non Live Suspension — Kickoff con tech & pulir WF en Assembled, 3) AI Bot Exp Problems with order — Discovery con Meiker y Maria.', time: 'Lun 04 8:12', type: 'group', actionable: true },
   { from: 'Maria Granada (grupo)', text: 'AR muy bajito en Earnings/Referral y Identification document — ver como reducir inflow en esos flujos. Susana: escalar Referral earning al 100%.', time: 'Lun 04 8:20', type: 'group', actionable: true },
   { from: 'Juan Pablo → Camilo Esquivel', text: 'ya me dieron acceso a compartir figjam - te comparto el de Food Live y el de Suspensiones de una [FigJam Food_Live + Food Non Live Suspension]', time: 'Lun 04 8:41', type: 'dm', actionable: false },
   { from: 'Maria Granada', text: 'Me cuentas si tienes dudas, o si quieres buscamos un espacio con Yeimy Perez o con Andres Diaz para profundizar.', time: 'Abr 30 17:15', type: 'dm', actionable: true },
@@ -1645,8 +1663,8 @@ const SLACK_FEED = [
 ];
 
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '11:00-12:00', '14:30-18:00'] },
-  { day: 'Mar', blocks: ['8:00-13:00', '16:00-18:00'] },
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-12:00', '14:00-16:00', '16:45-18:00'] },
+  { day: 'Mar', blocks: ['8:00-10:30', '12:00-13:00', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-16:30'] },
   { day: 'Jue', blocks: ['11:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
