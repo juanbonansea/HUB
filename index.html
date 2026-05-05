@@ -1636,6 +1636,8 @@ const NOTES = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t112', text:'Detallar a Camilo Esquivel los casos de produccion y pantallas/opciones de menu que llevan al bot Food Live (comprometido esta tarde por DM)', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 05', day:'tue', completed:false },
+  { id:'t111', text:'Agendar y hacer nueva sesion Kickoff AI Bot Non Live Suspension con Jose Ceron (se perdio la de hoy) — disponible Mie desde 9:00 o 10:30+', phase:'build', priority:'P0', source:'DM Jose Ceron Mar 05', day:'wed', completed:false },
   { id:'t80', text:'Coordinar KFCA: hablar con Tech para implementar mensaje Cafca y determinar instanciacion requerida', phase:'build', priority:'P0', source:'Food Live Assembled Abr 30', day:'mon', completed:false },
   { id:'t81', text:'Integrar logica Order Hold al flujo pedido no visible (escenarios con y sin Order ID)', phase:'build', priority:'P0', source:'Food Live Assembled Abr 30', day:'mon', completed:false },
   { id:'t82', text:'Incluir RT Demorado obligatoriamente en construccion del flujo Live aliados', phase:'build', priority:'P0', source:'Food Live Assembled Abr 30', day:'mon', completed:false },
@@ -1713,12 +1715,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel (DM)', text: 'listo Juan, gracias — confirmacion de que los endpoints del Figma Food Live quedaron completos y listos', time: 'Mar 05 09:12', type: 'dm', actionable: false },
-  { from: 'Juan Pablo → Camilo (DM)', text: 'ya valide la ultima rama de este figma de Food_Live — estan todos los endpoints requeridos ahi!', time: 'Mar 05 08:48', type: 'dm', actionable: false },
-  { from: 'Meiker Munera (grupo QA+Producto)', text: 'Errores Assembled — solventamos errores de ONA, PwP y Vehicle. Vehicle era el mas afectado con 8 APIs. Manana corremos data nuevamente para ver si lo ajustado hoy surte el efecto esperado.', time: 'Lun 04 18:57', type: 'group', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: 'Compartio numero soporte WhatsApp +57 1 3571179 y link aliados.rappi.com/orders-kanban para probar flujos de soporte merchants', time: 'Lun 04 17:17', type: 'dm', actionable: false },
-  { from: 'Maria Granada (grupo)', text: 'de una team! les cito un espacio — la idea es que trabajen de la mano de @juan.bonansea que va a estar llevando lo de merchants. cc: Andres De Las Casas', time: 'Lun 04 16:52', type: 'group', actionable: true },
-  { from: 'Eugenio La Rosa (grupo)', text: 'Mayo-Junio: acelerar implementacion agentes AI en Assembled para Merchants. Propongo que Elias y equipo ayuden con los issue types que Mafe defina. Mafe: agenda training o comparte videos para onboarding del equipo de Elias.', time: 'Lun 04 16:50', type: 'group', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Hola Juan buen dia — sorry, se me concentre en otra tarea y se me paso la reunion AI Bot Non Live Suspension. La podemos hacer? Disponible manana a las 9 o desde 10:30 en adelante', time: 'Mar 05 12:31', type: 'dm', actionable: true },
+  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'de una — agendada nueva sesion de kickoff para manana miercoles 6 Mayo', time: 'Mar 05 12:36', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: 'Juan, para food_live necesitaria casos de produccion y desde que pantallas u opciones de menu van a llegar al bot — te los podria recomendar? Ya estoy iniciando endpoints (casos de produccion que Maria me compartio)', time: 'Mar 05 12:22', type: 'dm', actionable: true },
+  { from: 'Juan Pablo → Camilo (DM)', text: 'Listo Juan te los detallo esta tarde — ya empezaron con los endpoints si?', time: 'Mar 05 12:23', type: 'dm', actionable: false },
+  { from: 'Meiker Munera (grupo QA+Producto)', text: 'Errores Assembled solventados — ONA, PwP y Vehicle (8 APIs corregidas). Manana corremos data nuevamente para ver si lo ajustado hoy surte efecto esperado.', time: 'Lun 04 18:57', type: 'group', actionable: true },
+  { from: 'Maria Granada (grupo)', text: 'de una team! la idea es que trabajen de la mano de @juan.bonansea que va a estar llevando lo de merchants. cc: Andres De Las Casas, Elias Rivera', time: 'Lun 04 16:52', type: 'group', actionable: true },
   { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana para Juan Pablo: 1) AI Bot Triage Food Live — Kickoff y pulir WF, 2) AI Bot Food Non Live Suspension — Kickoff, 3) AI Bot Exp Problems — Discovery con Meiker y Maria.', time: 'Lun 04 08:12', type: 'group', actionable: true }
 ];
 
