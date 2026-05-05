@@ -1478,11 +1478,12 @@ const EVENTS = {
     { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1' }
   ],
   wed: [
-    { time:'11:00-12:00', title:'Check- Food Live & Suspensiones', attendees:3, org:'m.granada@rappi.com', type:'team', note:'Espacio creado por Maria Granada hoy - revision estado flujos Food Live y Suspensiones post-kickoff' },
+    { time:'11:00-12:00', title:'All Hands CX 🚀', attendees:100, org:'fatima.manrique@rappi.com', type:'team', note:'All Hands de todo el equipo CX — aprendizajes, cambios organizativos y nueva etapa del area' },
     { time:'11:30-12:30', title:'Shadowing | Offenders OPs (Non Food)', attendees:16, org:'elias.rivera@rappi.com', type:'shadowing' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'15:00-16:00', title:'Assembled Merchants', attendees:6, org:'f.diaz@rappi.com', type:'external', note:'Mafe ensena Assembled para llevar flujos de pagos - Juan Pablo needsAction' },
-    { time:'16:30-17:30', title:'Shadowing Merchant (TaskUs)', attendees:16, org:'carla.capristan@rappi.com', type:'shadowing' }
+    { time:'16:30-17:30', title:'Shadowing Merchant (TaskUs)', attendees:16, org:'carla.capristan@rappi.com', type:'shadowing' },
+    { time:'17:00-17:30', title:'Check- Food Live & Suspensiones', attendees:3, org:'m.granada@rappi.com', type:'team', note:'Revision estado flujos Food Live y Suspensiones post-kickoff — Maria Granada, Juan Pablo, Andres' }
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team' },
@@ -1712,12 +1713,12 @@ const DEFAULT_DELEGATED = [
 
 const SLACK_FEED = [
   { from: 'Meiker Munera (grupo QA+Producto)', text: 'Errores Assembled — solventamos errores de ONA, PwP y Vehicle. Vehicle era el mas afectado con 8 APIs (upload car image, cedula, DNI, etc.). Mañana corremos data nuevamente para ver si lo ajustado hoy surte el efecto esperado.', time: 'Lun 04 18:57', type: 'group', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: 'Compartio numero soporte WhatsApp +57 1 3571179 y link aliados.rappi.com/orders-kanban para probar flujos de soporte merchants (post Review food live)', time: 'Lun 04 17:17', type: 'dm', actionable: false },
-  { from: 'Maria Granada (grupo)', text: 'de una team! les cito un espacio — la idea es que trabajen de la mano de @juan.bonansea que va a estar llevando lo de merchants', time: 'Lun 04 16:52', type: 'group', actionable: true },
-  { from: 'Eugenio La Rosa (grupo)', text: 'durante Mayo y Junio, debemos acelerar implementacion de agentes AI en Assembled para Merchants. Andy: propongo que Elias y equipo ayuden en estos dos meses con los issue types que Mafe defina. Mafe: agenda training o comparte videos para su onboarding', time: 'Lun 04 16:50', type: 'group', actionable: true },
-  { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana. Juan Pablo: 1) AI Bot Phase I Triage Food Live — Kickoff con tech & pulir WF en Assembled, 2) AI Bot Phase I Food Non Live Suspension — Kickoff con tech & pulir WF en Assembled, 3) AI Bot Exp Problems with order — Discovery con Meiker y Maria.', time: 'Lun 04 8:12', type: 'group', actionable: true },
-  { from: 'Maria Granada (grupo)', text: 'AR muy bajito en Earnings/Referral y Identification document — ver como reducir inflow en esos flujos. Susana: escalar Referral earning al 100%.', time: 'Lun 04 8:20', type: 'group', actionable: true },
-  { from: 'Maria Granada', text: 'Mi recomendacion: coge lo que ya tiene el DT con subproblemas y automatiza esos. 1. Problemas con RT (prioriza), 2. Problemas con la tienda, 3. Problemas con usuario. Del pareto, lo demas va a agente.', time: 'Abr 30 17:12', type: 'dm', actionable: true }
+  { from: 'Andres De Las Casas (DM)', text: 'Compartio numero soporte WhatsApp +57 1 3571179 y link aliados.rappi.com/orders-kanban para probar flujos de soporte merchants (post Review food live - suspensions)', time: 'Lun 04 17:17', type: 'dm', actionable: false },
+  { from: 'Maria Granada (grupo)', text: 'de una team! les cito un espacio — la idea es que trabajen de la mano de @juan.bonansea que va a estar llevando lo de merchants. cc: Andres De Las Casas', time: 'Lun 04 16:52', type: 'group', actionable: true },
+  { from: 'Eugenio La Rosa (grupo)', text: 'durante Mayo y Junio debemos acelerar implementacion de agentes AI en Assembled para Merchants. Andy: propongo que Elias y equipo ayuden en estos dos meses con los issue types que Mafe defina. Mafe: agenda training o comparte videos para su onboarding', time: 'Lun 04 16:50', type: 'group', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Hola Juan, mira este es el Figjam del flujo Food Live que vimos ahorita — revision del tablero de automatizaciones existentes para incorporar logica a nuevos flujos', time: 'Lun 04 11:58', type: 'dm', actionable: true },
+  { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana. Juan Pablo: 1) AI Bot Phase I Triage Food Live — Kickoff con tech y pulir WF en Assembled, 2) AI Bot Phase I Food Non Live Suspension — Kickoff con tech y pulir WF en Assembled, 3) AI Bot Exp Problems with order — Discovery con Meiker y Maria.', time: 'Lun 04 8:12', type: 'group', actionable: true },
+  { from: 'Maria Granada (grupo)', text: 'AR muy bajito en Vehicle y Earnings/Referral — ver como reducir inflow en esos flujos. Meiker y Susana: si tienen tiempo revisar Vehicle que bajamos mucho AR por ese error de APIs.', time: 'Lun 04 8:20', type: 'group', actionable: true }
 ];
 
 const DEEP_WORK = [
