@@ -1500,6 +1500,25 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:37, title:'Review food live - suspensions', date:'4 May',
+    summary:'Reunion para reestructurar flujos de automatizacion para comerciantes con prioridad en datos y estrategia unificada. Se implementaran verificaciones previas en el flujo para confirmar estados de ordenes y evitar liberaciones innecesarias de repartidores. La meta es priorizar los problemas del comerciante sobre soluciones internas preexistentes. Estrategia: integrar gradualmente nuevos flujos al arbol de decisiones existente, priorizando metricas para asegurar que las automatizaciones reduzcan el volumen de agentes.',
+    sections:['Optimizacion automatizacion RT','Gestion incidencias operativas','Estrategia implementacion tecnica'],
+    actions:[
+      { text:'Revisar Figma de automatizaciones existentes e incorporar logica a nuevos flujos', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Reestructurar flujo centrandose en el problema del comerciante — liberar RT solo como ultima solucion', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Repensar solucion para contactar al repartidor usando metodos de ubicacion si posible', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Mapear todos los flujos de interaccion existentes del comerciante (chatear con cliente, llamar RT, etc.)', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Ejecutar queries SQL necesarias para metricas de soporte merchants - pedir ayuda a Andy', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Priorizar flujos basandose en data de inflow y revisar tipificaciones Merchant para enfoque', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Definir y proponer estrategia de implementacion del flujo de soporte para comerciantes', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Revisar con Tech el evento Billing Report y validar estado de modificacion de la orden', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Solicitar a Vero (Engineer Lead) sesion con equipo QA para revisar flujo canal soporte merchants', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Terminar comentarios del mapeo de procesos actuales y replantear enfoque en problemas vs soluciones', owner:'Juan Pablo', phase:'build', priority:'P2' },
+      { text:'Buscar IDs de tiendas reales para probar flujos de soporte y canales', owner:'Juan Pablo', phase:'build', priority:'P2' },
+      { text:'Compartir por Slack numero soporte WhatsApp y URL aliados.rappi.com/orders-kanban', owner:'Andres De Las Casas', phase:'build', priority:'P1' }
+    ]
+  },
+  {
     id:36, title:'[Kickoff] AI Bot Phase I - Triage Food Live', date:'4 May',
     summary:'La reunion definio la integracion tecnica del bot de soporte mediante puntos de conexion y flujos optimizados. Bot integrado en Decision Tree tras seleccion de la orden en vivo. Flujo Food Live automatizara el 80% de problemas de repartidores y ordenes ahorrando 19891 tickets mensuales. Se establecieron validaciones para repartidores, sustitucion de productos y cancelaciones. Seguridad antifraude es prioridad.',
     sections:['Integracion del bot soporte','Gestion de ordenes Food Live','Finalizacion de flujos tecnicos'],
@@ -1639,7 +1658,13 @@ const DEFAULT_TASKS = [
   { id:'t101', text:'Detallar pasos de accion para flujo Otro repartidor se llevo el pedido', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false },
   { id:'t102', text:'Confirmar si se requiere endpoint adicional y verificar historial RT asignados a una orden especifica', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false },
   { id:'t103', text:'Terminar diseno Figma del flujo AI Bot Triage Food Live con informacion acordada en kickoff', phase:'build', priority:'P1', source:'Kickoff AI Bot Triage Food Live 4 May', day:'tue', completed:false },
-  { id:'t104', text:'Liderar implementacion agentes AI en Assembled para Merchants (Mayo-Junio) — definir issue types con Mafe y coordinar onboarding equipo Elias Rivera', phase:'build', priority:'P0', source:'Grupo DM Lun 04 16:52', day:'wed', completed:false }
+  { id:'t104', text:'Liderar implementacion agentes AI en Assembled para Merchants (Mayo-Junio) — definir issue types con Mafe y coordinar onboarding equipo Elias Rivera', phase:'build', priority:'P0', source:'Grupo DM Lun 04 16:52', day:'wed', completed:false },
+  { id:'t105', text:'[Review Lun] Revisar Figma de automatizaciones existentes e incorporar logica a nuevos flujos de soporte merchants', phase:'build', priority:'P0', source:'Review food live - suspensions 4 May', day:'tue', completed:false },
+  { id:'t106', text:'[Review Lun] Reestructurar flujo centrandose en el problema del comerciante — liberar RT solo como ultima solucion', phase:'build', priority:'P0', source:'Review food live - suspensions 4 May', day:'tue', completed:false },
+  { id:'t107', text:'[Review Lun] Mapear todos los flujos de interaccion existentes del comerciante (chatear con cliente, llamar RT, etc.)', phase:'build', priority:'P1', source:'Review food live - suspensions 4 May', day:'wed', completed:false },
+  { id:'t108', text:'[Review Lun] Ejecutar queries SQL de soporte merchants y pedir ayuda a Andy para construirlas', phase:'build', priority:'P1', source:'Review food live - suspensions 4 May', day:'wed', completed:false },
+  { id:'t109', text:'[Review Lun] Priorizar flujos basandose en data de inflow y revisar tipificaciones Merchant para enfoque', phase:'build', priority:'P1', source:'Review food live - suspensions 4 May', day:'wed', completed:false },
+  { id:'t110', text:'[Review Lun] Solicitar a Vero (Engineer Lead) sesion con equipo QA para revisar flujo canal soporte merchants', phase:'build', priority:'P1', source:'Review food live - suspensions 4 May', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1658,6 +1683,7 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d59', text:'Compartir por Slack numero soporte WhatsApp (+57 1 3571179) y URL aliados.rappi.com/orders-kanban para probar flujos de soporte merchants', owner:'Andres De Las Casas', source:'Review food live - suspensions 4 May', status:'pendiente' },
   { id:'d58', text:'Apoyar a Juan Pablo y Mafe en implementacion agentes AI en Assembled para Merchants Mayo-Junio (issue types por definir en sesion de training)', owner:'Elias Rivera y equipo', source:'Grupo DM Lun 04 16:50', status:'pendiente' },
   { id:'d57', text:'Buscar arbol principal del menu dinamico y compartir menu principal + usuario de prueba para puntos de anclaje del bot', owner:'Juan Camilo Esquivel', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
   { id:'d56', text:'Realizar doble verificacion de pruebas con Juan Esquivel para los 3 canales y enviar capturas de pantalla', owner:'Grupo', source:'Kickoff AI Bot Triage Food Live 4 May', status:'pendiente' },
@@ -1685,15 +1711,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Meiker Munera (grupo QA+Producto)', text: 'Errores Assembled — solventamos errores de ONA, PwP y Vehicle. Vehicle era el mas afectado con 8 APIs (upload car image, cedula, DNI, etc.). Mañana corremos data nuevamente para ver si lo ajustado hoy surte el efecto esperado.', time: 'Lun 04 18:57', type: 'group', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: 'Compartio numero soporte WhatsApp +57 1 3571179 y link aliados.rappi.com/orders-kanban para probar flujos de soporte merchants (post Review food live)', time: 'Lun 04 17:17', type: 'dm', actionable: false },
   { from: 'Maria Granada (grupo)', text: 'de una team! les cito un espacio — la idea es que trabajen de la mano de @juan.bonansea que va a estar llevando lo de merchants', time: 'Lun 04 16:52', type: 'group', actionable: true },
   { from: 'Eugenio La Rosa (grupo)', text: 'durante Mayo y Junio, debemos acelerar implementacion de agentes AI en Assembled para Merchants. Andy: propongo que Elias y equipo ayuden en estos dos meses con los issue types que Mafe defina. Mafe: agenda training o comparte videos para su onboarding', time: 'Lun 04 16:50', type: 'group', actionable: true },
-  { from: 'Maria Granada', text: 'Hola juan mira este es el figjam que vimos ahorita [FigJam Food_Live compartido post-kickoff para revision de flujos]', time: 'Lun 04 11:58', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel', text: 'listo Juan, gracias (confirma recepcion FigJam Food Live y FigJam Suspensiones compartidos para kickoff)', time: 'Lun 04 10:03', type: 'dm', actionable: false },
   { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana. Juan Pablo: 1) AI Bot Phase I Triage Food Live — Kickoff con tech & pulir WF en Assembled, 2) AI Bot Phase I Food Non Live Suspension — Kickoff con tech & pulir WF en Assembled, 3) AI Bot Exp Problems with order — Discovery con Meiker y Maria.', time: 'Lun 04 8:12', type: 'group', actionable: true },
   { from: 'Maria Granada (grupo)', text: 'AR muy bajito en Earnings/Referral y Identification document — ver como reducir inflow en esos flujos. Susana: escalar Referral earning al 100%.', time: 'Lun 04 8:20', type: 'group', actionable: true },
-  { from: 'Juan Pablo → Camilo Esquivel', text: 'ya me dieron acceso a compartir figjam - te comparto el de Food Live y el de Suspensiones de una [FigJam Food_Live + Food Non Live Suspension]', time: 'Lun 04 8:41', type: 'dm', actionable: false },
-  { from: 'Maria Granada', text: 'Mi recomendacion: coge lo que ya tiene el DT con subproblemas y automatiza esos. 1. Problemas con RT (prioriza), 2. Problemas con la tienda, 3. Problemas con usuario. Del pareto, lo demas va a agente.', time: 'Abr 30 17:12', type: 'dm', actionable: true },
-  { from: 'Maria Granada', text: 'El lunes decirle a Tech que queremos pegar los flujos antes de los DTs de Live. Asegurar que lo de los DTs quede en los bots.', time: 'Abr 30 17:07', type: 'dm', actionable: true }
+  { from: 'Maria Granada', text: 'Mi recomendacion: coge lo que ya tiene el DT con subproblemas y automatiza esos. 1. Problemas con RT (prioriza), 2. Problemas con la tienda, 3. Problemas con usuario. Del pareto, lo demas va a agente.', time: 'Abr 30 17:12', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
