@@ -1480,6 +1480,7 @@ const EVENTS = {
   wed: [
     { time:'11:00-12:00', title:'All Hands CX 🚀', attendees:100, org:'fatima.manrique@rappi.com', type:'team', note:'All Hands de todo el equipo CX — aprendizajes, cambios organizativos y nueva etapa del area' },
     { time:'11:30-12:30', title:'Shadowing | Offenders OPs (Non Food)', attendees:16, org:'elias.rivera@rappi.com', type:'shadowing' },
+    { time:'12:00-12:30', title:'[Kickoff] AI Bot Phase I - Food Non Live Suspension', attendees:4, org:'juan.bonansea@rappi.com', type:'team', note:'Kickoff reagendado con Jose Ceron — Juan Pablo organiza, Veronica Ferro presente' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-15:00', title:'PwP Iteracion', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'Revision de iteracion PwP con Maria Granada' },
     { time:'15:00-16:00', title:'Assembled Merchants', attendees:6, org:'f.diaz@rappi.com', type:'external', note:'Mafe ensena Assembled para llevar flujos de pagos - Juan Pablo needsAction' },
@@ -1651,7 +1652,7 @@ const NOTES = [
 
 const DEFAULT_TASKS = [
   { id:'t112', text:'Detallar a Camilo Esquivel los casos de produccion y pantallas/opciones de menu que llevan al bot Food Live (comprometido esta tarde por DM)', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 05', day:'tue', completed:false },
-  { id:'t111', text:'Agendar y hacer nueva sesion Kickoff AI Bot Non Live Suspension con Jose Ceron (se perdio la de hoy) — disponible Mie desde 9:00 o 10:30+', phase:'build', priority:'P0', source:'DM Jose Ceron Mar 05', day:'wed', completed:false },
+  { id:'t111', text:'Agendar y hacer nueva sesion Kickoff AI Bot Non Live Suspension con Jose Ceron (se perdio la de hoy) — disponible Mie desde 9:00 o 10:30+', phase:'build', priority:'P0', source:'DM Jose Ceron Mar 05', day:'wed', completed:true },
   { id:'t80', text:'Coordinar KFCA: hablar con Tech para implementar mensaje Cafca y determinar instanciacion requerida', phase:'build', priority:'P0', source:'Food Live Assembled Abr 30', day:'mon', completed:false },
   { id:'t81', text:'Integrar logica Order Hold al flujo pedido no visible (escenarios con y sin Order ID)', phase:'build', priority:'P0', source:'Food Live Assembled Abr 30', day:'mon', completed:false },
   { id:'t82', text:'Incluir RT Demorado obligatoriamente en construccion del flujo Live aliados', phase:'build', priority:'P0', source:'Food Live Assembled Abr 30', day:'mon', completed:false },
@@ -1683,7 +1684,7 @@ const DEFAULT_TASKS = [
   { id:'t108', text:'[Review Lun] Ejecutar queries SQL de soporte merchants y pedir ayuda a Andy para construirlas', phase:'build', priority:'P1', source:'Review food live - suspensions 4 May', day:'wed', completed:false },
   { id:'t109', text:'[Review Lun] Priorizar flujos basandose en data de inflow y revisar tipificaciones Merchant para enfoque', phase:'build', priority:'P1', source:'Review food live - suspensions 4 May', day:'wed', completed:false },
   { id:'t110', text:'[Review Lun] Solicitar a Vero (Engineer Lead) sesion con equipo QA para revisar flujo canal soporte merchants', phase:'build', priority:'P1', source:'Review food live - suspensions 4 May', day:'thu', completed:false },
-  { id:'t113', text:'Preparar agenda y casos para Kickoff AI Bot Non Live Suspension con Jose Ceron (Mie 6 Mayo 12:00)', phase:'build', priority:'P0', source:'DM Jose Ceron / Calendar Mie 6', day:'tue', completed:false },
+  { id:'t113', text:'Preparar agenda y casos para Kickoff AI Bot Non Live Suspension con Jose Ceron (Mie 6 Mayo 12:00)', phase:'build', priority:'P0', source:'DM Jose Ceron / Calendar Mie 6', day:'tue', completed:true },
   { id:'t114', text:'Preparar puntos para Assembled Merchants manana (Mie 15:00) — aprender como llevar flujos de pagos a Assembled', phase:'discovery', priority:'P1', source:'Calendar Mie 6 Mayo 15:00', day:'tue', completed:false },
   { id:'t115', text:'All Hands CX manana (Mie 11:00-12:00) — preparar actualizacion de avances de iniciativas AI Bot para compartir al equipo', phase:'build', priority:'P1', source:'Calendar Mie 6 Mayo 11:00', day:'tue', completed:false },
   { id:'t116', text:'Escribir a Luciano Gaspar solicitando accesos a herramienta Portal Partners (Andres compartio su usuario hoy por DM)', phase:'build', priority:'P0', source:'JP/Andres 5 May + DM Andres 5 May', day:'tue', completed:false },
@@ -1739,13 +1740,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Dangeli Cardenas (DM)', text: 'Holaaaa — Todo bien y tu? (experta en logica de suspension — Juan Pablo la contacto para agendar validacion de flujos)', time: 'Mar 05 16:52', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: '@luciano.gaspar accesos a Portal Partners — referencia para que Juan Pablo le escriba y solicite acceso a la herramienta.', time: 'Mar 05 15:51', type: 'dm', actionable: true },
+  { from: 'Dangeli Cardenas (DM)', text: 'Holaaaa — Todo bien y tu? (experta en logica de suspension — pendiente agendar sesion para validar logica completa antes del dev)', time: 'Mar 05 16:52', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: '@luciano.gaspar accesos a Portal Partners — Andres te compartio el contacto. Pendiente: escribirle a Luciano para solicitar acceso.', time: 'Mar 05 15:51', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Juan, para food_live necesitaria casos de produccion y desde que pantallas u opciones de menu van a llegar al bot — ya estoy iniciando endpoints con los casos que Maria me compartio. Apenas los termine te aviso.', time: 'Mar 05 12:22', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Sorry, me concentre en otra tarea y se me paso la reunion AI Bot Non Live Suspension. La podemos hacer? Disponible a las 9 o desde 10:30 en adelante.', time: 'Mar 05 12:31', type: 'dm', actionable: false },
-  { from: 'Meiker Munera (grupo QA+Producto)', text: 'Errores Assembled solventados — ONA, PwP y Vehicle (8 APIs corregidas incl. Upload CO, TPP, cedulas, DNI, licencias AR/RG, Costa Rica/Ecuador). Manana corremos data nuevamente para confirmar efecto.', time: 'Lun 04 18:57', type: 'group', actionable: true },
-  { from: 'Maria Granada (grupo)', text: 'de una team! la idea es que trabajen de la mano de @juan.bonansea que va a estar llevando lo de merchants — sesion ya agendada con Andy. cc: Elias Rivera', time: 'Lun 04 16:52', type: 'group', actionable: true },
-  { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana: 1) AI Bot Triage Food Live — Kickoff y pulir WF, 2) AI Bot Food Non Live Suspension — Kickoff (reagendado Mie 6), 3) AI Bot Exp Problems — Discovery con Meiker.', time: 'Lun 04 08:12', type: 'group', actionable: true }
+  { from: 'Jose Ceron (DM)', text: 'Sorry, me concentre en otra tarea y se me paso la reunion AI Bot Non Live Suspension. La podemos hacer? Disponible a las 9 o desde 10:30 en adelante. — Kickoff reagendado para Mie 6 a las 12:00 ✓', time: 'Mar 05 12:31', type: 'dm', actionable: false },
+  { from: 'All Hands CX (hoy Mie 06 11:00)', text: 'All Hands CX realizado — alineacion de aprendizajes, cambios organizativos y nueva etapa del area. Verificar si hubo anuncios clave para el equipo de Producto.', time: 'Mie 06 12:00', type: 'group', actionable: true },
+  { from: 'Meiker Munera (grupo QA+Producto)', text: 'Errores Assembled solventados — ONA, PwP y Vehicle (8 APIs corregidas incl. Upload CO, TPP, cedulas, DNI, licencias AR/RG, Costa Rica/Ecuador). Corremos data de validacion hoy para confirmar efecto.', time: 'Lun 04 18:57', type: 'group', actionable: true },
+  { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana: 1) AI Bot Triage Food Live — Kickoff y pulir WF, 2) AI Bot Food Non Live Suspension — Kickoff (reagendado Mie 6 12:00 HECHO), 3) AI Bot Exp Problems — Discovery con Meiker.', time: 'Lun 04 08:12', type: 'group', actionable: true }
 ];
 
 const DEEP_WORK = [
