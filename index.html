@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 4-8 Mayo 2026</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 4-8 Mayo 2026 — Hoy Mie 6</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1740,21 +1740,21 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Dangeli Cardenas (DM)', text: 'Holaaaa — Todo bien y tu? (experta en logica de suspension — pendiente agendar sesion para validar logica completa antes del dev)', time: 'Mar 05 16:52', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: '@luciano.gaspar accesos a Portal Partners — Andres te compartio el contacto. Pendiente: escribirle a Luciano para solicitar acceso.', time: 'Mar 05 15:51', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Juan, para food_live necesitaria casos de produccion y desde que pantallas u opciones de menu van a llegar al bot — ya estoy iniciando endpoints con los casos que Maria me compartio. Apenas los termine te aviso.', time: 'Mar 05 12:22', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Sorry, me concentre en otra tarea y se me paso la reunion AI Bot Non Live Suspension. La podemos hacer? Disponible a las 9 o desde 10:30 en adelante. — Kickoff reagendado para Mie 6 a las 12:00 ✓', time: 'Mar 05 12:31', type: 'dm', actionable: false },
-  { from: 'All Hands CX (hoy Mie 06 11:00)', text: 'All Hands CX realizado — alineacion de aprendizajes, cambios organizativos y nueva etapa del area. Verificar si hubo anuncios clave para el equipo de Producto.', time: 'Mie 06 12:00', type: 'group', actionable: true },
-  { from: 'Meiker Munera (grupo QA+Producto)', text: 'Errores Assembled solventados — ONA, PwP y Vehicle (8 APIs corregidas incl. Upload CO, TPP, cedulas, DNI, licencias AR/RG, Costa Rica/Ecuador). Corremos data de validacion hoy para confirmar efecto.', time: 'Lun 04 18:57', type: 'group', actionable: true },
-  { from: 'Maria Granada (grupo)', text: 'Prioridades AI esta semana: 1) AI Bot Triage Food Live — Kickoff y pulir WF, 2) AI Bot Food Non Live Suspension — Kickoff (reagendado Mie 6 12:00 HECHO), 3) AI Bot Exp Problems — Discovery con Meiker.', time: 'Lun 04 08:12', type: 'group', actionable: true }
+  { from: 'Kickoff AI Bot Non Live (Mie 06)', text: 'Kickoff AI Bot Non Live Suspension con Jose Ceron realizado ✓ — acordar proximos pasos y agenda de dev pendiente del Check Food Live (17:00)', time: 'Mie 06 12:30', type: 'group', actionable: true },
+  { from: 'All Hands CX (Mie 06)', text: 'All Hands CX realizado ✓ — alineacion aprendizajes, cambios organizativos y nueva etapa del area. Verificar anuncios clave para Producto.', time: 'Mie 06 12:00', type: 'group', actionable: true },
+  { from: 'Dangeli Cardenas (DM)', text: 'Holaaaa — Todo bien y tu? Experta en logica de suspension — pendiente agendar sesion para validar logica completa antes del dev', time: 'Mar 05 16:52', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: '@luciano.gaspar accesos a Portal Partners — contacto compartido. Pendiente: escribirle a Luciano solicitando acceso hoy', time: 'Mar 05 15:51', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Para food_live necesito casos de produccion y pantallas/opciones de menu que llevan al bot — iniciando endpoints con casos de Maria. Te aviso cuando termine.', time: 'Mar 05 12:22', type: 'dm', actionable: true },
+  { from: 'Meiker Munera (grupo QA+Producto)', text: 'Errores Assembled solventados — ONA, PwP y Vehicle (8 APIs corregidas). Data de validacion disponible para revision.', time: 'Lun 04 18:57', type: 'group', actionable: true },
+  { from: 'Maria Granada (grupo)', text: 'Prioridades IA esta semana: Bot Triage Food Live (Kickoff ✓), Bot Non Live Suspension (Kickoff Mie ✓), Bot Exp Problems — Discovery con Meiker pendiente.', time: 'Lun 04 08:12', type: 'group', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-12:00', '14:00-16:00', '16:45-18:00'] },
   { day: 'Mar', blocks: ['8:00-10:30', '12:00-13:00', '14:30-15:30', '16:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-11:00'] },
+  { day: 'Mie', blocks: ['17:30-19:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
+  { day: 'Vie', blocks: ['8:00-14:00', '15:15-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
