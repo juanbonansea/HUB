@@ -1503,6 +1503,33 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:40, title:'[Kickoff] AI Bot Phase I - Food Non Live Suspension (con Jose Ceron)', date:'6 May',
+    summary:'Revision tecnica detallada para implementar endpoints de suspension y estados de tiendas Turbo mediante validaciones integradas. Se definio la necesidad de endpoints para confirmar suspensiones y verificar estados Turbo. El bot informara sobre contactos de Key Account Manager para tiendas Turbo. Se requiere validar tiempos restantes de suspension y se integran estados On Hold y Churn en endpoints existentes.',
+    sections:['Endpoints de suspension solicitados','Logica del bot conversacional','Estados On Hold y Churn'],
+    actions:[
+      { text:'Organizar documento completo de endpoints: imagen, URL y credenciales de acceso para bot Food Non Live Suspension', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Compartir archivo Figma del flujo de suspension con Jose Luis Ceron', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Proveer IDs de chat de casos de atencion actuales para pruebas de integracion del bot', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Crear hilo de comunicacion y etiquetar a Jose Luis Ceron para coordinacion de endpoints', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Pasar archivo modelo para documentar los endpoints del bot de suspension', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
+      { text:'Disponibilizar endpoints necesarios para integracion una vez recibida la documentacion', owner:'Jose Luis Ceron', phase:'build', priority:'P1' },
+      { text:'Analizar mejores alternativas para clasificar si un restaurante es turbo sin depender del nombre', owner:'Jose Luis Ceron', phase:'discovery', priority:'P1' },
+      { text:'Hablar con Vero para conseguir links de acceso, usuarios y contrasenas de plataforma Merchants', owner:'Jose Luis Ceron', phase:'build', priority:'P1' }
+    ]
+  },
+  {
+    id:39, title:'All Hands CX', date:'6 May',
+    summary:'All Hands de todo el equipo CX enfocado en estrategia de retencion de usuarios mediante eficiencias operativas y lanzamiento de equipo interno de Customer Advocates. El equipo mejoro la retencion 1.17 puntos porcentuales optimizando politicas reactivas y proactivas. Se proyecta reducir gasto en proveedores externos automatizando 140,000 tickets con un agente conversacional de IA integrado en WhatsApp.',
+    sections:['Resultados de retencion trimestrales','Estrategias de optimizacion operativa','Lanzamiento de Customer Advocates'],
+    actions:[
+      { text:'Desarrollar agente conversacional de soporte para resolver problemas en WhatsApp — listo a finales de mayo con AWS', owner:'Andres De Las Casas', phase:'build', priority:'P0' },
+      { text:'Iniciar pruebas del nuevo canal de WhatsApp con usuarios internos', owner:'Andres De Las Casas', phase:'build', priority:'P0' },
+      { text:'Disenar proceso para mayor autonomia en casos especiales y configurar herramientas y accesos para Customer Advocates Mexico', owner:'Eugenio La Rosa / Catalina Bello', phase:'build', priority:'P1' },
+      { text:'Planificar capacidad con 6 meses de anticipacion y programar con mayor precision posible', owner:'El grupo', phase:'discovery', priority:'P1' },
+      { text:'Levantar riesgos coordinadamente con los equipos para cumplir metas del plan de ahorros', owner:'El grupo', phase:'build', priority:'P1' }
+    ]
+  },
+  {
     id:38, title:'Juan Pablo / Andres - Bots Foodlife y Suspensiones', date:'5 May',
     summary:'Revision del progreso del bot Foodlife y optimizacion del bot de suspensiones para automatizar levantamientos y mejorar la interaccion comercial. Se prioriza automatizacion sobre derivaciones manuales ajustando el tono comunicativo. Implementacion cubrira multiples interfaces de aliados mediante pruebas controladas. Validacion inicial es responsabilidad del desarrollador antes del lanzamiento.',
     sections:['Estado bot Foodlife','Optimizacion bot suspensiones','Despliegue y validacion tecnica'],
@@ -1692,7 +1719,11 @@ const DEFAULT_TASKS = [
   { id:'t118', text:'Leer tickets de merchants para entender quejas y lenguaje utilizado — insumo para escribir prompts del bot de suspensiones', phase:'discovery', priority:'P0', source:'JP/Andres 5 May', day:'wed', completed:false },
   { id:'t119', text:'Terminar totalidad de accionables de reuniones previas y agendar revision de avances con Andres', phase:'build', priority:'P0', source:'JP/Andres 5 May', day:'wed', completed:false },
   { id:'t120', text:'Revisar llamadas a tiendas integradas para validar posibilidad de automatizar proceso de suspension', phase:'discovery', priority:'P1', source:'JP/Andres 5 May', day:'thu', completed:false },
-  { id:'t121', text:'Validar con Tech si es posible un convertidor de tiempo restante de suspension a horas/minutos en lugar de minutos brutos', phase:'build', priority:'P1', source:'JP/Andres 5 May', day:'thu', completed:false }
+  { id:'t121', text:'Validar con Tech si es posible un convertidor de tiempo restante de suspension a horas/minutos en lugar de minutos brutos', phase:'build', priority:'P1', source:'JP/Andres 5 May', day:'thu', completed:false },
+  { id:'t122', text:'Organizar documento completo de endpoints del bot Food Non Live Suspension: imagen, URL y credenciales de acceso', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false },
+  { id:'t123', text:'Compartir archivo Figma del flujo de suspension con Jose Luis Ceron (comprometido en kickoff de hoy)', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false },
+  { id:'t124', text:'Proveer IDs de chat de casos de atencion actuales para pruebas de integracion del bot', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false },
+  { id:'t125', text:'Crear hilo de comunicacion y etiquetar a Jose Luis Ceron para coordinacion de endpoints del bot suspension', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1736,16 +1767,20 @@ const DEFAULT_DELEGATED = [
   { id:'d39', text:'Derivar caso pedido no visible para pago al area de Pagos', owner:'Xiomi Pardave', source:'Shadowing Abr 23', status:'pendiente' },
   { id:'d40', text:'Revisar implementacion chat movil iOS/Android y priorizacion en Q3', owner:'Juliana Sarabia', source:'Chat Portal Abr 28', status:'pendiente' },
   { id:'d41', text:'Mapear cambios en chat por eliminacion Partner ID y RapiAliados ID', owner:'Carlos Natera', source:'Chat Portal Abr 28', status:'pendiente' },
-  { id:'d42', text:'Sizing unificacion canales chat y escalar prioridades con ISA', owner:'Andres De Las Casas', source:'Chat Portal Abr 28', status:'pendiente' }
+  { id:'d42', text:'Sizing unificacion canales chat y escalar prioridades con ISA', owner:'Andres De Las Casas', source:'Chat Portal Abr 28', status:'pendiente' },
+  { id:'d61', text:'Pasar archivo modelo para documentar los endpoints del bot de suspension', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' },
+  { id:'d62', text:'Disponibilizar endpoints necesarios para integracion del bot Food Non Live Suspension una vez recibida la documentacion', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' },
+  { id:'d63', text:'Analizar mejores alternativas para clasificar si un restaurante es turbo sin depender del nombre del restaurante', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' },
+  { id:'d64', text:'Hablar con Vero para conseguir links de acceso, usuarios y contrasenas de plataforma Merchants', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Kickoff AI Bot Non Live (Mie 06 12:00)', text: 'Kickoff AI Bot Non Live Suspension con Jose Ceron completado ✓ — proximos pasos y agenda de dev a cerrar en Check Food Live hoy 17:00', time: 'Mie 06 12:30', type: 'group', actionable: true },
-  { from: 'All Hands CX (Mie 06 11:00)', text: 'All Hands CX completado ✓ — alineacion aprendizajes, cambios organizativos y nueva etapa del area. Verificar anuncios clave para el area de Producto.', time: 'Mie 06 12:00', type: 'group', actionable: false },
-  { from: 'PwP Iteracion (Mie 06 14:00)', text: 'Reunion con Maria Granada y Meiker — llevar estado actualizado del flujo Live y Suspensiones post-kickoff de esta manana con Jose Ceron', time: 'Mie 06 14:00', type: 'group', actionable: true },
+  { from: 'Maria Granada (Grupo DM)', text: 'hablando con andy voy a tomar esta iniciativa yo para que puedas enfocarte full esta semana y la proxima en los flujos de merchants — Cc Meiker: te busco espacio la proxima semana', time: 'Mie 06 12:35', type: 'group', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'Juan me puedes compartir el link de acceso al portal — Juan Pablo compartio Figma del flujo Food Non Live Suspension ✓ Kickoff completado hoy', time: 'Mie 06 12:31', type: 'dm', actionable: false },
+  { from: 'All Hands CX (Mie 06)', text: 'All Hands CX completado ✓ — retencion mejoro 1.17pp, meta 140K tickets automatizados con agente IA, equipo Customer Advocates lanzado en Mexico', time: 'Mie 06 12:00', type: 'group', actionable: false },
   { from: 'Dangeli Cardenas (DM)', text: 'Holaaaa — Todo bien y tu? Es la experta en logica de suspension — coordinar sesion urgente para validar logica completa antes del dev del bot suspensiones', time: 'Mar 05 16:52', type: 'dm', actionable: true },
   { from: 'Andres De Las Casas (DM)', text: '@luciano.gaspar accesos a Portal Partners — contacto ya compartido por Andres. Pendiente: escribirle a Luciano directamente solicitando acceso', time: 'Mar 05 15:51', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Listo, agendala a la hora que tengas disponible — disponible desde 9:00 o 10:30. Kickoff reagendado para Mie 12:00 y ya realizado ✓', time: 'Mar 05 12:36', type: 'dm', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'mañana puedes?? — confirmo disponibilidad para Kickoff reagendado Mie 12:00. Kickoff realizado ✓ seguimiento en Check Food Live 17:00', time: 'Mar 05 12:34', type: 'dm', actionable: false },
   { from: 'Meiker Munera (grupo QA)', text: 'Errores Assembled corregidos — ONA, PwP y Vehicle (8 APIs). Data de validacion disponible para revision.', time: 'Lun 04 18:57', type: 'group', actionable: true }
 ];
 
