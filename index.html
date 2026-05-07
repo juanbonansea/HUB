@@ -1736,7 +1736,9 @@ const DEFAULT_TASKS = [
   { id:'t124', text:'Proveer IDs de chat de casos de atencion actuales para pruebas de integracion del bot', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false },
   { id:'t125', text:'Crear hilo de comunicacion y etiquetar a Jose Luis Ceron para coordinacion de endpoints del bot suspension', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false },
   { id:'t126', text:'Identificar endpoints faltantes para soluciones Assembled Merchants y enviar solicitud formal al equipo Tech antes del viernes', phase:'build', priority:'P0', source:'Assembled Merchants 6 May', day:'thu', completed:false },
-  { id:'t127', text:'Lanzar flujos Live y Suspensions en Assemble la proxima semana — revisar funcionalidad y agregar componentes faltantes', phase:'build', priority:'P0', source:'Assembled Merchants 6 May', day:'fri', completed:false }
+  { id:'t127', text:'Lanzar flujos Live y Suspensions en Assemble la proxima semana — revisar funcionalidad y agregar componentes faltantes', phase:'build', priority:'P0', source:'Assembled Merchants 6 May', day:'fri', completed:false },
+  { id:'t128', text:'Contactar a @yulieth.montes (Fulfillment) para solicitar entradas de RT que ayuden en subflujos de Food Live — notificacion y validacion en tiempo real', phase:'build', priority:'P0', source:'DM Maria Granada Jue 7 May', day:'thu', completed:false },
+  { id:'t129', text:'Seguimiento con Camilo Esquivel: endpoints del Figma no funcionan — coordinar estado y priorizar con el area tecnica encargada para no bloquear construccion Assembled', phase:'build', priority:'P1', source:'DM Camilo Esquivel Jue 7 May', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1790,13 +1792,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Maria Granada (DM)', text: 'Yulieth Montes es el contacto de Fulfillment para lo del RT — respondio solicitud de JP para conseguir perfil RT y probar flujos del bot', time: 'Jue 07 10:54', type: 'dm', actionable: false },
-  { from: 'Maria Granada (Grupo DM)', text: 'Alguno tiene perfil de RT disponible para hacer una prueba? (grupo DM con Juan Pablo, Susana, Meiker) — Meiker tiene uno pero sin celu Android', time: 'Jue 07 09:05', type: 'group', actionable: true },
-  { from: 'Juan Pablo → #ai-automations', text: 'Publico documentacion IA Agente Food Non Live Suspension: doc Endpoints, Discovery casos (sheets), Assembled Workflow y Figjam — equipo coordinando accesos con Jose Ceron', time: 'Mie 06 16:08', type: 'channel', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'Valido en el grupo a ver quien nos ayuda con accesos — Diagnosis portal y CMS abiertos. Juan Pablo confirmo no tener credenciales: pendiente Vero para conseguirlas', time: 'Mie 06 18:05', type: 'dm', actionable: true },
-  { from: 'Maria Granada (Grupo DM)', text: 'Voy a tomar la iniciativa PwP yo para que te enfoques full esta semana y la proxima en los flujos de merchants — Cc Meiker: te busco espacio la proxima semana', time: 'Mie 06 12:35', type: 'group', actionable: false },
-  { from: 'Dangeli Cardenas (DM)', text: 'Holaaaa — Todo bien y tu? PENDIENTE: coordinar sesion urgente para validar logica completa de suspension antes del dev del bot', time: 'Mar 05 16:52', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: 'Comparte con Luciano Gaspar para accesos a Portal Partners — contacto ya disponible. PENDIENTE: escribirle a Luciano solicitando acceso directamente', time: 'Mar 05 15:51', type: 'dm', actionable: true }
+  { from: 'Camilo Esquivel (DM)', text: 'Endpoints no estan funcionando en el nuevo Figma — los reporto al area encargada. Se esta guiando por el video porque los items se movieron de ubicacion', time: 'Jue 07 11:40', type: 'dm', actionable: true },
+  { from: 'Susana Paniagua (Grupo DM)', text: 'Update semanal bots: RT Non Earnings/Referral escalado al 100% (AR sube 52%→75%), RT Live Dispersiones al 100%, Phase I-Card Problems al 70% todos los paises, Delete Account lanzado 30% todos los paises', time: 'Jue 07 11:39', type: 'group', actionable: false },
+  { from: 'Meiker Munera (Grupo DM)', text: 'Update: Phase II Earnings bot listo manana al 30%; Disagree with charge - Refunds escalado 95% (pendiente feedback QA); Phase I Disagree charge escalado 100%; Phase I Data update-Document ID escalado 100%', time: 'Jue 07 11:26', type: 'group', actionable: false },
+  { from: 'Maria Granada (DM)', text: 'Yulieth Montes (@yulieth.montes) es el contacto de Fulfillment para conseguir entradas de RT — confirmado para probar y notificar en subflujos de Food Live', time: 'Jue 07 10:54', type: 'dm', actionable: true },
+  { from: 'Maria Granada (Grupo DM)', text: 'Alguno tiene perfil de RT disponible para hacer una prueba? — Meiker tiene uno pero sin celu Android. Buscar perfil prestado para validar flujos del bot', time: 'Jue 07 09:05', type: 'group', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Diagnosis portal y CMS abiertos sin credenciales — Valida en grupo quien puede ayudar. Juan Pablo: conseguir accesos via Vero para CMS Merchants', time: 'Mie 06 18:05', type: 'dm', actionable: true },
+  { from: 'Maria Granada (Grupo DM)', text: 'Tomo la iniciativa PwP para que JP se enfoque full esta semana y la proxima en flujos de merchants — Meiker: coordino espacio la proxima semana', time: 'Mie 06 12:35', type: 'group', actionable: false }
 ];
 
 const DEEP_WORK = [
