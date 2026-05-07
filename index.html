@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 4-8 Mayo 2026 — Hoy Mie 6</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 4-8 Mayo 2026 — Hoy Jue 7</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1487,8 +1487,8 @@ const EVENTS = {
     { time:'17:00-17:30', title:'Check- Food Live & Suspensiones', attendees:3, org:'m.granada@rappi.com', type:'team', note:'Revision estado flujos Food Live y Suspensiones post-kickoff — Maria Granada, Juan Pablo, Andres' }
   ],
   thu: [
-    { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team' },
-    { time:'9:00-10:00', title:'Shadowing Merchant (TaskUs)', attendees:15, org:'carla.capristan@rappi.com', type:'shadowing', note:'Opcional - needsAction' },
+    { time:'9:00-10:30', title:'Revision deep workflow food live!', attendees:5, org:'juan.bonansea@rappi.com', type:'team', note:'Juan Pablo organiza — revision detallada del workflow de Food Live con Elias, Andres Diaz (opc) y Mafe' },
+    { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Declino — solapado con deep workflow food live' },
     { time:'10:00-11:00', title:'Liderazgo y comunicacion asertiva (sesion manana)', attendees:0, type:'learning', note:'SST Colombia - 10:00am' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'15:00-16:00', title:'Liderazgo y comunicacion asertiva (sesion tarde)', attendees:0, type:'learning', note:'SST Colombia - 3:00pm' }
@@ -1501,6 +1501,18 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:41, title:'Assembled Merchants', date:'6 May',
+    summary:'La reunion definio la automatizacion de merchants mediante el despliegue de flujos en la plataforma Assemble. El equipo se centro en la automatizacion de Merchant Food Live y suspensiones para reducir 25,000 tickets mensuales. Se priorizo el desarrollo de flujos basados en validaciones historicas de datos. Se decidio reestructurar la validacion de repartidores mediante identificadores de ordenes para mayor eficiencia. El equipo usara jueves y viernes para comenzar construccion en Assemble.',
+    sections:['Definicion de objetivos operativos','Metodologia de diseno funcional','Refinamiento de flujos RT'],
+    actions:[
+      { text:'Identificar endpoints faltantes para soluciones Assembled Merchants y enviar solicitud formal al equipo Tech antes del viernes', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Lanzar flujos Live y Suspensions en Assemble la proxima semana — revisar funcionalidad y agregar componentes faltantes segun sea necesario', owner:'Juan Pablo / Equipo Assembled', phase:'build', priority:'P0' },
+      { text:'Reunirse para definir flujos adicionales de automatizacion y comprometerse con nuevas estimaciones de ahorro de tickets', owner:'Juan Pablo / Equipo Assembled', phase:'discovery', priority:'P1' },
+      { text:'Montar los flujos definidos en la plataforma Assemble — usar jueves y viernes para comenzar el desarrollo', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P1' },
+      { text:'Otorgar acceso a Assemble a Andres Diaz, Elias Daniel Rivera y Stephania Gonzalez', owner:'Maria Granada', phase:'build', priority:'P0' }
+    ]
+  },
   {
     id:40, title:'[Kickoff] AI Bot Phase I - Food Non Live Suspension (con Jose Ceron)', date:'6 May',
     summary:'Revision tecnica detallada para implementar endpoints de suspension y estados de tiendas Turbo mediante validaciones integradas. Se definio la necesidad de endpoints para confirmar suspensiones y verificar estados Turbo. El bot informara sobre contactos de Key Account Manager para tiendas Turbo. Se requiere validar tiempos restantes de suspension y se integran estados On Hold y Churn en endpoints existentes.',
@@ -1722,7 +1734,9 @@ const DEFAULT_TASKS = [
   { id:'t122', text:'Organizar documento completo de endpoints del bot Food Non Live Suspension: imagen, URL y credenciales de acceso', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false },
   { id:'t123', text:'Compartir archivo Figma del flujo de suspension con Jose Luis Ceron (comprometido en kickoff de hoy)', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false },
   { id:'t124', text:'Proveer IDs de chat de casos de atencion actuales para pruebas de integracion del bot', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false },
-  { id:'t125', text:'Crear hilo de comunicacion y etiquetar a Jose Luis Ceron para coordinacion de endpoints del bot suspension', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false }
+  { id:'t125', text:'Crear hilo de comunicacion y etiquetar a Jose Luis Ceron para coordinacion de endpoints del bot suspension', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'wed', completed:false },
+  { id:'t126', text:'Identificar endpoints faltantes para soluciones Assembled Merchants y enviar solicitud formal al equipo Tech antes del viernes', phase:'build', priority:'P0', source:'Assembled Merchants 6 May', day:'thu', completed:false },
+  { id:'t127', text:'Lanzar flujos Live y Suspensions en Assemble la proxima semana — revisar funcionalidad y agregar componentes faltantes', phase:'build', priority:'P0', source:'Assembled Merchants 6 May', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1741,6 +1755,8 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d66', text:'Montar flujos definidos en plataforma Assemble — usar jueves y viernes para comenzar el desarrollo de automatizacion Merchant Food Live', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Assembled Merchants 6 May', status:'pendiente' },
+  { id:'d65', text:'Otorgar acceso a Assemble a Andres Diaz, Elias Daniel Rivera y Stephania Gonzalez para construccion de flujos', owner:'Maria Granada', source:'Assembled Merchants 6 May', status:'pendiente' },
   { id:'d60', text:'Buscar de donde sacar informacion del contacto comercial de tiendas indefinidamente suspendidas (hablar con equipos de operaciones de restaurantes)', owner:'Andres De Las Casas', source:'JP/Andres 5 May', status:'pendiente' },
   { id:'d59', text:'Compartir por Slack numero soporte WhatsApp (+57 1 3571179) y URL aliados.rappi.com/orders-kanban para probar flujos de soporte merchants', owner:'Andres De Las Casas', source:'Review food live - suspensions 4 May', status:'completado' },
   { id:'d58', text:'Apoyar a Juan Pablo y Mafe en implementacion agentes AI en Assembled para Merchants Mayo-Junio (issue types por definir en sesion de training)', owner:'Elias Rivera y equipo', source:'Grupo DM Lun 04 16:50', status:'pendiente' },
@@ -1774,13 +1790,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'Compartio links de acceso para pruebas del bot: Diagnosis Portal (cmsretail.auth0.com), CMS y ZOHO — Jose Ceron confirmo recepcion y seguira disponibilizando endpoints', time: 'Mie 06 14:11', type: 'dm', actionable: false },
-  { from: 'Maria Granada (Grupo DM)', text: 'hablando con andy voy a tomar esta iniciativa yo para que puedas enfocarte full esta semana y la proxima en los flujos de merchants — Cc Meiker: te busco espacio la proxima semana', time: 'Mie 06 12:35', type: 'group', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'Juan me puedes compartir el link de acceso al portal — Juan Pablo compartio Figma del flujo Food Non Live Suspension ✓ Kickoff completado hoy', time: 'Mie 06 12:31', type: 'dm', actionable: false },
-  { from: 'All Hands CX (Mie 06)', text: 'All Hands CX completado ✓ — retencion mejoro 1.17pp, meta 140K tickets automatizados con agente IA, equipo Customer Advocates lanzado en Mexico', time: 'Mie 06 12:00', type: 'group', actionable: false },
-  { from: 'Dangeli Cardenas (DM)', text: 'Holaaaa — Todo bien y tu? Es la experta en logica de suspension — coordinar sesion urgente para validar logica completa antes del dev del bot suspensiones', time: 'Mar 05 16:52', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: '@luciano.gaspar accesos a Portal Partners — contacto ya compartido por Andres. Pendiente: escribirle a Luciano directamente solicitando acceso', time: 'Mar 05 15:51', type: 'dm', actionable: true },
-  { from: 'Meiker Munera (grupo QA)', text: 'Errores Assembled corregidos — ONA, PwP y Vehicle (8 APIs). Data de validacion disponible para revision.', time: 'Lun 04 18:57', type: 'group', actionable: true }
+  { from: 'Juan Pablo → #ai-automations', text: 'Publico documentacion IA Agente Food Non Live Suspension: doc Endpoints, Discovery casos (sheets), Assembled Workflow y Figjam — equipo coordinando accesos con Jose Ceron', time: 'Mie 06 16:08', type: 'channel', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'Valido en el grupo a ver quien nos ayuda con accesos — Diagnosis portal y CMS abiertos. Juan Pablo confirmo no tener credenciales: pendiente Vero para conseguirlas', time: 'Mie 06 18:05', type: 'dm', actionable: true },
+  { from: 'Maria Granada (Grupo DM)', text: 'Voy a tomar la iniciativa PwP yo para que te enfoques full esta semana y la proxima en los flujos de merchants — Cc Meiker: te busco espacio la proxima semana', time: 'Mie 06 12:35', type: 'group', actionable: false },
+  { from: 'All Hands CX (Mie 06)', text: 'All Hands CX ✓ — retencion +1.17pp, meta: automatizar 140K tickets con agente IA en WhatsApp (fin mayo), Customer Advocates internos lanzados en Mexico', time: 'Mie 06 12:00', type: 'group', actionable: false },
+  { from: 'Dangeli Cardenas (DM)', text: 'Holaaaa — Todo bien y tu? Experta logica suspension — PENDIENTE: coordinar sesion urgente para validar logica completa antes del dev del bot suspensiones', time: 'Mar 05 16:52', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: 'Comparte con Luciano Gaspar para accesos a Portal Partners — contacto ya disponible. PENDIENTE: escribirle a Luciano solicitando acceso directamente', time: 'Mar 05 15:51', type: 'dm', actionable: true },
+  { from: 'Meiker Munera (grupo QA)', text: 'Errores Assembled corregidos — ONA, PwP y Vehicle (8 APIs). Data de validacion disponible para revision de flujos.', time: 'Lun 04 18:57', type: 'group', actionable: false }
 ];
 
 const DEEP_WORK = [
