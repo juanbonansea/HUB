@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 4-8 Mayo 2026 — Hoy Jue 7</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 4-8 Mayo 2026 — Hoy Vie 8</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1495,9 +1495,10 @@ const EVENTS = {
     { time:'16:00-17:00', title:'Validacion final RT figma y Assembled', attendees:5, org:'juan.bonansea@rappi.com', type:'team', note:'Juan Pablo organiza — validacion final de flujos RT en Figma y plataforma Assembled con Elias Rivera, Andres Diaz y Maria Granada' }
   ],
   fri: [
+    { time:'10:30-11:30', title:'Revisión flujo de suspensiones', attendees:8, org:'juan.bonansea@rappi.com', type:'team', note:'Juan Pablo organiza — revision flujo suspensiones con Elias Rivera, Andres Diaz, Mafe, Maria Granada, Stephania Gonzalez y Esbeydi Reynoso' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:15', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team' },
-    { time:'14:00-15:00', title:'Shadowing 2 | Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing', note:'Opcional - Juan Pablo aceptó' },
+    { time:'14:00-15:00', title:'Shadowing 2 | Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing', note:'Opcional - Juan Pablo declino' },
     { time:'15:00-15:45', title:'Flujo compensaciones', attendees:4, org:'f.diaz@rappi.com', type:'team', note:'Revision flujo compensaciones — con Andres De Las Casas, Juan Pablo y Maria Granada' }
   ]
 };
@@ -1742,7 +1743,9 @@ const DEFAULT_TASKS = [
   { id:'t128', text:'Contactar a @yulieth.montes (Fulfillment) para solicitar entradas de RT que ayuden en subflujos de Food Live — notificacion y validacion en tiempo real', phase:'build', priority:'P0', source:'DM Maria Granada Jue 7 May', day:'thu', completed:false },
   { id:'t129', text:'Seguimiento con Camilo Esquivel: endpoints del Figma no funcionan — coordinar estado y priorizar con el area tecnica encargada para no bloquear construccion Assembled', phase:'build', priority:'P1', source:'DM Camilo Esquivel Jue 7 May', day:'thu', completed:false },
   { id:'t130', text:'Definir con Andres el approach para especificar DT a tech (single workflow vs ruteado) y preparar documentacion visual en Figma con entry points del bot Food Live', phase:'build', priority:'P0', source:'DM Andres / Maria Jue 7 May 14:28', day:'thu', completed:false },
-  { id:'t131', text:'Confirmar reunion con Dangeli Cardenas para validar logica completa de suspensiones — que se puede y que no levantar con el bot (conversacion iniciada Jue 7 17:07)', phase:'build', priority:'P0', source:'DM Dangeli Cardenas Jue 7 May', day:'fri', completed:false }
+  { id:'t131', text:'Confirmar reunion con Dangeli Cardenas para validar logica completa de suspensiones — que se puede y que no levantar con el bot (conversacion iniciada Jue 7 17:07)', phase:'build', priority:'P0', source:'DM Dangeli Cardenas Jue 7 May', day:'fri', completed:false },
+  { id:'t132', text:'Dar seguimiento a Jose Ceron sobre acceso CMS retail-cms.rappi.com — confirmar si tiene credenciales correctas o hay pendiente de configuracion para integracion bot Non Live Suspension', phase:'build', priority:'P0', source:'DM Jose Ceron Jue 7 May', day:'fri', completed:false },
+  { id:'t133', text:'Preparar y liderar revision de flujo de compensaciones (hoy 15:00) — definir flujo con Andres De Las Casas, Mafe Diaz y Maria Granada para implementacion en Assemble', phase:'build', priority:'P0', source:'Calendar Vie 8 Mayo 15:00', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1796,13 +1799,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Juan Pablo → Elias Rivera (DM)', text: 'Figma Food Non Live — Suspension compartido con Elias para comenzar construccion de flujos en Assembled', time: 'Jue 07 17:10', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: 'Pruebas de endpoint completadas — Juan Pablo compartio curl de API lupe-partners (ordenes-store CO 900082934). Camilo confirmo que ya le funciona. Endpoint validado para integracion bot Food Live.', time: 'Jue 07 19:54', type: 'dm', actionable: false },
+  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'Hola Jose, veo varios hilos con dudas, queda pendiente algo? El portal esta en Rappipedia. Lo del CMS retail-cms.rappi.com/login parece raro — coordinar accesos pendientes', time: 'Jue 07 19:33', type: 'dm', actionable: true },
   { from: 'Juan Pablo → Dangeli Cardenas (DM)', text: 'Iniciando coordinacion para agendar reunion y validar que suspensiones se pueden y no se pueden levantar con el bot — logica de suspension actualizada pendiente de confirmacion', time: 'Jue 07 17:07', type: 'dm', actionable: true },
+  { from: 'Juan Pablo → Elias Rivera (DM)', text: 'Figma Food Non Live — Suspension compartido con Elias para comenzar construccion de flujos en Assembled', time: 'Jue 07 17:10', type: 'dm', actionable: false },
   { from: 'Andres De Las Casas (DM)', text: 'Si lo haces cada cosa por separada, les dices a que ramas especificas vas a pegar cada flujo — o si es un solo workflow, la imagen de Figma pinada define los entry points del bot', time: 'Jue 07 14:28', type: 'dm', actionable: true },
   { from: 'Maria Granada (DM)', text: 'Creo que hay que ver el DT de Andy — seria decirle a tech en que issues si entra el bot y en cuales no', time: 'Jue 07 14:15', type: 'dm', actionable: true },
-  { from: 'Maria Granada (Grupo DM)', text: 'AI Bot Food Live @juan.bonansea: de este ya le pasamos a tech los nuevos endpoints y ya definimos de donde se va a pegar el flujo para que ellos configuren el experimento?', time: 'Jue 07 13:20', type: 'group', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Endpoints no estan funcionando en el nuevo Figma — los reporto al area encargada. Se esta guiando por el video porque los items se movieron de ubicacion', time: 'Jue 07 11:40', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Yulieth Montes (@yulieth.montes) es el contacto de Fulfillment para conseguir entradas de RT — confirmado para probar y notificar en subflujos de Food Live', time: 'Jue 07 10:54', type: 'dm', actionable: true }
+  { from: 'Maria Granada (Grupo DM)', text: 'AI Bot Food Live @juan.bonansea: de este ya le pasamos a tech los nuevos endpoints y ya definimos de donde se va a pegar el flujo para que ellos configuren el experimento?', time: 'Jue 07 13:20', type: 'group', actionable: true }
 ];
 
 const DEEP_WORK = [
@@ -1810,7 +1813,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-10:30', '12:00-13:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-15:00', '17:30-19:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '17:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-14:00', '15:45-18:00'] }
+  { day: 'Vie', blocks: ['8:00-10:30', '11:30-13:00', '15:45-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
