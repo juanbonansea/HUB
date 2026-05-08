@@ -1759,7 +1759,8 @@ const DEFAULT_TASKS = [
   { id:'t133', text:'Preparar y liderar revision de flujo de compensaciones (hoy 15:00) — definir flujo con Andres De Las Casas, Mafe Diaz y Maria Granada para implementacion en Assemble', phase:'build', priority:'P0', source:'Calendar Vie 8 Mayo 15:00', day:'fri', completed:false },
   { id:'t134', text:'Coordinar con Yulieth Sofia (Fulfillment) en la reunion del martes — compartirle contexto de la automatizacion Merchant Food Live y acceder a endpoints de notificacion push / chat RT para subflujos del bot', phase:'build', priority:'P0', source:'DM Yulieth Sofia Vie 8 May', day:'tue', completed:false },
   { id:'t135', text:'Revisar historial de suspensiones de los ultimos 2 meses y extraer motivos especificos — base para mapear flujo automatizado y clasificar gestion humana vs autogestion (excluir Turbo)', phase:'discovery', priority:'P0', source:'Revision flujo suspensiones 8 May', day:'fri', completed:false },
-  { id:'t136', text:'Liderar reunion flujo compensaciones Merchants (hoy 15:00) — llegar con propuesta de flujo para Assemble, con Andres De Las Casas, Mafe Diaz y Maria Granada', phase:'build', priority:'P0', source:'Calendar Vie 8 May 15:00', day:'fri', completed:false }
+  { id:'t136', text:'Liderar reunion flujo compensaciones Merchants (hoy 15:00) — llegar con propuesta de flujo para Assemble, con Andres De Las Casas, Mafe Diaz y Maria Granada', phase:'build', priority:'P0', source:'Calendar Vie 8 May 15:00', day:'fri', completed:false },
+  { id:'t137', text:'Confirmar con Andres De Las Casas que apruebe solicitud SECOPS-432531 para acceso CMS de Jose Ceron — necesario para desbloquear integracion bot Non Live Suspension', phase:'build', priority:'P0', source:'DM Andres Vie 8 May', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1812,18 +1813,19 @@ const DEFAULT_DELEGATED = [
   { id:'d64', text:'Hablar con Vero para conseguir links de acceso, usuarios y contrasenas de plataforma Merchants', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' },
   { id:'d70', text:'Enviar tabla de suspensiones mostrada en reunion del 8 May para mapeo del flujo automatizado', owner:'Danghely Cardenas', source:'Revision flujo suspensiones 8 May', status:'pendiente' },
   { id:'d71', text:'Probar logica de suspension por 10 cancelaciones y verificar comportamiento en automatizacion si restriccion se levanta', owner:'Elias Daniel Rivera', source:'Revision flujo suspensiones 8 May', status:'pendiente' },
-  { id:'d72', text:'Generar ticket para acceso a CMS usando rol Integraciones Rest — permisos necesarios para integracion bot Non Live Suspension', owner:'Jose Luis Ceron', source:'Revision flujo suspensiones 8 May', status:'pendiente' }
+  { id:'d72', text:'Generar ticket para acceso a CMS usando rol Integraciones Rest — permisos necesarios para integracion bot Non Live Suspension', owner:'Jose Luis Ceron', source:'Revision flujo suspensiones 8 May', status:'pendiente' },
+  { id:'d73', text:'Aprobar solicitud SECOPS-432531 para acceso CMS de Jose Ceron — Juan Pablo abrio el ticket y solicita aprobacion para desbloquear integracion bot Non Live Suspension', owner:'Andres De Las Casas', source:'DM Andres Vie 8 May', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
+  { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Envio ticket SECOPS-432531 para aprobacion de acceso CMS de Jose Ceron — necesario para integracion bot Non Live Suspension. Andres: "Pasame el link porfa". Pendiente aprobacion.', time: 'Vie 08 15:45', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (Grupo / DM)', text: 'Escribo en el grupo Juan porque hay muchos ojos en estas iniciativas — nos toca mostrar agilidad y gestion, no lo tomes a mal. Juan Pablo: OK fresco, sin lio.', time: 'Vie 08 13:30', type: 'dm', actionable: false },
   { from: 'Jose Ceron (DM)', text: 'Me rechazaron el ticket de acceso a CMS — escribe al grupo para coordinar. Pendiente resolver acceso a retail-cms.rappi.com para integracion bot Non Live Suspension.', time: 'Vie 08 10:31', type: 'dm', actionable: true },
   { from: 'Yulieth Sofia (DM)', text: 'Meet martes confirmada — Juan Pablo solicito ayuda con endpoints de notificacion push y chat RT para subflujos de Food Live. Yulieth acepto dar contexto el martes.', time: 'Vie 08 09:42', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Camilo va a compartir los endpoints en un hilo hoy — da seguimiento a la integracion de la API lupe-partners para el bot Assemble Food Live.', time: 'Vie 08 09:17', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Pruebas de endpoint completadas — Juan Pablo compartio curl de API lupe-partners (ordenes-store CO 900082934). Camilo confirmo que ya le funciona. Endpoint validado para integracion bot Food Live.', time: 'Jue 07 19:54', type: 'dm', actionable: false },
   { from: 'Juan Pablo → Jose Ceron (DM)', text: 'Hola Jose, veo varios hilos con dudas, queda pendiente algo? El portal esta en Rappipedia. Lo del CMS retail-cms.rappi.com/login parece raro — coordinar accesos pendientes.', time: 'Jue 07 19:33', type: 'dm', actionable: true },
-  { from: 'Juan Pablo → Dangeli Cardenas (DM)', text: 'Iniciando coordinacion para agendar reunion y validar que suspensiones se pueden y no se pueden levantar con el bot — logica de suspension pendiente de confirmacion.', time: 'Jue 07 17:07', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: 'Si lo haces cada cosa por separada, les dices a que ramas especificas vas a pegar cada flujo — o si es un solo workflow, la imagen de Figma pinada define los entry points del bot.', time: 'Jue 07 14:28', type: 'dm', actionable: true },
-  { from: 'Maria Granada (Grupo DM)', text: 'AI Bot Food Live @juan.bonansea: de este ya le pasamos a tech los nuevos endpoints y ya definimos de donde se va a pegar el flujo para que ellos configuren el experimento?', time: 'Jue 07 13:20', type: 'group', actionable: true }
+  { from: 'Juan Pablo → Dangeli Cardenas (DM)', text: 'Iniciando coordinacion para agendar reunion y validar que suspensiones se pueden y no se pueden levantar con el bot — logica de suspension pendiente de confirmacion.', time: 'Jue 07 17:07', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
