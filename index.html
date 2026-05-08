@@ -1505,6 +1505,17 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:42, title:'Revision flujo de suspensiones', date:'8 May',
+    summary:'Revision de suspensiones tecnicas con optimizacion de comunicacion y procesos de acceso para equipos operativos. Se determino informar errores especificos a aliados para facilitar resolucion. Se decidio mapear reglas de suspension para clasificar gestion humana frente a autogestion. Las tiendas Turbo requieren intervencion humana por saturacion operativa y se excluyeron de cualquier mecanismo de levantamiento automatico. Se instruyó solicitar el rol Integraciones Rest en CMS para recuperar visibilidad y se valido la herramienta Lupe como alternativa funcional.',
+    sections:['Analisis de suspensiones tecnicas','Control de tiendas Turbo','Mejora de accesos tecnicos'],
+    actions:[
+      { text:'Revisar historial de suspensiones de los ultimos 2 meses y extraer motivos especificos para mapear flujo automatizado — base para clasificar gestion humana vs autogestion', owner:'El grupo', phase:'discovery', priority:'P0' },
+      { text:'Generar ticket para acceso a CMS usando rol Integraciones Rest para conseguir permisos necesarios de integracion', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
+      { text:'Probar logica de suspension por 10 cancelaciones y verificar comportamiento en automatizacion si restriccion se levanta', owner:'Elias Daniel Rivera', phase:'build', priority:'P0' },
+      { text:'Enviar la tabla de suspensiones mostrada en la reunion para mapeo del flujo', owner:'Danghely Cardenas', phase:'build', priority:'P0' }
+    ]
+  },
+  {
     id:41, title:'Assembled Merchants', date:'6 May',
     summary:'La reunion definio la automatizacion de merchants mediante el despliegue de flujos en la plataforma Assemble. El equipo se centro en la automatizacion de Merchant Food Live y suspensiones para reducir 25,000 tickets mensuales. Se priorizo el desarrollo de flujos basados en validaciones historicas de datos. Se decidio reestructurar la validacion de repartidores mediante identificadores de ordenes para mayor eficiencia. El equipo usara jueves y viernes para comenzar construccion en Assemble.',
     sections:['Definicion de objetivos operativos','Metodologia de diseno funcional','Refinamiento de flujos RT'],
@@ -1746,7 +1757,9 @@ const DEFAULT_TASKS = [
   { id:'t131', text:'Confirmar reunion con Dangeli Cardenas para validar logica completa de suspensiones — que se puede y que no levantar con el bot (conversacion iniciada Jue 7 17:07)', phase:'build', priority:'P0', source:'DM Dangeli Cardenas Jue 7 May', day:'fri', completed:false },
   { id:'t132', text:'Dar seguimiento a Jose Ceron sobre acceso CMS retail-cms.rappi.com — confirmar si tiene credenciales correctas o hay pendiente de configuracion para integracion bot Non Live Suspension', phase:'build', priority:'P0', source:'DM Jose Ceron Jue 7 May', day:'fri', completed:false },
   { id:'t133', text:'Preparar y liderar revision de flujo de compensaciones (hoy 15:00) — definir flujo con Andres De Las Casas, Mafe Diaz y Maria Granada para implementacion en Assemble', phase:'build', priority:'P0', source:'Calendar Vie 8 Mayo 15:00', day:'fri', completed:false },
-  { id:'t134', text:'Coordinar con Yulieth Sofia (Fulfillment) en la reunion del martes — compartirle contexto de la automatizacion Merchant Food Live y acceder a endpoints de notificacion push / chat RT para subflujos del bot', phase:'build', priority:'P0', source:'DM Yulieth Sofia Vie 8 May', day:'tue', completed:false }
+  { id:'t134', text:'Coordinar con Yulieth Sofia (Fulfillment) en la reunion del martes — compartirle contexto de la automatizacion Merchant Food Live y acceder a endpoints de notificacion push / chat RT para subflujos del bot', phase:'build', priority:'P0', source:'DM Yulieth Sofia Vie 8 May', day:'tue', completed:false },
+  { id:'t135', text:'Revisar historial de suspensiones de los ultimos 2 meses y extraer motivos especificos — base para mapear flujo automatizado y clasificar gestion humana vs autogestion (excluir Turbo)', phase:'discovery', priority:'P0', source:'Revision flujo suspensiones 8 May', day:'fri', completed:false },
+  { id:'t136', text:'Liderar reunion flujo compensaciones Merchants (hoy 15:00) — llegar con propuesta de flujo para Assemble, con Andres De Las Casas, Mafe Diaz y Maria Granada', phase:'build', priority:'P0', source:'Calendar Vie 8 May 15:00', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1796,7 +1809,10 @@ const DEFAULT_DELEGATED = [
   { id:'d61', text:'Pasar archivo modelo para documentar los endpoints del bot de suspension', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' },
   { id:'d62', text:'Disponibilizar endpoints necesarios para integracion del bot Food Non Live Suspension una vez recibida la documentacion', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' },
   { id:'d63', text:'Analizar mejores alternativas para clasificar si un restaurante es turbo sin depender del nombre del restaurante', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' },
-  { id:'d64', text:'Hablar con Vero para conseguir links de acceso, usuarios y contrasenas de plataforma Merchants', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' }
+  { id:'d64', text:'Hablar con Vero para conseguir links de acceso, usuarios y contrasenas de plataforma Merchants', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Non Live 6 May', status:'pendiente' },
+  { id:'d70', text:'Enviar tabla de suspensiones mostrada en reunion del 8 May para mapeo del flujo automatizado', owner:'Danghely Cardenas', source:'Revision flujo suspensiones 8 May', status:'pendiente' },
+  { id:'d71', text:'Probar logica de suspension por 10 cancelaciones y verificar comportamiento en automatizacion si restriccion se levanta', owner:'Elias Daniel Rivera', source:'Revision flujo suspensiones 8 May', status:'pendiente' },
+  { id:'d72', text:'Generar ticket para acceso a CMS usando rol Integraciones Rest — permisos necesarios para integracion bot Non Live Suspension', owner:'Jose Luis Ceron', source:'Revision flujo suspensiones 8 May', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
