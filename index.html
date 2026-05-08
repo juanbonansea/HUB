@@ -1505,6 +1505,19 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:43, title:'Flujo compensaciones - Merchants', date:'8 May',
+    summary:'Revision de automatizacion de devoluciones y analisis de datos de entrega para optimizar procesos operativos internos. El sistema validara comentarios de usuarios contra detalles de ordenes para automatizar reembolsos y ajuste de valores mejorando eficiencia. Se analizaran tiempos de entrega por kilometro para establecer criterios de riesgo reales reemplazando estimaciones arbitrarias en temperatura. Se priorizara el flujo de ordenes canceladas para aprovechar reglas estaticas. La automatizacion proyecta reducir la carga de 30,000 tickets mensuales liberando 6 agentes.',
+    sections:['Automatizacion de devoluciones','Analisis de tiempos de entrega','Integracion y flujos futuros'],
+    actions:[
+      { text:'Asegurar que el flujo de suspensiones este listo y correctamente configurado para recibir ruteo desde el flujo Mi Tienda No Aparece construido por Andres Diaz equipo', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Definir solucion para manejo de multiples productos en ordenes — determinar producto ID correcto cuando hay multiples items y multiples quejas', owner:'Andres Diaz', phase:'build', priority:'P0' },
+      { text:'Realizar analisis de tiempo por distancia de entrega (min/km) para problemas de temperatura — segmentar por pais y cuartilizar tiempos para establecer umbrales de riesgo', owner:'Andres Diaz', phase:'discovery', priority:'P0' },
+      { text:'Integrar puntos abiertos en flujo principal incluyendo manejo de multiples evidencias y unificar flujo items incompletos con flujo no llego', owner:'Andres Diaz', phase:'build', priority:'P0' },
+      { text:'Desarrollar flujo de ordenes canceladas reciclando logica del flujo de compensaciones', owner:'Andres Diaz / Elias Rivera / Stephania Gonzalez', phase:'build', priority:'P0' },
+      { text:'Construir flujo Mi tienda no aparece en la app asegurando ruteo correcto al flujo de suspensiones hecho por Juan Pablo', owner:'Andres Diaz / Elias Rivera / Stephania Gonzalez', phase:'build', priority:'P0' }
+    ]
+  },
+  {
     id:42, title:'Revision flujo de suspensiones', date:'8 May',
     summary:'Revision de suspensiones tecnicas con optimizacion de comunicacion y procesos de acceso para equipos operativos. Se determino informar errores especificos a aliados para facilitar resolucion. Se decidio mapear reglas de suspension para clasificar gestion humana frente a autogestion. Las tiendas Turbo requieren intervencion humana por saturacion operativa y se excluyeron de cualquier mecanismo de levantamiento automatico. Se instruyó solicitar el rol Integraciones Rest en CMS para recuperar visibilidad y se valido la herramienta Lupe como alternativa funcional.',
     sections:['Analisis de suspensiones tecnicas','Control de tiendas Turbo','Mejora de accesos tecnicos'],
@@ -1760,7 +1773,10 @@ const DEFAULT_TASKS = [
   { id:'t134', text:'Coordinar con Yulieth Sofia (Fulfillment) en la reunion del martes — compartirle contexto de la automatizacion Merchant Food Live y acceder a endpoints de notificacion push / chat RT para subflujos del bot', phase:'build', priority:'P0', source:'DM Yulieth Sofia Vie 8 May', day:'tue', completed:false },
   { id:'t135', text:'Revisar historial de suspensiones de los ultimos 2 meses y extraer motivos especificos — base para mapear flujo automatizado y clasificar gestion humana vs autogestion (excluir Turbo)', phase:'discovery', priority:'P0', source:'Revision flujo suspensiones 8 May', day:'fri', completed:false },
   { id:'t136', text:'Liderar reunion flujo compensaciones Merchants (hoy 15:00) — llegar con propuesta de flujo para Assemble, con Andres De Las Casas, Mafe Diaz y Maria Granada', phase:'build', priority:'P0', source:'Calendar Vie 8 May 15:00', day:'fri', completed:false },
-  { id:'t137', text:'Confirmar con Andres De Las Casas que apruebe solicitud SECOPS-432531 para acceso CMS de Jose Ceron — necesario para desbloquear integracion bot Non Live Suspension', phase:'build', priority:'P0', source:'DM Andres Vie 8 May', day:'fri', completed:false }
+  { id:'t137', text:'Confirmar con Andres De Las Casas que apruebe solicitud SECOPS-432531 para acceso CMS de Jose Ceron — necesario para desbloquear integracion bot Non Live Suspension', phase:'build', priority:'P0', source:'DM Andres Vie 8 May', day:'fri', completed:false },
+  { id:'t138', text:'Asegurar que el flujo de suspensiones este correctamente configurado y listo para recibir ruteo desde flujo Mi Tienda No Aparece — sera construido por equipo Andres Diaz la proxima semana (acuerdo reunion Flujo Compensaciones Vie 8)', phase:'build', priority:'P1', source:'Flujo compensaciones Merchants 8 May', day:'unscheduled', completed:false },
+  { id:'t139', text:'Responder a Camilo Esquivel sobre arquitectura bot: decision entre single workflow enrutado vs nodos multiples — Mafe confirmo que flujo unico es viable para reducir complejidad en Connect', phase:'build', priority:'P0', source:'DM Camilo Esquivel Vie 8 May', day:'fri', completed:false },
+  { id:'t140', text:'Revisar tabla de tipos de suspensiones enviada por Esbeydi Reynoso (segmentada por las que se pueden levantar y condicion/limitante) — insumo clave para mapeo del bot de suspension semana que viene', phase:'discovery', priority:'P0', source:'DM Esbeydi Reynoso Vie 8 May', day:'unscheduled', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1779,6 +1795,11 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d78', text:'Construir flujo Mi tienda no aparece en la app asegurando ruteo correcto al flujo de suspensiones creado por Juan Pablo', owner:'Andres Diaz / Elias Rivera / Stephania Gonzalez', source:'Flujo compensaciones Merchants 8 May', status:'pendiente' },
+  { id:'d77', text:'Desarrollar flujo de ordenes canceladas reciclando logica del flujo de compensaciones existente', owner:'Andres Diaz / Elias Rivera / Stephania Gonzalez', source:'Flujo compensaciones Merchants 8 May', status:'pendiente' },
+  { id:'d76', text:'Integrar puntos abiertos en flujo principal incluyendo manejo de multiples evidencias — unificar flujo items incompletos con flujo no llego', owner:'Andres Diaz', source:'Flujo compensaciones Merchants 8 May', status:'pendiente' },
+  { id:'d75', text:'Realizar analisis de tiempo por distancia de entrega (min/km) para temperatura — segmentar por pais y cuartilizar tiempos para umbrales de riesgo reales', owner:'Andres Diaz', source:'Flujo compensaciones Merchants 8 May', status:'pendiente' },
+  { id:'d74', text:'Definir solucion para manejo de multiples productos en ordenes — como determinar producto ID correcto cuando hay multiples items y multiples quejas en una sola orden', owner:'Andres Diaz', source:'Flujo compensaciones Merchants 8 May', status:'pendiente' },
   { id:'d66', text:'Montar flujos definidos en plataforma Assemble — usar jueves y viernes para comenzar el desarrollo de automatizacion Merchant Food Live', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Assembled Merchants 6 May', status:'pendiente' },
   { id:'d65', text:'Otorgar acceso a Assemble a Andres Diaz, Elias Daniel Rivera y Stephania Gonzalez para construccion de flujos', owner:'Maria Granada', source:'Assembled Merchants 6 May', status:'pendiente' },
   { id:'d60', text:'Buscar de donde sacar informacion del contacto comercial de tiendas indefinidamente suspendidas (hablar con equipos de operaciones de restaurantes)', owner:'Andres De Las Casas', source:'JP/Andres 5 May', status:'pendiente' },
@@ -1818,14 +1839,14 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Envio ticket SECOPS-432531 para aprobacion de acceso CMS de Jose Ceron — necesario para integracion bot Non Live Suspension. Andres: "Pasame el link porfa". Pendiente aprobacion.', time: 'Vie 08 15:45', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (Grupo / DM)', text: 'Escribo en el grupo Juan porque hay muchos ojos en estas iniciativas — nos toca mostrar agilidad y gestion, no lo tomes a mal. Juan Pablo: OK fresco, sin lio.', time: 'Vie 08 13:30', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: 'Discusion arquitectura bot: Mafe confirmo que se puede hacer un solo flujo y enrutarlo al bot sin necesidad de 7 flujos separados. Camilo pregunta: solo una opcion de menu que va al bot o varios nodos?', time: 'Vie 08 16:40', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Solicita casos de produccion del nodo que quieren que llegue al bot para validar que arbol se le muestra al partner. Juan Pablo compartio sheets con todos los URLs (Hoja RAW columna D).', time: 'Vie 08 16:14', type: 'dm', actionable: true },
+  { from: 'Esbeydi Reynoso (DM)', text: 'Envio tabla con tipos de suspensiones del ano segmentadas por las que se pueden levantar y la condicion/limitante para hacerlo — insumo clave para mapeo del bot de suspension.', time: 'Vie 08 15:34', type: 'dm', actionable: true },
+  { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Envio ticket SECOPS-432531 para aprobacion de acceso CMS de Jose Ceron — necesario para integracion bot Non Live Suspension. Andres solicita link. Pendiente aprobacion.', time: 'Vie 08 14:22', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (Grupo / DM)', text: 'Escribo en el grupo Juan porque hay muchos ojos en estas iniciativas — nos toca mostrar agilidad y gestion, no lo tomes a mal.', time: 'Vie 08 13:30', type: 'dm', actionable: false },
   { from: 'Jose Ceron (DM)', text: 'Me rechazaron el ticket de acceso a CMS — escribe al grupo para coordinar. Pendiente resolver acceso a retail-cms.rappi.com para integracion bot Non Live Suspension.', time: 'Vie 08 10:31', type: 'dm', actionable: true },
   { from: 'Yulieth Sofia (DM)', text: 'Meet martes confirmada — Juan Pablo solicito ayuda con endpoints de notificacion push y chat RT para subflujos de Food Live. Yulieth acepto dar contexto el martes.', time: 'Vie 08 09:42', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Camilo va a compartir los endpoints en un hilo hoy — da seguimiento a la integracion de la API lupe-partners para el bot Assemble Food Live.', time: 'Vie 08 09:17', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Pruebas de endpoint completadas — Juan Pablo compartio curl de API lupe-partners (ordenes-store CO 900082934). Camilo confirmo que ya le funciona. Endpoint validado para integracion bot Food Live.', time: 'Jue 07 19:54', type: 'dm', actionable: false },
-  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'Hola Jose, veo varios hilos con dudas, queda pendiente algo? El portal esta en Rappipedia. Lo del CMS retail-cms.rappi.com/login parece raro — coordinar accesos pendientes.', time: 'Jue 07 19:33', type: 'dm', actionable: true },
-  { from: 'Juan Pablo → Dangeli Cardenas (DM)', text: 'Iniciando coordinacion para agendar reunion y validar que suspensiones se pueden y no se pueden levantar con el bot — logica de suspension pendiente de confirmacion.', time: 'Jue 07 17:07', type: 'dm', actionable: true }
+  { from: 'Camilo Esquivel (DM)', text: 'Pruebas de endpoint completadas — Juan Pablo compartio curl de API lupe-partners (ordenes-store CO 900082934). Camilo confirmo que ya le funciona. Endpoint validado para integracion bot Food Live.', time: 'Jue 07 19:54', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
