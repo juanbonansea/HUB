@@ -1745,7 +1745,8 @@ const DEFAULT_TASKS = [
   { id:'t130', text:'Definir con Andres el approach para especificar DT a tech (single workflow vs ruteado) y preparar documentacion visual en Figma con entry points del bot Food Live', phase:'build', priority:'P0', source:'DM Andres / Maria Jue 7 May 14:28', day:'thu', completed:false },
   { id:'t131', text:'Confirmar reunion con Dangeli Cardenas para validar logica completa de suspensiones — que se puede y que no levantar con el bot (conversacion iniciada Jue 7 17:07)', phase:'build', priority:'P0', source:'DM Dangeli Cardenas Jue 7 May', day:'fri', completed:false },
   { id:'t132', text:'Dar seguimiento a Jose Ceron sobre acceso CMS retail-cms.rappi.com — confirmar si tiene credenciales correctas o hay pendiente de configuracion para integracion bot Non Live Suspension', phase:'build', priority:'P0', source:'DM Jose Ceron Jue 7 May', day:'fri', completed:false },
-  { id:'t133', text:'Preparar y liderar revision de flujo de compensaciones (hoy 15:00) — definir flujo con Andres De Las Casas, Mafe Diaz y Maria Granada para implementacion en Assemble', phase:'build', priority:'P0', source:'Calendar Vie 8 Mayo 15:00', day:'fri', completed:false }
+  { id:'t133', text:'Preparar y liderar revision de flujo de compensaciones (hoy 15:00) — definir flujo con Andres De Las Casas, Mafe Diaz y Maria Granada para implementacion en Assemble', phase:'build', priority:'P0', source:'Calendar Vie 8 Mayo 15:00', day:'fri', completed:false },
+  { id:'t134', text:'Coordinar con Yulieth Sofia (Fulfillment) en la reunion del martes — compartirle contexto de la automatizacion Merchant Food Live y acceder a endpoints de notificacion push / chat RT para subflujos del bot', phase:'build', priority:'P0', source:'DM Yulieth Sofia Vie 8 May', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1799,12 +1800,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Yulieth Sofia (DM)', text: 'Meet martes confirmada — Juan Pablo solicito ayuda con endpoints de notificacion push y chat RT para subflujos de Food Live. Yulieth acepto dar contexto el martes.', time: 'Vie 08 09:42', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Camilo va a compartir los endpoints en un hilo hoy — da seguimiento a la integracion de la API lupe-partners para el bot Assemble Food Live.', time: 'Vie 08 09:17', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Pruebas de endpoint completadas — Juan Pablo compartio curl de API lupe-partners (ordenes-store CO 900082934). Camilo confirmo que ya le funciona. Endpoint validado para integracion bot Food Live.', time: 'Jue 07 19:54', type: 'dm', actionable: false },
-  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'Hola Jose, veo varios hilos con dudas, queda pendiente algo? El portal esta en Rappipedia. Lo del CMS retail-cms.rappi.com/login parece raro — coordinar accesos pendientes', time: 'Jue 07 19:33', type: 'dm', actionable: true },
-  { from: 'Juan Pablo → Dangeli Cardenas (DM)', text: 'Iniciando coordinacion para agendar reunion y validar que suspensiones se pueden y no se pueden levantar con el bot — logica de suspension actualizada pendiente de confirmacion', time: 'Jue 07 17:07', type: 'dm', actionable: true },
-  { from: 'Juan Pablo → Elias Rivera (DM)', text: 'Figma Food Non Live — Suspension compartido con Elias para comenzar construccion de flujos en Assembled', time: 'Jue 07 17:10', type: 'dm', actionable: false },
-  { from: 'Andres De Las Casas (DM)', text: 'Si lo haces cada cosa por separada, les dices a que ramas especificas vas a pegar cada flujo — o si es un solo workflow, la imagen de Figma pinada define los entry points del bot', time: 'Jue 07 14:28', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Creo que hay que ver el DT de Andy — seria decirle a tech en que issues si entra el bot y en cuales no', time: 'Jue 07 14:15', type: 'dm', actionable: true },
+  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'Hola Jose, veo varios hilos con dudas, queda pendiente algo? El portal esta en Rappipedia. Lo del CMS retail-cms.rappi.com/login parece raro — coordinar accesos pendientes.', time: 'Jue 07 19:33', type: 'dm', actionable: true },
+  { from: 'Juan Pablo → Dangeli Cardenas (DM)', text: 'Iniciando coordinacion para agendar reunion y validar que suspensiones se pueden y no se pueden levantar con el bot — logica de suspension pendiente de confirmacion.', time: 'Jue 07 17:07', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: 'Si lo haces cada cosa por separada, les dices a que ramas especificas vas a pegar cada flujo — o si es un solo workflow, la imagen de Figma pinada define los entry points del bot.', time: 'Jue 07 14:28', type: 'dm', actionable: true },
   { from: 'Maria Granada (Grupo DM)', text: 'AI Bot Food Live @juan.bonansea: de este ya le pasamos a tech los nuevos endpoints y ya definimos de donde se va a pegar el flujo para que ellos configuren el experimento?', time: 'Jue 07 13:20', type: 'group', actionable: true }
 ];
 
