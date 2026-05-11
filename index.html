@@ -1466,7 +1466,8 @@ const EVENTS = {
   mon: [
     { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:16, org:'isabela.gomez@rappi.com', type:'team' },
     { time:'10:30-11:00', title:'[Kickoff] AI Bot - Exp Problems with Order', attendees:5, org:'veronica.ferro@rappi.com', type:'team', note:'Kickoff bot para problemas con la orden: productos incorrectos, danados o faltantes' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'16:30-17:00', title:'Revision levantar suspended store', attendees:2, org:'jose.ceron@rappi.com', type:'team', note:'Revision tecnica con Jose Luis Ceron: endpoints para identificar y levantar tiendas suspendidas. Riesgos en produccion y gestion de permisos CMS.' }
   ],
   tue: [
     { time:'10:00-10:30', title:'Endpoints Fullfilment', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'Juan Pablo organiza - revision de endpoints fulfillment con Yulieth Montes y Maria Granada (opc)' },
@@ -1496,6 +1497,17 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:45, title:'Revision levantar suspended store', date:'11 May',
+    summary:'Identificacion de tiendas suspendidas y evaluacion de riesgos operativos en entornos de produccion con restricciones tecnicas. Se coordinaron esfuerzos para obtener codigo necesario y acceder al listado de tiendas actualmente suspendidas. Persisten dudas sobre ejecutar pruebas directamente en produccion por posibles consecuencias negativas en ventas. Se decidio solicitar apoyo tecnico ante la falta de permisos de acceso y se determino que los endpoints para suspender y habilitar tiendas son distintos.',
+    sections:['Identificacion de tiendas suspendidas','Riesgos en entorno productivo','Gestion de permisos y endpoints'],
+    actions:[
+      { text:'Contactar a Veru para identificar quien puede asistir en el proceso de levantar la suspension de tiendas', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
+      { text:'Gestionar apoyo del equipo de soporte mediante hilo de comunicacion iniciado para resolver inconvenientes tecnicos de acceso', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
+      { text:'Preparar el desarrollo del componente encargado de consultar el motivo de suspension de las tiendas (endpoint motivo)', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
+      { text:'Preparar el desarrollo del componente encargado de levantar la suspension de las tiendas (endpoint habilitacion)', owner:'Jose Luis Ceron', phase:'build', priority:'P0' }
+    ]
+  },
   {
     id:44, title:'[Kickoff] AI Bot - Exp Problems with Order (Fase 2 Endpoints)', date:'11 May',
     summary:'Revision tecnica de solicitudes para fase 2 con integracion de nuevos endpoints de datos. Se formalizaron requerimientos para endpoints de detalle de productos, productos sustituidos y creditos por pedido bajo configuracion base fase 1. Se planteo procesar reembolsos directamente al metodo de pago original superando la limitacion actual de solo usar creditos. Se discutio la unificacion de campos para riesgo de fraude y se acordo revisar disponibilidad de esta informacion tras entrega de los enlaces pertinentes.',
@@ -1757,6 +1769,10 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d87', text:'Contactar a Veru para identificar quien puede asistir en el proceso de levantar la suspension de tiendas en produccion', owner:'Jose Luis Ceron', source:'Revision levantar suspended store 11 May', status:'pendiente' },
+  { id:'d86', text:'Gestionar apoyo del equipo de soporte mediante hilo de comunicacion para resolver inconvenientes tecnicos de permisos y acceso CMS', owner:'Jose Luis Ceron', source:'Revision levantar suspended store 11 May', status:'pendiente' },
+  { id:'d85', text:'Preparar el desarrollo del endpoint que consulta el motivo de suspension de las tiendas', owner:'Jose Luis Ceron', source:'Revision levantar suspended store 11 May', status:'pendiente' },
+  { id:'d84', text:'Preparar el desarrollo del endpoint encargado de levantar la suspension de las tiendas', owner:'Jose Luis Ceron', source:'Revision levantar suspended store 11 May', status:'pendiente' },
   { id:'d83', text:'Compartir nuevo enlace Assemble para configuracion fase 2 incluyendo las mismas configuraciones de fase 1 — bot Exp Problems with Order', owner:'Maria Granada', source:'Kickoff AI Bot Exp Problems Order 11 May', status:'pendiente' },
   { id:'d82', text:'Compartir hilo de contexto para revision del riesgo de fraude y facilitar revision del campo en endpoints fase 2', owner:'Maria Granada', source:'Kickoff AI Bot Exp Problems Order 11 May', status:'pendiente' },
   { id:'d81', text:'Revisar si campo riesgo de fraude posible esta siendo traido en bot Phase 2 y confirmar estado de obtencion del dato', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Exp Problems Order 11 May', status:'pendiente' },
@@ -1786,17 +1802,17 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Jose Ceron (DM)', text: 'Comparte URL Lupe restaurant 900144172 para busqueda en produccion — revision tecnica endpoint suspension de tiendas post-meeting. Acceso a listado pendiente de permisos CMS.', time: 'Lun 11 16:52', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Confirma acceso al endpoint — "veo que ya te funciona, si?" — ordenes in_store con storekeeper null es el comportamiento esperado para el flujo de soporte.', time: 'Lun 11 15:28', type: 'dm', actionable: false },
   { from: 'Maria Granada (Group DM)', text: 'Espacio jueves para propuestas de automatizaciones adicionales merchants Q — incluir Entry Issue, tickets a ahorrar, Gantt y DRI. Comprometido: Food live 11/05 (19.9k), Suspensiones 11/05 (4.7k), Integradas 1/06 (4.7k).', time: 'Lun 11 10:45', type: 'mention', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Problemas de acceso a endpoint DEV_support_partners_order_store — no encuentra en Lupe y no puede loguearse. Juan Pablo le compartio paso a paso y curls necesarias (sprt_order_detail).', time: 'Lun 11 10:35', type: 'dm', actionable: false },
   { from: 'Jose Ceron (DM)', text: 'Endpoints bot Non Live Suspension disponibles en DEV — "hoy sigo con los restantes y te voy pasando". Si no hay bloqueante ya puedes implementar en DEV.', time: 'Lun 11 08:59', type: 'dm', actionable: true },
-  { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana para Juan Pablo: 1) AI Bot Phase I Triage Food Live — Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension — Lanzar al 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true },
-  { from: 'Esbeydi Reynoso (DM)', text: '400 tiendas suspendidas en CO hace media hora — luego no arroja ninguna. Por ser viernes en ese horario las suspensiones tienden a ser breves.', time: 'Vie 08 20:46', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Comparte endpoint PROD_store_information_proxy_stores — con dos endpoints para enabled y type del store. Solicita ID de tienda no habilitada para validar en produccion.', time: 'Vie 08 18:20', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Pregunta si habra solo una opcion del menu que va al bot o varios nodos. Juan Pablo confirmo flujo unico con Mafe — pendiente respuesta definitiva sobre arquitectura.', time: 'Vie 08 16:40', type: 'dm', actionable: true }
+  { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana: 1) AI Bot Phase I Triage Food Live — Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension — Lanzar al 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true },
+  { from: 'Esbeydi Reynoso (DM)', text: '400 tiendas suspendidas en CO hace media hora — luego no arroja ninguna. Por ser viernes en ese horario las suspensiones tienden a ser breves.', time: 'Vie 08 20:46', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:30', '17:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-10:00', '10:30-13:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-9:30', '10:00-11:00', '14:00-15:00', '15:30-16:30'] },
   { day: 'Jue', blocks: ['8:00-9:00', '10:00-13:00', '14:00-15:30', '16:00-18:00'] },
