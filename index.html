@@ -1465,7 +1465,6 @@ const TODAY_IDX = getTodayIndex();
 const EVENTS = {
   mon: [
     { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:16, org:'isabela.gomez@rappi.com', type:'team' },
-    { time:'10:00-11:00', title:'Shadowing Merchant (TaskUs)', attendees:16, org:'carla.capristan@rappi.com', type:'shadowing', note:'Opcional - observacion en tiempo real de agente Food' },
     { time:'10:30-11:00', title:'[Kickoff] AI Bot - Exp Problems with Order', attendees:5, org:'veronica.ferro@rappi.com', type:'team', note:'Kickoff bot para problemas con la orden: productos incorrectos, danados o faltantes' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
@@ -1486,7 +1485,8 @@ const EVENTS = {
   thu: [
     { time:'9:00-10:00', title:'Shadowing Merchant (TaskUs)', attendees:16, org:'carla.capristan@rappi.com', type:'shadowing', note:'Opcional - shadowing Food Merchant jueves' },
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal PRDs y disenos CX Product' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'15:30-16:00', title:'Check propuesta merchants AI', attendees:5, org:'m.granada@rappi.com', type:'team', note:'Revision propuesta merchants AI con Maria Granada, Elias Rivera y equipo' }
   ],
   fri: [
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
@@ -1496,6 +1496,16 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:44, title:'[Kickoff] AI Bot - Exp Problems with Order (Fase 2 Endpoints)', date:'11 May',
+    summary:'Revision tecnica de solicitudes para fase 2 con integracion de nuevos endpoints de datos. Se formalizaron requerimientos para endpoints de detalle de productos, productos sustituidos y creditos por pedido bajo configuracion base fase 1. Se planteo procesar reembolsos directamente al metodo de pago original superando la limitacion actual de solo usar creditos. Se discutio la unificacion de campos para riesgo de fraude y se acordo revisar disponibilidad de esta informacion tras entrega de los enlaces pertinentes.',
+    sections:['Solicitudes de nuevos endpoints','Implementacion de reembolsos al metodo de pago original','Integracion de riesgo fraude'],
+    actions:[
+      { text:'Revisar si el campo riesgo de fraude posible esta siendo traido y confirmar estado de obtencion del dato', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
+      { text:'Compartir hilo de contexto para revision del riesgo de fraude y facilitar revision del campo en bot fase 2', owner:'Maria Granada', phase:'build', priority:'P0' },
+      { text:'Compartir nuevo enlace Assemble para configuracion fase 2 incluyendo las mismas configuraciones de fase 1', owner:'Maria Granada', phase:'build', priority:'P0' }
+    ]
+  },
   {
     id:43, title:'Flujo compensaciones - Merchants', date:'8 May',
     summary:'Revision de automatizacion de devoluciones y analisis de datos de entrega para optimizar procesos operativos internos. El sistema validara comentarios de usuarios contra detalles de ordenes para automatizar reembolsos y ajuste de valores mejorando eficiencia. Se analizaran tiempos de entrega por kilometro para establecer criterios de riesgo reales reemplazando estimaciones arbitrarias en temperatura. Se priorizara el flujo de ordenes canceladas para aprovechar reglas estaticas. La automatizacion proyecta reducir la carga de 30,000 tickets mensuales liberando 6 agentes.',
@@ -1747,6 +1757,9 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d83', text:'Compartir nuevo enlace Assemble para configuracion fase 2 incluyendo las mismas configuraciones de fase 1 — bot Exp Problems with Order', owner:'Maria Granada', source:'Kickoff AI Bot Exp Problems Order 11 May', status:'pendiente' },
+  { id:'d82', text:'Compartir hilo de contexto para revision del riesgo de fraude y facilitar revision del campo en endpoints fase 2', owner:'Maria Granada', source:'Kickoff AI Bot Exp Problems Order 11 May', status:'pendiente' },
+  { id:'d81', text:'Revisar si campo riesgo de fraude posible esta siendo traido en bot Phase 2 y confirmar estado de obtencion del dato', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Exp Problems Order 11 May', status:'pendiente' },
   { id:'d78', text:'Construir flujo Mi tienda no aparece en la app asegurando ruteo correcto al flujo de suspensiones creado por Juan Pablo', owner:'Andres Diaz / Elias Rivera / Stephania Gonzalez', source:'Flujo compensaciones Merchants 8 May', status:'pendiente' },
   { id:'d77', text:'Desarrollar flujo de ordenes canceladas reciclando logica del flujo de compensaciones existente', owner:'Andres Diaz / Elias Rivera / Stephania Gonzalez', source:'Flujo compensaciones Merchants 8 May', status:'pendiente' },
   { id:'d76', text:'Integrar puntos abiertos en flujo principal incluyendo manejo de multiples evidencias — unificar flujo items incompletos con flujo no llego', owner:'Andres Diaz', source:'Flujo compensaciones Merchants 8 May', status:'pendiente' },
@@ -1773,20 +1786,20 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada (Group DM)', text: 'Espacio jueves para propuestas de automatizaciones adicionales merchants Q — incluir Entry Issue, tickets a ahorrar, Gantt y DRI. Comprometido: Food live 11/05 (19.9k), Suspensiones 11/05 (4.7k), Integradas 1/06 (4.7k).', time: 'Lun 11 10:45', type: 'mention', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Problemas de acceso a endpoint DEV_support_partners_order_store — no encuentra en Lupe y no puede loguearse. Juan Pablo le compartio paso a paso y curls necesarias (sprt_order_detail).', time: 'Lun 11 10:35', type: 'dm', actionable: false },
   { from: 'Jose Ceron (DM)', text: 'Endpoints bot Non Live Suspension disponibles en DEV — "hoy sigo con los restantes y te voy pasando". Si no hay bloqueante ya puedes implementar en DEV.', time: 'Lun 11 08:59', type: 'dm', actionable: true },
   { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana para Juan Pablo: 1) AI Bot Phase I Triage Food Live — Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension — Lanzar al 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true },
   { from: 'Esbeydi Reynoso (DM)', text: '400 tiendas suspendidas en CO hace media hora — luego no arroja ninguna. Por ser viernes en ese horario las suspensiones tienden a ser breves.', time: 'Vie 08 20:46', type: 'dm', actionable: true },
   { from: 'Jose Ceron (DM)', text: 'Comparte endpoint PROD_store_information_proxy_stores — con dos endpoints para enabled y type del store. Solicita ID de tienda no habilitada para validar en produccion.', time: 'Vie 08 18:20', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Pregunta si habra solo una opcion del menu que va al bot o varios nodos. Juan Pablo confirmo flujo unico con Mafe — pendiente respuesta definitiva sobre arquitectura.', time: 'Vie 08 16:40', type: 'dm', actionable: true },
-  { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Ticket SECOPS-432531 enviado para aprobacion de acceso CMS de Jose Ceron — necesario para integracion bot Non Live Suspension. Pendiente aprobacion de Andres.', time: 'Vie 08 14:22', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Ticket de acceso CMS rechazado — solicita que Juan Pablo escriba al grupo para coordinar acceso a retail-cms.rappi.com para integracion bot Non Live Suspension.', time: 'Vie 08 10:31', type: 'dm', actionable: true }
+  { from: 'Camilo Esquivel (DM)', text: 'Pregunta si habra solo una opcion del menu que va al bot o varios nodos. Juan Pablo confirmo flujo unico con Mafe — pendiente respuesta definitiva sobre arquitectura.', time: 'Vie 08 16:40', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-10:00', '10:30-13:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-9:30', '10:00-11:00', '14:00-15:00', '15:30-16:30'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '10:00-13:00', '14:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '10:00-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
 
