@@ -1470,16 +1470,16 @@ const EVENTS = {
     { time:'16:30-17:00', title:'Revision levantar suspended store', attendees:2, org:'jose.ceron@rappi.com', type:'team', note:'Revision tecnica con Jose Luis Ceron: endpoints para identificar y levantar tiendas suspendidas. Riesgos en produccion y gestion de permisos CMS.' }
   ],
   tue: [
-    { time:'10:00-10:30', title:'Endpoints Fullfilment', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'Juan Pablo organiza - revision de endpoints fulfillment con Yulieth Montes y Maria Granada (opc)' },
-    { time:'11:30-12:00', title:'Flujo de compensaciones', attendees:4, org:'f.diaz@rappi.com', type:'team', note:'Revision del flujo de compensaciones con Andres De Las Casas, Maria Granada y F. Diaz' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'Weekly 1:1 con Maria Granada' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1' }
   ],
   wed: [
     { time:'9:30-10:00', title:'Assembled Workflows - Best Practices', attendees:6, org:'m.granada@rappi.com', type:'team', note:'Best practices de Assembled Workflows con equipo CX Product' },
+    { time:'10:00-10:30', title:'Flujo de compensaciones', attendees:4, org:'f.diaz@rappi.com', type:'team', note:'Revision del flujo de compensaciones con Andres De Las Casas, Maria Granada y F. Diaz' },
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:45, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal - revision de metricas y avances' },
     { time:'11:30-12:30', title:'Shadowing | Offenders OPs (Non Food)', attendees:16, org:'elias.rivera@rappi.com', type:'shadowing', note:'Opcional - shadowing Non Food aliados' },
+    { time:'12:30-13:00', title:'Endpoints fullfilment', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'Juan Pablo organiza - revision de endpoints fulfillment con Yulieth Montes y Maria Granada (opc)' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'15:00-15:30', title:'Horas Deal', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Espacio quincenal de formacion - Udemy Business' }
   ],
@@ -1741,9 +1741,11 @@ const DEFAULT_TASKS = [
   { id:'t205', text:'Proveer IDs de chat de casos de atencion actuales para pruebas de integracion del bot Non Live Suspension', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'mon', completed:false },
   { id:'t206', text:'Crear hilo de comunicacion y etiquetar a Jose Luis Ceron para coordinacion de endpoints del bot suspension', phase:'build', priority:'P0', source:'Kickoff AI Bot Non Live 6 May', day:'mon', completed:false },
   { id:'t207', text:'Lanzar flujos Live y Suspensions en Assemble esta semana — revisar funcionalidad y agregar componentes faltantes (comprometido con Assembled Merchants 6 May)', phase:'build', priority:'P0', source:'Assembled Merchants 6 May', day:'tue', completed:false },
-  { id:'t208', text:'Coordinar con Yulieth Sofia (Fulfillment) en meeting Endpoints Fullfilment (hoy Mar 10:00) — endpoints notificacion push y chat RT para subflujos Food Live', phase:'build', priority:'P0', source:'DM Yulieth Sofia Vie 8 May + Calendar', day:'tue', completed:false },
+  { id:'t218', text:'Confirmar con Jose Ceron que el endpoint faltante quedo deployado a produccion — el declaro que lo haria al salir de su reunion (10:51)', phase:'build', priority:'P0', source:'DM Jose Ceron Mar 12', day:'tue', completed:false },
+  { id:'t219', text:'Probar parte del flujo bot con order ID 2150501208 (sin RT asignado) — compartido por Camilo Esquivel para prueba de integracion', phase:'build', priority:'P1', source:'DM Camilo Esquivel Mar 12', day:'tue', completed:false },
   { id:'t209', text:'Escribir a Luciano Gaspar solicitando accesos a herramienta Portal Partners', phase:'build', priority:'P0', source:'JP/Andres 5 May', day:'tue', completed:false },
   { id:'t210', text:'Leer tickets de merchants para entender quejas y lenguaje — insumo para escribir prompts del bot de suspensiones', phase:'discovery', priority:'P0', source:'JP/Andres 5 May', day:'tue', completed:false },
+  { id:'t208', text:'Coordinar con Yulieth Sofia (Fulfillment) en meeting Endpoints Fullfilment (Mie 12:30) — endpoints notificacion push y chat RT para subflujos Food Live', phase:'build', priority:'P0', source:'DM Yulieth Sofia Vie 8 May + Calendar', day:'wed', completed:false },
   { id:'t211', text:'Solicitar endpoints faltantes para soluciones Assembled Merchants al equipo Tech antes del viernes', phase:'build', priority:'P0', source:'Assembled Merchants 6 May', day:'wed', completed:false },
   { id:'t212', text:'Agendar y hacer sesion con Dangeli Cardenas para validar logica completa de suspension — solo levantar las que corresponden, excluir Turbo', phase:'build', priority:'P0', source:'JP/Andres 5 May + Revision Suspensiones 8 May', day:'wed', completed:false },
   { id:'t213', text:'Revisar historial de suspensiones de los ultimos 2 meses y extraer motivos especificos para mapear flujo automatizado (gestion humana vs autogestion)', phase:'discovery', priority:'P0', source:'Revision flujo suspensiones 8 May', day:'wed', completed:false },
@@ -1802,19 +1804,19 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Jose Ceron (DM)', text: 'Salgo de reunion y valido el endpoint que faltaba ayer — lo despliego a produccion para que los puedas usar.', time: 'Mar 12 10:51', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Intenta con esta orden: 2150501208 — order ID sin RT asignado para probar la otra parte del flujo del bot.', time: 'Mar 12 10:23', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Juan, ya quedo en el documento, al final — cambios del flujo del bot incorporados correctamente.', time: 'Lun 11 17:58', type: 'dm', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'Comparte URL Lupe 900144172 para revision en produccion — revision tecnica endpoint suspension post-meeting. Lupe validado como alternativa funcional ante fallas CMS.', time: 'Lun 11 16:40', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Debes ensayar con una orden que este en curso con estado "en tienda" — respuesta 200 con storekeeper null es comportamiento esperado para el flujo.', time: 'Lun 11 16:20', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Va genial — el curl me sirve. Coordino revision suspended store 4:30 PM para avanzar con endpoints de motivo y habilitacion.', time: 'Lun 11 16:06', type: 'dm', actionable: false },
-  { from: 'Maria Granada (Group DM)', text: 'Espacio jueves para propuestas automatizaciones adicionales merchants — Entry Issue, tickets a ahorrar, Gantt y DRI. Comprometidos: Food live 11/05 (19.9k), Suspensiones 11/05 (4.7k), Integradas 1/06 (4.7k).', time: 'Lun 11 10:45', type: 'mention', actionable: true },
-  { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana: 1) AI Bot Triage Food Live — lanzar al 30% e iterar. 2) AI Bot Food Non Live Suspension — lanzar al 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true },
-  { from: 'Esbeydi Reynoso (DM)', text: '400 tiendas suspendidas en CO hace media hora — luego no arroja ninguna. Por ser viernes en ese horario las suspensiones tienden a ser breves.', time: 'Vie 08 20:46', type: 'dm', actionable: true }
+  { from: 'Jose Ceron (DM)', text: 'URL Lupe 900144172 para revision en produccion — Lupe validado como alternativa funcional ante fallas CMS.', time: 'Lun 11 16:40', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Ensaya con orden en curso con estado en tienda — respuesta 200 con storekeeper null es comportamiento esperado.', time: 'Lun 11 16:20', type: 'dm', actionable: true },
+  { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana: AI Bot Triage Food Live lanzar 30% e iterar. AI Bot Food Non Live Suspension lanzar 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true },
+  { from: 'Esbeydi Reynoso (DM)', text: '400 tiendas suspendidas en CO — suspensiones breves por ser viernes en ese horario. Tabla compartida para mapeo del flujo.', time: 'Vie 08 20:46', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:30', '17:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:00', '10:30-11:30', '12:00-13:00', '14:30-15:30', '16:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-9:30', '10:00-11:00', '14:00-15:00', '15:30-18:00'] },
+  { day: 'Mar', blocks: ['8:00-13:00', '14:30-15:30', '16:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-9:30', '14:00-15:00', '15:30-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '10:00-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
