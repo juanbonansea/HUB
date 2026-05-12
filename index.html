@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mar 12</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mar 12 · Actualizado 17:05</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1481,6 +1481,7 @@ const EVENTS = {
     { time:'12:30-13:00', title:'Endpoints fullfilment', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'Juan Pablo organiza - revision de endpoints fulfillment con Yulieth Montes y Maria Granada (opc)' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'15:00-15:30', title:'Horas Deal', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Espacio quincenal de formacion - Udemy Business' },
+    { time:'15:00-17:00', title:'Capacitacion Montaje de Workflows en Assemble', attendees:4, org:'elias.rivera@rappi.com', type:'team', note:'Capacitacion organizada por Elias Rivera para que su equipo aprenda a montar flujos en Assemble — agendado hoy tras DM solicitando sesion para automatizar flujos de su equipo' },
     { time:'17:00-17:30', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — reagendado de Martes 15:30 a Miercoles 17:00' }
   ],
   thu: [
@@ -1753,7 +1754,8 @@ const DEFAULT_TASKS = [
   { id:'t215', text:'Revisar llamadas a tiendas integradas para validar posibilidad de automatizar proceso de suspension', phase:'discovery', priority:'P1', source:'JP/Andres 5 May', day:'thu', completed:false },
   { id:'t216', text:'Validar con Tech convertidor de tiempo restante de suspension a horas/minutos en lugar de minutos brutos', phase:'build', priority:'P1', source:'JP/Andres 5 May', day:'thu', completed:false },
   { id:'t217', text:'Preparar estado actualizado de flujos para Weekly QA AI (Vie 14:00) — avances Food Live y Suspensiones semana', phase:'build', priority:'P1', source:'Calendar Vie 15 Mayo 14:00', day:'fri', completed:false },
-  { id:'t220', text:'Confirmar y agendar sesion con Elias Rivera para explicar como montar flujos en Assemble — su equipo necesita automatizar y Juan Pablo confirmo disponibilidad para el Mie en la tarde', phase:'build', priority:'P1', source:'DM Elias Rivera Mar 12', day:'tue', completed:false }
+  { id:'t220', text:'Confirmar y agendar sesion con Elias Rivera para explicar como montar flujos en Assemble — su equipo necesita automatizar y Juan Pablo confirmo disponibilidad para el Mie en la tarde', phase:'build', priority:'P1', source:'DM Elias Rivera Mar 12', day:'tue', completed:false },
+  { id:'t221', text:'Confirmar con Camilo Esquivel el punto exacto de entrada del bot en los arboles web y de WhatsApp — revisar si se puede agregar rama "problemas con RT" en arbol tree_non_live_partners_init_aliados y validar asignacion de issue_types para statsig', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 12 tarde', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1805,19 +1807,19 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Elias Rivera (DM)', text: 'Hola! podemos agendar una reu para que nos expliques como se montan los flujos en assemble — a su equipo les pidieron automatizar algunos y no lo tienen claro. Juan Pablo confirmo disponibilidad para el Mie en la tarde.', time: 'Mar 12', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Si, me falta uno. Salgo de reunion y lo valido por endpoint que es el que nos faltó ayer y ya despliego a produccion para que los puedas usar.', time: 'Mar 12 10:51', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'statsig es el experimento que controla que usuarios van a caer en el bot y cuales continuan cayendo en el anterior flujo. El flujo ya quedo para lo de statsig.', time: 'Mar 12 16:54', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Hola Juan, andaba mirando los arboles que tenemos para web — cual de esas opciones disponibles va a caer en el bot? El arbol tree_non_live_partners_init_aliados lleva a support_partners_chat_order_without_rt. Me falta buscar el de whatsapp y confirmar issue_type.', time: 'Mar 12 16:21', type: 'dm', actionable: true },
+  { from: 'Maria Fernanda Granada (DM)', text: 'puedes sacar cualquier orden — no necesitas una orden en vivo para las pruebas del bot.', time: 'Mar 12 15:40', type: 'dm', actionable: false },
+  { from: 'Elias Rivera (DM)', text: 'Hola! podemos agendar una reu para que nos expliques como se montan los flujos en assemble — a su equipo les pidieron automatizar algunos y no lo tienen claro. De una te agendo.', time: 'Mar 12 13:58', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Si, me falta uno. Salgo de reunion y lo valido por endpoint — el que nos faltó ayer — y ya despliego a produccion para que los puedas usar.', time: 'Mar 12 10:51', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Intenta con esta orden: 2150501208 — order ID sin RT asignado para probar la otra parte del flujo del bot.', time: 'Mar 12 10:23', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Juan, ya quedo en el documento, al final — cambios del flujo del bot incorporados correctamente.', time: 'Lun 11 17:58', type: 'dm', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'URL Lupe 900144172 para revision en produccion — Lupe validado como alternativa funcional ante fallas CMS.', time: 'Lun 11 16:40', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Ensaya con orden en curso con estado en tienda — respuesta 200 con storekeeper null es comportamiento esperado.', time: 'Lun 11 16:20', type: 'dm', actionable: true },
   { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana: AI Bot Triage Food Live lanzar 30% e iterar. AI Bot Food Non Live Suspension lanzar 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:30', '17:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-13:00', '14:30-18:00'] },
-  { day: 'Mie', blocks: ['8:00-9:30', '14:00-15:00', '15:30-17:00'] },
+  { day: 'Mie', blocks: ['8:00-9:30', '14:00-15:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '10:00-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
