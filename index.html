@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Lun 11</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mar 12</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1471,6 +1471,7 @@ const EVENTS = {
   ],
   tue: [
     { time:'10:00-10:30', title:'Endpoints Fullfilment', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'Juan Pablo organiza - revision de endpoints fulfillment con Yulieth Montes y Maria Granada (opc)' },
+    { time:'11:30-12:00', title:'Flujo de compensaciones', attendees:4, org:'f.diaz@rappi.com', type:'team', note:'Revision del flujo de compensaciones con Andres De Las Casas, Maria Granada y F. Diaz' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'Weekly 1:1 con Maria Granada' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1' }
@@ -1802,18 +1803,18 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Camilo Esquivel (DM)', text: 'Ya quedo en el documento — ID 56361668-01-15. Cambios incorporados en el flujo del bot.', time: 'Mar 12', type: 'dm', actionable: false },
   { from: 'Jose Ceron (DM)', text: 'Comparte URL Lupe restaurant 900144172 para busqueda en produccion — revision tecnica endpoint suspension de tiendas post-meeting. Acceso a listado pendiente de permisos CMS.', time: 'Lun 11 16:52', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Confirma acceso al endpoint — "veo que ya te funciona, si?" — ordenes in_store con storekeeper null es el comportamiento esperado para el flujo de soporte.', time: 'Lun 11 15:28', type: 'dm', actionable: false },
   { from: 'Maria Granada (Group DM)', text: 'Espacio jueves para propuestas de automatizaciones adicionales merchants Q — incluir Entry Issue, tickets a ahorrar, Gantt y DRI. Comprometido: Food live 11/05 (19.9k), Suspensiones 11/05 (4.7k), Integradas 1/06 (4.7k).', time: 'Lun 11 10:45', type: 'mention', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Problemas de acceso a endpoint DEV_support_partners_order_store — no encuentra en Lupe y no puede loguearse. Juan Pablo le compartio paso a paso y curls necesarias (sprt_order_detail).', time: 'Lun 11 10:35', type: 'dm', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'Endpoints bot Non Live Suspension disponibles en DEV — "hoy sigo con los restantes y te voy pasando". Si no hay bloqueante ya puedes implementar en DEV.', time: 'Lun 11 08:59', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Invita a revision levantar suspended store a las 4:30 PM. Endpoints disponibles en DEV — "el curl me sirve" y "a eso iba". Continua con restantes endpoints hoy.', time: 'Lun 11 08:59', type: 'dm', actionable: true },
   { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana: 1) AI Bot Phase I Triage Food Live — Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension — Lanzar al 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true },
   { from: 'Esbeydi Reynoso (DM)', text: '400 tiendas suspendidas en CO hace media hora — luego no arroja ninguna. Por ser viernes en ese horario las suspensiones tienden a ser breves.', time: 'Vie 08 20:46', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:30', '17:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:00', '10:30-13:00', '14:30-15:30', '16:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-10:00', '10:30-11:30', '12:00-13:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-9:30', '10:00-11:00', '14:00-15:00', '15:30-16:30'] },
   { day: 'Jue', blocks: ['8:00-9:00', '10:00-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
