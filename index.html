@@ -1752,7 +1752,8 @@ const DEFAULT_TASKS = [
   { id:'t214', text:'Asegurar que flujo de suspensiones quede listo para recibir ruteo desde flujo Mi Tienda No Aparece — equipo Andres Diaz lo construye esta semana', phase:'build', priority:'P1', source:'Flujo compensaciones Merchants 8 May', day:'wed', completed:false },
   { id:'t215', text:'Revisar llamadas a tiendas integradas para validar posibilidad de automatizar proceso de suspension', phase:'discovery', priority:'P1', source:'JP/Andres 5 May', day:'thu', completed:false },
   { id:'t216', text:'Validar con Tech convertidor de tiempo restante de suspension a horas/minutos en lugar de minutos brutos', phase:'build', priority:'P1', source:'JP/Andres 5 May', day:'thu', completed:false },
-  { id:'t217', text:'Preparar estado actualizado de flujos para Weekly QA AI (Vie 14:00) — avances Food Live y Suspensiones semana', phase:'build', priority:'P1', source:'Calendar Vie 15 Mayo 14:00', day:'fri', completed:false }
+  { id:'t217', text:'Preparar estado actualizado de flujos para Weekly QA AI (Vie 14:00) — avances Food Live y Suspensiones semana', phase:'build', priority:'P1', source:'Calendar Vie 15 Mayo 14:00', day:'fri', completed:false },
+  { id:'t220', text:'Confirmar y agendar sesion con Elias Rivera para explicar como montar flujos en Assemble — su equipo necesita automatizar y Juan Pablo confirmo disponibilidad para el Mie en la tarde', phase:'build', priority:'P1', source:'DM Elias Rivera Mar 12', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1804,13 +1805,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Jose Ceron (DM)', text: 'Salgo de reunion y valido el endpoint que faltaba ayer — lo despliego a produccion para que los puedas usar.', time: 'Mar 12 10:51', type: 'dm', actionable: true },
+  { from: 'Elias Rivera (DM)', text: 'Hola! podemos agendar una reu para que nos expliques como se montan los flujos en assemble — a su equipo les pidieron automatizar algunos y no lo tienen claro. Juan Pablo confirmo disponibilidad para el Mie en la tarde.', time: 'Mar 12', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Si, me falta uno. Salgo de reunion y lo valido por endpoint que es el que nos faltó ayer y ya despliego a produccion para que los puedas usar.', time: 'Mar 12 10:51', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Intenta con esta orden: 2150501208 — order ID sin RT asignado para probar la otra parte del flujo del bot.', time: 'Mar 12 10:23', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Juan, ya quedo en el documento, al final — cambios del flujo del bot incorporados correctamente.', time: 'Lun 11 17:58', type: 'dm', actionable: false },
   { from: 'Jose Ceron (DM)', text: 'URL Lupe 900144172 para revision en produccion — Lupe validado como alternativa funcional ante fallas CMS.', time: 'Lun 11 16:40', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Ensaya con orden en curso con estado en tienda — respuesta 200 con storekeeper null es comportamiento esperado.', time: 'Lun 11 16:20', type: 'dm', actionable: true },
-  { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana: AI Bot Triage Food Live lanzar 30% e iterar. AI Bot Food Non Live Suspension lanzar 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true },
-  { from: 'Esbeydi Reynoso (DM)', text: '400 tiendas suspendidas en CO — suspensiones breves por ser viernes en ese horario. Tabla compartida para mapeo del flujo.', time: 'Vie 08 20:46', type: 'dm', actionable: true }
+  { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana: AI Bot Triage Food Live lanzar 30% e iterar. AI Bot Food Non Live Suspension lanzar 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true }
 ];
 
 const DEEP_WORK = [
