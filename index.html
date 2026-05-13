@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mie 13 · Actualizado 11:03</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mie 13 · Actualizado 13:05</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1499,6 +1499,32 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:48, title:'Endpoints fullfilment', date:'13 May',
+    summary:'Discusion sobre la automatizacion de procesos operativos y la integracion de sistemas de seguimiento para aliados. La automatizacion busca reducir costos operativos y eliminar la friccion causada por llamadas telefonicas directas ante demoras. El sistema Flint Tracking detecta desviaciones en el tiempo de llegada y gestiona notificaciones automaticas al repartidor. Se propone que los aliados consulten el estado del sistema para obtener visibilidad. Se decidio integrar el topico de seguimiento para optimizar tanto la recogida en tienda como la entrega final.',
+    sections:['Automatizacion del Merchant Food','Sistema Real Time Management - Flint Tracking','Integracion del seguimiento tecnico'],
+    actions:[
+      { text:'Integrar la lectura del topico de seguimiento en la automatizacion del proyecto Merchant Food Life — una vez confirmada la disponibilidad del topico por parte de Yulieth Sofia', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Validar si el topico de seguimiento de repartidor es aplicable para el proceso de recoleccion en tienda y entrega al usuario', owner:'Yulieth Sofia', phase:'discovery', priority:'P0' },
+      { text:'Compartir los detalles del topico y su esquema de visualizacion con Juan Pablo Chacon Bonansea una vez confirmada su disponibilidad', owner:'Yulieth Sofia', phase:'build', priority:'P0' }
+    ]
+  },
+  {
+    id:47, title:'CX Weekly Business Review', date:'13 May',
+    summary:'La reunion priorizo mejoras en automatizacion y calidad operativa mediante estrategias de soporte y gestion contractual. El equipo priorizo la calidad sobre la velocidad y estructuro un plan de respuesta para incidencias. Se acordo renegociar el contrato de Sprout Social por 3 meses. Se valido la automatizacion de tareas y la estrategia para dias especiales mediante la restriccion selectiva de escalamientos. El equipo monitoreara las metricas para evitar regresiones tecnicas. La insatisfaccion del usuario mejoro gracias a ajustes en la inteligencia artificial y procesos de soporte.',
+    sections:['Optimizacion tecnica y calidad','Automatizacion y flujos operativos','Metricas y desempeno operativo'],
+    actions:[
+      { text:'Analizar metricas de mensajes Firebase tras el despliegue y definir nuevos indicadores de calidad basados en resultados obtenidos', owner:'Andres Cobos / Cristian Parada', phase:'build', priority:'P0' },
+      { text:'Proporcionar actualizacion sobre el avance del equipo de tareas especiales para el correo la proxima semana', owner:'Andres De Las Casas', phase:'build', priority:'P1' },
+      { text:'Estudiar cuales tipos de incidencia se deben bloquear en fechas especiales y presentar recomendaciones para la configuracion del sistema', owner:'Eugenio La Rosa / Catalina Symonds', phase:'design', priority:'P0' },
+      { text:'Disenar protocolo de actuacion para situaciones de caidas del sistema o errores masivos de pago — pasos claros para el manejo de incidencias', owner:'Eugenio La Rosa / Maria Granada', phase:'build', priority:'P0' },
+      { text:'Desarrollar alertas automaticas de concurrencia para la gestion operativa — implementar semaforo de capacidades antes del mundial', owner:'Mike Medina / Andres De Las Casas', phase:'build', priority:'P0' },
+      { text:'Analizar reglas de compensacion de nivel 1 con Daniel Gallo y ajustar logica segun necesidades identificadas', owner:'Eugenio La Rosa', phase:'build', priority:'P1' },
+      { text:'Realizar dimensionamiento y analisis de impacto sobre el uso repetido de beneficios gratuitos (Free Pass)', owner:'Juan Delgado', phase:'discovery', priority:'P1' },
+      { text:'Coordinar reunion para discutir el proyecto Proactive Brain con Angela Maria Osuna e incluir partes interesadas', owner:'Eugenio La Rosa', phase:'discovery', priority:'P1' },
+      { text:'Ajustar borrador del contrato basandose en diseno previo para Tasc — colaborar con legal para validar nuevos acuerdos BRM, Concentric y Sprout', owner:'Nico', phase:'build', priority:'P1' }
+    ]
+  },
+  {
     id:46, title:'Assembled Workflows - Best Practices', date:'13 May',
     summary:'La reunion analizo mejores practicas de diseno de flujos de trabajo con optimizacion de datos JSON. Se definio el uso de notacion de punto para navegar estructuras anidadas y herramientas de inspeccion. La estandarizacion de nombres en flujos de trabajo facilita la comprension tecnica y el mantenimiento futuro. Es posible limitar consultas con filtros para reducir consumo de recursos en flujos pesados. Se decidio implementar convenciones de nomenclatura uniformes y limpiar el contexto para mejorar la eficiencia.',
     sections:['Gestion de datos JSON','Optimizacion y eficiencia tecnica','Convenciones de nomenclatura'],
@@ -1769,7 +1795,9 @@ const DEFAULT_TASKS = [
   { id:'t221', text:'Confirmar con Camilo Esquivel el punto exacto de entrada del bot en los arboles web y de WhatsApp — revisar si se puede agregar rama "problemas con RT" en arbol tree_non_live_partners_init_aliados y validar asignacion de issue_types para statsig', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 12 tarde', day:'wed', completed:false },
   { id:'t222', text:'Confirmar con Jose Ceron esta noche o manana que el deploy de PROD_store_information_proxy_stores llego a grandes (Colombia) — hoy en la manana arroja 401 en CO pero si funciona en CR. Deploy programado para la noche por restriccion horaria.', phase:'build', priority:'P0', source:'DM Jose Ceron Mie 13 09:05', day:'wed', completed:false },
   { id:'t223', text:'Coordinar con Meiker Munera o Maria Granada sobre el mapeo de paises en Assemble para los endpoints de store information — Jose Ceron confirmo que el no maneja Assemble y no tiene claro el mapeo para las URLs', phase:'build', priority:'P0', source:'DM Jose Ceron Mie 13 10:57', day:'wed', completed:false },
-  { id:'t224', text:'Leer guia Assembled Workflows compartida en la reunion de Best Practices — estudiar configuracion y manejo de flujos, aplicar directrices tecnicas y adoptar convenciones de nomenclatura uniformes en todos los desarrollos futuros', phase:'build', priority:'P1', source:'Assembled Workflows Best Practices Mie 13 May', day:'thu', completed:false }
+  { id:'t224', text:'Leer guia Assembled Workflows compartida en la reunion de Best Practices — estudiar configuracion y manejo de flujos, aplicar directrices tecnicas y adoptar convenciones de nomenclatura uniformes en todos los desarrollos futuros', phase:'build', priority:'P1', source:'Assembled Workflows Best Practices Mie 13 May', day:'thu', completed:false },
+  { id:'t225', text:'Integrar la lectura del topico de seguimiento de Flint Tracking en la automatizacion del proyecto Merchant Food Life — esperar confirmacion de Yulieth Sofia sobre disponibilidad del topico y su esquema de visualizacion', phase:'build', priority:'P0', source:'Endpoints fullfilment Mie 13 May', day:'thu', completed:false },
+  { id:'t226', text:'Configurar lanzamiento del flujo Food Live al 10% en paises pequenos — Mafe y Camilo Esquivel confirmaron disponibilidad; endpoint de ganancias Kafka pendiente pero no bloquea el 10%', phase:'build', priority:'P0', source:'DM Maria Granada + Camilo Esquivel Mie 13', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1788,6 +1816,14 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d97', text:'Validar si el topico de seguimiento de repartidor es aplicable para el proceso de recoleccion en tienda y entrega al usuario — y compartir detalles del topico + esquema de visualizacion con Juan Pablo', owner:'Yulieth Sofia', source:'Endpoints fullfilment 13 May', status:'pendiente' },
+  { id:'d96', text:'Analizar metricas Firebase tras el despliegue y definir nuevos indicadores de calidad — evaluar impacto de mensajes Firebase', owner:'Andres Cobos / Cristian Parada', source:'CX Weekly Business Review 13 May', status:'pendiente' },
+  { id:'d95', text:'Disenar protocolo de actuacion para situaciones de caidas del sistema o errores masivos de pago — pasos claros para manejo de incidencias masivas', owner:'Eugenio La Rosa / Maria Granada', source:'CX Weekly Business Review 13 May', status:'pendiente' },
+  { id:'d94', text:'Implementar semaforo de concurrencia y alertas automaticas de capacidad antes del mundial — desarrollar con Mike Medina', owner:'Mike Medina / Andres De Las Casas', source:'CX Weekly Business Review 13 May', status:'pendiente' },
+  { id:'d93', text:'Estudiar cuales tipos de incidencia se deben bloquear en fechas especiales y presentar recomendaciones para configuracion del sistema', owner:'Eugenio La Rosa / Catalina Symonds', source:'CX Weekly Business Review 13 May', status:'pendiente' },
+  { id:'d92', text:'Realizar dimensionamiento y analisis de impacto sobre uso repetido de beneficios gratuitos (Free Pass) y presentar resultados al equipo', owner:'Juan Delgado', source:'CX Weekly Business Review 13 May', status:'pendiente' },
+  { id:'d91', text:'Coordinar sesion Proactive Brain con Angela Maria Osuna e incluir partes interesadas para alinear estrategia operativa', owner:'Eugenio La Rosa', source:'CX Weekly Business Review 13 May', status:'pendiente' },
+  { id:'d90', text:'Ajustar borrador del contrato para BRM, Concentric y Sprout — colaborar con legal para validar nuevos acuerdos (basado en diseno Tasc)', owner:'Nico (Nicolas Bejarano)', source:'CX Weekly Business Review 13 May', status:'pendiente' },
   { id:'d89', text:'Identificar y evaluar procesos existentes en Assemble con mayor consumo de memoria o errores frecuentes — coordinar division de tareas de ajuste entre miembros del equipo', owner:'Maria Granada / Andres De Las Casas', source:'Assembled Workflows Best Practices 13 May', status:'pendiente' },
   { id:'d88', text:'Agregar al material informativo de Assembled Workflows definiciones claras sobre terminologia tecnica: variables, propiedades, llaves y valores — facilitar comprension del equipo', owner:'Jonathan Munoz Lopez', source:'Assembled Workflows Best Practices 13 May', status:'pendiente' },
   { id:'d87', text:'Contactar a Veru para identificar quien puede asistir en el proceso de levantar la suspension de tiendas en produccion', owner:'Jose Luis Ceron', source:'Revision levantar suspended store 11 May', status:'pendiente' },
@@ -1823,13 +1859,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Jose Ceron (DM)', text: 'Juan esto ya es de productos, nosotros no manejamos Assemble — validalo con Meiker o Maria Granada porque la vdd yo Assemble no lo he manejado, no tengo claro como es el mapeo para las URL. Dame el link de Assemble que te lo reviso con ellos.', time: 'Mie 13 10:57', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'URL correcta para CL: https://support-ai-integrations-cr.security.rappi.com:4443/api/support-ai-integrations/store-information-proxy/stores — llamando a ese endpoint si trae la informacion. El request sigue siendo de CO.', time: 'Mie 13 10:47', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Endpoint PROD_store_information_proxy_stores dando 401 en Colombia — deploy todavia no llego a grandes. Lanzando Peru ahora (15 min). Con Costa Rica ya arroja info. Restriccion horaria: deploy a grandes en la noche.', time: 'Mie 13 09:05', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'statsig es el experimento que controla que usuarios van a caer en el bot y cuales continuan cayendo en el anterior flujo. El flujo ya quedo para lo de statsig.', time: 'Mar 12 16:54', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Hola Juan, andaba mirando los arboles que tenemos para web — cual de esas opciones disponibles va a caer en el bot? El arbol tree_non_live_partners_init_aliados lleva a support_partners_chat_order_without_rt. Me falta buscar el de whatsapp y confirmar issue_type.', time: 'Mar 12 16:21', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (DM)', text: 'Hola! podemos agendar una reu para que nos expliques como se montan los flujos en assemble — a su equipo les pidieron automatizar algunos y no lo tienen claro. De una te agendo.', time: 'Mar 12 13:58', type: 'dm', actionable: true },
-  { from: 'Maria Granada (Group DM)', text: 'Prioridades AI esta semana: AI Bot Triage Food Live lanzar 30% e iterar. AI Bot Food Non Live Suspension lanzar 30% e iterar.', time: 'Lun 11 08:51', type: 'mention', actionable: true }
+  { from: 'Camilo Esquivel (DM)', text: 'si, ya estoy terminando el endpoint para ganancias de RT y luego busco el arbol de whatsapp — te aviso que opciones tenemos alli para el punto de entrada del bot', time: 'Mie 13 12:44', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Entonces vayanos lanzando al menos al 10% — para que veamos como se comporta y cuando salga el endpoint Kafka lo agregamos', time: 'Mie 13 12:37', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Hola juan! como vas? sabes si hoy logramos lanzar Food Live?', time: 'Mie 13 12:08', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'ya le pregunte a Jona que el esta mas al tanto de la arquitectura de integracion. Esperemos nos de respuesta sobre el mapeo de paises en Assemble', time: 'Mie 13 11:37', type: 'dm', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'Juan esto ya es de productos, nosotros no manejamos Assemble — validalo con Meiker o Maria Granada. No tengo claro como es el mapeo para las URLs. Dame el link de Assemble.', time: 'Mie 13 10:57', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Endpoint PROD_store_information_proxy_stores dando 401 en Colombia — deploy todavia no llego a grandes. Con Costa Rica ya arroja info. Restriccion horaria: deploy a grandes en la noche.', time: 'Mie 13 09:05', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Hola Juan, andaba mirando los arboles que tenemos para web — cual de esas opciones disponibles va a caer en el bot? El arbol tree_non_live_partners_init_aliados lleva a support_partners_chat_order_without_rt. Me falta buscar el de whatsapp y confirmar issue_type.', time: 'Mar 12 16:21', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
@@ -1956,11 +1992,11 @@ function renderDashboard() {
    ================================================================ */
 function renderCalendar() {
   const dayLabels = [
-    { name:'Lunes 4 Mayo', key:'mon' },
-    { name:'Martes 5 Mayo', key:'tue' },
-    { name:'Miercoles 6 Mayo', key:'wed' },
-    { name:'Jueves 7 Mayo', key:'thu' },
-    { name:'Viernes 8 Mayo', key:'fri' }
+    { name:'Lunes 11 Mayo', key:'mon' },
+    { name:'Martes 12 Mayo', key:'tue' },
+    { name:'Miercoles 13 Mayo', key:'wed' },
+    { name:'Jueves 14 Mayo', key:'thu' },
+    { name:'Viernes 15 Mayo', key:'fri' }
   ];
 
   document.getElementById('calContent').innerHTML = dayLabels.map((d,i) => {
