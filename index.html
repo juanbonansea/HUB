@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mie 13 · Actualizado 07:08</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mie 13 · Actualizado 09:07</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1755,7 +1755,8 @@ const DEFAULT_TASKS = [
   { id:'t216', text:'Validar con Tech convertidor de tiempo restante de suspension a horas/minutos en lugar de minutos brutos', phase:'build', priority:'P1', source:'JP/Andres 5 May', day:'thu', completed:false },
   { id:'t217', text:'Preparar estado actualizado de flujos para Weekly QA AI (Vie 14:00) — avances Food Live y Suspensiones semana', phase:'build', priority:'P1', source:'Calendar Vie 15 Mayo 14:00', day:'fri', completed:false },
   { id:'t220', text:'Confirmar y agendar sesion con Elias Rivera para explicar como montar flujos en Assemble — su equipo necesita automatizar y Juan Pablo confirmo disponibilidad para el Mie en la tarde', phase:'build', priority:'P1', source:'DM Elias Rivera Mar 12', day:'tue', completed:false },
-  { id:'t221', text:'Confirmar con Camilo Esquivel el punto exacto de entrada del bot en los arboles web y de WhatsApp — revisar si se puede agregar rama "problemas con RT" en arbol tree_non_live_partners_init_aliados y validar asignacion de issue_types para statsig', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 12 tarde', day:'wed', completed:false }
+  { id:'t221', text:'Confirmar con Camilo Esquivel el punto exacto de entrada del bot en los arboles web y de WhatsApp — revisar si se puede agregar rama "problemas con RT" en arbol tree_non_live_partners_init_aliados y validar asignacion de issue_types para statsig', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 12 tarde', day:'wed', completed:false },
+  { id:'t222', text:'Confirmar con Jose Ceron esta noche o manana que el deploy de PROD_store_information_proxy_stores llego a grandes (Colombia) — hoy en la manana arroja 401 en CO pero si funciona en CR. Deploy programado para la noche por restriccion horaria.', phase:'build', priority:'P0', source:'DM Jose Ceron Mie 13 09:05', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1807,6 +1808,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Jose Ceron (DM)', text: 'Endpoint PROD_store_information_proxy_stores dando 401 en Colombia — deploy todavia no llego a grandes. Lanzando Peru ahora (15 min). Con Costa Rica ya arroja info. Restriccion horaria: deploy a grandes en la noche.', time: 'Mie 13 09:05', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'statsig es el experimento que controla que usuarios van a caer en el bot y cuales continuan cayendo en el anterior flujo. El flujo ya quedo para lo de statsig.', time: 'Mar 12 16:54', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Hola Juan, andaba mirando los arboles que tenemos para web — cual de esas opciones disponibles va a caer en el bot? El arbol tree_non_live_partners_init_aliados lleva a support_partners_chat_order_without_rt. Me falta buscar el de whatsapp y confirmar issue_type.', time: 'Mar 12 16:21', type: 'dm', actionable: true },
   { from: 'Maria Fernanda Granada (DM)', text: 'puedes sacar cualquier orden — no necesitas una orden en vivo para las pruebas del bot.', time: 'Mar 12 15:40', type: 'dm', actionable: false },
