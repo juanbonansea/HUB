@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mie 13 · Actualizado 15:55</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mie 13 · Actualizado 17:04</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1800,7 +1800,8 @@ const DEFAULT_TASKS = [
   { id:'t225', text:'Integrar la lectura del topico de seguimiento de Flint Tracking en la automatizacion del proyecto Merchant Food Life — esperar confirmacion de Yulieth Sofia sobre disponibilidad del topico y su esquema de visualizacion', phase:'build', priority:'P0', source:'Endpoints fullfilment Mie 13 May', day:'thu', completed:false },
   { id:'t226', text:'Configurar lanzamiento del flujo Food Live al 10% en paises pequenos — Mafe y Camilo Esquivel confirmaron disponibilidad; endpoint de ganancias Kafka pendiente pero no bloquea el 10%', phase:'build', priority:'P0', source:'DM Maria Granada + Camilo Esquivel Mie 13', day:'wed', completed:false },
   { id:'t227', text:'Confirmar con Camilo Esquivel el nodo exacto de entrada del bot en arbol WhatsApp sin orden — workflow clonado e61769ab. Reemplazar nombre "prueba" por PROD y validar que el flujo aplica para portal web y WhatsApp (partners y aliados)', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 13 May 14:54', day:'wed', completed:false },
-  { id:'t228', text:'Confirmar con Jose Ceron que deploy de PROD_store_information_proxy_stores llego a Colombia en la noche — usar punto (.) y no $ en llamadas de API segun validacion con Jonathan y Maria', phase:'build', priority:'P0', source:'DM Jose Ceron + Maria Granada Mie 13 May', day:'thu', completed:false }
+  { id:'t228', text:'Confirmar con Jose Ceron que deploy de PROD_store_information_proxy_stores llego a Colombia en la noche — usar punto (.) y no $ en llamadas de API segun validacion con Jonathan y Maria', phase:'build', priority:'P0', source:'DM Jose Ceron + Maria Granada Mie 13 May', day:'thu', completed:false },
+  { id:'t229', text:'Escalar con Jose Ceron el error 401 en Chile y Argentina para endpoint PROD_store_information_proxy_stores — Jonathan confirmo que solo CL/AR tienen el 401, CR funciona. Jonathan sugiere escalar al dueno del servicio.', phase:'build', priority:'P0', source:'DM Jose Ceron + Jonathan Munoz Mie 13 May 16:52', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1862,11 +1863,11 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Jose Ceron (DM)', text: 'Sigue dando 401 en Chile y Argentina — nuevo deploy con version mas nueva. El error es 401 no autorizado, no parece issue de version sino de permisos/credenciales por pais.', time: 'Mie 13 16:50', type: 'dm', actionable: true },
+  { from: 'Jonathan Munoz (DM)', text: 'Revisando con el equipo: solo CL tiene el 401, para los demas paises el servicio funciona. Probando en CR y funciona. Escalemos al dueno del servicio.', time: 'Mie 13 16:52', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Juan, avisa cuando este lo de statsig — cual es el paso a seguir para el punto de entrada del bot en los arboles?', time: 'Mie 13 16:22', type: 'dm', actionable: true },
   { from: 'Jonathan Munoz (DM)', text: 'Compartio link de Google Meet para el checkpoint workflows de las 15:00 — meet.google.com/gjk-sjuk-gcc', time: 'Mie 13 14:55', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel (DM)', text: 'La otra seria clonarlo y compartes el link — workflow clonado como e61769ab. Revisar si aplica para portal web y WhatsApp (arbol sin orden)', time: 'Mie 13 14:54', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Juan, este es el arbol de WhatsApp cuando la orden tiene RT — y este sin orden. En que nodo va el bot? Me confirmas el link de Assembled para prod?', time: 'Mie 13 14:42', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'juan tu ya probaste la llamada a las apis con ese $? ahorita estaba haciendo una prueba con Jona y me devuelve error — solo funciona con punto (.) no con $', time: 'Mie 13 14:26', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'si, ya estoy terminando el endpoint para ganancias de RT y luego busco el arbol de whatsapp — te aviso que opciones tenemos alli para el punto de entrada del bot', time: 'Mie 13 12:44', type: 'dm', actionable: true },
   { from: 'Maria Granada (DM)', text: 'Entonces vayanos lanzando al menos al 10% — para que veamos como se comporta y cuando salga el endpoint Kafka lo agregamos', time: 'Mie 13 12:37', type: 'dm', actionable: true },
   { from: 'Jose Ceron (DM)', text: 'Endpoint PROD_store_information_proxy_stores dando 401 en Colombia — deploy todavia no llego a grandes. Con Costa Rica ya arroja info. Restriccion horaria: deploy a grandes en la noche.', time: 'Mie 13 09:05', type: 'dm', actionable: true }
 ];
