@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Mie 13 · Actualizado 17:04</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Jue 14 · Actualizado 07:06</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1499,6 +1499,18 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:49, title:'Capacitacion Montaje de Workflows en Assemble', date:'13 May',
+    summary:'La reunion establecio la logica de flujo para tiendas invisibles mediante la plataforma tecnica Assemble estructurada. Se definio el flujo logico para validar la visibilidad de tiendas considerando factores tecnicos y operativos. Se estandarizo el uso de Assemble clonando flujos existentes para optimizar la estructura de nodos. La implementacion requiere configurar disparadores con metadatos especificos y nodos de condicion para gestionar idiomas. Se utilizan nodos de guia e interaccion con IA para clasificar intenciones. El equipo documentara requisitos tecnicos para agilizar la creacion de los endpoints necesarios.',
+    sections:['Arquitectura y diseno logico','Configuracion de nodos tecnicos','Despliegue, pruebas y conectividad'],
+    actions:[
+      { text:'Compartir el ejemplo del documento de especificaciones tecnicas para que sirva de referencia al equipo en la construccion del nuevo flujo de tiendas invisibles', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Solicitar los puntos de acceso (API endpoints) a tecnologia para la integracion del flujo — definir los datos necesarios y verificar si ya existen endpoints reutilizables', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P0' },
+      { text:'Redactar documento tecnico que especifique las variables necesarias y los datos esperados de los endpoints — presentar a Veronica Ferro para facilitar apoyo de un desarrollador', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P0' },
+      { text:'Clonar el flujo base en Assemble y comenzar la construccion del nuevo flujo — renombrar segun pruebas o funcionalidades correspondientes', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P0' },
+      { text:'Enviar el flujo en formato PDF a IA (Gemini o Claude) para obtener recomendaciones sobre la estructura y los nodos necesarios', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:48, title:'Endpoints fullfilment', date:'13 May',
     summary:'Discusion sobre la automatizacion de procesos operativos y la integracion de sistemas de seguimiento para aliados. La automatizacion busca reducir costos operativos y eliminar la friccion causada por llamadas telefonicas directas ante demoras. El sistema Flint Tracking detecta desviaciones en el tiempo de llegada y gestiona notificaciones automaticas al repartidor. Se propone que los aliados consulten el estado del sistema para obtener visibilidad. Se decidio integrar el topico de seguimiento para optimizar tanto la recogida en tienda como la entrega final.',
@@ -1801,7 +1813,9 @@ const DEFAULT_TASKS = [
   { id:'t226', text:'Configurar lanzamiento del flujo Food Live al 10% en paises pequenos — Mafe y Camilo Esquivel confirmaron disponibilidad; endpoint de ganancias Kafka pendiente pero no bloquea el 10%', phase:'build', priority:'P0', source:'DM Maria Granada + Camilo Esquivel Mie 13', day:'wed', completed:false },
   { id:'t227', text:'Confirmar con Camilo Esquivel el nodo exacto de entrada del bot en arbol WhatsApp sin orden — workflow clonado e61769ab. Reemplazar nombre "prueba" por PROD y validar que el flujo aplica para portal web y WhatsApp (partners y aliados)', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 13 May 14:54', day:'wed', completed:false },
   { id:'t228', text:'Confirmar con Jose Ceron que deploy de PROD_store_information_proxy_stores llego a Colombia en la noche — usar punto (.) y no $ en llamadas de API segun validacion con Jonathan y Maria', phase:'build', priority:'P0', source:'DM Jose Ceron + Maria Granada Mie 13 May', day:'thu', completed:false },
-  { id:'t229', text:'Escalar con Jose Ceron el error 401 en Chile y Argentina para endpoint PROD_store_information_proxy_stores — Jonathan confirmo que solo CL/AR tienen el 401, CR funciona. Jonathan sugiere escalar al dueno del servicio.', phase:'build', priority:'P0', source:'DM Jose Ceron + Jonathan Munoz Mie 13 May 16:52', day:'thu', completed:false }
+  { id:'t229', text:'Escalar con Jose Ceron el error 401 en Chile y Argentina para endpoint PROD_store_information_proxy_stores — Jonathan confirmo que solo CL/AR tienen el 401, CR funciona. Jonathan sugiere escalar al dueno del servicio.', phase:'build', priority:'P0', source:'DM Jose Ceron + Jonathan Munoz Mie 13 May 16:52', day:'thu', completed:false },
+  { id:'t230', text:'Compartir el ejemplo del documento de especificaciones tecnicas como referencia para el equipo de Elias Rivera — necesario para que puedan construir el nuevo flujo de tiendas invisibles en Assemble', phase:'build', priority:'P0', source:'Capacitacion Montaje Workflows Assemble 13 May', day:'thu', completed:false },
+  { id:'t231', text:'Confirmar con Camilo Esquivel que las recetas del bot quedan listas hoy en la tarde — prometio tenerlas para el jueves. Validar rulesets y opciones de envio a agente / CSAT por plataforma.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 13 May 18:14', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1820,6 +1834,9 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d100', text:'Solicitar los puntos de acceso (API endpoints) a tecnologia para integracion del flujo de tiendas invisibles en Assemble — definir datos necesarios y verificar si ya existen endpoints reutilizables', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows Assemble 13 May', status:'pendiente' },
+  { id:'d99', text:'Redactar documento tecnico con variables necesarias y datos esperados de los endpoints — presentar a Veronica Ferro para apoyo de desarrollador', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows Assemble 13 May', status:'pendiente' },
+  { id:'d98', text:'Clonar flujo base en Assemble y comenzar construccion del nuevo flujo de tiendas invisibles — renombrar segun pruebas o funcionalidades correspondientes', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows Assemble 13 May', status:'pendiente' },
   { id:'d97', text:'Validar si el topico de seguimiento de repartidor es aplicable para el proceso de recoleccion en tienda y entrega al usuario — y compartir detalles del topico + esquema de visualizacion con Juan Pablo', owner:'Yulieth Sofia', source:'Endpoints fullfilment 13 May', status:'pendiente' },
   { id:'d96', text:'Analizar metricas Firebase tras el despliegue y definir nuevos indicadores de calidad — evaluar impacto de mensajes Firebase', owner:'Andres Cobos / Cristian Parada', source:'CX Weekly Business Review 13 May', status:'pendiente' },
   { id:'d95', text:'Disenar protocolo de actuacion para situaciones de caidas del sistema o errores masivos de pago — pasos claros para manejo de incidencias masivas', owner:'Eugenio La Rosa / Maria Granada', source:'CX Weekly Business Review 13 May', status:'pendiente' },
@@ -1863,13 +1880,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Jose Ceron (DM)', text: 'Sigue dando 401 en Chile y Argentina — nuevo deploy con version mas nueva. El error es 401 no autorizado, no parece issue de version sino de permisos/credenciales por pais.', time: 'Mie 13 16:50', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Juan, no alcance a terminar las recetas el dia de hoy, espero tenerlas listas manana por la tarde. Validando rulesets de opciones elegidas e integrando envio a agente o finalizacion del chat con encuesta CSAT por plataforma. Aun trabajando sobre WhatsApp.', time: 'Mie 13 18:14', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Voy con Vero porque eso va a tocar con el que monto la arquitectura — coordinando permisos y endpoints para levantar tiendas suspendidas en produccion.', time: 'Mie 13 18:11', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: 'Perdon sigo re embolatado — te la re agendo (1:1 reagendado desde Mie).', time: 'Mie 13 17:18', type: 'dm', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'Sigue dando 401 en Chile y Argentina — nuevo deploy. El error es 401 no autorizado, no parece issue de version sino de permisos/credenciales por pais.', time: 'Mie 13 16:50', type: 'dm', actionable: true },
   { from: 'Jonathan Munoz (DM)', text: 'Revisando con el equipo: solo CL tiene el 401, para los demas paises el servicio funciona. Probando en CR y funciona. Escalemos al dueno del servicio.', time: 'Mie 13 16:52', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Juan, avisa cuando este lo de statsig — cual es el paso a seguir para el punto de entrada del bot en los arboles?', time: 'Mie 13 16:22', type: 'dm', actionable: true },
-  { from: 'Jonathan Munoz (DM)', text: 'Compartio link de Google Meet para el checkpoint workflows de las 15:00 — meet.google.com/gjk-sjuk-gcc', time: 'Mie 13 14:55', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'La otra seria clonarlo y compartes el link — workflow clonado como e61769ab. Revisar si aplica para portal web y WhatsApp (arbol sin orden)', time: 'Mie 13 14:54', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Entonces vayanos lanzando al menos al 10% — para que veamos como se comporta y cuando salga el endpoint Kafka lo agregamos', time: 'Mie 13 12:37', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Endpoint PROD_store_information_proxy_stores dando 401 en Colombia — deploy todavia no llego a grandes. Con Costa Rica ya arroja info. Restriccion horaria: deploy a grandes en la noche.', time: 'Mie 13 09:05', type: 'dm', actionable: true }
+  { from: 'Maria Granada (DM)', text: 'Entonces vayanos lanzando al menos al 10% — para que veamos como se comporta y cuando salga el endpoint Kafka lo agregamos', time: 'Mie 13 12:37', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
