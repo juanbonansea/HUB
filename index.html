@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Jue 14 · Actualizado 12:30</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Jue 14 · Actualizado 15:05</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1884,6 +1884,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada (Group DM)', text: 'Hellooo! team me pueden confirmar cómo van con estas prioridades? que les hace falta para cerrar — ping al equipo sobre estado de flujos de la semana.', time: 'Jue 14 14:56', type: 'group', actionable: true },
   { from: 'Juan Pablo (#ai-automations)', text: 'Jose Ceron prueba con store 900401577 (suspendida, no turbo) y 900103835 (no suspendida, turbo) — ayudame a identificar la variable que define si es turbo y confirma que la de suspension es is_enabled.', time: 'Jue 14 12:10', type: 'channel', actionable: true },
   { from: 'Maria Granada (DM)', text: 'Hola juan como vas? tenemos pendiente algo de tech para poder salir con tus flujos esta semana — endpoints de suspensiones bloqueando. Juan Pablo: de suspensiones si, de tech me faltan los endpoints, ya se escalo a Jona y Vero.', time: 'Jue 14 10:16', type: 'dm', actionable: true },
   { from: 'Jonathan Munoz (DM)', text: 'Juan como vamos — buscando si desde el portal o alguna app se puede revisar que el servicio si este disponible en prod y funcionando correctamente.', time: 'Jue 14 09:38', type: 'dm', actionable: true },
