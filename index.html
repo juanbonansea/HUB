@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Jue 14 · Actualizado 09:04</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Jue 14 · Actualizado 11:10</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1814,7 +1814,10 @@ const DEFAULT_TASKS = [
   { id:'t228', text:'Confirmar con Jose Ceron que deploy de PROD_store_information_proxy_stores llego a Colombia en la noche — usar punto (.) y no $ en llamadas de API segun validacion con Jonathan y Maria', phase:'build', priority:'P0', source:'DM Jose Ceron + Maria Granada Mie 13 May', day:'thu', completed:false },
   { id:'t229', text:'Escalar con Jose Ceron el error 401 en Chile y Argentina para endpoint PROD_store_information_proxy_stores — Jonathan confirmo que solo CL/AR tienen el 401, CR funciona. Jonathan sugiere escalar al dueno del servicio.', phase:'build', priority:'P0', source:'DM Jose Ceron + Jonathan Munoz Mie 13 May 16:52', day:'thu', completed:false },
   { id:'t230', text:'Compartir el ejemplo del documento de especificaciones tecnicas como referencia para el equipo de Elias Rivera — necesario para que puedan construir el nuevo flujo de tiendas invisibles en Assemble', phase:'build', priority:'P0', source:'Capacitacion Montaje Workflows Assemble 13 May', day:'thu', completed:false },
-  { id:'t231', text:'Confirmar con Camilo Esquivel que las recetas del bot quedan listas hoy en la tarde — prometio tenerlas para el jueves. Validar rulesets y opciones de envio a agente / CSAT por plataforma.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 13 May 18:14', day:'thu', completed:false }
+  { id:'t231', text:'Confirmar con Camilo Esquivel que las recetas del bot quedan listas hoy en la tarde — prometio tenerlas para el jueves. Validar rulesets y opciones de envio a agente / CSAT por plataforma.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 13 May 18:14', day:'thu', completed:false },
+  { id:'t232', text:'Confirmar con Jose Ceron las variables exactas en PROD_cns_store_info para identificar tiendas suspendidas (is_enabled?) y tiendas Turbo — preguntado en #ai-automations Jue 14. Escalado a Jonathan en daily de IA.', phase:'build', priority:'P0', source:'#ai-automations + DM Jose Ceron Jue 14 May', day:'thu', completed:false },
+  { id:'t233', text:'Preparar y presentar propuesta merchants AI en Check propuesta merchants AI (Jue 15:30) con Maria Granada, Elias Rivera y equipo — alinear avances Food Live y Suspensiones con estrategia merchants', phase:'build', priority:'P0', source:'Calendar Jue 14 May 15:30', day:'thu', completed:false },
+  { id:'t234', text:'Hacer seguimiento con Camilo Esquivel sobre recetas bot — esperadas para hoy jueves por la tarde (prometido desde Mie 13). Confirmar que rulesets y logica CSAT quedaron completos en los 3 canales.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 14 May', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1879,13 +1882,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel (DM)', text: 'Juan, no alcance a terminar las recetas el dia de hoy, espero tenerlas listas manana por la tarde. Validando rulesets de opciones elegidas e integrando envio a agente o finalizacion del chat con encuesta CSAT por plataforma. Aun trabajando sobre WhatsApp.', time: 'Mie 13 18:14', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Voy con Vero porque eso va a tocar con el que monto la arquitectura — coordinando permisos y endpoints para levantar tiendas suspendidas en produccion.', time: 'Mie 13 18:11', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: 'Perdon sigo re embolatado — te la re agendo (1:1 reagendado desde Mie).', time: 'Mie 13 17:18', type: 'dm', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'Sigue dando 401 en Chile y Argentina — nuevo deploy. El error es 401 no autorizado, no parece issue de version sino de permisos/credenciales por pais.', time: 'Mie 13 16:50', type: 'dm', actionable: true },
-  { from: 'Jonathan Munoz (DM)', text: 'Revisando con el equipo: solo CL tiene el 401, para los demas paises el servicio funciona. Probando en CR y funciona. Escalemos al dueno del servicio.', time: 'Mie 13 16:52', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Juan, avisa cuando este lo de statsig — cual es el paso a seguir para el punto de entrada del bot en los arboles?', time: 'Mie 13 16:22', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Entonces vayanos lanzando al menos al 10% — para que veamos como se comporta y cuando salga el endpoint Kafka lo agregamos', time: 'Mie 13 12:37', type: 'dm', actionable: true }
+  { from: 'Maria Granada (DM)', text: 'Hola juan como vas? tenemos pendiente algo de tech para poder salir con tus flujos esta semana — los endpoints de suspensiones y food live siguen bloqueando.', time: 'Jue 14', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Ya lo escale con Jona, ahora en la daily le recalco para que veamos esto de manera prioritaria — el tema de autenticacion y permisos del endpoint.', time: 'Jue 14', type: 'dm', actionable: true },
+  { from: 'Juan Pablo (#ai-automations)', text: 'Mirando PROD_cns_store_info — cuales son las variables para identificar si una tienda esta suspendida (is_enabled?) y para identificar si es Turbo? (Jose Ceron)', time: 'Jue 14', type: 'channel', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Hola lo revisamos en la daily de la ia porque no esta en mi dominio, debo hablar con el que monto la arquitectura — coordinar permisos y endpoints para levantar tiendas suspendidas.', time: 'Mie 13', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Juan, no alcance a terminar las recetas el dia de hoy, espero tenerlas listas manana por la tarde. Validando rulesets e integrando envio a agente o finalizacion con CSAT por plataforma. Aun trabajando WhatsApp.', time: 'Mie 13 18:14', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Sigue dando 401 en Chile y Argentina — nuevo deploy. Error 401 no autorizado, parece issue de permisos/credenciales por pais, no de version.', time: 'Mie 13 16:50', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Entonces vayanos lanzando al menos al 10% — para que veamos como se comporta y cuando salga el endpoint Kafka lo agregamos.', time: 'Mie 13 12:37', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
