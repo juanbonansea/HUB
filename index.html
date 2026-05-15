@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Vie 15 · Actualizado 09:16</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Vie 15 · Actualizado 11:06</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1820,7 +1820,8 @@ const DEFAULT_TASKS = [
   { id:'t233', text:'Preparar y presentar propuesta merchants AI en Check propuesta merchants AI (Jue 15:30) con Maria Granada, Elias Rivera y equipo — alinear avances Food Live y Suspensiones con estrategia merchants', phase:'build', priority:'P0', source:'Calendar Jue 14 May 15:30', day:'thu', completed:false },
   { id:'t234', text:'Hacer seguimiento con Camilo Esquivel sobre recetas bot — esperadas para hoy jueves por la tarde (prometido desde Mie 13). Confirmar que rulesets y logica CSAT quedaron completos en los 3 canales.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 14 May', day:'fri', completed:false },
   { id:'t235', text:'Asistir a All Hands Tech & Product (Vie 10:00-11:30) — evento nuevo agregado hoy al calendario. Preparar contexto de merchants AI y estado de automatizaciones CX para posible visibilidad con liderazgo de Tech y Product.', phase:'build', priority:'P1', source:'Calendar Vie 15 Mayo — agregado Jue 14', day:'fri', completed:false },
-  { id:'t236', text:'Verificar que Food Live quedo lanzado al 10% en paises pequenos con Juan Esquivel — Juan Pablo confirmo lanzamiento para hoy viernes en #ai-automations (Jue 18:18). Validar que las recetas y rulesets de Camilo quedaron listos.', phase:'build', priority:'P0', source:'#ai-automations Jue 14 May 18:18', day:'fri', completed:false }
+  { id:'t236', text:'Verificar que Food Live quedo lanzado al 10% en paises pequenos con Juan Esquivel — Juan Pablo confirmo lanzamiento para hoy viernes en #ai-automations (Jue 18:18). Validar que las recetas y rulesets de Camilo quedaron listos.', phase:'build', priority:'P0', source:'#ai-automations Jue 14 May 18:18', day:'fri', completed:false },
+  { id:'t237', text:'Esperar respuesta de Jose Ceron y hacer el lanzamiento del flujo Assembled al 30% — flujo terminado y compartido a Jose a las 10:52 de hoy. Coordinar recetas y configuracion de reglas antes del launch.', phase:'build', priority:'P0', source:'DM Jose Ceron Vie 15 May 10:52', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1885,13 +1886,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'Ya termine el flujo de Assembled para que me ayudes con las recetas y a lanzarlo al 30 pls — workflow terminado y link compartido a Jose Ceron. Pendiente respuesta para hacer el launch.', time: 'Vie 15 10:52', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Hola Juan buen dia — ping de Jose Ceron al inicio del dia.', time: 'Vie 15 10:50', type: 'dm', actionable: false },
   { from: 'Juan Pablo (#ai-automations)', text: 'Hello Team! lancemos todo manana si — confirmando con Juan Esquivel el lanzamiento de Food Live para hoy viernes.', time: 'Jue 14 18:18', type: 'channel', actionable: true },
   { from: 'Meiker Munera (Group DM)', text: 'Despues de mil batallas, me encuentro al dia: AI Bot RT Non Earnings Phase II ok al 30%, AI Bot User Non Disagree with charge al 95%. Comenzando flujos de Mail para: PQR, Delete account, Loyalty y LDR.', time: 'Jue 14 16:11', type: 'group', actionable: false },
   { from: 'Juan Pablo (Group DM)', text: 'Food Live: lanzar al 30% e iterar — sale hoy, Juan Esquivel alistando recetas. Non Live Suspension: endpoints nuevos llegaron apenas hoy, corriendo a probarlo y lanzar entre hoy y manana.', time: 'Jue 14 15:15', type: 'group', actionable: true },
   { from: 'Susana Paniagua (Group DM)', text: 'IA Bot Card problems al 100% todos paises, DSAT RT Live Dispersions activo, AI Bot Delete account al 70% (59 casos ayer, expandido hoy). Discovery Vehicle Phase II en proceso. Aumento AR en Referrals pendiente.', time: 'Jue 14 15:08', type: 'group', actionable: false },
-  { from: 'Maria Granada (Group DM)', text: 'Hellooo! team me pueden confirmar como van con estas prioridades? que les hace falta para cerrar — ping al equipo sobre estado de flujos de la semana.', time: 'Jue 14 14:56', type: 'group', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Hola juan como vas? tenemos pendiente algo de tech para poder salir con tus flujos esta semana — endpoints de suspensiones bloqueando. Juan Pablo: de suspensiones si, de tech me faltan los endpoints, ya se escalo a Jona y Vero.', time: 'Jue 14 10:16', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Ya lo escale con Jona, ahora en la daily le recalco para que veamos esto de manera prioritaria — autenticacion por external es la causa probable del 401 en CL/AR.', time: 'Jue 14 08:53', type: 'dm', actionable: true }
+  { from: 'Maria Granada (DM)', text: 'Hola juan como vas? tenemos pendiente algo de tech para poder salir con tus flujos esta semana — endpoints de suspensiones bloqueando. Juan Pablo: de suspensiones si, de tech me faltan los endpoints, ya se escalo a Jona y Vero.', time: 'Jue 14 10:16', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
