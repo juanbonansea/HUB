@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Vie 15 · Actualizado 11:06</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 11-15 Mayo 2026 — Hoy Vie 15 · Actualizado 13:10</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1821,7 +1821,9 @@ const DEFAULT_TASKS = [
   { id:'t234', text:'Hacer seguimiento con Camilo Esquivel sobre recetas bot — esperadas para hoy jueves por la tarde (prometido desde Mie 13). Confirmar que rulesets y logica CSAT quedaron completos en los 3 canales.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 14 May', day:'fri', completed:false },
   { id:'t235', text:'Asistir a All Hands Tech & Product (Vie 10:00-11:30) — evento nuevo agregado hoy al calendario. Preparar contexto de merchants AI y estado de automatizaciones CX para posible visibilidad con liderazgo de Tech y Product.', phase:'build', priority:'P1', source:'Calendar Vie 15 Mayo — agregado Jue 14', day:'fri', completed:false },
   { id:'t236', text:'Verificar que Food Live quedo lanzado al 10% en paises pequenos con Juan Esquivel — Juan Pablo confirmo lanzamiento para hoy viernes en #ai-automations (Jue 18:18). Validar que las recetas y rulesets de Camilo quedaron listos.', phase:'build', priority:'P0', source:'#ai-automations Jue 14 May 18:18', day:'fri', completed:false },
-  { id:'t237', text:'Esperar respuesta de Jose Ceron y hacer el lanzamiento del flujo Assembled al 30% — flujo terminado y compartido a Jose a las 10:52 de hoy. Coordinar recetas y configuracion de reglas antes del launch.', phase:'build', priority:'P0', source:'DM Jose Ceron Vie 15 May 10:52', day:'fri', completed:false }
+  { id:'t237', text:'Esperar respuesta de Jose Ceron y hacer el lanzamiento del flujo Assembled al 30% — flujo terminado y compartido a Jose a las 10:52 de hoy. Coordinar recetas y configuracion de reglas antes del launch.', phase:'build', priority:'P0', source:'DM Jose Ceron Vie 15 May 10:52', day:'fri', completed:false },
+  { id:'t238', text:'Responder a Elias Rivera (ping 12:50 "Hola!! como vamos?") — hacer seguimiento del avance del flujo de tiendas invisibles y confirmar proximos pasos tras la capacitacion Assemble del miercoles', phase:'build', priority:'P1', source:'DM Elias Rivera Vie 15 May 12:50', day:'fri', completed:false },
+  { id:'t239', text:'Confirmar con Jonathan Munoz que el checkpoint de workflows quedo resuelto — Jonathan hizo seguimiento hoy por la manana. Asegurar que el lanzamiento Food Live al 10% esta ok.', phase:'build', priority:'P1', source:'DM Jonathan Munoz Vie 15 May 12:07', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1886,12 +1888,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'Ya termine el flujo de Assembled para que me ayudes con las recetas y a lanzarlo al 30 pls — workflow terminado y link compartido a Jose Ceron. Pendiente respuesta para hacer el launch.', time: 'Vie 15 10:52', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Hola Juan buen dia — ping de Jose Ceron al inicio del dia.', time: 'Vie 15 10:50', type: 'dm', actionable: false },
-  { from: 'Juan Pablo (#ai-automations)', text: 'Hello Team! lancemos todo manana si — confirmando con Juan Esquivel el lanzamiento de Food Live para hoy viernes.', time: 'Jue 14 18:18', type: 'channel', actionable: true },
-  { from: 'Meiker Munera (Group DM)', text: 'Despues de mil batallas, me encuentro al dia: AI Bot RT Non Earnings Phase II ok al 30%, AI Bot User Non Disagree with charge al 95%. Comenzando flujos de Mail para: PQR, Delete account, Loyalty y LDR.', time: 'Jue 14 16:11', type: 'group', actionable: false },
+  { from: 'Elias Rivera (DM)', text: 'Hola!! como vamos? — ping de Elias Rivera al mediodia. Probablemente seguimiento al avance del flujo de tiendas invisibles o la capacitacion de Assemble del miercoles.', time: 'Vie 15 12:50', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Como encuentra tu una tienda suspendida? / regalame el query de snow pf — solicitando query Snowflake multi-pais para tiendas suspendidas. Juan Pablo compartio query CO/MX/CL/AR/UY/PE/EC/CR/BR. Jose probara en dev para no romper produccion.', time: 'Vie 15 11:54', type: 'dm', actionable: false },
+  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'Ya termine el flujo de Assembled para que me ayudes con las recetas y a lanzarlo al 30 pls — workflow terminado y link compartido a Jose Ceron a las 10:52. Pendiente respuesta para hacer el launch al 30%.', time: 'Vie 15 10:52', type: 'dm', actionable: true },
+  { from: 'Juan Pablo (#ai-automations)', text: 'Gracias Vero quedo pendiente — en hilo ai-automations. Food Live lanzando hoy viernes al 10% en paises pequenos.', time: 'Vie 15 11:25', type: 'channel', actionable: false },
+  { from: 'Juan Pablo (#ai-automations)', text: 'Hello Team! lancemos todo manana si — confirmacion del lanzamiento de Food Live para hoy viernes con Juan Esquivel.', time: 'Jue 14 18:18', type: 'channel', actionable: true },
   { from: 'Juan Pablo (Group DM)', text: 'Food Live: lanzar al 30% e iterar — sale hoy, Juan Esquivel alistando recetas. Non Live Suspension: endpoints nuevos llegaron apenas hoy, corriendo a probarlo y lanzar entre hoy y manana.', time: 'Jue 14 15:15', type: 'group', actionable: true },
-  { from: 'Susana Paniagua (Group DM)', text: 'IA Bot Card problems al 100% todos paises, DSAT RT Live Dispersions activo, AI Bot Delete account al 70% (59 casos ayer, expandido hoy). Discovery Vehicle Phase II en proceso. Aumento AR en Referrals pendiente.', time: 'Jue 14 15:08', type: 'group', actionable: false },
   { from: 'Maria Granada (DM)', text: 'Hola juan como vas? tenemos pendiente algo de tech para poder salir con tus flujos esta semana — endpoints de suspensiones bloqueando. Juan Pablo: de suspensiones si, de tech me faltan los endpoints, ya se escalo a Jona y Vero.', time: 'Jue 14 10:16', type: 'dm', actionable: true }
 ];
 
