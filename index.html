@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado 09:45</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado auto</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1470,6 +1470,7 @@ const EVENTS = {
   tue: [
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximos pasos' },
+    { time:'14:30-15:00', title:'Carla / Juan Pablo', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Discovery y planificacion AI Bot Phase I Food Non Live Integrations — Carla Capristan apoya esta semana' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas — revision estado flujos y endpoints' }
   ],
   wed: [
@@ -1780,7 +1781,8 @@ const DEFAULT_TASKS = [
   { id:'t313', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Triage Food Live al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
   { id:'t314', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Food Non Live Suspension al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
   { id:'t315', text:'Discovery: AI Bot Problems with the order - received completely different order. Iniciar investigation segun prioridades de Maria Granada para esta semana.', phase:'discovery', priority:'P1', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'wed', completed:false },
-  { id:'t316', text:'Discovery AI Bot Phase I Food Non Live Integrations — hablar con f.diaz para identificar quien del equipo tech puede apoyar en esta integracion.', phase:'discovery', priority:'P1', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'wed', completed:false },
+  { id:'t316', text:'Discovery AI Bot Phase I Food Non Live Integrations — reunion con Carla Capristan confirmada hoy 14:30-15:00. Preparar contexto del bot y preguntas clave para el discovery.', phase:'discovery', priority:'P1', source:'DM Andres Diaz + Carla Capristan Mar 19 May 08:32', day:'tue', completed:false },
+  { id:'t317', text:'Confirmar con Camilo Esquivel las recetas de portal pendientes — recetas de WhatsApp y aliados ya estan listas pero falta portal para llegar al 30% de lanzamiento.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 19 May 08:57', day:'tue', completed:false },
   { id:'t300', text:'Investigar bug critico con Jose Ceron: tienda 900144182 aparece como suspendida en el chat del bot pero NO esta suspendida segun Lupe ni el API — verificar que el flujo usa la respuesta del endpoint y no logica hardcodeada', phase:'build', priority:'P0', source:'DM Jose Ceron Dom 17 May 19:19', day:'mon', completed:false },
   { id:'t301', text:'Confirmar con Jose Ceron que el lanzamiento del flujo Assembled al 30% quedo completado — variable ajustada el Vie 15 en #ai-automations. Verificar metricas iniciales del flujo.', phase:'build', priority:'P0', source:'DM Jose Ceron + #ai-automations Vie 15 May', day:'mon', completed:false },
   { id:'t302', text:'Compartir el documento de especificaciones tecnicas de referencia al equipo de Elias Rivera — pendiente desde capacitacion Assemble del 13 May. Necesario para que construyan flujo de tiendas invisibles.', phase:'build', priority:'P0', source:'Capacitacion Montaje Workflows Assemble 13 May', day:'mon', completed:false },
@@ -1836,17 +1838,17 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Maria Granada (Grupo DM)', text: 'Prioridades AI esta semana asignadas a Juan Pablo: 1) AI Bot Phase I Triage Food Live → Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension → Lanzar al 30% e iterar. 3) Discovery: AI Bot Problems with order - received completely different order. 4) Discovery AI Bot Phase I Food Non Live Integrations → hablar con f.diaz para apoyo de su equipo.', time: 'Hoy 06:59', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Bug critico: tienda 900144182 no esta suspendida en Lupe ni en el API, pero el chat del bot le dice que SI esta suspendida. Pregunta si el flujo va con la respuesta del endpoint. Requiere investigacion urgente.', time: 'Dom 17 19:19', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (Grupo DM)', text: 'Ya estoy coordinando con tech el capacity para la creacion de los endpoints y las recetas. El plan: equipo Elias identifica los puntos de entrada del DT, el flujo y los entry points/endpoints, y con eso hacemos el setteo.', time: 'Vie 15 18:28', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (Grupo DM)', text: 'Gantt organizado y sizing de ACR por semanas alineado con la data de entry issues del BI, segun los porcentajes de salida del gantt. Pide recomendacion o feedback del grupo.', time: 'Vie 15 16:26', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Listo! — confirmacion tras recibir los IDs de tiendas suspendidas (2119015, 2119019, 2119020) y revisar la variable corregida. Desbloqueo del lanzamiento del flujo Assembled al 30%.', time: 'Vie 15 16:08', type: 'dm', actionable: false },
-  { from: 'Andres De Las Casas (DM)', text: 'Comparte spreadsheet de compensaciones. El aliado asume monto dado por contrato en MEX gold (no el 100%). Ofrece llamada para revisar la logica juntos.', time: 'Vie 15 15:47', type: 'dm', actionable: true }
+  { from: 'Maria Granada (Grupo DM)', text: 'Prioridades AI esta semana: 1) AI Bot Phase I Triage Food Live → Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension → Lanzar al 30% e iterar. 3) Discovery: AI Bot Problems with order - received completely different order. 4) Discovery AI Bot Phase I Food Non Live Integrations.', time: 'Hoy 06:59', type: 'dm', actionable: true },
+  { from: 'Andres Diaz (DM)', text: 'Confirmado: Carla Capristan puede apoyar esta semana para el discovery y planificacion del AI Bot Phase I Food Non Live Integrations. Ya la busca Juan Pablo para coordinar.', time: 'Hoy 08:32', type: 'dm', actionable: true },
+  { from: 'Carla Capristan (DM)', text: 'Claro que si Juan — podemos reunirnos hoy de 2:30pm a 3:00pm para entender mejor el contexto del AI Bot Phase I Food Non Live Integrations y como puedo ayudar.', time: 'Hoy 08:52', type: 'dm', actionable: true },
+  { from: 'Meiker Munera (DM)', text: 'Ya te paso un doc donde estan todos los issues de User — con eso puedes buscar los entry issues de cada iniciativa para organizar bien la query en Snowflake para el discovery del AI Bot.', time: 'Hoy 09:00', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Ya hice las recetas de WhatsApp y las de aliados, me hacen falta hacer pruebas. Me harian falta las de portal para completar el lanzamiento al 30%.', time: 'Hoy 08:57', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Bug critico: tienda 900144182 no esta suspendida en Lupe ni en el API, pero el chat del bot le dice que SI esta suspendida. Requiere investigacion urgente sobre la logica del endpoint.', time: 'Dom 17 19:19', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '10:30-13:00', '14:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-13:00', '14:30-15:30', '16:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-13:00', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-16:30'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
