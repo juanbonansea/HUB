@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado auto 20:05</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado auto 17:08</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1852,12 +1852,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada (DM)', text: 'Sobre flujo "received completely different order": no funcionaria con PwP porque para que funcione el flujo de PwP tiene que haber pasado por CoCa (la automatizacion). Lo que podrias pedirle a tech es un endpoint para llamar a Coca y eso se podria implementar en ambos flujos.', time: 'Hoy ~17:00', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Aclaracion CoCa: en PwP usamos CoCa porque es una politica muy especifica pero aqui no es necesario por eso no se llama a CoCa. Contexto para disenar el flujo "different order" correctamente.', time: 'Hoy ~16:50', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Para "received completely different order": deberíamos reembolsar lo pagado por la orden total porque es recibí una orden completamente diferente — no es necesaria una calculadora parcial en este caso.', time: 'Hoy ~16:40', type: 'dm', actionable: true },
   { from: 'Juan Pablo → Catalina Bello (DM)', text: 'Creando automatizacion "AI Bot Problems with the order - received completely different order". Pregunta clave: el flujo empieza con ticket previo del usuario, o mejor ejecutar acciones directamente en el chat sin necesidad de crear ticket primero?', time: 'Hoy 11:52', type: 'dm', actionable: true },
   { from: 'Catalina Bello (DM)', text: 'Para AFC es este link (rappi.helpjuice.com/afc-support/afc-llego-diferente) — guia Lupe confirmada para el flujo "received completely different order". Sip, es ese.', time: 'Hoy 11:50', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Esperame pregunto a ver, porque no lo tengo mapeado — Creo que no hay configuracion de eso para merchants. No aun, no se si ya alguien los haya sacado. Debo estar seguro que no rompo nada antes de avanzar.', time: 'Hoy ~10:00', type: 'dm', actionable: true },
   { from: 'Maria Granada (Grupo DM)', text: 'Prioridades AI esta semana: 1) AI Bot Phase I Triage Food Live → Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension → Lanzar al 30% e iterar. 3) Discovery: AI Bot Problems with order - received completely different order. 4) Discovery AI Bot Phase I Food Non Live Integrations.', time: 'Hoy 06:59', type: 'dm', actionable: true },
-  { from: 'Meiker Munera (DM)', text: 'Juan, aca estan las traducciones de los issues con sus respectivas keys — doc con todas las keys para hacer la query en Snowflake. Con eso puedes hacer la query para el discovery del AI Bot.', time: 'Hoy 09:21', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Ya hice las recetas de WhatsApp y las de aliados, me hacen falta hacer pruebas. Me harian falta las de portal para completar el lanzamiento al 30%.', time: 'Hoy 08:57', type: 'dm', actionable: true },
   { from: 'Jose Ceron (DM)', text: 'Bug critico: tienda 900144182 no esta suspendida en Lupe ni en el API, pero el chat del bot le dice que SI esta suspendida. Requiere investigacion urgente sobre la logica del endpoint.', time: 'Dom 17 19:19', type: 'dm', actionable: true }
 ];
 
