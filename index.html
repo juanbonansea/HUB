@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado auto 11:55</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado auto 20:05</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1483,7 +1483,8 @@ const EVENTS = {
     { time:'10:00-11:00', title:'SST - Actos y condiciones inseguras (manana)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion virtual SST Colombia — identificar actos y condiciones inseguras en el entorno laboral' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 con Maria Granada (reagendado de Mar→Jue) — estado Food Live al 10%, Merchant Food Life Flint Tracking, proximas prioridades semana' },
-    { time:'15:00-16:00', title:'SST - Actos y condiciones inseguras (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion opcional SST — misma capacitacion, horario tarde' }
+    { time:'15:00-16:00', title:'SST - Actos y condiciones inseguras (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion opcional SST — misma capacitacion, horario tarde' },
+    { time:'15:30-16:15', title:'Revisión avances integradas', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Seguimiento con Carla Capristan para validar boceto del flujo de automatizacion de merchants — agendado hoy 19 May' }
   ],
   fri: [
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
@@ -1493,6 +1494,16 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:50, title:'Carla / Juan Pablo - Automatizacion Merchants', date:'19 May',
+    summary:'Revision de automatizacion de procesos para comerciantes mediante el analisis de tickets y flujos operativos actuales. Se utiliza Snowflake para identificar puntos de friccion y optimizar la resolucion mediante IA. Los tickets clasificados erroneamente como indefinidos requieren intervencion externa pendiente hasta junio. La automatizacion total es viable para el encendido y apagado de tiendas y gestion de proyectos. Se implementaran modelos semiautomaticos para validaciones tecnicas de catalogo, Webhook y JSON. Se decidio automatizar completamente la activacion y desactivacion de tiendas por ser procesos administrativos simples. La automatizacion de cancelaciones de ordenes se descarta por requerir revision humana profunda.',
+    sections:['Analisis de tickets e inconsistencias','Evaluacion de flujos para automatizar','Decision sobre automatizacion de tiendas'],
+    actions:[
+      { text:'Crear boceto del esquema de flujos para la automatizacion de procesos de merchants — definir variables y pasos necesarios para cada escenario detectado (encendido/apagado tiendas, gestion proyectos, validaciones catalogo)', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Sesion de seguimiento para validar boceto del flujo de automatizacion — reunion Revisión avances integradas agendada Jue 19 May 15:30', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Revisar articulos de Rapipedia y data cruda compartida para evaluar vigencia de procesos y casos marcados en gris', owner:'Carla Capristan', phase:'discovery', priority:'P0' }
+    ]
+  },
   {
     id:49, title:'Capacitacion Montaje de Workflows en Assemble', date:'13 May',
     summary:'La reunion establecio la logica de flujo para tiendas invisibles mediante la plataforma tecnica Assemble estructurada. Se definio el flujo logico para validar la visibilidad de tiendas considerando factores tecnicos y operativos. Se estandarizo el uso de Assemble clonando flujos existentes para optimizar la estructura de nodos. La implementacion requiere configurar disparadores con metadatos especificos y nodos de condicion para gestionar idiomas. Se utilizan nodos de guia e interaccion con IA para clasificar intenciones. El equipo documentara requisitos tecnicos para agilizar la creacion de los endpoints necesarios.',
@@ -1778,6 +1789,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t319', text:'Crear boceto del esquema de flujos para automatizacion de procesos Merchants — definir variables y pasos para encendido/apagado tiendas, gestion proyectos y validaciones tecnicas catalogo/Webhook/JSON. Prioritario previo a Revisión avances integradas (Jue 15:30).', phase:'build', priority:'P0', source:'Carla / Juan Pablo 19 May 14:57', day:'tue', completed:false },
   { id:'t313', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Triage Food Live al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
   { id:'t314', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Food Non Live Suspension al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
   { id:'t315', text:'Discovery: AI Bot Problems with the order - received completely different order. Iniciar investigation segun prioridades de Maria Granada para esta semana.', phase:'discovery', priority:'P1', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'wed', completed:false },
@@ -1815,6 +1827,7 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d303', text:'Revisar articulos de Rapipedia y data cruda compartida para evaluar vigencia de procesos y casos marcados en gris — alineacion previa a validacion del boceto de automatizacion Merchants', owner:'Carla Capristan', source:'Carla / Juan Pablo 19 May', status:'pendiente' },
   { id:'d300', text:'Validar por que tienda 900144182 muestra como suspendida en el chat del bot pero NO esta suspendida en Lupe ni en el API — verificar si el flujo usa la respuesta del endpoint correctamente o tiene logica hardcodeada', owner:'Jose Luis Ceron', source:'DM Jose Ceron Dom 17 May 19:19', status:'pendiente' },
   { id:'d301', text:'Coordinar con tech el capacity para creacion de endpoints y recetas — plan: equipo Elias identifica entry points del DT, flujo y entry points/endpoints, luego hacemos el setteo', owner:'Andres De Las Casas', source:'DM Grupal Andres De Las Casas Vie 15 May', status:'pendiente' },
   { id:'d100', text:'Solicitar los puntos de acceso (API endpoints) a tecnologia para integracion del flujo de tiendas invisibles en Assemble — definir datos necesarios y verificar si ya existen endpoints reutilizables', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows Assemble 13 May', status:'pendiente' },
@@ -1840,10 +1853,10 @@ const DEFAULT_DELEGATED = [
 
 const SLACK_FEED = [
   { from: 'Juan Pablo → Catalina Bello (DM)', text: 'Creando automatizacion "AI Bot Problems with the order - received completely different order". Pregunta clave: el flujo empieza con ticket previo del usuario, o mejor ejecutar acciones directamente en el chat sin necesidad de crear ticket primero?', time: 'Hoy 11:52', type: 'dm', actionable: true },
-  { from: 'Catalina Bello (DM)', text: 'Para AFC es este link (rappi.helpjuice.com/afc-support/afc-llego-diferente) — guia Lupe confirmada para el flujo "received completely different order".', time: 'Hoy 11:50', type: 'dm', actionable: true },
+  { from: 'Catalina Bello (DM)', text: 'Para AFC es este link (rappi.helpjuice.com/afc-support/afc-llego-diferente) — guia Lupe confirmada para el flujo "received completely different order". Sip, es ese.', time: 'Hoy 11:50', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Esperame pregunto a ver, porque no lo tengo mapeado — Creo que no hay configuracion de eso para merchants. No aun, no se si ya alguien los haya sacado. Debo estar seguro que no rompo nada antes de avanzar.', time: 'Hoy ~10:00', type: 'dm', actionable: true },
   { from: 'Maria Granada (Grupo DM)', text: 'Prioridades AI esta semana: 1) AI Bot Phase I Triage Food Live → Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension → Lanzar al 30% e iterar. 3) Discovery: AI Bot Problems with order - received completely different order. 4) Discovery AI Bot Phase I Food Non Live Integrations.', time: 'Hoy 06:59', type: 'dm', actionable: true },
   { from: 'Meiker Munera (DM)', text: 'Juan, aca estan las traducciones de los issues con sus respectivas keys — doc con todas las keys para hacer la query en Snowflake. Con eso puedes hacer la query para el discovery del AI Bot.', time: 'Hoy 09:21', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Dejame coordinar unos temas con el team, porque merchants es nuevo y no hay configuraciones previas. Debo estar seguro que no rompo nada antes de avanzar.', time: 'Hoy 09:09', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Ya hice las recetas de WhatsApp y las de aliados, me hacen falta hacer pruebas. Me harian falta las de portal para completar el lanzamiento al 30%.', time: 'Hoy 08:57', type: 'dm', actionable: true },
   { from: 'Jose Ceron (DM)', text: 'Bug critico: tienda 900144182 no esta suspendida en Lupe ni en el API, pero el chat del bot le dice que SI esta suspendida. Requiere investigacion urgente sobre la logica del endpoint.', time: 'Dom 17 19:19', type: 'dm', actionable: true }
 ];
@@ -1852,7 +1865,7 @@ const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '10:30-13:00', '14:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-13:00', '15:00-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-16:30'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:30-15:00', '16:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '16:15-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
 
