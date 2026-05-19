@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Lun 18 · Actualizado 17:07</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado 09:45</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1777,6 +1777,10 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t313', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Triage Food Live al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
+  { id:'t314', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Food Non Live Suspension al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
+  { id:'t315', text:'Discovery: AI Bot Problems with the order - received completely different order. Iniciar investigation segun prioridades de Maria Granada para esta semana.', phase:'discovery', priority:'P1', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'wed', completed:false },
+  { id:'t316', text:'Discovery AI Bot Phase I Food Non Live Integrations — hablar con f.diaz para identificar quien del equipo tech puede apoyar en esta integracion.', phase:'discovery', priority:'P1', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'wed', completed:false },
   { id:'t300', text:'Investigar bug critico con Jose Ceron: tienda 900144182 aparece como suspendida en el chat del bot pero NO esta suspendida segun Lupe ni el API — verificar que el flujo usa la respuesta del endpoint y no logica hardcodeada', phase:'build', priority:'P0', source:'DM Jose Ceron Dom 17 May 19:19', day:'mon', completed:false },
   { id:'t301', text:'Confirmar con Jose Ceron que el lanzamiento del flujo Assembled al 30% quedo completado — variable ajustada el Vie 15 en #ai-automations. Verificar metricas iniciales del flujo.', phase:'build', priority:'P0', source:'DM Jose Ceron + #ai-automations Vie 15 May', day:'mon', completed:false },
   { id:'t302', text:'Compartir el documento de especificaciones tecnicas de referencia al equipo de Elias Rivera — pendiente desde capacitacion Assemble del 13 May. Necesario para que construyan flujo de tiendas invisibles.', phase:'build', priority:'P0', source:'Capacitacion Montaje Workflows Assemble 13 May', day:'mon', completed:false },
@@ -1832,18 +1836,17 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada (Grupo DM)', text: 'Prioridades AI esta semana asignadas a Juan Pablo: 1) AI Bot Phase I Triage Food Live → Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension → Lanzar al 30% e iterar. 3) Discovery: AI Bot Problems with order - received completely different order. 4) Discovery AI Bot Phase I Food Non Live Integrations → hablar con f.diaz para apoyo de su equipo.', time: 'Hoy 06:59', type: 'dm', actionable: true },
   { from: 'Jose Ceron (DM)', text: 'Bug critico: tienda 900144182 no esta suspendida en Lupe ni en el API, pero el chat del bot le dice que SI esta suspendida. Pregunta si el flujo va con la respuesta del endpoint. Requiere investigacion urgente.', time: 'Dom 17 19:19', type: 'dm', actionable: true },
   { from: 'Andres De Las Casas (Grupo DM)', text: 'Ya estoy coordinando con tech el capacity para la creacion de los endpoints y las recetas. El plan: equipo Elias identifica los puntos de entrada del DT, el flujo y los entry points/endpoints, y con eso hacemos el setteo.', time: 'Vie 15 18:28', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (Grupo DM)', text: 'Gantt organizado y sizing de ACR por semanas alineado con la data de entry issues del BI, segun los porcentajes de salida del gantt. Pide recomendacion o feedback del grupo (dirigido a Maria Granada, Andres De Las Casas y Juan Pablo).', time: 'Vie 15 16:26', type: 'dm', actionable: true },
-  { from: 'Juan Pablo (#ai-automations)', text: 'quedo ajustada la variable — confirmacion a Jose Ceron en el hilo de ai-automations. Variable del flujo Assembled corregida y notificada al equipo.', time: 'Vie 15 16:20', type: 'channel', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'Listo! — confirmacion tras recibir los IDs de tiendas suspendidas (2119015, 2119019, 2119020) y revisar la variable corregida. Desbloqueo del lanzamiento del flujo Assembled al 30%.', time: 'Vie 15 16:08', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: 'Comparte spreadsheet de compensaciones. El aliado asume monto dado por contrato en MEX gold (no el 100%). Ofrece llamada para revisar la logica juntos.', time: 'Vie 15 15:47', type: 'dm', actionable: true },
-  { from: 'Juan Pablo (#ai-automations)', text: 'quedo ajustada la variable :technologist: — notificacion a Jose Ceron del ajuste en el flujo Assemble para la deteccion de tiendas suspendidas.', time: 'Vie 15 16:20', type: 'channel', actionable: false }
+  { from: 'Elias Rivera (Grupo DM)', text: 'Gantt organizado y sizing de ACR por semanas alineado con la data de entry issues del BI, segun los porcentajes de salida del gantt. Pide recomendacion o feedback del grupo.', time: 'Vie 15 16:26', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Listo! — confirmacion tras recibir los IDs de tiendas suspendidas (2119015, 2119019, 2119020) y revisar la variable corregida. Desbloqueo del lanzamiento del flujo Assembled al 30%.', time: 'Vie 15 16:08', type: 'dm', actionable: false },
+  { from: 'Andres De Las Casas (DM)', text: 'Comparte spreadsheet de compensaciones. El aliado asume monto dado por contrato en MEX gold (no el 100%). Ofrece llamada para revisar la logica juntos.', time: 'Vie 15 15:47', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '10:30-13:00', '14:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-13:00', '16:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-13:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-16:30'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
