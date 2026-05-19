@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado auto</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado auto 11:55</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1469,8 +1469,7 @@ const EVENTS = {
   ],
   tue: [
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximos pasos' },
-    { time:'14:30-15:00', title:'Carla / Juan Pablo', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Discovery y planificacion AI Bot Phase I Food Non Live Integrations — Carla Capristan apoya esta semana' },
+    { time:'14:30-15:00', title:'Carla / Juan Pablo', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Discovery AI Bot Phase I Food Non Live Integrations — Carla Capristan. Discutir flujo "received completely different order": ticket previo vs acciones directas en chat.' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas — revision estado flujos y endpoints' }
   ],
   wed: [
@@ -1483,6 +1482,7 @@ const EVENTS = {
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio' },
     { time:'10:00-11:00', title:'SST - Actos y condiciones inseguras (manana)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion virtual SST Colombia — identificar actos y condiciones inseguras en el entorno laboral' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 con Maria Granada (reagendado de Mar→Jue) — estado Food Live al 10%, Merchant Food Life Flint Tracking, proximas prioridades semana' },
     { time:'15:00-16:00', title:'SST - Actos y condiciones inseguras (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion opcional SST — misma capacitacion, horario tarde' }
   ],
   fri: [
@@ -1788,14 +1788,15 @@ const DEFAULT_TASKS = [
   { id:'t302', text:'Compartir el documento de especificaciones tecnicas de referencia al equipo de Elias Rivera — pendiente desde capacitacion Assemble del 13 May. Necesario para que construyan flujo de tiendas invisibles.', phase:'build', priority:'P0', source:'Capacitacion Montaje Workflows Assemble 13 May', day:'mon', completed:false },
   { id:'t303', text:'Dar feedback al gantt de automatizacion compartido por Elias Rivera — sizing ACR por semanas alineado con entry issues BI. Revisar porcentajes y responder al grupo DM.', phase:'discovery', priority:'P1', source:'DM Grupal Elias Rivera Vie 15 May 16:26', day:'mon', completed:false },
   { id:'t304', text:'Confirmar con Andres De Las Casas el plan de tech capacity para creacion de endpoints y recetas — Andres coordino con tech el Vie 15. Alinear proximos pasos del equipo Elias.', phase:'build', priority:'P0', source:'DM Grupal Andres De Las Casas Vie 15 May', day:'tue', completed:false },
-  { id:'t305', text:'Preparar puntos de agenda para 1:1 con Maria Granada (Mar 14:00) — flujos Food Live al 10%, Merchant Food Life Flint Tracking, proximas semanas', phase:'build', priority:'P1', source:'Calendar Mar 19 Mayo 14:00', day:'tue', completed:false },
+  { id:'t305', text:'Preparar puntos de agenda para 1:1 con Maria Granada (Jue 14:00, reagendado) — flujos Food Live al 10%, Merchant Food Life Flint Tracking, proximas prioridades', phase:'build', priority:'P1', source:'Calendar Jue 21 Mayo 14:00', day:'thu', completed:false },
   { id:'t306', text:'Preparar puntos de agenda para 1:1 con Andres De Las Casas (Mar 15:30) — estado flujos Live y Suspensiones, endpoints pendientes, recetas, lanzamiento Assembled al 30%', phase:'build', priority:'P1', source:'Calendar Mar 19 Mayo 15:30', day:'tue', completed:false },
   { id:'t307', text:'Integrar la lectura del topico de seguimiento de Flint Tracking en la automatizacion Merchant Food Life — esperar confirmacion de Yulieth Sofia sobre disponibilidad del topico y su esquema de visualizacion', phase:'build', priority:'P0', source:'Endpoints fullfilment 13 May', day:'tue', completed:false },
   { id:'t308', text:'Preparar estado y metricas para CX Weekly Business Review (Mie 11:00) — flujos activos, semaforo concurrencia antes del mundial, plan de reduccion costos BPO', phase:'build', priority:'P1', source:'Calendar Mie 20 Mayo 11:00', day:'wed', completed:false },
   { id:'t309', text:'Monitorear metricas del flujo Food Live al 10% — lanzado el Jue 14 en paises pequenos. Revisar cobertura, tasa de resolucion automatica y comportamiento del flujo.', phase:'build', priority:'P0', source:'#ai-automations Jue 14 May', day:'wed', completed:false },
   { id:'t310', text:'Preparar PRDs y materiales para CX Product PRD & design reviews (Jue 9:00) — revisar avances y disenos CX Product pendientes con equipo amplio', phase:'build', priority:'P1', source:'Calendar Jue 21 Mayo 9:00', day:'thu', completed:false },
   { id:'t311', text:'Leer guia Assembled Workflows compartida en Best Practices del 13 May — aplicar directrices tecnicas y adoptar convenciones de nomenclatura uniformes en flujos futuros', phase:'build', priority:'P1', source:'Assembled Workflows Best Practices 13 May', day:'thu', completed:false },
-  { id:'t312', text:'Preparar estado actualizado de flujos para Weekly QA AI (Vie 14:00) — avances Food Live al 10%, Suspended Store, Bot Exp Problems with Order fase 2', phase:'build', priority:'P1', source:'Calendar Vie 22 Mayo 14:00', day:'fri', completed:false }
+  { id:'t312', text:'Preparar estado actualizado de flujos para Weekly QA AI (Vie 14:00) — avances Food Live al 10%, Suspended Store, Bot Exp Problems with Order fase 2', phase:'build', priority:'P1', source:'Calendar Vie 22 Mayo 14:00', day:'fri', completed:false },
+  { id:'t318', text:'Decidir con Catalina Bello el diseno del flujo "AI Bot Problems with order - received completely different order": opcion A) flujo inicia con ticket previo del usuario, opcion B) ejecutar acciones directamente en el chat sin requerir ticket. Validar con la guia Lupe DOC confirmada hoy.', phase:'design', priority:'P1', source:'DM Catalina Bello Mar 19 May 11:52', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1838,19 +1839,20 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Juan Pablo → Catalina Bello (DM)', text: 'Creando automatizacion "AI Bot Problems with the order - received completely different order". Pregunta clave: el flujo empieza con ticket previo del usuario, o mejor ejecutar acciones directamente en el chat sin necesidad de crear ticket primero?', time: 'Hoy 11:52', type: 'dm', actionable: true },
+  { from: 'Catalina Bello (DM)', text: 'Para AFC es este link (rappi.helpjuice.com/afc-support/afc-llego-diferente) — guia Lupe confirmada para el flujo "received completely different order".', time: 'Hoy 11:50', type: 'dm', actionable: true },
   { from: 'Maria Granada (Grupo DM)', text: 'Prioridades AI esta semana: 1) AI Bot Phase I Triage Food Live → Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension → Lanzar al 30% e iterar. 3) Discovery: AI Bot Problems with order - received completely different order. 4) Discovery AI Bot Phase I Food Non Live Integrations.', time: 'Hoy 06:59', type: 'dm', actionable: true },
   { from: 'Meiker Munera (DM)', text: 'Juan, aca estan las traducciones de los issues con sus respectivas keys — doc con todas las keys para hacer la query en Snowflake. Con eso puedes hacer la query para el discovery del AI Bot.', time: 'Hoy 09:21', type: 'dm', actionable: true },
   { from: 'Jose Ceron (DM)', text: 'Dejame coordinar unos temas con el team, porque merchants es nuevo y no hay configuraciones previas. Debo estar seguro que no rompo nada antes de avanzar.', time: 'Hoy 09:09', type: 'dm', actionable: true },
-  { from: 'Carla Capristan (DM)', text: 'Claro que si Juan — podemos reunirnos hoy de 2:30pm a 3:00pm para entender mejor el contexto del AI Bot Phase I Food Non Live Integrations y como puedo ayudar.', time: 'Hoy 08:52', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Ya hice las recetas de WhatsApp y las de aliados, me hacen falta hacer pruebas. Me harian falta las de portal para completar el lanzamiento al 30%.', time: 'Hoy 08:57', type: 'dm', actionable: true },
   { from: 'Jose Ceron (DM)', text: 'Bug critico: tienda 900144182 no esta suspendida en Lupe ni en el API, pero el chat del bot le dice que SI esta suspendida. Requiere investigacion urgente sobre la logica del endpoint.', time: 'Dom 17 19:19', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '10:30-13:00', '14:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-13:00', '16:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-13:00', '15:00-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-16:30'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:30-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
 
