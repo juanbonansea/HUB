@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mar 19 · Actualizado auto 17:08</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mie 20 · Actualizado auto 07:06</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1475,8 +1475,7 @@ const EVENTS = {
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo' },
     { time:'11:30-12:30', title:'Shadowing | Offenders OPs (Non Food)', attendees:16, org:'elias.rivera@rappi.com', type:'shadowing', note:'Opcional — shadowing de gestion de agente Non Food (Aliados)' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'16:30-17:30', title:'Shadowing Merchant (TU)', attendees:18, org:'carla.capristan@rappi.com', type:'shadowing', note:'Opcional — shadowing Merchant Taskus: sesion Top Offender o Top Performance con supervisor' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio' },
@@ -1852,19 +1851,18 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Maria Granada (DM)', text: 'Sobre flujo "received completely different order": no funcionaria con PwP porque para que funcione el flujo de PwP tiene que haber pasado por CoCa (la automatizacion). Lo que podrias pedirle a tech es un endpoint para llamar a Coca y eso se podria implementar en ambos flujos.', time: 'Hoy ~17:00', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Aclaracion CoCa: en PwP usamos CoCa porque es una politica muy especifica pero aqui no es necesario por eso no se llama a CoCa. Contexto para disenar el flujo "different order" correctamente.', time: 'Hoy ~16:50', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Para "received completely different order": deberíamos reembolsar lo pagado por la orden total porque es recibí una orden completamente diferente — no es necesaria una calculadora parcial en este caso.', time: 'Hoy ~16:40', type: 'dm', actionable: true },
-  { from: 'Juan Pablo → Catalina Bello (DM)', text: 'Creando automatizacion "AI Bot Problems with the order - received completely different order". Pregunta clave: el flujo empieza con ticket previo del usuario, o mejor ejecutar acciones directamente en el chat sin necesidad de crear ticket primero?', time: 'Hoy 11:52', type: 'dm', actionable: true },
-  { from: 'Catalina Bello (DM)', text: 'Para AFC es este link (rappi.helpjuice.com/afc-support/afc-llego-diferente) — guia Lupe confirmada para el flujo "received completely different order". Sip, es ese.', time: 'Hoy 11:50', type: 'dm', actionable: true },
-  { from: 'Maria Granada (Grupo DM)', text: 'Prioridades AI esta semana: 1) AI Bot Phase I Triage Food Live → Lanzar al 30% e iterar. 2) AI Bot Phase I Food Non Live Suspension → Lanzar al 30% e iterar. 3) Discovery: AI Bot Problems with order - received completely different order. 4) Discovery AI Bot Phase I Food Non Live Integrations.', time: 'Hoy 06:59', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Bug chat-manager aliados: se estan creando 3 conversaciones para connect en vez de una, y un cambio de flow key donde no deberia pasar. Estuvimos todo el dia probando en el ms de chat-manager y en las recetas para corregirlo. Seguimos revisando.', time: 'Hoy', type: 'dm', actionable: false },
+  { from: 'Maria Granada (DM)', text: 'Sobre flujo "received completely different order": podrias pedirle a tech un endpoint para llamar a CoCa — implementable en ambos flujos. Reembolsar lo pagado por la orden total porque es una orden completamente diferente, no es necesaria una calculadora parcial.', time: 'Mar 19', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'El viernes voy a estar en Bogota y vamos a ir con Andy y Ange a la oficina por si te animas. Juan Pablo respondio: de una, si alla nos vemos!', time: 'Vie 16', type: 'dm', actionable: false },
+  { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Andy, tu ayuda con el acceso a Statsig (SECOPS-434141). Andres respondio: Done.', time: 'Mar 19', type: 'dm', actionable: false },
+  { from: 'Maria Granada (Grupo DM)', text: 'Prioridades AI esta semana: 1) Triage Food Live al 30% e iterar. 2) Food Non Live Suspension al 30% e iterar. 3) Discovery Bot Problems with order - received completely different order. 4) Discovery Food Non Live Integrations.', time: 'Mar 19 06:59', type: 'dm', actionable: true },
   { from: 'Jose Ceron (DM)', text: 'Bug critico: tienda 900144182 no esta suspendida en Lupe ni en el API, pero el chat del bot le dice que SI esta suspendida. Requiere investigacion urgente sobre la logica del endpoint.', time: 'Dom 17 19:19', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '10:30-13:00', '14:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-13:00', '15:00-15:30', '16:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-11:00', '14:00-16:30'] },
+  { day: 'Mie', blocks: ['8:00-11:00', '14:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '16:15-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
 ];
