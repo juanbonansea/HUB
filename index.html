@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mie 20 · Actualizado auto 11:06</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mie 20 · Actualizado auto 17:03</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1493,6 +1493,22 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:51, title:'CX Weekly Business Review', date:'20 May',
+    summary:'La reunion detallo la automatizacion de correos y la implementacion de una interfaz rediseñada para asesores. Se presento el rediseno de Connect que integra gestion de riesgos y tiempos de reembolso, estableciendo el 1 de junio como plazo para la transicion de agentes. Se resolvio un error en el bot de estado de pedidos que incremento los tickets manualmente y se implementara el proyecto EVALS para automatizar la medicion de calidad. El SLA alcanzo el 89% gracias a una reduccion del 32% en el contacto. Se auditaron 32 flujos logrando mejoras en el indice de insatisfaccion.',
+    sections:['Interfaz Connect y automatizacion','Gestion de bots y calidad','Resultados operativos y metricas'],
+    actions:[
+      { text:'Finalizar la integracion de Tech para conectar Assemble con el sistema de correo electronico antes del dia 25', owner:'Andres De Las Casas', phase:'build', priority:'P0' },
+      { text:'Coordinar con Mike el soporte necesario para el despliegue del libro de reclamaciones', owner:'Andres De Las Casas', phase:'build', priority:'P1' },
+      { text:'Revisar estrategia para gestionar la informacion de multicanalidad y las dependencias asociadas a los tickets', owner:'Andres De Las Casas', phase:'discovery', priority:'P1' },
+      { text:'Implementar grupo piloto para medir comparativamente el impacto en el tiempo promedio de atencion y calidad frente a un grupo de control', owner:'Diana Guadalupe Martinez', phase:'build', priority:'P1' },
+      { text:'Coordinar integracion del canal de WhatsApp con la herramienta Star para experiencia de usuario consistente', owner:'Angela Maria Osuna', phase:'build', priority:'P0' },
+      { text:'Presentar plan detallado para completar la eliminacion de licencias pendientes en los proximos 15 dias', owner:'Angela Maria Osuna', phase:'build', priority:'P1' },
+      { text:'Gestionar el avance del proyecto Cellphone Onboarding con el equipo responsable para asegurar su cumplimiento', owner:'Eugenio La Rosa', phase:'build', priority:'P1' },
+      { text:'Distribuir los detalles del proyecto EVALS al equipo y a Guada una vez sea entregado por los desarrolladores', owner:'Maria Granada', phase:'build', priority:'P1' },
+      { text:'Preparar incentivos para el mundial — configurar tipos de ticket para evitar escalamientos humanos en fechas clave FIFA 2026', owner:'Daniel Alvarez / Sergio Pulgarin', phase:'build', priority:'P0' }
+    ]
+  },
   {
     id:50, title:'Carla / Juan Pablo - Automatizacion Merchants', date:'19 May',
     summary:'Revision de automatizacion de procesos para comerciantes mediante el analisis de tickets y flujos operativos actuales. Se utiliza Snowflake para identificar puntos de friccion y optimizar la resolucion mediante IA. Los tickets clasificados erroneamente como indefinidos requieren intervencion externa pendiente hasta junio. La automatizacion total es viable para el encendido y apagado de tiendas y gestion de proyectos. Se implementaran modelos semiautomaticos para validaciones tecnicas de catalogo, Webhook y JSON. Se decidio automatizar completamente la activacion y desactivacion de tiendas por ser procesos administrativos simples. La automatizacion de cancelaciones de ordenes se descarta por requerir revision humana profunda.',
@@ -1788,6 +1804,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t320', text:'Revisar con Camilo Esquivel si hay casos de produccion llegando a Connect desde Portal con motivo problemas de RT — identificar si existe opcion en el arbol inicial o si debe crearse. Aliados ya funciona, ahora trabajan en portal partners.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 20 May 12:13', day:'wed', completed:false },
   { id:'t319', text:'Crear boceto del esquema de flujos para automatizacion de procesos Merchants — definir variables y pasos para encendido/apagado tiendas, gestion proyectos y validaciones tecnicas catalogo/Webhook/JSON. Prioritario previo a Revisión avances integradas (Jue 15:30).', phase:'build', priority:'P0', source:'Carla / Juan Pablo 19 May 14:57', day:'tue', completed:false },
   { id:'t313', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Triage Food Live al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
   { id:'t314', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Food Non Live Suspension al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
@@ -1826,6 +1843,11 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d320', text:'Finalizar la integracion de Tech para conectar Assemble con el sistema de correo electronico antes del dia 25 de mayo — deadline critico', owner:'Andres De Las Casas', source:'CX WBR 20 May', status:'pendiente' },
+  { id:'d319', text:'Coordinar con Mike el soporte necesario para el despliegue del libro de reclamaciones', owner:'Andres De Las Casas', source:'CX WBR 20 May', status:'pendiente' },
+  { id:'d318', text:'Distribuir detalles del proyecto EVALS al equipo y a Guada una vez entregado por los desarrolladores — para automatizar medicion de calidad', owner:'Maria Granada', source:'CX WBR 20 May', status:'pendiente' },
+  { id:'d317', text:'Coordinar integracion del canal de WhatsApp con la herramienta Star para experiencia de usuario consistente — hablar con Jonathan', owner:'Angela Maria Osuna', source:'CX WBR 20 May', status:'pendiente' },
+  { id:'d316', text:'Preparar incentivos para el mundial FIFA 2026 — exponer datos de inscripcion y configurar tipos de ticket para evitar escalamientos humanos en fechas clave', owner:'Daniel Alvarez / Sergio Pulgarin', source:'CX WBR 20 May', status:'pendiente' },
   { id:'d303', text:'Revisar articulos de Rapipedia y data cruda compartida para evaluar vigencia de procesos y casos marcados en gris — alineacion previa a validacion del boceto de automatizacion Merchants', owner:'Carla Capristan', source:'Carla / Juan Pablo 19 May', status:'pendiente' },
   { id:'d300', text:'Validar por que tienda 900144182 muestra como suspendida en el chat del bot pero NO esta suspendida en Lupe ni en el API — verificar si el flujo usa la respuesta del endpoint correctamente o tiene logica hardcodeada', owner:'Jose Luis Ceron', source:'DM Jose Ceron Dom 17 May 19:19', status:'pendiente' },
   { id:'d301', text:'Coordinar con tech el capacity para creacion de endpoints y recetas — plan: equipo Elias identifica entry points del DT, flujo y entry points/endpoints, luego hacemos el setteo', owner:'Andres De Las Casas', source:'DM Grupal Andres De Las Casas Vie 15 May', status:'pendiente' },
@@ -1851,12 +1873,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel (DM)', text: 'Bug chat-manager aliados: se estan creando 3 conversaciones para connect en vez de una, y un cambio de flow key donde no deberia pasar. Estuvimos todo el dia probando en el ms de chat-manager y en las recetas para corregirlo. Seguimos revisando.', time: 'Mar 19', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Sobre flujo "received completely different order": podrias pedirle a tech un endpoint para llamar a CoCa — implementable en ambos flujos. Reembolsar lo pagado por la orden total porque es una orden completamente diferente, no es necesaria una calculadora parcial.', time: 'Mar 19', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'El viernes vamos a ir con Andy y Ange a la oficina en Bogota — quedaron de verse alli.', time: 'Mar 19', type: 'dm', actionable: false },
-  { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Andy, tu ayuda con el acceso a Statsig (SECOPS-434141). Andres respondio: Done.', time: 'Mar 19', type: 'dm', actionable: false },
-  { from: 'Maria Granada (Grupo DM)', text: 'Prioridades AI esta semana: 1) Triage Food Live al 30% e iterar. 2) Food Non Live Suspension al 30% e iterar. 3) Discovery Bot Problems with order - received completely different order. 4) Discovery Food Non Live Integrations.', time: 'Mar 19 06:59', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Bug critico: tienda 900144182 no esta suspendida en Lupe ni en el API, pero el chat del bot le dice que SI esta suspendida. Requiere investigacion urgente sobre la logica del endpoint.', time: 'Dom 17 19:19', type: 'dm', actionable: true }
+  { from: 'Camilo Esquivel (DM)', text: 'Juan, tienes algun caso de produccion que llegue a Connect desde la plataforma de Portal por el motivo de problemas con el RT? En el arbol inicial no veo alguna opcion.', time: 'Mie 20 12:13', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Hola Juan, buen dia — ya nos funcionó aliados, ahora vamos con portal partners.', time: 'Mie 20 11:38', type: 'dm', actionable: true },
+  { from: 'Juan Pablo → #automation-product-team', text: 'AI Bot Food Non Live al 10% en paises pequenos, validando inflow esta semana. Discovery "received completely different order" y discovery_integrations_food_nonlive_v1 con Carla — deben quedar esta semana para el kickoff con tech el lunes 25.', time: 'Mie 20 11:06', type: 'channel', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: 'Bug chat-manager aliados: se estan creando 3 conversaciones para connect en vez de una, y un cambio de flow key donde no deberia pasar. Estuvimos todo el dia probando en el ms de chat-manager y en las recetas. Seguimos revisando.', time: 'Mar 19 18:23', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Para flujo "received completely different order": podrias pedirle a tech un endpoint para llamar a CoCa — implementable en ambos flujos. Reembolsar lo pagado por la orden total, no se necesita calculadora parcial.', time: 'Mar 19 17:01', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'El viernes voy a estar en Bogota y vamos con Andy y Ange a la oficina — por si te animas!', time: 'Mar 19 17:20', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
