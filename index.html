@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mie 20 · Actualizado auto 17:03</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Mie 20 · Actualizado auto 15:10</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1804,6 +1804,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t321', text:'Coordinar con Andres De Las Casas y Camilo Esquivel el punto de entrada correcto en el arbol de Portal Partners para la automatizacion de RT — las recetas de wha y aliados ya quedaron, pero en los arboles que paso Tech no hay nada relacionado a problemas con RT en Partners.', phase:'build', priority:'P0', source:'DM Andres De Las Casas + Camilo Esquivel Mie 20 May 14:39', day:'wed', completed:false },
   { id:'t320', text:'Revisar con Camilo Esquivel si hay casos de produccion llegando a Connect desde Portal con motivo problemas de RT — identificar si existe opcion en el arbol inicial o si debe crearse. Aliados ya funciona, ahora trabajan en portal partners.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 20 May 12:13', day:'wed', completed:false },
   { id:'t319', text:'Crear boceto del esquema de flujos para automatizacion de procesos Merchants — definir variables y pasos para encendido/apagado tiendas, gestion proyectos y validaciones tecnicas catalogo/Webhook/JSON. Prioritario previo a Revisión avances integradas (Jue 15:30).', phase:'build', priority:'P0', source:'Carla / Juan Pablo 19 May 14:57', day:'tue', completed:false },
   { id:'t313', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Triage Food Live al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
@@ -1873,12 +1874,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Ya quedaron las recetas en wha y aliados pero en partners no veo en que parte deberia meter la automatizacion — no hay nada relacionado a problemas con el RT en estos arboles que me paso Tech.', time: 'Mie 20 14:39', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Assembled tiene 3 componentes: flujos WhatsApp, portal de aliados (web) y portal partners (otra web). Confirmado que el assembled correcto (6689cb5e) quedo bien configurado con statsig por componente. :done:', time: 'Mie 20 14:50-15:07', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel (DM)', text: 'Juan, tienes algun caso de produccion que llegue a Connect desde la plataforma de Portal por el motivo de problemas con el RT? En el arbol inicial no veo alguna opcion.', time: 'Mie 20 12:13', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Hola Juan, buen dia — ya nos funcionó aliados, ahora vamos con portal partners.', time: 'Mie 20 11:38', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Ya nos funciono aliados, ahora vamos con portal partners.', time: 'Mie 20 11:38', type: 'dm', actionable: true },
   { from: 'Juan Pablo → #automation-product-team', text: 'AI Bot Food Non Live al 10% en paises pequenos, validando inflow esta semana. Discovery "received completely different order" y discovery_integrations_food_nonlive_v1 con Carla — deben quedar esta semana para el kickoff con tech el lunes 25.', time: 'Mie 20 11:06', type: 'channel', actionable: false },
   { from: 'Camilo Esquivel (DM)', text: 'Bug chat-manager aliados: se estan creando 3 conversaciones para connect en vez de una, y un cambio de flow key donde no deberia pasar. Estuvimos todo el dia probando en el ms de chat-manager y en las recetas. Seguimos revisando.', time: 'Mar 19 18:23', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Para flujo "received completely different order": podrias pedirle a tech un endpoint para llamar a CoCa — implementable en ambos flujos. Reembolsar lo pagado por la orden total, no se necesita calculadora parcial.', time: 'Mar 19 17:01', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'El viernes voy a estar en Bogota y vamos con Andy y Ange a la oficina — por si te animas!', time: 'Mar 19 17:20', type: 'dm', actionable: false }
+  { from: 'Maria Granada (DM)', text: 'Para flujo "received completely different order": podrias pedirle a tech un endpoint para llamar a CoCa — implementable en ambos flujos. Reembolsar lo pagado por la orden total, no se necesita calculadora parcial.', time: 'Mar 19 17:01', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
