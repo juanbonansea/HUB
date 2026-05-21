@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Jue 21 · Actualizado auto 11:10</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Jue 21 · Actualizado auto 15:15</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1482,10 +1482,10 @@ const EVENTS = {
     { time:'10:00-11:00', title:'SST - Actos y condiciones inseguras (manana)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion virtual SST Colombia — identificar actos y condiciones inseguras en el entorno laboral' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 con Maria Granada (reagendado de Mar→Jue) — estado Food Live al 10%, Merchant Food Life Flint Tracking, proximas prioridades semana' },
-    { time:'15:00-16:00', title:'SST - Actos y condiciones inseguras (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion opcional SST — misma capacitacion, horario tarde' },
-    { time:'15:30-16:15', title:'Revisión avances integradas', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Seguimiento con Carla Capristan para validar boceto del flujo de automatizacion de merchants — agendado hoy 19 May' }
+    { time:'15:00-16:00', title:'SST - Actos y condiciones inseguras (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion opcional SST — misma capacitacion, horario tarde' }
   ],
   fri: [
+    { time:'11:30-12:00', title:'Revisión avances integradas', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Seguimiento con Carla Capristan para validar boceto del flujo de automatizacion de merchants' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' },
     { time:'14:00-15:00', title:'Shadowing 2 | Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing', note:'Opcional — shadowing Non Food (Aliados) segunda sesion semanal' }
@@ -1804,6 +1804,9 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t324', text:'Revisar update Meiker: AI Bot RT Non-Food Phase II al 50%, falta ajustar feedbacks QA para aumentar AR. Mail & Especializados avanzando con Mike. Delete account flow casi listo — falta endpoint productos Pay Co. Dar seguimiento y desbloquear si necesario.', phase:'build', priority:'P1', source:'Grupo DM Jue 21 May', day:'thu', completed:false },
+  { id:'t323', text:'Seguimiento con Camilo Esquivel: correr recetas para paises medianos y grandes — pendiente respuesta a DM de hoy', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May', day:'thu', completed:false },
+  { id:'t322', text:'Investigar con Camilo Esquivel si es posible consumir endpoint con lista de store IDs para activaciones/desactivaciones masivas de tiendas — clave para automatizacion Merchant. Pendiente respuesta.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May + #assembled-rappi', day:'thu', completed:false },
   { id:'t321', text:'Coordinar con Andres De Las Casas y Camilo Esquivel el punto de entrada correcto en el arbol de Portal Partners para la automatizacion de RT — las recetas de wha y aliados ya quedaron, pero en los arboles que paso Tech no hay nada relacionado a problemas con RT en Partners.', phase:'build', priority:'P0', source:'DM Andres De Las Casas + Camilo Esquivel Mie 20 May 14:39', day:'wed', completed:false },
   { id:'t320', text:'Revisar con Camilo Esquivel si hay casos de produccion llegando a Connect desde Portal con motivo problemas de RT — identificar si existe opcion en el arbol inicial o si debe crearse. Aliados ya funciona, ahora trabajan en portal partners.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 20 May 12:13', day:'wed', completed:false },
   { id:'t319', text:'Crear boceto del esquema de flujos para automatizacion de procesos Merchants — definir variables y pasos para encendido/apagado tiendas, gestion proyectos y validaciones tecnicas catalogo/Webhook/JSON. Prioritario previo a Revisión avances integradas (Jue 15:30).', phase:'build', priority:'P0', source:'Carla / Juan Pablo 19 May 14:57', day:'tue', completed:false },
@@ -1874,21 +1877,21 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Juan Pablo → #assembled-rappi', text: 'API Requests / Batch Processing: necesito hacer queries a ~20 IDs desde un endpoint. Es posible query multiple IDs en bulk? Si no, se puede implementar batch splitting con loop 1:1 hasta procesar todos?', time: 'Jue 21', type: 'channel', actionable: false },
+  { from: 'Juan Pablo → Camilo Esquivel (DM)', text: 'Dos cositas: 1) me ayudas con el experimento en paises medianos y grandes. 2) Para activaciones/desactivaciones masivas: es posible consumir endpoint con una lista de 10+ store IDs en vez de uno por uno?', time: 'Jue 21', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: 'ahorita envio grandes, ingrese a una reu', time: 'Jue 21', type: 'dm', actionable: true },
+  { from: 'Meiker Munera (Grupo DM)', text: 'AI Bot RT Non-Food Phase II al 50% — falta ajustar feedbacks QA para aumentar AR. Mail & Especializados con Mike avanzando. Delete account flow casi listo, falta endpoint productos Pay Co para finalizar.', time: 'Jue 21', type: 'dm', actionable: false },
   { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Ya quedaron las recetas en wha y aliados pero en partners no veo en que parte deberia meter la automatizacion — no hay nada relacionado a problemas con el RT en estos arboles que me paso Tech.', time: 'Mie 20 14:39', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Assembled tiene 3 componentes: flujos WhatsApp, portal de aliados (web) y portal partners (otra web). Confirmado que el assembled correcto (6689cb5e) quedo bien configurado con statsig por componente. :done:', time: 'Mie 20 14:50-15:07', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'Juan, tienes algun caso de produccion que llegue a Connect desde la plataforma de Portal por el motivo de problemas con el RT? En el arbol inicial no veo alguna opcion.', time: 'Mie 20 12:13', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Ya nos funciono aliados, ahora vamos con portal partners.', time: 'Mie 20 11:38', type: 'dm', actionable: true },
-  { from: 'Juan Pablo → #automation-product-team', text: 'AI Bot Food Non Live al 10% en paises pequenos, validando inflow esta semana. Discovery "received completely different order" y discovery_integrations_food_nonlive_v1 con Carla — deben quedar esta semana para el kickoff con tech el lunes 25.', time: 'Mie 20 11:06', type: 'channel', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'Bug chat-manager aliados: se estan creando 3 conversaciones para connect en vez de una, y un cambio de flow key donde no deberia pasar. Estuvimos todo el dia probando en el ms de chat-manager y en las recetas. Seguimos revisando.', time: 'Mar 19 18:23', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Para flujo "received completely different order": podrias pedirle a tech un endpoint para llamar a CoCa — implementable en ambos flujos. Reembolsar lo pagado por la orden total, no se necesita calculadora parcial.', time: 'Mar 19 17:01', type: 'dm', actionable: true }
+  { from: 'Jose Ceron (DM)', text: 'Assembled tiene 3 componentes: flujos WhatsApp, portal de aliados (web) y portal partners. Confirmado que el assembled correcto (6689cb5e) quedo bien configurado con statsig por componente.', time: 'Mie 20 15:07', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: 'Juan, tienes algun caso de produccion que llegue a Connect desde Portal por el motivo de problemas con el RT? En el arbol inicial no veo alguna opcion.', time: 'Mie 20 12:13', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '10:30-13:00', '14:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-13:00', '15:00-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '16:15-18:00'] },
-  { day: 'Vie', blocks: ['8:00-13:00', '15:00-18:00'] }
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:30-15:00', '16:00-18:00'] },
+  { day: 'Vie', blocks: ['8:00-11:30', '12:00-13:00', '15:00-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
