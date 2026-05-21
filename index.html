@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Jue 21 · Actualizado auto 15:15</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Jue 21 · Actualizado auto 22:05</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1486,6 +1486,7 @@ const EVENTS = {
   ],
   fri: [
     { time:'11:30-12:00', title:'Revisión avances integradas', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Seguimiento con Carla Capristan para validar boceto del flujo de automatizacion de merchants' },
+    { time:'12:00-12:30', title:'Check WF- Integradas', attendees:6, org:'m.granada@rappi.com', type:'team', note:'Check del estado del workflow Integradas — Maria Granada, Elias Rivera, Andres De Las Casas, F. Diaz, Carla Capristan' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' },
     { time:'14:00-15:00', title:'Shadowing 2 | Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing', note:'Opcional — shadowing Non Food (Aliados) segunda sesion semanal' }
@@ -1804,6 +1805,9 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t327', text:'Configurar statsig para WP en paises medianos — Jose Ceron confirmo Jue 21 a las 15:52 que wp lo puedes acomodar en statsig. Unblocked! Proceder con la configuracion para paises medianos.', phase:'build', priority:'P0', source:'DM Jose Ceron Jue 21 May 15:52', day:'fri', completed:false },
+  { id:'t326', text:'Coordinar mapeo en Assembled con equipo Elias — equipo ya identifico y documento endpoints para los 3 flujos (Jue 21 16:45). Siguiente paso: avanzar con el mapeo en Assembled. Confirmar disponibilidad de Andres De Las Casas (Veronica) para apoyar.', phase:'build', priority:'P0', source:'Grupo DM Elias Rivera Jue 21 May 16:45', day:'fri', completed:false },
+  { id:'t325', text:'Confirmar con Camilo Esquivel si el boton Apagar/Prender todas las tiendas del portal Aliados soporta activaciones masivas por lista de IDs — pendiente respuesta concreta sobre endpoint bulk (Jue 21 15:46).', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May 15:46', day:'fri', completed:false },
   { id:'t324', text:'Revisar update Meiker: AI Bot RT Non-Food Phase II al 50%, falta ajustar feedbacks QA para aumentar AR. Mail & Especializados avanzando con Mike. Delete account flow casi listo — falta endpoint productos Pay Co. Dar seguimiento y desbloquear si necesario.', phase:'build', priority:'P1', source:'Grupo DM Jue 21 May', day:'thu', completed:false },
   { id:'t323', text:'Seguimiento con Camilo Esquivel: correr recetas para paises medianos y grandes — pendiente respuesta a DM de hoy', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May', day:'thu', completed:false },
   { id:'t322', text:'Investigar con Camilo Esquivel si es posible consumir endpoint con lista de store IDs para activaciones/desactivaciones masivas de tiendas — clave para automatizacion Merchant. Pendiente respuesta.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May + #assembled-rappi', day:'thu', completed:false },
@@ -1855,7 +1859,7 @@ const DEFAULT_DELEGATED = [
   { id:'d303', text:'Revisar articulos de Rapipedia y data cruda compartida para evaluar vigencia de procesos y casos marcados en gris — alineacion previa a validacion del boceto de automatizacion Merchants', owner:'Carla Capristan', source:'Carla / Juan Pablo 19 May', status:'pendiente' },
   { id:'d300', text:'Validar por que tienda 900144182 muestra como suspendida en el chat del bot pero NO esta suspendida en Lupe ni en el API — verificar si el flujo usa la respuesta del endpoint correctamente o tiene logica hardcodeada', owner:'Jose Luis Ceron', source:'DM Jose Ceron Dom 17 May 19:19', status:'pendiente' },
   { id:'d301', text:'Coordinar con tech el capacity para creacion de endpoints y recetas — plan: equipo Elias identifica entry points del DT, flujo y entry points/endpoints, luego hacemos el setteo', owner:'Andres De Las Casas', source:'DM Grupal Andres De Las Casas Vie 15 May', status:'pendiente' },
-  { id:'d100', text:'Solicitar los puntos de acceso (API endpoints) a tecnologia para integracion del flujo de tiendas invisibles en Assemble — definir datos necesarios y verificar si ya existen endpoints reutilizables', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows Assemble 13 May', status:'pendiente' },
+  { id:'d100', text:'[ACTUALIZADO Jue 21] Endpoints identificados y documentados para los 3 flujos — equipo ya avanzo. Pendiente: mapeo en Assembled con apoyo de Andres De Las Casas / Veronica', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows 13 May / Grupo DM 21 May 16:45', status:'en progreso' },
   { id:'d99', text:'Redactar documento tecnico con variables necesarias y datos esperados de los endpoints — presentar a Veronica Ferro para apoyo de desarrollador', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows Assemble 13 May', status:'pendiente' },
   { id:'d98', text:'Clonar flujo base en Assemble y comenzar construccion del nuevo flujo de tiendas invisibles', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows Assemble 13 May', status:'pendiente' },
   { id:'d97', text:'Validar si el topico de seguimiento de repartidor (Flint Tracking) es aplicable para recoleccion en tienda y entrega al usuario — compartir detalles y esquema de visualizacion con Juan Pablo', owner:'Yulieth Sofia', source:'Endpoints fullfilment 13 May', status:'pendiente' },
@@ -1877,13 +1881,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Juan Pablo → #assembled-rappi', text: 'API Requests / Batch Processing: necesito hacer queries a ~20 IDs desde un endpoint. Es posible query multiple IDs en bulk? Si no, se puede implementar batch splitting con loop 1:1 hasta procesar todos?', time: 'Jue 21', type: 'channel', actionable: false },
-  { from: 'Juan Pablo → Camilo Esquivel (DM)', text: 'Dos cositas: 1) me ayudas con el experimento en paises medianos y grandes. 2) Para activaciones/desactivaciones masivas: es posible consumir endpoint con una lista de 10+ store IDs en vez de uno por uno?', time: 'Jue 21', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'ahorita envio grandes, ingrese a una reu', time: 'Jue 21', type: 'dm', actionable: true },
-  { from: 'Meiker Munera (Grupo DM)', text: 'AI Bot RT Non-Food Phase II al 50% — falta ajustar feedbacks QA para aumentar AR. Mail & Especializados con Mike avanzando. Delete account flow casi listo, falta endpoint productos Pay Co para finalizar.', time: 'Jue 21', type: 'dm', actionable: false },
-  { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Ya quedaron las recetas en wha y aliados pero en partners no veo en que parte deberia meter la automatizacion — no hay nada relacionado a problemas con el RT en estos arboles que me paso Tech.', time: 'Mie 20 14:39', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Assembled tiene 3 componentes: flujos WhatsApp, portal de aliados (web) y portal partners. Confirmado que el assembled correcto (6689cb5e) quedo bien configurado con statsig por componente.', time: 'Mie 20 15:07', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'Juan, tienes algun caso de produccion que llegue a Connect desde Portal por el motivo de problemas con el RT? En el arbol inicial no veo alguna opcion.', time: 'Mie 20 12:13', type: 'dm', actionable: true }
+  { from: 'Elias Rivera (Grupo DM)', text: 'Ya tenemos identificados y documentados los endpoints que vamos a necesitar de Tech en los 3 flujos. Seguimos atentos para avanzar con el mapeo en Assembled.', time: 'Jue 21 16:45', type: 'dm', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'listo Juan, ya wp lo puedes acomodar en statsig — paises medianos y porcentajes listos para configurar', time: 'Jue 21 15:52', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'mira no se si te sirva este de la plataforma de Aliados — el boton que dice Apagar o Prender todas las tiendas es al que te refieres?', time: 'Jue 21 15:46', type: 'dm', actionable: true },
+  { from: 'Juan Pablo → #assembled-rappi', text: 'API Requests / Batch Processing: necesito hacer queries a ~20 IDs desde un endpoint. Es posible query multiple IDs en bulk? Si no, como implementar batch splitting con loop 1:1?', time: 'Jue 21 14:37', type: 'channel', actionable: false },
+  { from: 'Meiker Munera (Grupo DM)', text: 'AI Bot RT Non-Food Phase II al 50% — falta ajustar feedbacks QA. Mail & Especializados avanzando con Mike. Delete account casi listo, falta endpoint productos Pay Co.', time: 'Jue 21 11:39', type: 'dm', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'Aliados lanzo partners pero habia un error en la plataforma — toco hacer ticket para un cambio, esperando el go para desplegar. La de WP si, la otra aun no.', time: 'Jue 21 14:07', type: 'dm', actionable: false },
+  { from: 'Juan Pablo → Andres De Las Casas (DM)', text: 'Ya quedaron las recetas en wha y aliados pero en partners no veo en que parte deberia meter la automatizacion — no hay nada relacionado a problemas con el RT en estos arboles que me paso Tech.', time: 'Mie 20 14:39', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
@@ -1891,7 +1895,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-13:00', '15:00-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:30-15:00', '16:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-11:30', '12:00-13:00', '15:00-18:00'] }
+  { day: 'Vie', blocks: ['8:00-11:30', '12:30-13:00', '15:00-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
