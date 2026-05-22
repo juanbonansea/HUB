@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Vie 22 · Actualizado auto 11:12</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Vie 22 · Actualizado auto 13:07</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1488,12 +1488,21 @@ const EVENTS = {
     { time:'11:30-12:00', title:'Revisión avances integradas', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Seguimiento con Carla Capristan para validar boceto del flujo de automatizacion de merchants' },
     { time:'12:00-12:30', title:'Check WF- Integradas', attendees:6, org:'m.granada@rappi.com', type:'team', note:'Check del estado del workflow Integradas — Maria Granada, Elias Rivera, Andres De Las Casas, F. Diaz, Carla Capristan' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' },
+    { time:'15:00-15:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' },
     { time:'14:00-15:00', title:'Shadowing 2 | Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing', note:'Opcional — shadowing Non Food (Aliados) segunda sesion semanal' }
   ]
 };
 
 const NOTES = [
+  {
+    id:52, title:'Weekly - QA AI', date:'22 May',
+    summary:'Revision del reporte de variables y gestion de problemas pendientes para finalizar tareas prioritarias. El reporte de variables debe concluirse durante la semana entrante. El equipo priorizara la resolucion de los problemas identificados actualmente.',
+    sections:['Finalizacion reporte variables','Gestion de problemas pendientes'],
+    actions:[
+      { text:'Concluir el reporte de variables durante la semana entrante', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Priorizar resolucion de los problemas identificados actualmente en el flujo QA AI', owner:'Juan Pablo / Equipo', phase:'build', priority:'P0' }
+    ]
+  },
   {
     id:51, title:'CX Weekly Business Review', date:'20 May',
     summary:'La reunion detallo la automatizacion de correos y la implementacion de una interfaz rediseñada para asesores. Se presento el rediseno de Connect que integra gestion de riesgos y tiempos de reembolso, estableciendo el 1 de junio como plazo para la transicion de agentes. Se resolvio un error en el bot de estado de pedidos que incremento los tickets manualmente y se implementara el proyecto EVALS para automatizar la medicion de calidad. El SLA alcanzo el 89% gracias a una reduccion del 32% en el contacto. Se auditaron 32 flujos logrando mejoras en el indice de insatisfaccion.',
@@ -1805,6 +1814,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t329', text:'Concluir el reporte de variables esta semana — identificado como prioridad en el Weekly QA AI de hoy. Revisar estado con el equipo y cerrar antes del fin de semana.', phase:'build', priority:'P0', source:'Weekly - QA AI Vie 22 May 11:52', day:'fri', completed:false },
   { id:'t328', text:'BUG P0 Food Live — endpoint fallando en produccion: ticket ID no llega en la metadata. Camilo Esquivel confirmo a las 09:04 "hola Juan, lo reviso". Hacer seguimiento y confirmar ETA del fix antes de Revisión avances integradas 11:30.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Vie 22 May 09:04', day:'fri', completed:false },
   { id:'t327', text:'Configurar statsig para WP en paises medianos — Jose Ceron confirmo Jue 21 a las 15:52 que wp lo puedes acomodar en statsig. Unblocked! Proceder con la configuracion para paises medianos.', phase:'build', priority:'P0', source:'DM Jose Ceron Jue 21 May 15:52', day:'fri', completed:false },
   { id:'t326', text:'Coordinar mapeo en Assembled con equipo Elias — equipo ya identifico y documento endpoints para los 3 flujos (Jue 21 16:45). Siguiente paso: avanzar con el mapeo en Assembled. Confirmar disponibilidad de Andres De Las Casas (Veronica) para apoyar.', phase:'build', priority:'P0', source:'Grupo DM Elias Rivera Jue 21 May 16:45', day:'fri', completed:false },
@@ -1896,7 +1906,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-13:00', '15:00-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:30-15:00', '16:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-11:30', '12:30-13:00', '15:00-18:00'] }
+  { day: 'Vie', blocks: ['8:00-12:00', '12:30-13:00', '15:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
