@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Vie 22 · Actualizado auto 07:03</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Vie 22 · Actualizado auto 09:10</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1805,7 +1805,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t328', text:'BUG P0 Food Live — endpoint fallando en produccion: ticket ID no llega en la metadata y rompe el flujo. QA review links compartidos con Camilo Esquivel. Coordinar fix urgente antes de las reuniones del dia.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Vie 22 May 06:46', day:'fri', completed:false },
+  { id:'t328', text:'BUG P0 Food Live — endpoint fallando en produccion: ticket ID no llega en la metadata. Camilo Esquivel confirmo a las 09:04 "hola Juan, lo reviso". Hacer seguimiento y confirmar ETA del fix antes de Revisión avances integradas 11:30.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Vie 22 May 09:04', day:'fri', completed:false },
   { id:'t327', text:'Configurar statsig para WP en paises medianos — Jose Ceron confirmo Jue 21 a las 15:52 que wp lo puedes acomodar en statsig. Unblocked! Proceder con la configuracion para paises medianos.', phase:'build', priority:'P0', source:'DM Jose Ceron Jue 21 May 15:52', day:'fri', completed:false },
   { id:'t326', text:'Coordinar mapeo en Assembled con equipo Elias — equipo ya identifico y documento endpoints para los 3 flujos (Jue 21 16:45). Siguiente paso: avanzar con el mapeo en Assembled. Confirmar disponibilidad de Andres De Las Casas (Veronica) para apoyar.', phase:'build', priority:'P0', source:'Grupo DM Elias Rivera Jue 21 May 16:45', day:'fri', completed:false },
   { id:'t325', text:'Confirmar con Camilo Esquivel si el boton Apagar/Prender todas las tiendas del portal Aliados soporta activaciones masivas por lista de IDs — pendiente respuesta concreta sobre endpoint bulk (Jue 21 15:46).', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May 15:46', day:'fri', completed:false },
@@ -1882,13 +1882,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Camilo Esquivel (DM)', text: 'hola Juan, lo reviso — respondio al bug report del endpoint Food Live enviado a las 06:46. Pendiente confirmacion del fix.', time: 'Vie 22 09:04', type: 'dm', actionable: true },
+  { from: 'Maria Fernanda Granada (DM)', text: 'Sip! Llego a las 9 — confirmacion de asistencia a la oficina hoy viernes. Coordinacion para Check WF-Integradas 12:00.', time: 'Vie 22 08:35', type: 'dm', actionable: false },
   { from: 'Juan Pablo → Camilo Esquivel (DM)', text: 'BUG Food Live en produccion: endpoint fallando constantemente — ticket ID no llega en la metadata y rompe el flujo. Comparte 3 links Assembled QA review. Pide ayuda a Camilo para arreglarlo.', time: 'Vie 22 06:46', type: 'dm', actionable: true },
   { from: 'Elias Rivera (Grupo DM)', text: 'Ya tenemos identificados y documentados los endpoints que vamos a necesitar de Tech en los 3 flujos. Seguimos atentos para avanzar con el mapeo en Assembled.', time: 'Jue 21 16:45', type: 'dm', actionable: false },
   { from: 'Jose Ceron (DM)', text: 'listo Juan, ya wp lo puedes acomodar en statsig — paises medianos y porcentajes listos para configurar', time: 'Jue 21 15:52', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'mira no se si te sirva este de la plataforma de Aliados — el boton que dice Apagar o Prender todas las tiendas es al que te refieres?', time: 'Jue 21 15:46', type: 'dm', actionable: true },
-  { from: 'Juan Pablo → #assembled-rappi', text: 'API Requests / Batch Processing: necesito hacer queries a ~20 IDs desde un endpoint. Es posible query multiple IDs en bulk? Si no, como implementar batch splitting con loop 1:1?', time: 'Jue 21 14:37', type: 'channel', actionable: false },
-  { from: 'Meiker Munera (Grupo DM)', text: 'AI Bot RT Non-Food Phase II al 50% — falta ajustar feedbacks QA. Mail & Especializados avanzando con Mike. Delete account casi listo, falta endpoint productos Pay Co.', time: 'Jue 21 11:39', type: 'dm', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'Aliados lanzo partners pero habia un error en la plataforma — toco hacer ticket para un cambio, esperando el go para desplegar. La de WP si, la otra aun no.', time: 'Jue 21 14:07', type: 'dm', actionable: false }
+  { from: 'Meiker Munera (Grupo DM)', text: 'AI Bot RT Non-Food Phase II al 50% — falta ajustar feedbacks QA. Mail & Especializados avanzando con Mike. Delete account casi listo, falta endpoint productos Pay Co.', time: 'Jue 21 11:39', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
