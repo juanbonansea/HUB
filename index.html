@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Vie 22 · Actualizado auto 13:07</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Vie 22 · Actualizado auto 14:58</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1474,7 +1474,6 @@ const EVENTS = {
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo' },
-    { time:'11:30-12:30', title:'Shadowing | Offenders OPs (Non Food)', attendees:16, org:'elias.rivera@rappi.com', type:'shadowing', note:'Opcional — shadowing de gestion de agente Non Food (Aliados)' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   thu: [
@@ -1485,11 +1484,10 @@ const EVENTS = {
     { time:'15:00-16:00', title:'SST - Actos y condiciones inseguras (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion opcional SST — misma capacitacion, horario tarde' }
   ],
   fri: [
-    { time:'11:30-12:00', title:'Revisión avances integradas', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Seguimiento con Carla Capristan para validar boceto del flujo de automatizacion de merchants' },
-    { time:'12:00-12:30', title:'Check WF- Integradas', attendees:6, org:'m.granada@rappi.com', type:'team', note:'Check del estado del workflow Integradas — Maria Granada, Elias Rivera, Andres De Las Casas, F. Diaz, Carla Capristan' },
+    { time:'12:00-12:30', title:'Check WF- Integradas', attendees:6, org:'m.granada@rappi.com', type:'team', note:'Check del estado del workflow Integradas — Maria Granada, Elias Rivera, Andres De Las Casas, F. Diaz, Carla Capristan, Laura Buitrago' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:00-15:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' },
-    { time:'14:00-15:00', title:'Shadowing 2 | Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing', note:'Opcional — shadowing Non Food (Aliados) segunda sesion semanal' }
+    { time:'14:00-15:00', title:'Shadowing 2 | Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing', note:'Opcional (declinado) — shadowing Non Food (Aliados) segunda sesion semanal' },
+    { time:'15:00-15:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' }
   ]
 };
 
@@ -1815,7 +1813,8 @@ const _NOTES_ARCHIVED = [
 
 const DEFAULT_TASKS = [
   { id:'t329', text:'Concluir el reporte de variables esta semana — identificado como prioridad en el Weekly QA AI de hoy. Revisar estado con el equipo y cerrar antes del fin de semana.', phase:'build', priority:'P0', source:'Weekly - QA AI Vie 22 May 11:52', day:'fri', completed:false },
-  { id:'t328', text:'BUG P0 Food Live — endpoint fallando en produccion: ticket ID no llega en la metadata. Camilo Esquivel confirmo a las 09:04 "hola Juan, lo reviso". Hacer seguimiento y confirmar ETA del fix antes de Revisión avances integradas 11:30.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Vie 22 May 09:04', day:'fri', completed:false },
+  { id:'t328', text:'BUG P0 Food Live — la IA agregaba comillas adicionales en el endpoint. Camilo Esquivel ya las quito (Vie 22 12:14). Pendiente: verificar que el flujo funciona correctamente en produccion y confirmar con Jose Ceron si pais PE del contacto 51930662967 ya esta corregido.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Vie 22 May 12:14', day:'fri', completed:false },
+  { id:'t330', text:'Confirmar con Jose Ceron si el contacto de usuario 51930662967 (flujo Mi tienda esta suspendida, pais PE) aplica para el flujo — Jose Ceron encontro que PE estaba mal configurado como PR, ya lo corrigio, pendiente validacion final.', phase:'build', priority:'P0', source:'DM Jose Ceron Vie 22 May 11:47', day:'fri', completed:false },
   { id:'t327', text:'Configurar statsig para WP en paises medianos — Jose Ceron confirmo Jue 21 a las 15:52 que wp lo puedes acomodar en statsig. Unblocked! Proceder con la configuracion para paises medianos.', phase:'build', priority:'P0', source:'DM Jose Ceron Jue 21 May 15:52', day:'fri', completed:false },
   { id:'t326', text:'Coordinar mapeo en Assembled con equipo Elias — equipo ya identifico y documento endpoints para los 3 flujos (Jue 21 16:45). Siguiente paso: avanzar con el mapeo en Assembled. Confirmar disponibilidad de Andres De Las Casas (Veronica) para apoyar.', phase:'build', priority:'P0', source:'Grupo DM Elias Rivera Jue 21 May 16:45', day:'fri', completed:false },
   { id:'t325', text:'Confirmar con Camilo Esquivel si el boton Apagar/Prender todas las tiendas del portal Aliados soporta activaciones masivas por lista de IDs — pendiente respuesta concreta sobre endpoint bulk (Jue 21 15:46).', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May 15:46', day:'fri', completed:false },
@@ -1892,21 +1891,20 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Juan Pablo → Jose Ceron (DM)', text: 'ok lo pongo pero ya agregue medianos — lo que necesitas es el go para activar recetas en paises grandes si? Esperando confirmacion para desplegar en grandes.', time: 'Vie 22 10:30', type: 'dm', actionable: true },
-  { from: 'Andres Diaz (Grupo DM)', text: 'hola team, quedamos pendiente — recordatorio de pendientes al grupo integrado (Elias Rivera, Andres De Las Casas, Maria Granada, Juan Pablo).', time: 'Vie 22 09:30', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'hola Juan, lo reviso — respondio al bug report del endpoint Food Live enviado a las 06:46. Pendiente confirmacion del fix.', time: 'Vie 22 09:04', type: 'dm', actionable: true },
-  { from: 'Juan Pablo → Camilo Esquivel (DM)', text: 'BUG Food Live en produccion: endpoint fallando constantemente — ticket ID no llega en la metadata y rompe el flujo. Comparte 3 links Assembled QA review.', time: 'Vie 22 06:46', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (Grupo DM)', text: 'Ya tenemos identificados y documentados los endpoints que vamos a necesitar de Tech en los 3 flujos. Seguimos atentos para avanzar con el mapeo en Assembled.', time: 'Jue 21 16:45', type: 'dm', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'listo Juan, ya wp lo puedes acomodar en statsig — paises medianos y porcentajes listos para configurar', time: 'Jue 21 15:52', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'mira no se si te sirva este de la plataforma de Aliados — el boton que dice Apagar o Prender todas las tiendas es al que te refieres?', time: 'Jue 21 15:46', type: 'dm', actionable: true }
+  { from: 'Maria Granada (DM)', text: 'Estamos al frente de sipote — actualizacion de estado del equipo en tiempo real.', time: 'Vie 22 13:06', type: 'dm', actionable: true },
+  { from: 'Laura Buitrago (DM)', text: 'Dale cualquier cosa te aviso — seguimiento de Check WF Integradas, coordinacion pendiente.', time: 'Vie 22 12:40', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: 'lo que sucede es que la IA agrega comillas adicionales, entonces ya se las quite al endpoint — deberia funcionar ahora. Verificar en produccion.', time: 'Vie 22 12:14', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'encontre dos cosas: 1. el pais PE estaba como PR (ya corregido). 2. ayuda a confirmar si el contacto 51930662967 aplica para el flujo Mi tienda esta suspendida.', time: 'Vie 22 11:47', type: 'dm', actionable: true },
+  { from: 'Andres Diaz (Grupo DM)', text: 'hola team, quedamos pendiente — recordatorio de items pendientes para equipo integrado (Elias Rivera, Andres De Las Casas, Maria Granada, Juan Pablo).', time: 'Vie 22 10:39', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'lo puedes colocar en el hilo a ver si nos dan el go — coordinar aprobacion con Cristian Parada para despliegue del flujo.', time: 'Vie 22 10:33', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '10:30-13:00', '14:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-13:00', '15:00-15:30', '16:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-11:00', '14:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:30-15:00', '16:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-12:00', '12:30-13:00', '15:30-18:00'] }
+  { day: 'Mar', blocks: ['8:00-13:00', '16:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '16:00-18:00'] },
+  { day: 'Vie', blocks: ['8:00-12:00', '15:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
