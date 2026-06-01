@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Lun 1 · Actualizado auto 07:07</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Lun 1 · Actualizado auto 09:08</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1738,12 +1738,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Juan Pablo (#cx-management-team)', text: 'hoy dejo tanto live como suspensiones al 60%, junto a QA hemos hecho arreglos pequeños — si todo sale bien entre lunes y miercoles podemos tener ambos bots al 100%', time: 'Jue 29 May 16:25', type: 'mention', actionable: true },
+  { from: 'Maria Granada (#cx-management-team)', text: '@juan.bonansea cuando vez que podamos tener estos bots al 100%? Food Live proyectado 4973 tickets, Food Non Live suspensiones 1217 tickets. Plan adicional visto desde su lado - ven algun blocker?', time: 'Jue 29 May 16:15', type: 'mention', actionable: true },
+  { from: 'Juan Pablo (#cx-management-team)', text: 'hoy dejo tanto live como suspensiones al 60%, junto a QA hemos hecho arreglos pequeños — si todo sale bien entre lunes y miercoles podemos tener ambos bots al 100% les parece el plan??', time: 'Jue 29 May 16:25', type: 'mention', actionable: false },
+  { from: 'Jessica Torres (#ai-automations)', text: 'sigue sin crearse la nota interna en connect — no es tema unicamente de prompt. Podriamos validar que puede estar pasando con tech? @m.granada @juan.bonansea', time: 'Jue 29 May 15:30', type: 'mention', actionable: true },
   { from: 'Andres De Las Casas (DM)', text: 'me das detalle de en que porcentajes y paises estamos en Merchants prendidos? — estamos viendo movimientos grandes de tickets que no sabemos si se explican por el bot', time: 'Jue 29 May 16:08', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (Grupo DM)', text: 'Esta semana con Live al 60% deberiamos cerrar con unos 2200 tickets el fds. Al 100% serian unas 4.5k de ahorro semana. Faltan salidas de Integradas para llegar a 6.5k', time: 'Jue 29 May 16:18', type: 'dm', actionable: false },
-  { from: 'Maria Granada (Grupo DM)', text: 'en live yo veo que vamos ok con lo planteado, solo es escalarlo rapido. En suspensiones todavia no veo suficientes casos para ver a cuanto podriamos llegar', time: 'Jue 29 May 16:18', type: 'dm', actionable: true },
-  { from: 'Jessica Torres (DM)', text: 'ese es el store ID — como lo esta tomando la AI? Porque UserID no existe en Merchants, es store ID pero como es generico ese termino, toma el store ID como User ID', time: 'Jue 29 May 16:02', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (#cx-management-team)', text: 'queremos confirmar datos de capacidad merchants W01/06 — inflow 21504 tickets sem 18/05. Traficado estimado automatizacion 6457 tickets. Nos preocupa posible deficiencia de 1.6k tickets', time: 'Jue 29 May 16:08', type: 'mention', actionable: true }
+  { from: 'Andres De Las Casas (Grupo DM)', text: 'Con Live al 60% cerramos semana con 2.2k tickets automatizados. Al 100% el miercoles serian 3.5k. Con todo al 100% serian 5.5k semanales + salidas Integradas podemos llegar a 6.5k', time: 'Jue 29 May 16:18', type: 'dm', actionable: false },
+  { from: 'Elias Rivera (#cx-management-team)', text: 'queremos confirmar datos de capacidad merchants W01/06 — inflow 21504 tickets sem 18/05. Estimado automatizacion 6457 tickets. Nos preocupa posible deficiencia de 1.6k tickets en el escenario planteado', time: 'Jue 29 May 16:08', type: 'mention', actionable: true }
 ];
 
 const DEEP_WORK = [
