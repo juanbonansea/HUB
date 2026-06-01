@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Lun 1 · Actualizado auto 09:08</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Lun 1 · Actualizado auto 10:40</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1467,7 +1467,7 @@ const EVENTS = {
     { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:16, org:'isabela.gomez@rappi.com', type:'team', note:'Weekly de prioridades con equipo Support Product — actualizacion de avances, feedback Gantt Q4 y diseno' },
     { time:'10:00-11:00', title:'Shadowing Merchant (TU)', attendees:12, org:'carla.capristan@rappi.com', type:'shadowing', note:'Shadowing semanal Food Merchants con TaskUs — sesion top offender + top performance. Solo agente + 1 staff necesario' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:30-16:00', title:'Validacion flujo de integraciones', attendees:6, org:'juan.bonansea@rappi.com', type:'team', note:'Validacion del flujo de integraciones con Omar Flores, Andres De Las Casas, Federico Weinstein, German Coronel, Juan Esquivel' }
+    { time:'16:00-16:30', title:'Validacion flujo de integraciones', attendees:6, org:'juan.bonansea@rappi.com', type:'team', note:'Validacion del flujo de integraciones con Omar Flores, Andres De Las Casas, Federico Weinstein, German Coronel, Juan Esquivel' }
   ],
   tue: [
     { time:'13:00-13:45', title:'Donde esta mi RT?', attendees:10, org:'matias.kramer@rappi.com', type:'team', note:'Revision de solucion al motivo #1 de Merchants a soporte — rediseno arquitectura soporte Merchants y flujos Turbo' },
@@ -1738,16 +1738,16 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'German Coronel (DM)', text: 'Hola Juan como estás? Te dejé un proposal de la reu de hoy, por si acaso — revisalo antes de la Validacion flujo de integraciones 16:00', time: 'Hoy 10:18', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Hola Juan buen día — cómo le fue al flujo el fds? ya están las recetas corridas para el resto de paises, puedes ir saliendo a gusto', time: 'Hoy 9:41', type: 'dm', actionable: true },
   { from: 'Maria Granada (#cx-management-team)', text: '@juan.bonansea cuando vez que podamos tener estos bots al 100%? Food Live proyectado 4973 tickets, Food Non Live suspensiones 1217 tickets. Plan adicional visto desde su lado - ven algun blocker?', time: 'Jue 29 May 16:15', type: 'mention', actionable: true },
-  { from: 'Juan Pablo (#cx-management-team)', text: 'hoy dejo tanto live como suspensiones al 60%, junto a QA hemos hecho arreglos pequeños — si todo sale bien entre lunes y miercoles podemos tener ambos bots al 100% les parece el plan??', time: 'Jue 29 May 16:25', type: 'mention', actionable: false },
   { from: 'Jessica Torres (#ai-automations)', text: 'sigue sin crearse la nota interna en connect — no es tema unicamente de prompt. Podriamos validar que puede estar pasando con tech? @m.granada @juan.bonansea', time: 'Jue 29 May 15:30', type: 'mention', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: 'me das detalle de en que porcentajes y paises estamos en Merchants prendidos? — estamos viendo movimientos grandes de tickets que no sabemos si se explican por el bot', time: 'Jue 29 May 16:08', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (Grupo DM)', text: 'Con Live al 60% cerramos semana con 2.2k tickets automatizados. Al 100% el miercoles serian 3.5k. Con todo al 100% serian 5.5k semanales + salidas Integradas podemos llegar a 6.5k', time: 'Jue 29 May 16:18', type: 'dm', actionable: false },
-  { from: 'Elias Rivera (#cx-management-team)', text: 'queremos confirmar datos de capacidad merchants W01/06 — inflow 21504 tickets sem 18/05. Estimado automatizacion 6457 tickets. Nos preocupa posible deficiencia de 1.6k tickets en el escenario planteado', time: 'Jue 29 May 16:08', type: 'mention', actionable: true }
+  { from: 'Andres De Las Casas (DM)', text: 'me das detalle de en que porcentajes y paises estamos en Merchants prendidos? estamos viendo movimientos grandes de tickets que no sabemos si se explican por el bot', time: 'Jue 29 May 16:08', type: 'dm', actionable: true },
+  { from: 'Elias Rivera (#cx-management-team)', text: 'queremos confirmar datos de capacidad merchants W01/06 — inflow 21504 tickets sem 18/05. Estimado automatizacion 6457 tickets. Posible deficiencia de 1.6k tickets en el escenario planteado', time: 'Jue 29 May 16:08', type: 'mention', actionable: true }
 ];
 
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-15:30', '16:00-18:00'] },
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:00', '16:30-18:00'] },
   { day: 'Mar', blocks: ['8:00-13:00', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
