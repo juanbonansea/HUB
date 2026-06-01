@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 18-22 Mayo 2026 — Hoy Vie 22 · Actualizado auto 14:58</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Lun 1 · Actualizado auto 07:07</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1447,17 +1447,17 @@ function saveData() {
   }));
 }
 
-const DAYS = ['Lun 18','Mar 19','Mie 20','Jue 21','Vie 22'];
+const DAYS = ['Lun 1','Mar 2','Mie 3','Jue 4','Vie 5'];
 const DAY_KEYS = ['mon','tue','wed','thu','fri'];
-const DAY_NAMES_LONG = ['Lunes 18 Mayo','Martes 19 Mayo','Miercoles 20 Mayo','Jueves 21 Mayo','Viernes 22 Mayo'];
-const DAY_DATES = [18,19,20,21,22];
+const DAY_NAMES_LONG = ['Lunes 1 Junio','Martes 2 Junio','Miercoles 3 Junio','Jueves 4 Junio','Viernes 5 Junio'];
+const DAY_DATES = [1,2,3,4,5];
 
 // Dynamic today detection
 function getTodayIndex() {
   const now = new Date();
   const d = now.getDate();
-  const m = now.getMonth(); // 0-indexed, May = 4
-  if (m === 4 && d >= 18 && d <= 22) return d - 18;
+  const m = now.getMonth(); // 0-indexed, June = 5
+  if (m === 5 && d >= 1 && d <= 5) return d - 1;
   return -1; // outside this week
 }
 const TODAY_IDX = getTodayIndex();
@@ -1465,12 +1465,15 @@ const TODAY_IDX = getTodayIndex();
 const EVENTS = {
   mon: [
     { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:16, org:'isabela.gomez@rappi.com', type:'team', note:'Weekly de prioridades con equipo Support Product — actualizacion de avances, feedback Gantt Q4 y diseno' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'10:00-11:00', title:'Shadowing Merchant (TU)', attendees:12, org:'carla.capristan@rappi.com', type:'shadowing', note:'Shadowing semanal Food Merchants con TaskUs — sesion top offender + top performance. Solo agente + 1 staff necesario' },
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'15:30-16:00', title:'Validacion flujo de integraciones', attendees:6, org:'juan.bonansea@rappi.com', type:'team', note:'Validacion del flujo de integraciones con Omar Flores, Andres De Las Casas, Federico Weinstein, German Coronel, Juan Esquivel' }
   ],
   tue: [
+    { time:'13:00-13:45', title:'Donde esta mi RT?', attendees:10, org:'matias.kramer@rappi.com', type:'team', note:'Revision de solucion al motivo #1 de Merchants a soporte — rediseno arquitectura soporte Merchants y flujos Turbo' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:30-15:00', title:'Carla / Juan Pablo', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Discovery AI Bot Phase I Food Non Live Integrations — Carla Capristan. Discutir flujo "received completely different order": ticket previo vs acciones directas en chat.' },
-    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas — revision estado flujos y endpoints' }
+    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades semana' },
+    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas — estado bots Live y Suspensiones al 60%, plan escalar al 100%, proximos pasos' }
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo' },
@@ -1478,202 +1481,78 @@ const EVENTS = {
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio' },
-    { time:'10:00-11:00', title:'SST - Actos y condiciones inseguras (manana)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion virtual SST Colombia — identificar actos y condiciones inseguras en el entorno laboral' },
+    { time:'10:00-11:00', title:'Primeros Auxilios Psicologicos (manana)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion virtual SST Colombia — identificar senales de alerta emocional, tecnicas de escucha y acompanamiento' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 con Maria Granada (reagendado de Mar→Jue) — estado Food Live al 10%, Merchant Food Life Flint Tracking, proximas prioridades semana' },
-    { time:'15:00-16:00', title:'SST - Actos y condiciones inseguras (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion opcional SST — misma capacitacion, horario tarde' }
+    { time:'15:00-16:00', title:'Primeros Auxilios Psicologicos (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion SST — misma capacitacion Primeros Auxilios Psicologicos, horario tarde' }
   ],
   fri: [
-    { time:'12:00-12:30', title:'Check WF- Integradas', attendees:6, org:'m.granada@rappi.com', type:'team', note:'Check del estado del workflow Integradas — Maria Granada, Elias Rivera, Andres De Las Casas, F. Diaz, Carla Capristan, Laura Buitrago' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-15:00', title:'Shadowing 2 | Offenders OPs (Non Food)', attendees:15, org:'santiago.guasca@rappi.com', type:'shadowing', note:'Opcional (declinado) — shadowing Non Food (Aliados) segunda sesion semanal' },
-    { time:'15:00-15:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' }
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' }
   ]
 };
 
 const NOTES = [
   {
-    id:52, title:'Weekly - QA AI', date:'22 May',
-    summary:'Revision del reporte de variables y gestion de problemas pendientes para finalizar tareas prioritarias. El reporte de variables debe concluirse durante la semana entrante. El equipo priorizara la resolucion de los problemas identificados actualmente.',
-    sections:['Finalizacion reporte variables','Gestion de problemas pendientes'],
+    id:58, title:'Weekly - QA AI', date:'29 May',
+    summary:'Revision de flujos de automatizacion, gestion de compensaciones y priorizacion de iniciativas para alcanzar el 70% de automatizacion. Se implemento temporizador de 48h para compensaciones, se pauso cupones y Withineta volvio al 50%. Decision: priorizar flujos de correo, productos y promociones.',
+    sections:['Ajustes en flujos operativos','Automatizacion de canales','Priorizacion de iniciativas'],
     actions:[
-      { text:'Concluir el reporte de variables durante la semana entrante', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Priorizar resolucion de los problemas identificados actualmente en el flujo QA AI', owner:'Juan Pablo / Equipo', phase:'build', priority:'P0' }
+      { text:'Revisar problemas de productos: definir variables Lupe user ID, email y motivo de compensacion basandose en fase 2', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Auditar flujo de correo: verificar funcionamiento de Delete account y del orquestador', owner:'El grupo', phase:'build', priority:'P0' },
+      { text:'Publicar flujo de trabajo en Toco para acceso del equipo', owner:'Angela Osuna', phase:'build', priority:'P1' },
+      { text:'Apoyar con ajustes y mejoras del bot Withineta la proxima semana', owner:'El grupo', phase:'build', priority:'P1' }
     ]
   },
   {
-    id:51, title:'CX Weekly Business Review', date:'20 May',
-    summary:'La reunion detallo la automatizacion de correos y la implementacion de una interfaz rediseñada para asesores. Se presento el rediseno de Connect que integra gestion de riesgos y tiempos de reembolso, estableciendo el 1 de junio como plazo para la transicion de agentes. Se resolvio un error en el bot de estado de pedidos que incremento los tickets manualmente y se implementara el proyecto EVALS para automatizar la medicion de calidad. El SLA alcanzo el 89% gracias a una reduccion del 32% en el contacto. Se auditaron 32 flujos logrando mejoras en el indice de insatisfaccion.',
-    sections:['Interfaz Connect y automatizacion','Gestion de bots y calidad','Resultados operativos y metricas'],
+    id:57, title:'[IMPORTANTE] Soporte Merchants', date:'28 May',
+    summary:'Sesion para migrar soporte comercial a Mozart antes del 1 de junio — automatizar flujos mediante IA y reducir dependencia de agentes humanos. Se priorizaran WhatsApp y nuevo portal unificado. Sistema conectado con Amazon Connect para transmitir contexto a agentes.',
+    sections:['Estrategia migracion Mozart','Automatizacion y canales soporte','Integracion tecnica Amazon Connect'],
     actions:[
-      { text:'Finalizar la integracion de Tech para conectar Assemble con el sistema de correo electronico antes del dia 25', owner:'Andres De Las Casas', phase:'build', priority:'P0' },
-      { text:'Coordinar con Mike el soporte necesario para el despliegue del libro de reclamaciones', owner:'Andres De Las Casas', phase:'build', priority:'P1' },
-      { text:'Revisar estrategia para gestionar la informacion de multicanalidad y las dependencias asociadas a los tickets', owner:'Andres De Las Casas', phase:'discovery', priority:'P1' },
-      { text:'Implementar grupo piloto para medir comparativamente el impacto en el tiempo promedio de atencion y calidad frente a un grupo de control', owner:'Diana Guadalupe Martinez', phase:'build', priority:'P1' },
-      { text:'Coordinar integracion del canal de WhatsApp con la herramienta Star para experiencia de usuario consistente', owner:'Angela Maria Osuna', phase:'build', priority:'P0' },
-      { text:'Presentar plan detallado para completar la eliminacion de licencias pendientes en los proximos 15 dias', owner:'Angela Maria Osuna', phase:'build', priority:'P1' },
-      { text:'Gestionar el avance del proyecto Cellphone Onboarding con el equipo responsable para asegurar su cumplimiento', owner:'Eugenio La Rosa', phase:'build', priority:'P1' },
-      { text:'Distribuir los detalles del proyecto EVALS al equipo y a Guada una vez sea entregado por los desarrolladores', owner:'Maria Granada', phase:'build', priority:'P1' },
-      { text:'Preparar incentivos para el mundial — configurar tipos de ticket para evitar escalamientos humanos en fechas clave FIFA 2026', owner:'Daniel Alvarez / Sergio Pulgarin', phase:'build', priority:'P0' }
+      { text:'Capacitacion Mozart: aprender uso de la herramienta para ejecutar automatizaciones y procesos de soporte', owner:'Juan Pablo / Maria Dorantes', phase:'build', priority:'P0' },
+      { text:'Mapear incidentes del arbol de soporte y definir solucion en plataforma Mozart', owner:'Matias Kramer / Leandro Gallippi', phase:'build', priority:'P0' },
+      { text:'Configurar nuevas APIs en gateway y flujos en Assemble', owner:'Andres De Las Casas', phase:'build', priority:'P0' },
+      { text:'Definir accesos al arbol para diferentes roles en el nuevo portal unificado', owner:'Maria Dorantes', phase:'build', priority:'P1' }
     ]
   },
   {
-    id:50, title:'Carla / Juan Pablo - Automatizacion Merchants', date:'19 May',
-    summary:'Revision de automatizacion de procesos para comerciantes mediante el analisis de tickets y flujos operativos actuales. Se utiliza Snowflake para identificar puntos de friccion y optimizar la resolucion mediante IA. Los tickets clasificados erroneamente como indefinidos requieren intervencion externa pendiente hasta junio. La automatizacion total es viable para el encendido y apagado de tiendas y gestion de proyectos. Se implementaran modelos semiautomaticos para validaciones tecnicas de catalogo, Webhook y JSON. Se decidio automatizar completamente la activacion y desactivacion de tiendas por ser procesos administrativos simples. La automatizacion de cancelaciones de ordenes se descarta por requerir revision humana profunda.',
-    sections:['Analisis de tickets e inconsistencias','Evaluacion de flujos para automatizar','Decision sobre automatizacion de tiendas'],
+    id:56, title:'Validacion flujo AI integraciones', date:'28 May',
+    summary:'Debate sobre automatizacion de procesos via ingenieria inversa de endpoints — priorizar consumo de endpoints existentes evitando desarrollo de UI nueva. Autenticacion por verificacion de propiedad de tiendas reemplaza 2FA para aliados. Funciones criticas: activacion de integraciones y gestion de estados.',
+    sections:['Estrategia automatizacion tecnica','Seguridad y validacion acceso','Definicion funciones automaticas'],
     actions:[
-      { text:'Crear boceto del esquema de flujos para la automatizacion de procesos de merchants — definir variables y pasos necesarios para cada escenario detectado (encendido/apagado tiendas, gestion proyectos, validaciones catalogo)', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Sesion de seguimiento para validar boceto del flujo de automatizacion — reunion Revisión avances integradas agendada Jue 19 May 15:30', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Revisar articulos de Rapipedia y data cruda compartida para evaluar vigencia de procesos y casos marcados en gris', owner:'Carla Capristan', phase:'discovery', priority:'P0' }
+      { text:'Compartir documento de automatizacion: enviar archivo con detalle de automatizaciones propuestas y procesos criticos', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Validar flujos de operacion: coordinar sesiones con Juana para revisar flujos de integracion y logicas de validacion', owner:'Juan Pablo / Andres De Las Casas', phase:'build', priority:'P0' },
+      { text:'Definir seguridad endpoints: capa de autenticacion con Ger y Omar', owner:'Federico Weinstein', phase:'build', priority:'P0' }
     ]
   },
   {
-    id:49, title:'Capacitacion Montaje de Workflows en Assemble', date:'13 May',
-    summary:'La reunion establecio la logica de flujo para tiendas invisibles mediante la plataforma tecnica Assemble estructurada. Se definio el flujo logico para validar la visibilidad de tiendas considerando factores tecnicos y operativos. Se estandarizo el uso de Assemble clonando flujos existentes para optimizar la estructura de nodos. La implementacion requiere configurar disparadores con metadatos especificos y nodos de condicion para gestionar idiomas. Se utilizan nodos de guia e interaccion con IA para clasificar intenciones. El equipo documentara requisitos tecnicos para agilizar la creacion de los endpoints necesarios.',
-    sections:['Arquitectura y diseno logico','Configuracion de nodos tecnicos','Despliegue, pruebas y conectividad'],
+    id:55, title:'[Kickoff] AI Bot Phase I - Food Non Live Integrations', date:'25 May',
+    summary:'Flujos para gestionar tiendas en el nuevo bot y priorizacion de integraciones tecnicas clave. Se validara ICC para verificar estados antes de modificar integraciones. Activacion masiva condicionada a pruebas tecnicas. Microservicio de webhooks sera la fuente primaria de datos.',
+    sections:['Automatizacion flujo partner','Gestion tiendas activas','Priorizacion y desarrollo tecnico'],
     actions:[
-      { text:'Compartir el ejemplo del documento de especificaciones tecnicas para que sirva de referencia al equipo en la construccion del nuevo flujo de tiendas invisibles', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Solicitar los puntos de acceso (API endpoints) a tecnologia para la integracion del flujo — definir los datos necesarios y verificar si ya existen endpoints reutilizables', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P0' },
-      { text:'Redactar documento tecnico que especifique las variables necesarias y los datos esperados de los endpoints — presentar a Veronica Ferro para facilitar apoyo de un desarrollador', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P0' },
-      { text:'Clonar el flujo base en Assemble y comenzar la construccion del nuevo flujo — renombrar segun pruebas o funcionalidades correspondientes', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P0' },
-      { text:'Enviar el flujo en formato PDF a IA (Gemini o Claude) para obtener recomendaciones sobre la estructura y los nodos necesarios', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P1' }
+      { text:'Enviar documentacion y discovery a Juan Camilo Esquivel para avanzar con implementacion', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Consultar permisos ICC con Laura y enviar pantallazo a Juan Camilo Esquivel', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Validar si endpoint acepta multiples store IDs o requiere procesamiento individual', owner:'Juan Camilo Esquivel', phase:'build', priority:'P0' }
     ]
   },
   {
-    id:48, title:'Endpoints fullfilment', date:'13 May',
-    summary:'Discusion sobre la automatizacion de procesos operativos y la integracion de sistemas de seguimiento para aliados. La automatizacion busca reducir costos operativos y eliminar la friccion causada por llamadas telefonicas directas ante demoras. El sistema Flint Tracking detecta desviaciones en el tiempo de llegada y gestiona notificaciones automaticas al repartidor. Se propone que los aliados consulten el estado del sistema para obtener visibilidad. Se decidio integrar el topico de seguimiento para optimizar tanto la recogida en tienda como la entrega final.',
-    sections:['Automatizacion del Merchant Food','Sistema Real Time Management - Flint Tracking','Integracion del seguimiento tecnico'],
+    id:54, title:'[Kickoff] AI Bot Phase I - Soporte Integradas', date:'25 May',
+    summary:'Revision de requerimientos tecnicos para flujos de compensaciones y visibilidad de tiendas. Flujo de compensaciones y visibilidad de tiendas gestionados como 2 iniciativas separadas para configuraciones de backend independientes. Proceso via WhatsApp, portal partners y portal aliados.',
+    sections:['Requisitos del nuevo flujo','Desafios tecnicos de integracion','Decision flujos independientes'],
     actions:[
-      { text:'Integrar la lectura del topico de seguimiento en la automatizacion del proyecto Merchant Food Life — una vez confirmada la disponibilidad del topico por parte de Yulieth Sofia', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Validar si el topico de seguimiento de repartidor es aplicable para el proceso de recoleccion en tienda y entrega al usuario', owner:'Yulieth Sofia', phase:'discovery', priority:'P0' },
-      { text:'Compartir los detalles del topico y su esquema de visualizacion con Juan Pablo Chacon Bonansea una vez confirmada su disponibilidad', owner:'Yulieth Sofia', phase:'build', priority:'P0' }
+      { text:'Compartir impacto: publicar volumen de llamadas previsto con nuevo proceso en el canal', owner:'Elias Rivera', phase:'build', priority:'P0' },
+      { text:'Filtrar API: analizar respuestas de servicios para seleccionar datos necesarios y evitar sobrecargas de contexto', owner:'Elias Rivera / Jonathan Munoz', phase:'build', priority:'P0' },
+      { text:'Revisar endpoints CMS que faltan por mapear para determinar su accesibilidad', owner:'Jose Luis Ceron / Elias Rivera', phase:'build', priority:'P1' }
     ]
   },
   {
-    id:47, title:'CX Weekly Business Review', date:'13 May',
-    summary:'La reunion priorizo mejoras en automatizacion y calidad operativa mediante estrategias de soporte y gestion contractual. El equipo priorizo la calidad sobre la velocidad y estructuro un plan de respuesta para incidencias. Se acordo renegociar el contrato de Sprout Social por 3 meses. Se valido la automatizacion de tareas y la estrategia para dias especiales mediante la restriccion selectiva de escalamientos. El equipo monitoreara las metricas para evitar regresiones tecnicas. La insatisfaccion del usuario mejoro gracias a ajustes en la inteligencia artificial y procesos de soporte.',
-    sections:['Optimizacion tecnica y calidad','Automatizacion y flujos operativos','Metricas y desempeno operativo'],
+    id:53, title:'[Kickoff] AI Bot - Received Different Order', date:'25 May',
+    summary:'Reunion tecnica define flujo de automatizacion para reembolsos y discrepancias en pedidos. Arbol de decision distingue productos incorrectos de problemas estandar. Compensaciones previas prevalecen sobre nuevas acciones. Reembolsos requieren RapiCreditos para metodos de pago especificos.',
+    sections:['Definicion flujo operativo','Logica de compensacion implementada','Integracion y procesos tecnicos'],
     actions:[
-      { text:'Analizar metricas de mensajes Firebase tras el despliegue y definir nuevos indicadores de calidad basados en resultados obtenidos', owner:'Andres Cobos / Cristian Parada', phase:'build', priority:'P0' },
-      { text:'Proporcionar actualizacion sobre el avance del equipo de tareas especiales para el correo la proxima semana', owner:'Andres De Las Casas', phase:'build', priority:'P1' },
-      { text:'Estudiar cuales tipos de incidencia se deben bloquear en fechas especiales y presentar recomendaciones para la configuracion del sistema', owner:'Eugenio La Rosa / Catalina Symonds', phase:'design', priority:'P0' },
-      { text:'Disenar protocolo de actuacion para situaciones de caidas del sistema o errores masivos de pago — pasos claros para el manejo de incidencias', owner:'Eugenio La Rosa / Maria Granada', phase:'build', priority:'P0' },
-      { text:'Desarrollar alertas automaticas de concurrencia para la gestion operativa — implementar semaforo de capacidades antes del mundial', owner:'Mike Medina / Andres De Las Casas', phase:'build', priority:'P0' },
-      { text:'Analizar reglas de compensacion de nivel 1 con Daniel Gallo y ajustar logica segun necesidades identificadas', owner:'Eugenio La Rosa', phase:'build', priority:'P1' },
-      { text:'Realizar dimensionamiento y analisis de impacto sobre el uso repetido de beneficios gratuitos (Free Pass)', owner:'Juan Delgado', phase:'discovery', priority:'P1' },
-      { text:'Coordinar reunion para discutir el proyecto Proactive Brain con Angela Maria Osuna e incluir partes interesadas', owner:'Eugenio La Rosa', phase:'discovery', priority:'P1' },
-      { text:'Ajustar borrador del contrato basandose en diseno previo para Tasc — colaborar con legal para validar nuevos acuerdos BRM, Concentric y Sprout', owner:'Nico', phase:'build', priority:'P1' }
+      { text:'Enviar materiales de referencia a Jose Luis Ceron: enlaces pedidos con problemas de ticket, documento endpoints y discovery', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Validar punto de conexion con Maria sobre endpoint para automatizacion de tickets y reembolsos', owner:'Jose Luis Ceron', phase:'build', priority:'P0' }
     ]
   },
-  {
-    id:46, title:'Assembled Workflows - Best Practices', date:'13 May',
-    summary:'La reunion analizo mejores practicas de diseno de flujos de trabajo con optimizacion de datos JSON. Se definio el uso de notacion de punto para navegar estructuras anidadas y herramientas de inspeccion. La estandarizacion de nombres en flujos de trabajo facilita la comprension tecnica y el mantenimiento futuro. Es posible limitar consultas con filtros para reducir consumo de recursos en flujos pesados. Se decidio implementar convenciones de nomenclatura uniformes y limpiar el contexto para mejorar la eficiencia.',
-    sections:['Gestion de datos JSON','Optimizacion y eficiencia tecnica','Convenciones de nomenclatura'],
-    actions:[
-      { text:'Estudiar el documento compartido sobre la configuracion y manejo de los flujos de trabajo — aplicar directrices tecnicas para optimizar el desarrollo', owner:'El grupo (Juan Pablo)', phase:'build', priority:'P1' },
-      { text:'Identificar y evaluar procesos existentes con mayor consumo de memoria o errores frecuentes — coordinar division de tareas de ajuste entre miembros del equipo', owner:'Maria Granada / Andres De Las Casas', phase:'build', priority:'P0' },
-      { text:'Agregar al material informativo definiciones claras sobre terminologia tecnica: variables, propiedades, llaves y valores', owner:'Jonathan Munoz Lopez', phase:'build', priority:'P1' },
-      { text:'Adoptar convenciones de nombres, estructuras y estandares discutidos en todos los desarrollos futuros — asegurar consistencia del codigo para facilitar procesos de migracion posteriores', owner:'El grupo', phase:'build', priority:'P1' }
-    ]
-  },
-  {
-    id:45, title:'Revision levantar suspended store', date:'11 May',
-    summary:'Identificacion de tiendas suspendidas y evaluacion de riesgos operativos en entornos de produccion con restricciones tecnicas. Se coordinaron esfuerzos para obtener codigo necesario y acceder al listado de tiendas actualmente suspendidas. Persisten dudas sobre ejecutar pruebas directamente en produccion por posibles consecuencias negativas en ventas. Se decidio solicitar apoyo tecnico ante la falta de permisos de acceso y se determino que los endpoints para suspender y habilitar tiendas son distintos.',
-    sections:['Identificacion de tiendas suspendidas','Riesgos en entorno productivo','Gestion de permisos y endpoints'],
-    actions:[
-      { text:'Contactar a Veru para identificar quien puede asistir en el proceso de levantar la suspension de tiendas', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
-      { text:'Gestionar apoyo del equipo de soporte mediante hilo de comunicacion iniciado para resolver inconvenientes tecnicos de acceso', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
-      { text:'Preparar el desarrollo del componente encargado de consultar el motivo de suspension de las tiendas (endpoint motivo)', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
-      { text:'Preparar el desarrollo del componente encargado de levantar la suspension de las tiendas (endpoint habilitacion)', owner:'Jose Luis Ceron', phase:'build', priority:'P0' }
-    ]
-  },
-  {
-    id:44, title:'[Kickoff] AI Bot - Exp Problems with Order (Fase 2 Endpoints)', date:'11 May',
-    summary:'Revision tecnica de solicitudes para fase 2 con integracion de nuevos endpoints de datos. Se formalizaron requerimientos para endpoints de detalle de productos, productos sustituidos y creditos por pedido bajo configuracion base fase 1. Se planteo procesar reembolsos directamente al metodo de pago original superando la limitacion actual de solo usar creditos. Se discutio la unificacion de campos para riesgo de fraude y se acordo revisar disponibilidad de esta informacion tras entrega de los enlaces pertinentes.',
-    sections:['Solicitudes de nuevos endpoints','Implementacion de reembolsos al metodo de pago original','Integracion de riesgo fraude'],
-    actions:[
-      { text:'Revisar si el campo riesgo de fraude posible esta siendo traido y confirmar estado de obtencion del dato', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
-      { text:'Compartir hilo de contexto para revision del riesgo de fraude y facilitar revision del campo en bot fase 2', owner:'Maria Granada', phase:'build', priority:'P0' },
-      { text:'Compartir nuevo enlace Assemble para configuracion fase 2 incluyendo las mismas configuraciones de fase 1', owner:'Maria Granada', phase:'build', priority:'P0' }
-    ]
-  },
-  {
-    id:43, title:'Flujo compensaciones - Merchants', date:'8 May',
-    summary:'Revision de automatizacion de devoluciones y analisis de datos de entrega para optimizar procesos operativos internos. El sistema validara comentarios de usuarios contra detalles de ordenes para automatizar reembolsos y ajuste de valores mejorando eficiencia. Se analizaran tiempos de entrega por kilometro para establecer criterios de riesgo reales reemplazando estimaciones arbitrarias en temperatura. Se priorizara el flujo de ordenes canceladas para aprovechar reglas estaticas. La automatizacion proyecta reducir la carga de 30,000 tickets mensuales liberando 6 agentes.',
-    sections:['Automatizacion de devoluciones','Analisis de tiempos de entrega','Integracion y flujos futuros'],
-    actions:[
-      { text:'Asegurar que el flujo de suspensiones este listo y correctamente configurado para recibir ruteo desde el flujo Mi Tienda No Aparece construido por Andres Diaz equipo', owner:'Juan Pablo', phase:'build', priority:'P1' },
-      { text:'Definir solucion para manejo de multiples productos en ordenes — determinar producto ID correcto cuando hay multiples items y multiples quejas', owner:'Andres Diaz', phase:'build', priority:'P0' },
-      { text:'Realizar analisis de tiempo por distancia de entrega (min/km) para problemas de temperatura — segmentar por pais y cuartilizar tiempos para establecer umbrales de riesgo', owner:'Andres Diaz', phase:'discovery', priority:'P0' },
-      { text:'Integrar puntos abiertos en flujo principal incluyendo manejo de multiples evidencias y unificar flujo items incompletos con flujo no llego', owner:'Andres Diaz', phase:'build', priority:'P0' },
-      { text:'Desarrollar flujo de ordenes canceladas reciclando logica del flujo de compensaciones', owner:'Andres Diaz / Elias Rivera / Stephania Gonzalez', phase:'build', priority:'P0' },
-      { text:'Construir flujo Mi tienda no aparece en la app asegurando ruteo correcto al flujo de suspensiones hecho por Juan Pablo', owner:'Andres Diaz / Elias Rivera / Stephania Gonzalez', phase:'build', priority:'P0' }
-    ]
-  },
-  {
-    id:42, title:'Revision flujo de suspensiones', date:'8 May',
-    summary:'Revision de suspensiones tecnicas con optimizacion de comunicacion y procesos de acceso para equipos operativos. Se determino informar errores especificos a aliados para facilitar resolucion. Se decidio mapear reglas de suspension para clasificar gestion humana frente a autogestion. Las tiendas Turbo requieren intervencion humana por saturacion operativa y se excluyeron de cualquier mecanismo de levantamiento automatico. Se instruyó solicitar el rol Integraciones Rest en CMS para recuperar visibilidad y se valido la herramienta Lupe como alternativa funcional.',
-    sections:['Analisis de suspensiones tecnicas','Control de tiendas Turbo','Mejora de accesos tecnicos'],
-    actions:[
-      { text:'Revisar historial de suspensiones de los ultimos 2 meses y extraer motivos especificos para mapear flujo automatizado — base para clasificar gestion humana vs autogestion', owner:'El grupo', phase:'discovery', priority:'P0' },
-      { text:'Generar ticket para acceso a CMS usando rol Integraciones Rest para conseguir permisos necesarios de integracion', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
-      { text:'Probar logica de suspension por 10 cancelaciones y verificar comportamiento en automatizacion si restriccion se levanta', owner:'Elias Daniel Rivera', phase:'build', priority:'P0' },
-      { text:'Enviar la tabla de suspensiones mostrada en la reunion para mapeo del flujo', owner:'Danghely Cardenas', phase:'build', priority:'P0' }
-    ]
-  },
-  {
-    id:41, title:'Assembled Merchants', date:'6 May',
-    summary:'La reunion definio la automatizacion de merchants mediante el despliegue de flujos en la plataforma Assemble. El equipo se centro en la automatizacion de Merchant Food Live y suspensiones para reducir 25,000 tickets mensuales. Se priorizo el desarrollo de flujos basados en validaciones historicas de datos. Se decidio reestructurar la validacion de repartidores mediante identificadores de ordenes para mayor eficiencia. El equipo usara jueves y viernes para comenzar construccion en Assemble.',
-    sections:['Definicion de objetivos operativos','Metodologia de diseno funcional','Refinamiento de flujos RT'],
-    actions:[
-      { text:'Identificar endpoints faltantes para soluciones Assembled Merchants y enviar solicitud formal al equipo Tech antes del viernes', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Lanzar flujos Live y Suspensions en Assemble la proxima semana — revisar funcionalidad y agregar componentes faltantes segun sea necesario', owner:'Juan Pablo / Equipo Assembled', phase:'build', priority:'P0' },
-      { text:'Reunirse para definir flujos adicionales de automatizacion y comprometerse con nuevas estimaciones de ahorro de tickets', owner:'Juan Pablo / Equipo Assembled', phase:'discovery', priority:'P1' },
-      { text:'Montar los flujos definidos en la plataforma Assemble — usar jueves y viernes para comenzar el desarrollo', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', phase:'build', priority:'P1' },
-      { text:'Otorgar acceso a Assemble a Andres Diaz, Elias Daniel Rivera y Stephania Gonzalez', owner:'Maria Granada', phase:'build', priority:'P0' }
-    ]
-  },
-  {
-    id:40, title:'[Kickoff] AI Bot Phase I - Food Non Live Suspension (con Jose Ceron)', date:'6 May',
-    summary:'Revision tecnica detallada para implementar endpoints de suspension y estados de tiendas Turbo mediante validaciones integradas. Se definio la necesidad de endpoints para confirmar suspensiones y verificar estados Turbo. El bot informara sobre contactos de Key Account Manager para tiendas Turbo. Se requiere validar tiempos restantes de suspension y se integran estados On Hold y Churn en endpoints existentes.',
-    sections:['Endpoints de suspension solicitados','Logica del bot conversacional','Estados On Hold y Churn'],
-    actions:[
-      { text:'Organizar documento completo de endpoints: imagen, URL y credenciales de acceso para bot Food Non Live Suspension', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Compartir archivo Figma del flujo de suspension con Jose Luis Ceron', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Proveer IDs de chat de casos de atencion actuales para pruebas de integracion del bot', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Crear hilo de comunicacion y etiquetar a Jose Luis Ceron para coordinacion de endpoints', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Pasar archivo modelo para documentar los endpoints del bot de suspension', owner:'Jose Luis Ceron', phase:'build', priority:'P0' },
-      { text:'Disponibilizar endpoints necesarios para integracion una vez recibida la documentacion', owner:'Jose Luis Ceron', phase:'build', priority:'P1' },
-      { text:'Analizar mejores alternativas para clasificar si un restaurante es turbo sin depender del nombre', owner:'Jose Luis Ceron', phase:'discovery', priority:'P1' },
-      { text:'Hablar con Vero para conseguir links de acceso, usuarios y contrasenas de plataforma Merchants', owner:'Jose Luis Ceron', phase:'build', priority:'P1' }
-    ]
-  },
-  {
-    id:39, title:'All Hands CX', date:'6 May',
-    summary:'All Hands de todo el equipo CX enfocado en estrategia de retencion de usuarios mediante eficiencias operativas y lanzamiento de equipo interno de Customer Advocates. El equipo mejoro la retencion 1.17 puntos porcentuales optimizando politicas reactivas y proactivas. Se proyecta reducir gasto en proveedores externos automatizando 140,000 tickets con un agente conversacional de IA integrado en WhatsApp.',
-    sections:['Resultados de retencion trimestrales','Estrategias de optimizacion operativa','Lanzamiento de Customer Advocates'],
-    actions:[
-      { text:'Desarrollar agente conversacional de soporte para resolver problemas en WhatsApp — listo a finales de mayo con AWS', owner:'Andres De Las Casas', phase:'build', priority:'P0' },
-      { text:'Iniciar pruebas del nuevo canal de WhatsApp con usuarios internos', owner:'Andres De Las Casas', phase:'build', priority:'P0' },
-      { text:'Disenar proceso para mayor autonomia en casos especiales y configurar herramientas y accesos para Customer Advocates Mexico', owner:'Eugenio La Rosa / Catalina Bello', phase:'build', priority:'P1' },
-      { text:'Planificar capacidad con 6 meses de anticipacion y programar con mayor precision posible', owner:'El grupo', phase:'discovery', priority:'P1' },
-      { text:'Levantar riesgos coordinadamente con los equipos para cumplir metas del plan de ahorros', owner:'El grupo', phase:'build', priority:'P1' }
-    ]
-  },
-  {
-    id:38, title:'Juan Pablo / Andres - Bots Foodlife y Suspensiones', date:'5 May',
-    summary:'Revision del progreso del bot Foodlife y optimizacion del bot de suspensiones para automatizar levantamientos y mejorar la interaccion comercial. Se prioriza automatizacion sobre derivaciones manuales ajustando el tono comunicativo. Implementacion cubrira multiples interfaces de aliados mediante pruebas controladas. Validacion inicial es responsabilidad del desarrollador antes del lanzamiento.',
-    sections:['Estado bot Foodlife','Optimizacion bot suspensiones','Despliegue y validacion tecnica'],
-    actions:[
-      { text:'Leer tickets de casos para entender quejas de merchants y el lenguaje que usan para escribir prompts del bot', owner:'Juan Pablo', phase:'discovery', priority:'P0' },
-      { text:'Escribir a Luciano Gaspar solicitando accesos a herramienta Portal Partners', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Agendar sesion con Dangeli Cardenas para validar logica completa de suspension — solo levantar las que corresponden', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Terminar totalidad de accionables de reuniones previas y agendar revision de avances con Andres', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'Validar con Tech convertidor de tiempo restante de suspension a horas/minutos en lugar de minutos brutos', owner:'Juan Pablo', phase:'build', priority:'P1' },
-      { text:'Revisar llamadas a tiendas integradas para validar posibilidad de automatizar proceso de suspension', owner:'Juan Pablo', phase:'discovery', priority:'P1' },
-      { text:'Hablar con equipos de operaciones de restaurantes para obtener informacion de contacto comercial de tiendas indefinidamente suspendidas', owner:'Andres De Las Casas', phase:'discovery', priority:'P1' }
-    ]
-  }
 ];
 
 const _NOTES_ARCHIVED = [
@@ -1812,37 +1691,20 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t329', text:'Concluir el reporte de variables esta semana — identificado como prioridad en el Weekly QA AI de hoy. Revisar estado con el equipo y cerrar antes del fin de semana.', phase:'build', priority:'P0', source:'Weekly - QA AI Vie 22 May 11:52', day:'fri', completed:false },
-  { id:'t328', text:'BUG P0 Food Live — la IA agregaba comillas adicionales en el endpoint. Camilo Esquivel ya las quito (Vie 22 12:14). Pendiente: verificar que el flujo funciona correctamente en produccion y confirmar con Jose Ceron si pais PE del contacto 51930662967 ya esta corregido.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Vie 22 May 12:14', day:'fri', completed:false },
-  { id:'t330', text:'Confirmar con Jose Ceron si el contacto de usuario 51930662967 (flujo Mi tienda esta suspendida, pais PE) aplica para el flujo — Jose Ceron encontro que PE estaba mal configurado como PR, ya lo corrigio, pendiente validacion final.', phase:'build', priority:'P0', source:'DM Jose Ceron Vie 22 May 11:47', day:'fri', completed:false },
-  { id:'t327', text:'Configurar statsig para WP en paises medianos — Jose Ceron confirmo Jue 21 a las 15:52 que wp lo puedes acomodar en statsig. Unblocked! Proceder con la configuracion para paises medianos.', phase:'build', priority:'P0', source:'DM Jose Ceron Jue 21 May 15:52', day:'fri', completed:false },
-  { id:'t326', text:'Coordinar mapeo en Assembled con equipo Elias — equipo ya identifico y documento endpoints para los 3 flujos (Jue 21 16:45). Siguiente paso: avanzar con el mapeo en Assembled. Confirmar disponibilidad de Andres De Las Casas (Veronica) para apoyar.', phase:'build', priority:'P0', source:'Grupo DM Elias Rivera Jue 21 May 16:45', day:'fri', completed:false },
-  { id:'t325', text:'Confirmar con Camilo Esquivel si el boton Apagar/Prender todas las tiendas del portal Aliados soporta activaciones masivas por lista de IDs — pendiente respuesta concreta sobre endpoint bulk (Jue 21 15:46).', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May 15:46', day:'fri', completed:false },
-  { id:'t324', text:'Revisar update Meiker: AI Bot RT Non-Food Phase II al 50%, falta ajustar feedbacks QA para aumentar AR. Mail & Especializados avanzando con Mike. Delete account flow casi listo — falta endpoint productos Pay Co. Dar seguimiento y desbloquear si necesario.', phase:'build', priority:'P1', source:'Grupo DM Jue 21 May', day:'thu', completed:false },
-  { id:'t323', text:'Seguimiento con Camilo Esquivel: correr recetas para paises medianos y grandes — pendiente respuesta a DM de hoy', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May', day:'thu', completed:false },
-  { id:'t322', text:'Investigar con Camilo Esquivel si es posible consumir endpoint con lista de store IDs para activaciones/desactivaciones masivas de tiendas — clave para automatizacion Merchant. Pendiente respuesta.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 21 May + #assembled-rappi', day:'thu', completed:false },
-  { id:'t321', text:'Coordinar con Andres De Las Casas y Camilo Esquivel el punto de entrada correcto en el arbol de Portal Partners para la automatizacion de RT — las recetas de wha y aliados ya quedaron, pero en los arboles que paso Tech no hay nada relacionado a problemas con RT en Partners.', phase:'build', priority:'P0', source:'DM Andres De Las Casas + Camilo Esquivel Mie 20 May 14:39', day:'wed', completed:false },
-  { id:'t320', text:'Revisar con Camilo Esquivel si hay casos de produccion llegando a Connect desde Portal con motivo problemas de RT — identificar si existe opcion en el arbol inicial o si debe crearse. Aliados ya funciona, ahora trabajan en portal partners.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 20 May 12:13', day:'wed', completed:false },
-  { id:'t319', text:'Crear boceto del esquema de flujos para automatizacion de procesos Merchants — definir variables y pasos para encendido/apagado tiendas, gestion proyectos y validaciones tecnicas catalogo/Webhook/JSON. Prioritario previo a Revisión avances integradas (Jue 15:30).', phase:'build', priority:'P0', source:'Carla / Juan Pablo 19 May 14:57', day:'tue', completed:false },
-  { id:'t313', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Triage Food Live al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
-  { id:'t314', text:'PRIORIDAD SEMANA — Lanzar AI Bot Phase I Food Non Live Suspension al 30% e iterar. Confirmado por Maria Granada en grupo DM hoy 06:59.', phase:'build', priority:'P0', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'tue', completed:false },
-  { id:'t315', text:'Discovery: AI Bot Problems with the order - received completely different order. Iniciar investigation segun prioridades de Maria Granada para esta semana.', phase:'discovery', priority:'P1', source:'Grupo DM Maria Granada Mar 19 May 06:59', day:'wed', completed:false },
-  { id:'t316', text:'Discovery AI Bot Phase I Food Non Live Integrations — reunion con Carla Capristan confirmada hoy 14:30-15:00. Preparar contexto del bot y preguntas clave para el discovery.', phase:'discovery', priority:'P1', source:'DM Andres Diaz + Carla Capristan Mar 19 May 08:32', day:'tue', completed:false },
-  { id:'t317', text:'Confirmar con Camilo Esquivel las recetas de portal pendientes — recetas de WhatsApp y aliados ya estan listas pero falta portal para llegar al 30% de lanzamiento.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 19 May 08:57', day:'tue', completed:false },
-  { id:'t300', text:'Investigar bug critico con Jose Ceron: tienda 900144182 aparece como suspendida en el chat del bot pero NO esta suspendida segun Lupe ni el API — verificar que el flujo usa la respuesta del endpoint y no logica hardcodeada', phase:'build', priority:'P0', source:'DM Jose Ceron Dom 17 May 19:19', day:'mon', completed:false },
-  { id:'t301', text:'Confirmar con Jose Ceron que el lanzamiento del flujo Assembled al 30% quedo completado — variable ajustada el Vie 15 en #ai-automations. Verificar metricas iniciales del flujo.', phase:'build', priority:'P0', source:'DM Jose Ceron + #ai-automations Vie 15 May', day:'mon', completed:false },
-  { id:'t302', text:'Compartir el documento de especificaciones tecnicas de referencia al equipo de Elias Rivera — pendiente desde capacitacion Assemble del 13 May. Necesario para que construyan flujo de tiendas invisibles.', phase:'build', priority:'P0', source:'Capacitacion Montaje Workflows Assemble 13 May', day:'mon', completed:false },
-  { id:'t303', text:'Dar feedback al gantt de automatizacion compartido por Elias Rivera — sizing ACR por semanas alineado con entry issues BI. Revisar porcentajes y responder al grupo DM.', phase:'discovery', priority:'P1', source:'DM Grupal Elias Rivera Vie 15 May 16:26', day:'mon', completed:false },
-  { id:'t304', text:'Confirmar con Andres De Las Casas el plan de tech capacity para creacion de endpoints y recetas — Andres coordino con tech el Vie 15. Alinear proximos pasos del equipo Elias.', phase:'build', priority:'P0', source:'DM Grupal Andres De Las Casas Vie 15 May', day:'tue', completed:false },
-  { id:'t305', text:'Preparar puntos de agenda para 1:1 con Maria Granada (Jue 14:00, reagendado) — flujos Food Live al 10%, Merchant Food Life Flint Tracking, proximas prioridades', phase:'build', priority:'P1', source:'Calendar Jue 21 Mayo 14:00', day:'thu', completed:false },
-  { id:'t306', text:'Preparar puntos de agenda para 1:1 con Andres De Las Casas (Mar 15:30) — estado flujos Live y Suspensiones, endpoints pendientes, recetas, lanzamiento Assembled al 30%', phase:'build', priority:'P1', source:'Calendar Mar 19 Mayo 15:30', day:'tue', completed:false },
-  { id:'t307', text:'Integrar la lectura del topico de seguimiento de Flint Tracking en la automatizacion Merchant Food Life — esperar confirmacion de Yulieth Sofia sobre disponibilidad del topico y su esquema de visualizacion', phase:'build', priority:'P0', source:'Endpoints fullfilment 13 May', day:'tue', completed:false },
-  { id:'t308', text:'Preparar estado y metricas para CX Weekly Business Review (Mie 11:00) — flujos activos, semaforo concurrencia antes del mundial, plan de reduccion costos BPO', phase:'build', priority:'P1', source:'Calendar Mie 20 Mayo 11:00', day:'wed', completed:false },
-  { id:'t309', text:'Monitorear metricas del flujo Food Live al 10% — lanzado el Jue 14 en paises pequenos. Revisar cobertura, tasa de resolucion automatica y comportamiento del flujo.', phase:'build', priority:'P0', source:'#ai-automations Jue 14 May', day:'wed', completed:false },
-  { id:'t310', text:'Preparar PRDs y materiales para CX Product PRD & design reviews (Jue 9:00) — revisar avances y disenos CX Product pendientes con equipo amplio', phase:'build', priority:'P1', source:'Calendar Jue 21 Mayo 9:00', day:'thu', completed:false },
-  { id:'t311', text:'Leer guia Assembled Workflows compartida en Best Practices del 13 May — aplicar directrices tecnicas y adoptar convenciones de nomenclatura uniformes en flujos futuros', phase:'build', priority:'P1', source:'Assembled Workflows Best Practices 13 May', day:'thu', completed:false },
-  { id:'t312', text:'Preparar estado actualizado de flujos para Weekly QA AI (Vie 14:00) — avances Food Live al 10%, Suspended Store, Bot Exp Problems with Order fase 2', phase:'build', priority:'P1', source:'Calendar Vie 22 Mayo 14:00', day:'fri', completed:false },
-  { id:'t318', text:'Decidir con Catalina Bello el diseno del flujo "AI Bot Problems with order - received completely different order": opcion A) flujo inicia con ticket previo del usuario, opcion B) ejecutar acciones directamente en el chat sin requerir ticket. Validar con la guia Lupe DOC confirmada hoy.', phase:'design', priority:'P1', source:'DM Catalina Bello Mar 19 May 11:52', day:'tue', completed:false }
+  { id:'t401', text:'PRIORIDAD SEMANA — Escalar bots Live y Suspensiones al 100% entre lunes y miercoles. Ya al 60% desde el jue 29. Confirmar que fixes del fds son minimos y proceder al escale total.', phase:'build', priority:'P0', source:'#cx-management-team Jue 29 May 16:25', day:'mon', completed:false },
+  { id:'t402', text:'Revisar variables Lupe: definir user ID, email y motivo de compensacion para fase 2 del flujo de productos incorrectos — accion directa de Weekly QA AI', phase:'build', priority:'P0', source:'Weekly QA AI 29 May', day:'mon', completed:false },
+  { id:'t403', text:'Capacitacion Mozart: aprender uso de la herramienta para ejecutar automatizaciones y procesos de soporte Merchants — deadline era 1 junio, prioridad critica', phase:'build', priority:'P0', source:'[IMPORTANTE] Soporte Merchants 28 May', day:'mon', completed:false },
+  { id:'t404', text:'Compartir documento de automatizacion de integraciones: enviar archivo con detalle de automatizaciones propuestas y procesos criticos al equipo', phase:'build', priority:'P0', source:'Validacion flujo AI integraciones 28 May', day:'mon', completed:false },
+  { id:'t405', text:'Validar flujos de operacion con Juana — coordinar sesion para revisar flujos de integracion y logicas de validacion (con Andres De Las Casas)', phase:'build', priority:'P0', source:'Validacion flujo AI integraciones 28 May', day:'tue', completed:false },
+  { id:'t406', text:'Enviar documentacion y discovery de AI Bot Food Non Live Integrations a Juan Camilo Esquivel para avanzar con implementacion', phase:'build', priority:'P0', source:'Kickoff AI Bot Food Non Live Integrations 25 May', day:'mon', completed:false },
+  { id:'t407', text:'Consultar permisos ICC con Laura y enviar pantallazo a Juan Camilo Esquivel con la informacion para proceder con ticket de acceso', phase:'build', priority:'P0', source:'Kickoff AI Bot Food Non Live Integrations 25 May', day:'tue', completed:false },
+  { id:'t408', text:'Enviar materiales de referencia a Jose Luis Ceron: enlaces de pedidos con problemas de ticket, documento endpoints y discovery para casos de prueba (Kickoff Different Order)', phase:'build', priority:'P0', source:'Kickoff AI Bot Received Different Order 25 May', day:'mon', completed:false },
+  { id:'t409', text:'Preparar agenda para reunion "Donde esta mi RT?" (Mar 13:00) — revision de solucion al motivo #1 Merchants a soporte, rediseno arquitectura soporte y flujos Turbo', phase:'build', priority:'P1', source:'Calendar Mar 2 Jun 13:00', day:'tue', completed:false },
+  { id:'t410', text:'Preparar estado de bots y flujos para CX Weekly Business Review (Mie 11:00) — bots al 100%, plan de ahorro tickets Merchants, integraciones pendientes', phase:'build', priority:'P1', source:'Calendar Mie 3 Jun 11:00', day:'wed', completed:false },
+  { id:'t411', text:'Preparar PRDs y materiales para CX Product PRD & design reviews (Jue 9:00) — avances semana, flujos Merchants e Integradas', phase:'build', priority:'P1', source:'Calendar Jue 4 Jun 9:00', day:'thu', completed:false },
+  { id:'t412', text:'Preparar estado actualizado para Weekly QA AI (Vie 14:00) — avances bots Food Live, Suspensiones, flujos integraciones', phase:'build', priority:'P1', source:'Calendar Vie 5 Jun 14:00', day:'fri', completed:false },
+  { id:'t413', text:'Preparar puntos para 1:1 con Maria Granada (Mar 14:00) — estado bots al 100%, prioridades semana, blockers integraciones', phase:'build', priority:'P1', source:'Calendar Mar 2 Jun 14:00', day:'tue', completed:false },
+  { id:'t414', text:'Preparar puntos para 1:1 con Andres De Las Casas (Mar 15:30) — estado capacidad Merchants W01/06, plan bots al 100%, estimacion ahorro tickets', phase:'build', priority:'P1', source:'Calendar Mar 2 Jun 15:30', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1861,50 +1723,35 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d320', text:'Finalizar la integracion de Tech para conectar Assemble con el sistema de correo electronico antes del dia 25 de mayo — deadline critico', owner:'Andres De Las Casas', source:'CX WBR 20 May', status:'pendiente' },
-  { id:'d319', text:'Coordinar con Mike el soporte necesario para el despliegue del libro de reclamaciones', owner:'Andres De Las Casas', source:'CX WBR 20 May', status:'pendiente' },
-  { id:'d318', text:'Distribuir detalles del proyecto EVALS al equipo y a Guada una vez entregado por los desarrolladores — para automatizar medicion de calidad', owner:'Maria Granada', source:'CX WBR 20 May', status:'pendiente' },
-  { id:'d317', text:'Coordinar integracion del canal de WhatsApp con la herramienta Star para experiencia de usuario consistente — hablar con Jonathan', owner:'Angela Maria Osuna', source:'CX WBR 20 May', status:'pendiente' },
-  { id:'d316', text:'Preparar incentivos para el mundial FIFA 2026 — exponer datos de inscripcion y configurar tipos de ticket para evitar escalamientos humanos en fechas clave', owner:'Daniel Alvarez / Sergio Pulgarin', source:'CX WBR 20 May', status:'pendiente' },
-  { id:'d303', text:'Revisar articulos de Rapipedia y data cruda compartida para evaluar vigencia de procesos y casos marcados en gris — alineacion previa a validacion del boceto de automatizacion Merchants', owner:'Carla Capristan', source:'Carla / Juan Pablo 19 May', status:'pendiente' },
-  { id:'d300', text:'Validar por que tienda 900144182 muestra como suspendida en el chat del bot pero NO esta suspendida en Lupe ni en el API — verificar si el flujo usa la respuesta del endpoint correctamente o tiene logica hardcodeada', owner:'Jose Luis Ceron', source:'DM Jose Ceron Dom 17 May 19:19', status:'pendiente' },
-  { id:'d301', text:'Coordinar con tech el capacity para creacion de endpoints y recetas — plan: equipo Elias identifica entry points del DT, flujo y entry points/endpoints, luego hacemos el setteo', owner:'Andres De Las Casas', source:'DM Grupal Andres De Las Casas Vie 15 May', status:'pendiente' },
-  { id:'d100', text:'[ACTUALIZADO Jue 21] Endpoints identificados y documentados para los 3 flujos — equipo ya avanzo. Pendiente: mapeo en Assembled con apoyo de Andres De Las Casas / Veronica', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows 13 May / Grupo DM 21 May 16:45', status:'en progreso' },
-  { id:'d99', text:'Redactar documento tecnico con variables necesarias y datos esperados de los endpoints — presentar a Veronica Ferro para apoyo de desarrollador', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows Assemble 13 May', status:'pendiente' },
-  { id:'d98', text:'Clonar flujo base en Assemble y comenzar construccion del nuevo flujo de tiendas invisibles', owner:'Elias Rivera / Stephania Gonzalez / Andres Diaz', source:'Capacitacion Montaje Workflows Assemble 13 May', status:'pendiente' },
-  { id:'d97', text:'Validar si el topico de seguimiento de repartidor (Flint Tracking) es aplicable para recoleccion en tienda y entrega al usuario — compartir detalles y esquema de visualizacion con Juan Pablo', owner:'Yulieth Sofia', source:'Endpoints fullfilment 13 May', status:'pendiente' },
-  { id:'d96', text:'Analizar metricas Firebase tras el despliegue y definir nuevos indicadores de calidad', owner:'Andres Cobos / Cristian Parada', source:'CX Weekly Business Review 13 May', status:'pendiente' },
-  { id:'d95', text:'Disenar protocolo de actuacion para situaciones de caidas del sistema o errores masivos de pago', owner:'Eugenio La Rosa / Maria Granada', source:'CX Weekly Business Review 13 May', status:'pendiente' },
-  { id:'d94', text:'Implementar semaforo de concurrencia y alertas automaticas de capacidad antes del mundial', owner:'Mike Medina / Andres De Las Casas', source:'CX Weekly Business Review 13 May', status:'pendiente' },
-  { id:'d93', text:'Estudiar cuales tipos de incidencia se deben bloquear en fechas especiales y presentar recomendaciones para la configuracion del sistema', owner:'Eugenio La Rosa / Catalina Symonds', source:'CX Weekly Business Review 13 May', status:'pendiente' },
-  { id:'d92', text:'Realizar dimensionamiento y analisis de impacto sobre uso repetido de beneficios gratuitos (Free Pass) y presentar resultados al equipo', owner:'Juan Delgado', source:'CX Weekly Business Review 13 May', status:'pendiente' },
-  { id:'d91', text:'Coordinar sesion Proactive Brain con Angela Maria Osuna e incluir partes interesadas para alinear estrategia operativa', owner:'Eugenio La Rosa', source:'CX Weekly Business Review 13 May', status:'pendiente' },
-  { id:'d90', text:'Ajustar borrador del contrato para BRM, Concentric y Sprout — colaborar con legal para validar nuevos acuerdos', owner:'Nico (Nicolas Bejarano)', source:'CX Weekly Business Review 13 May', status:'pendiente' },
-  { id:'d89', text:'Identificar y evaluar procesos existentes en Assemble con mayor consumo de memoria o errores frecuentes', owner:'Maria Granada / Andres De Las Casas', source:'Assembled Workflows Best Practices 13 May', status:'pendiente' },
-  { id:'d88', text:'Agregar definiciones claras sobre terminologia tecnica al material de Assembled Workflows: variables, propiedades, llaves y valores', owner:'Jonathan Munoz Lopez', source:'Assembled Workflows Best Practices 13 May', status:'pendiente' },
-  { id:'d87', text:'Contactar a Veru para identificar quien puede asistir en el proceso de levantar la suspension de tiendas en produccion', owner:'Jose Luis Ceron', source:'Revision levantar suspended store 11 May', status:'pendiente' },
-  { id:'d86', text:'Preparar el desarrollo del endpoint que consulta el motivo de suspension de las tiendas', owner:'Jose Luis Ceron', source:'Revision levantar suspended store 11 May', status:'pendiente' },
-  { id:'d85', text:'Preparar el desarrollo del endpoint encargado de levantar la suspension de las tiendas', owner:'Jose Luis Ceron', source:'Revision levantar suspended store 11 May', status:'pendiente' },
-  { id:'d84', text:'Compartir nuevo enlace Assemble para configuracion fase 2 — bot Exp Problems with Order', owner:'Maria Granada', source:'Kickoff AI Bot Exp Problems Order 11 May', status:'pendiente' },
-  { id:'d83', text:'Compartir hilo de contexto para revision del riesgo de fraude y facilitar revision del campo en endpoints fase 2', owner:'Maria Granada', source:'Kickoff AI Bot Exp Problems Order 11 May', status:'pendiente' },
-  { id:'d82', text:'Revisar si campo riesgo de fraude posible esta siendo traido en bot Phase 2 y confirmar estado de obtencion del dato', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Exp Problems Order 11 May', status:'pendiente' }
+  { id:'d401', text:'Mapear incidentes del arbol de soporte y definir solucion en plataforma Mozart — incluyendo destino final del nuevo portal unificado', owner:'Matias Kramer / Leandro Gallippi', source:'[IMPORTANTE] Soporte Merchants 28 May', status:'pendiente' },
+  { id:'d402', text:'Configurar nuevas APIs en gateway y configurar flujos en Assemble mediante equipo tecnico', owner:'Andres De Las Casas', source:'[IMPORTANTE] Soporte Merchants 28 May', status:'pendiente' },
+  { id:'d403', text:'Coordinar sesion tecnica para mantener desacoplado Amazon Connect del sistema actual mientras se garantiza la conexion para agentes', owner:'Leandro Gallippi / Andres Cobos', source:'[IMPORTANTE] Soporte Merchants 28 May', status:'pendiente' },
+  { id:'d404', text:'Definir accesos al arbol de soporte para diferentes roles del nuevo portal unificado', owner:'Maria Dorantes', source:'[IMPORTANTE] Soporte Merchants 28 May', status:'pendiente' },
+  { id:'d405', text:'Definir seguridad endpoints: establecer capa de autenticacion con Ger y Omar para los endpoints de integraciones', owner:'Federico Weinstein', source:'Validacion flujo AI integraciones 28 May', status:'pendiente' },
+  { id:'d406', text:'Validar si endpoint acepta multiples store IDs en el cuerpo de la solicitud o requiere procesamiento individual', owner:'Juan Camilo Esquivel', source:'Kickoff AI Bot Food Non Live Integrations 25 May', status:'pendiente' },
+  { id:'d407', text:'Validar acceso CMS para gestion de restaurantes y tiendas en plataforma CMS', owner:'Juan Camilo Esquivel', source:'Kickoff AI Bot Food Non Live Integrations 25 May', status:'pendiente' },
+  { id:'d408', text:'Compartir impacto y volumen de llamadas previsto con nuevo proceso en el canal del equipo', owner:'Elias Rivera', source:'Kickoff AI Bot Soporte Integradas 25 May', status:'pendiente' },
+  { id:'d409', text:'Filtrar API y analizar respuestas de servicios para evitar sobrecargas de contexto en el flujo', owner:'Elias Rivera / Jonathan Munoz', source:'Kickoff AI Bot Soporte Integradas 25 May', status:'pendiente' },
+  { id:'d410', text:'Validar punto de conexion con Maria sobre endpoint para automatizacion de tickets y reembolsos — bot received different order', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Received Different Order 25 May', status:'pendiente' },
+  { id:'d411', text:'Publicar flujo de trabajo en Toco para acceso del equipo — resultado de Weekly QA AI', owner:'Angela Osuna', source:'Weekly QA AI 29 May', status:'pendiente' },
+  { id:'d412', text:'Auditar flujo de correo: verificar Delete account y orquestador funcionando correctamente', owner:'El grupo', source:'Weekly QA AI 29 May', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Maria Granada (DM)', text: 'Estamos al frente de sipote — actualizacion de estado del equipo en tiempo real.', time: 'Vie 22 13:06', type: 'dm', actionable: true },
-  { from: 'Laura Buitrago (DM)', text: 'Dale cualquier cosa te aviso — seguimiento de Check WF Integradas, coordinacion pendiente.', time: 'Vie 22 12:40', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'lo que sucede es que la IA agrega comillas adicionales, entonces ya se las quite al endpoint — deberia funcionar ahora. Verificar en produccion.', time: 'Vie 22 12:14', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'encontre dos cosas: 1. el pais PE estaba como PR (ya corregido). 2. ayuda a confirmar si el contacto 51930662967 aplica para el flujo Mi tienda esta suspendida.', time: 'Vie 22 11:47', type: 'dm', actionable: true },
-  { from: 'Andres Diaz (Grupo DM)', text: 'hola team, quedamos pendiente — recordatorio de items pendientes para equipo integrado (Elias Rivera, Andres De Las Casas, Maria Granada, Juan Pablo).', time: 'Vie 22 10:39', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'lo puedes colocar en el hilo a ver si nos dan el go — coordinar aprobacion con Cristian Parada para despliegue del flujo.', time: 'Vie 22 10:33', type: 'dm', actionable: true }
+  { from: 'Juan Pablo (#cx-management-team)', text: 'hoy dejo tanto live como suspensiones al 60%, junto a QA hemos hecho arreglos pequeños — si todo sale bien entre lunes y miercoles podemos tener ambos bots al 100%', time: 'Jue 29 May 16:25', type: 'mention', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: 'me das detalle de en que porcentajes y paises estamos en Merchants prendidos? — estamos viendo movimientos grandes de tickets que no sabemos si se explican por el bot', time: 'Jue 29 May 16:08', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas (Grupo DM)', text: 'Esta semana con Live al 60% deberiamos cerrar con unos 2200 tickets el fds. Al 100% serian unas 4.5k de ahorro semana. Faltan salidas de Integradas para llegar a 6.5k', time: 'Jue 29 May 16:18', type: 'dm', actionable: false },
+  { from: 'Maria Granada (Grupo DM)', text: 'en live yo veo que vamos ok con lo planteado, solo es escalarlo rapido. En suspensiones todavia no veo suficientes casos para ver a cuanto podriamos llegar', time: 'Jue 29 May 16:18', type: 'dm', actionable: true },
+  { from: 'Jessica Torres (DM)', text: 'ese es el store ID — como lo esta tomando la AI? Porque UserID no existe en Merchants, es store ID pero como es generico ese termino, toma el store ID como User ID', time: 'Jue 29 May 16:02', type: 'dm', actionable: true },
+  { from: 'Elias Rivera (#cx-management-team)', text: 'queremos confirmar datos de capacidad merchants W01/06 — inflow 21504 tickets sem 18/05. Traficado estimado automatizacion 6457 tickets. Nos preocupa posible deficiencia de 1.6k tickets', time: 'Jue 29 May 16:08', type: 'mention', actionable: true }
 ];
 
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '10:30-13:00', '14:00-18:00'] },
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-13:00', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '16:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-12:00', '15:30-18:00'] }
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
+  { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
@@ -2023,11 +1870,11 @@ function renderDashboard() {
    ================================================================ */
 function renderCalendar() {
   const dayLabels = [
-    { name:'Lunes 18 Mayo', key:'mon' },
-    { name:'Martes 19 Mayo', key:'tue' },
-    { name:'Miercoles 20 Mayo', key:'wed' },
-    { name:'Jueves 21 Mayo', key:'thu' },
-    { name:'Viernes 22 Mayo', key:'fri' }
+    { name:'Lunes 1 Junio', key:'mon' },
+    { name:'Martes 2 Junio', key:'tue' },
+    { name:'Miercoles 3 Junio', key:'wed' },
+    { name:'Jueves 4 Junio', key:'thu' },
+    { name:'Viernes 5 Junio', key:'fri' }
   ];
 
   document.getElementById('calContent').innerHTML = dayLabels.map((d,i) => {
