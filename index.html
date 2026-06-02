@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mar 2 · Actualizado auto 09:07</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mar 2 · Actualizado auto 11:08</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1470,6 +1470,7 @@ const EVENTS = {
     { time:'16:00-16:30', title:'Validacion flujo de integraciones', attendees:6, org:'juan.bonansea@rappi.com', type:'team', note:'Validacion del flujo de integraciones con Omar Flores, Andres De Las Casas, Federico Weinstein, German Coronel, Juan Esquivel' }
   ],
   tue: [
+    { time:'11:00-11:15', title:'Juan Pablo / Jessica', attendees:2, org:'jessica.torres@rappi.com', type:'1on1', note:'Reunion express con Jessica Torres sobre el flujo de suspensiones — que necesita el equipo QA/Ops de Juan Pablo para avanzar' },
     { time:'13:00-13:45', title:'Donde esta mi RT?', attendees:10, org:'matias.kramer@rappi.com', type:'team', note:'Revision de solucion al motivo #1 de Merchants a soporte — rediseno arquitectura soporte Merchants y flujos Turbo' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades semana' },
@@ -1709,7 +1710,9 @@ const DEFAULT_TASKS = [
   { id:'t416', text:'Confirmar con Camilo Esquivel que endpoint de validacion de propiedad de tienda (1-2 endpoints) quedo disponible y hacer prueba de integracion', phase:'build', priority:'P0', source:'Camilo Esquivel DM Hoy 16:24', day:'mon', completed:false },
   { id:'t417', text:'Revisar archivo Impactos AI donde Maria Granada te menciono — asegurarse de revisar y contribuir si hay algo pendiente', phase:'build', priority:'P1', source:'Google Drive DM Lun 1 Jun 11:26', day:'tue', completed:false },
   { id:'t418', text:'Pedir a Maria el lupeUserId — Jose Ceron lo solicito esta manana para completar variables de productos incorrectos fase 2 (lupeUserId, email, motivo de compensacion)', phase:'build', priority:'P0', source:'Jose Ceron DM Mar 2 Jun 08:56', day:'tue', completed:false },
-  { id:'t419', text:'Compartir con Maria Granada y equipo QA que flujos necesitan revision quality para escalar — responder al group DM de esta manana con los detalles del escalamiento', phase:'build', priority:'P1', source:'Maria Granada Group DM Mar 2 Jun 08:54', day:'tue', completed:false }
+  { id:'t419', text:'Compartir con Maria Granada y equipo QA que flujos necesitan revision quality para escalar — responder al group DM de esta manana con los detalles del escalamiento', phase:'build', priority:'P1', source:'Maria Granada Group DM Mar 2 Jun 08:54', day:'tue', completed:false },
+  { id:'t420', text:'Reunion 11:00 Jessica Torres — clarificar que necesita el equipo QA/Ops para avanzar con el flujo de suspensiones y definir proximos pasos concretos', phase:'build', priority:'P0', source:'Jessica Torres DM Mar 2 Jun 10:35', day:'tue', completed:false },
+  { id:'t421', text:'Continuar monitoreando suspensiones al 70% durante el dia — validar que fix de logica funcione correctamente y subir a 100% cuando sea estable', phase:'build', priority:'P0', source:'Stephania Gonzalez DM Mar 2 Jun 09:55', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1739,22 +1742,23 @@ const DEFAULT_DELEGATED = [
   { id:'d409', text:'Filtrar API y analizar respuestas de servicios para evitar sobrecargas de contexto en el flujo', owner:'Elias Rivera / Jonathan Munoz', source:'Kickoff AI Bot Soporte Integradas 25 May', status:'pendiente' },
   { id:'d410', text:'Validar punto de conexion con Maria sobre endpoint para automatizacion de tickets y reembolsos — bot received different order', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Received Different Order 25 May', status:'pendiente' },
   { id:'d411', text:'Publicar flujo de trabajo en Toco para acceso del equipo — resultado de Weekly QA AI', owner:'Angela Osuna', source:'Weekly QA AI 29 May', status:'pendiente' },
-  { id:'d412', text:'Auditar flujo de correo: verificar Delete account y orquestador funcionando correctamente', owner:'El grupo', source:'Weekly QA AI 29 May', status:'pendiente' }
+  { id:'d412', text:'Auditar flujo de correo: verificar Delete account y orquestador funcionando correctamente', owner:'El grupo', source:'Weekly QA AI 29 May', status:'pendiente' },
+  { id:'d413', text:'Preparar y enviar requerimiento de automatizaciones para Q3 — confirmo que lo haria hoy tras recibir la solicitud de Juan Pablo', owner:'Stephania Gonzalez', source:'Stephania DM Mar 2 Jun 08:40', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
+  { from: 'Jessica Torres (DM)', text: 'Te cite a las 11 para que lo veamos — flujo suspensiones', time: 'Mar 2 Jun 10:35', type: 'dm', actionable: false },
+  { from: 'Jessica Torres (DM)', text: 'Duda: en que necesitas nuestra ayuda para el flujo de suspensiones especificamente?', time: 'Mar 2 Jun 10:33', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: 'Como te fue en la reunion de Integraciones? Vi que nos dejaron los endpoints — nos compartiran un MCP con lo que pediamos', time: 'Mar 2 Jun 10:06', type: 'dm', actionable: false },
+  { from: 'Stephania Gonzalez (DM)', text: 'Food super encolada — Juan subio a 70% tras corregir bug de logica. Monitoreando. Me pondre con requerimientos Q3.', time: 'Mar 2 Jun 09:55', type: 'dm', actionable: false },
   { from: 'Jose Ceron (DM)', text: 'Pidele a Maria el lupeUserId — necesario para definir variables de productos incorrectos fase 2', time: 'Mar 2 Jun 08:56', type: 'dm', actionable: true },
   { from: 'Maria Granada (Group DM)', text: 'Hola Juan, nos compartes que necesitas que revise quality para escalar', time: 'Mar 2 Jun 08:54', type: 'mention', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'Live queda al 100% y suspensiones al 70% hoy — confirmado correcto con Juan. Atentos a cualquier ajuste.', time: 'Mar 2 Jun 08:40', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'Hola Juan, debo disponibilizarte endpoint para validar que tienda pertenezca al partner antes de hacer el cambio — 1 o 2 endpoints', time: 'Lun 1 Jun 16:24', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Statsig PWP: es CL no CH, y en el OR de abajo agrega los paises. Flujo pasa 2 veces por experimento — si falla alguna no va a assemble', time: 'Lun 1 Jun 16:01', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'Validar como va automatizacion RT-Merchants y suspensiones', time: 'Lun 1 Jun 11:56', type: 'dm', actionable: false },
-  { from: 'Google Drive (DM)', text: 'Maria Granada te menciono en el archivo Impactos AI', time: 'Lun 1 Jun 11:26', type: 'mention', actionable: true }
+  { from: 'Camilo Esquivel (DM)', text: 'Hola Juan, debo disponibilizarte endpoint para validar que tienda pertenezca al partner — 1 o 2 endpoints', time: 'Lun 1 Jun 16:24', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:00', '16:30-18:00'] },
-  { day: 'Mar', blocks: ['8:00-13:00', '14:30-15:30', '16:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-11:00', '11:15-13:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
