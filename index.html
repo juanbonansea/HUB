@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mar 2 · Actualizado auto 13:06</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mar 2 · Actualizado auto 15:06</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1494,6 +1494,16 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:59, title:'Donde esta mi RT?', date:'2 Jun',
+    summary:'Evaluacion de la asignacion de rapitenderos y decision de segmentar la problematica operativa. Se analizo la tension entre asignacion manual y algoritmica — la intervencion manual presenta riesgos sistemicos. Decision clave: clasificar la problematica en casos de "falta de rapitendero" vs "repartidor asignado ausente" para medir el volumen real del problema y actuar con precision.',
+    sections:['Debate sobre asignacion operativa','Politicas de compensacion aliados','Segmentacion problemas operativos'],
+    actions:[
+      { text:'Analizar pedidos sin repartidor: segmentar datos de contactos de soporte para diferenciar entre ordenes sin asignacion y ordenes con asignacion retrasada considerando disponibilidad de repartidores', owner:'Elias Rivera', phase:'build', priority:'P0' },
+      { text:'Agendar reunion seguimiento para revisar analisis de datos con el dueno del algoritmo de asignacion y definir proximos pasos', owner:'Matias Kramer', phase:'build', priority:'P0' },
+      { text:'Revisar politicas de penalizacion: evaluar compensaciones y cobros para asegurar que restaurantes no sean afectados injustamente por errores de asignacion del sistema', owner:'El grupo', phase:'build', priority:'P1' }
+    ]
+  },
+  {
     id:58, title:'Weekly - QA AI', date:'29 May',
     summary:'Revision de flujos de automatizacion, gestion de compensaciones y priorizacion de iniciativas para alcanzar el 70% de automatizacion. Se implemento temporizador de 48h para compensaciones, se pauso cupones y Withineta volvio al 50%. Decision: priorizar flujos de correo, productos y promociones.',
     sections:['Ajustes en flujos operativos','Automatizacion de canales','Priorizacion de iniciativas'],
@@ -1715,7 +1725,9 @@ const DEFAULT_TASKS = [
   { id:'t421', text:'Continuar monitoreando suspensiones al 70% durante el dia — validar que fix de logica funcione correctamente y subir a 100% cuando sea estable', phase:'build', priority:'P0', source:'Stephania Gonzalez DM Mar 2 Jun 09:55', day:'tue', completed:false },
   { id:'t422', text:'Enviar metricas del bot a Stephania — cuantos casos han pasado por bot Food Live hoy, con desglose de contactos atendidos vs escalados', phase:'metrics', priority:'P1', source:'Stephania Gonzalez DM Mar 2 Jun 12:47', day:'tue', completed:false },
   { id:'t423', text:'Analizar motivos de escalacion del bot Live con Jessica — "Handoff - Store issues (Phase II pending)" es el principal. Definir que implica Phase II para priorizar en backlog', phase:'discovery', priority:'P1', source:'Jessica Torres DM Mar 2 Jun 12:17', day:'wed', completed:false },
-  { id:'t424', text:'Coordinar con Camilo Esquivel para retomar flujos de integracion — terminara endpoints de mail esta semana y luego se desocupa. Agendar sesion para la proxima semana', phase:'build', priority:'P1', source:'Camilo Esquivel DM Mar 2 Jun 12:27', day:'thu', completed:false }
+  { id:'t424', text:'Coordinar con Camilo Esquivel para retomar flujos de integracion — terminara endpoints de mail esta semana y luego se desocupa. Agendar sesion para la proxima semana', phase:'build', priority:'P1', source:'Camilo Esquivel DM Mar 2 Jun 12:27', day:'thu', completed:false },
+  { id:'t425', text:'Revisar analisis enviado por Andres De Las Casas en #cx-management-team — priorizar revision del analisis de RT y asignacion de rapitenderos que pidio urgente', phase:'build', priority:'P0', source:'Andres De Las Casas #cx-management-team Mar 2 Jun 12:21', day:'tue', completed:false },
+  { id:'t426', text:'Descargar casos de live y validar si estan pasando por el bot — seguimiento pedido por Maria Granada en canal cx-management-team', phase:'metrics', priority:'P1', source:'Maria Granada #cx-management-team Mar 2 Jun 12:19', day:'tue', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1746,15 +1758,18 @@ const DEFAULT_DELEGATED = [
   { id:'d410', text:'Validar punto de conexion con Maria sobre endpoint para automatizacion de tickets y reembolsos — bot received different order', owner:'Jose Luis Ceron', source:'Kickoff AI Bot Received Different Order 25 May', status:'pendiente' },
   { id:'d411', text:'Publicar flujo de trabajo en Toco para acceso del equipo — resultado de Weekly QA AI', owner:'Angela Osuna', source:'Weekly QA AI 29 May', status:'pendiente' },
   { id:'d412', text:'Auditar flujo de correo: verificar Delete account y orquestador funcionando correctamente', owner:'El grupo', source:'Weekly QA AI 29 May', status:'pendiente' },
-  { id:'d413', text:'Preparar y enviar requerimiento de automatizaciones para Q3 — confirmo que lo haria hoy tras recibir la solicitud de Juan Pablo', owner:'Stephania Gonzalez', source:'Stephania DM Mar 2 Jun 08:40', status:'pendiente' }
+  { id:'d413', text:'Preparar y enviar requerimiento de automatizaciones para Q3 — confirmo que lo haria hoy tras recibir la solicitud de Juan Pablo', owner:'Stephania Gonzalez', source:'Stephania DM Mar 2 Jun 08:40', status:'pendiente' },
+  { id:'d414', text:'Analizar pedidos sin repartidor: segmentar datos de contactos de soporte para diferenciar entre ordenes sin asignacion y ordenes con asignacion retrasada', owner:'Elias Rivera', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
+  { id:'d415', text:'Agendar reunion seguimiento con dueno del algoritmo de asignacion para revisar analisis y definir proximos pasos sobre el problema RT', owner:'Matias Kramer', source:'Donde esta mi RT? 2 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
+  { from: 'Andres De Las Casas (#cx-management-team)', text: 'Porfa priorisemos revisar este analisis — sobre RT y asignacion de rapitenderos', time: 'Mar 2 Jun 12:21', type: 'mention', actionable: true },
+  { from: 'Maria Granada (#cx-management-team)', text: 'Pueden descargar esos casos de live para ver si estan pasando por el bot? cc: @juan.bonansea', time: 'Mar 2 Jun 12:19', type: 'mention', actionable: true },
+  { from: 'Stephania Gonzalez (#cx-management-team)', text: 'URGENTE: cola ~100 casos. Suspensiones al 70%, Food Live al 100%. Necesitan revision real time de entry issues', time: 'Mar 2 Jun 12:05', type: 'mention', actionable: true },
   { from: 'Stephania Gonzalez (DM)', text: 'Cuantos casos han pasado por bot? — monitoreo queue Food Live, solicita metricas del bot', time: 'Mar 2 Jun 12:47', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Terminando endpoints de mail esta semana — luego me desocupo para revisar integraciones', time: 'Mar 2 Jun 12:27', type: 'dm', actionable: true },
   { from: 'Jessica Torres (DM)', text: 'Live escala por "Handoff - Store issues (Phase II pending)" y usuario insistente — Non live tambien revisado', time: 'Mar 2 Jun 12:17', type: 'dm', actionable: true },
-  { from: 'Jessica Torres (DM)', text: 'Duda: en que necesitas nuestra ayuda para el flujo de suspensiones especificamente?', time: 'Mar 2 Jun 10:33', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Pidele a Maria el lupeUserId — necesario para variables de productos incorrectos fase 2', time: 'Mar 2 Jun 08:56', type: 'dm', actionable: true },
   { from: 'Maria Granada (Group DM)', text: 'Hola Juan, nos compartes que necesitas que revise quality para escalar', time: 'Mar 2 Jun 08:54', type: 'mention', actionable: true }
 ];
 
