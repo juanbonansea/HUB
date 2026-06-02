@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mar 2 · Actualizado auto 15:06</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mar 2 · Actualizado auto 16:10</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1494,6 +1494,19 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:60, title:'Juan Pablo / Andres', date:'2 Jun',
+    summary:'La reunion examino discrepancias en cancelaciones y alineaciones tecnicas con estrategias para optimizar la prevencion de fraudes. El lanzamiento de soporte con IA genero cancelaciones sin tickets asociados causando perdidas diarias significativas. Se decidio cruzar datos para identificar la causa tecnica de esta perdida de asociacion. Se enfatizo validar soluciones proactivamente con duenos del producto antes de implementar. Reembolsos en tarjetas de credito desactivados temporalmente — equipo usara gasto de agentes humanos como benchmark para controlar reembolsos automatizados.',
+    sections:['Analisis fallas operativas','Alineacion equipos tecnicos','Gestion reembolsos y fraude'],
+    actions:[
+      { text:'Revisar tickets: revisar la asociacion de order ID en tickets generados por flujo de Live para asegurar que cada ticket contenga informacion de la orden necesaria para seguimiento', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Analizar cancelaciones: analizar cancelaciones del dia anterior sin ticket asociado cruzando informacion con herramientas de analisis para identificar si el problema radica en tickets sin order ID', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Alinear integraciones: alinear con Juan Restrepo sobre definiciones y soluciones implementadas en la integracion de tiendas para asegurar cumplimiento con estandares del area', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Ajustar suspensiones: revisar la validacion de user ID en el flujo de suspensiones y ajustar los pasos para mejorar la captura del store ID', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Sincronizar reembolsos: coordinar con Mafe para sincronizar la resolucion de problemas de reembolso a tarjeta de credito en el flujo de producto diferente', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Comparar compensaciones: comparar gastos de compensacion del flujo automatizado contra el benchmark de agentes humanos para asegurar que no se exceda el presupuesto', owner:'Juan Pablo', phase:'metrics', priority:'P1' }
+    ]
+  },
+  {
     id:59, title:'Donde esta mi RT?', date:'2 Jun',
     summary:'Evaluacion de la asignacion de rapitenderos y decision de segmentar la problematica operativa. Se analizo la tension entre asignacion manual y algoritmica — la intervencion manual presenta riesgos sistemicos. Decision clave: clasificar la problematica en casos de "falta de rapitendero" vs "repartidor asignado ausente" para medir el volumen real del problema y actuar con precision.',
     sections:['Debate sobre asignacion operativa','Politicas de compensacion aliados','Segmentacion problemas operativos'],
@@ -1727,7 +1740,13 @@ const DEFAULT_TASKS = [
   { id:'t423', text:'Analizar motivos de escalacion del bot Live con Jessica — "Handoff - Store issues (Phase II pending)" es el principal. Definir que implica Phase II para priorizar en backlog', phase:'discovery', priority:'P1', source:'Jessica Torres DM Mar 2 Jun 12:17', day:'wed', completed:false },
   { id:'t424', text:'Coordinar con Camilo Esquivel para retomar flujos de integracion — terminara endpoints de mail esta semana y luego se desocupa. Agendar sesion para la proxima semana', phase:'build', priority:'P1', source:'Camilo Esquivel DM Mar 2 Jun 12:27', day:'thu', completed:false },
   { id:'t425', text:'Revisar analisis enviado por Andres De Las Casas en #cx-management-team — priorizar revision del analisis de RT y asignacion de rapitenderos que pidio urgente', phase:'build', priority:'P0', source:'Andres De Las Casas #cx-management-team Mar 2 Jun 12:21', day:'tue', completed:false },
-  { id:'t426', text:'Descargar casos de live y validar si estan pasando por el bot — seguimiento pedido por Maria Granada en canal cx-management-team', phase:'metrics', priority:'P1', source:'Maria Granada #cx-management-team Mar 2 Jun 12:19', day:'tue', completed:false }
+  { id:'t426', text:'Descargar casos de live y validar si estan pasando por el bot — seguimiento pedido por Maria Granada en canal cx-management-team', phase:'metrics', priority:'P1', source:'Maria Granada #cx-management-team Mar 2 Jun 12:19', day:'tue', completed:false },
+  { id:'t427', text:'Revisar asociacion de order ID en tickets del flujo Live — analizar si cancelaciones del dia no tienen ticket asociado (identificar si es tickets sin order ID los que generan perdidas diarias)', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun 16:07', day:'wed', completed:false },
+  { id:'t428', text:'Alinear con Juan Restrepo: confirmar definiciones y soluciones implementadas en integracion de tiendas — el ya recibio los endpoints, queda pendiente dar GO para proceder', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun + Juan Restrepo DM 16:07', day:'wed', completed:false },
+  { id:'t429', text:'Ajustar flujo de suspensiones: revisar validacion de user ID y mejorar los pasos para captura del store ID — accion directa de reunion 1:1 Andres', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun 16:07', day:'wed', completed:false },
+  { id:'t430', text:'Implementar 2 nuevos endpoints de Jose Ceron para validar estado del reembolso en el flujo — esperando que los taggee cuando esten listos en el DM', phase:'build', priority:'P0', source:'Jose Ceron DM Mar 2 Jun 15:50', day:'wed', completed:false },
+  { id:'t431', text:'Coordinar con Mafe resolucion de problemas de reembolso a tarjeta de credito en flujo de producto diferente — TC desactivado temporalmente', phase:'build', priority:'P1', source:'Juan Pablo / Andres 2 Jun 16:07', day:'thu', completed:false },
+  { id:'t432', text:'Comparar gastos de compensacion del flujo automatizado contra benchmark de agentes humanos — controlar que el flujo IA no exceda el presupuesto historico', phase:'metrics', priority:'P1', source:'Juan Pablo / Andres 2 Jun 16:07', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1764,13 +1783,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Juan Restrepo (DM)', text: 'Recibi los nuevos endpoints, los voy a usar en el flujo — quedo pendiente de tu GO para proceder con la integracion en tiendas', time: 'Mar 2 Jun 16:07', type: 'dm', actionable: true },
+  { from: 'Jose Ceron (DM)', text: 'Debemos implementar dos nuevos endpoints para validar el estado del reembolso — los estoy alistando, te taggeo cuando esten listos', time: 'Mar 2 Jun 15:50', type: 'dm', actionable: true },
+  { from: 'Jessica Torres (DM)', text: 'Backlog merchants aumentando: escalamientos sin NI obligan al agente a re-pedir toda la info. Store ID 1098131591 no es restaurante — se decidio cerrar con mensaje claro indicando como obtener el Store ID correcto', time: 'Mar 2 Jun 14:51', type: 'dm', actionable: true },
   { from: 'Andres De Las Casas (#cx-management-team)', text: 'Porfa priorisemos revisar este analisis — sobre RT y asignacion de rapitenderos', time: 'Mar 2 Jun 12:21', type: 'mention', actionable: true },
-  { from: 'Maria Granada (#cx-management-team)', text: 'Pueden descargar esos casos de live para ver si estan pasando por el bot? cc: @juan.bonansea', time: 'Mar 2 Jun 12:19', type: 'mention', actionable: true },
-  { from: 'Stephania Gonzalez (#cx-management-team)', text: 'URGENTE: cola ~100 casos. Suspensiones al 70%, Food Live al 100%. Necesitan revision real time de entry issues', time: 'Mar 2 Jun 12:05', type: 'mention', actionable: true },
   { from: 'Stephania Gonzalez (DM)', text: 'Cuantos casos han pasado por bot? — monitoreo queue Food Live, solicita metricas del bot', time: 'Mar 2 Jun 12:47', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Terminando endpoints de mail esta semana — luego me desocupo para revisar integraciones', time: 'Mar 2 Jun 12:27', type: 'dm', actionable: true },
   { from: 'Jessica Torres (DM)', text: 'Live escala por "Handoff - Store issues (Phase II pending)" y usuario insistente — Non live tambien revisado', time: 'Mar 2 Jun 12:17', type: 'dm', actionable: true },
-  { from: 'Maria Granada (Group DM)', text: 'Hola Juan, nos compartes que necesitas que revise quality para escalar', time: 'Mar 2 Jun 08:54', type: 'mention', actionable: true }
+  { from: 'Maria Granada (#cx-management-team)', text: 'Pueden descargar esos casos de live para ver si estan pasando por el bot? cc: @juan.bonansea', time: 'Mar 2 Jun 12:19', type: 'mention', actionable: true }
 ];
 
 const DEEP_WORK = [
