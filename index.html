@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mie 3 · Actualizado auto 07:07</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mie 3 · Actualizado auto 09:06</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1746,7 +1746,8 @@ const DEFAULT_TASKS = [
   { id:'t429', text:'Ajustar flujo de suspensiones: revisar validacion de user ID y mejorar los pasos para captura del store ID — accion directa de reunion 1:1 Andres', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun 16:07', day:'wed', completed:false },
   { id:'t430', text:'Implementar 2 nuevos endpoints de Jose Ceron para validar estado del reembolso en el flujo — esperando que los taggee cuando esten listos en el DM', phase:'build', priority:'P0', source:'Jose Ceron DM Mar 2 Jun 15:50', day:'wed', completed:false },
   { id:'t431', text:'Coordinar con Mafe resolucion de problemas de reembolso a tarjeta de credito en flujo de producto diferente — TC desactivado temporalmente', phase:'build', priority:'P1', source:'Juan Pablo / Andres 2 Jun 16:07', day:'thu', completed:false },
-  { id:'t432', text:'Comparar gastos de compensacion del flujo automatizado contra benchmark de agentes humanos — controlar que el flujo IA no exceda el presupuesto historico', phase:'metrics', priority:'P1', source:'Juan Pablo / Andres 2 Jun 16:07', day:'fri', completed:false }
+  { id:'t432', text:'Comparar gastos de compensacion del flujo automatizado contra benchmark de agentes humanos — controlar que el flujo IA no exceda el presupuesto historico', phase:'metrics', priority:'P1', source:'Juan Pablo / Andres 2 Jun 16:07', day:'fri', completed:false },
+  { id:'t433', text:'Aclarar con Stephania entry issues conectados al bot — actualmente solo RT via %Food_Live%. Evaluar si agregar otros entry issues para desencolar la cola de Food Live (accion urgente, cola encolada esta manana Mie 3)', phase:'build', priority:'P0', source:'Stephania Gonzalez DM Mie 3 Jun 09:00', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1783,13 +1784,15 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Stephania Gonzalez (DM)', text: 'Consulta sobre entry issues del bot — "Que entry issues tienen conectados actualmente? Solo RT como entry issue?" Juan confirmo: discovery con %Food_Live% pero el arbol solo recibe RT. Cola sigue encolada (Mie 9am)', time: 'Mie 3 Jun 09:00', type: 'dm', actionable: true },
   { from: 'Juan Restrepo (DM)', text: 'Recibi los nuevos endpoints, los voy a usar en el flujo — quedo pendiente de tu GO para proceder con la integracion en tiendas', time: 'Mar 2 Jun 16:07', type: 'dm', actionable: true },
   { from: 'Jose Ceron (DM)', text: 'Debemos implementar dos nuevos endpoints para validar el estado del reembolso — los estoy alistando, te taggeo cuando esten listos', time: 'Mar 2 Jun 15:50', type: 'dm', actionable: true },
   { from: 'Jessica Torres (DM)', text: 'Backlog merchants aumentando: escalamientos sin NI obligan al agente a re-pedir toda la info. Store ID 1098131591 no es restaurante — se decidio cerrar con mensaje claro indicando como obtener el Store ID correcto', time: 'Mar 2 Jun 14:51', type: 'dm', actionable: true },
   { from: 'Andres De Las Casas (#cx-management-team)', text: 'Porfa priorisemos revisar este analisis — sobre RT y asignacion de rapitenderos', time: 'Mar 2 Jun 12:21', type: 'mention', actionable: true },
   { from: 'Stephania Gonzalez (DM)', text: 'Cuantos casos han pasado por bot? — monitoreo queue Food Live, solicita metricas del bot', time: 'Mar 2 Jun 12:47', type: 'dm', actionable: true },
   { from: 'Jessica Torres (DM)', text: 'Live escala por "Handoff - Store issues (Phase II pending)" y usuario insistente — Non live tambien revisado', time: 'Mar 2 Jun 12:17', type: 'dm', actionable: true },
-  { from: 'Maria Granada (#cx-management-team)', text: 'Pueden descargar esos casos de live para ver si estan pasando por el bot? cc: @juan.bonansea', time: 'Mar 2 Jun 12:19', type: 'mention', actionable: true }
+  { from: 'Maria Granada (#cx-management-team)', text: 'Pueden descargar esos casos de live para ver si estan pasando por el bot? cc: @juan.bonansea', time: 'Mar 2 Jun 12:19', type: 'mention', actionable: true },
+  { from: 'Juan Restrepo (DM)', text: 'Hola juan perdon no he tenido vida — reviso y te digo (sobre integracion tiendas pendiente)', time: 'Mar 2 Jun 15:59', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
