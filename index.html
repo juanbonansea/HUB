@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mie 3 · Actualizado auto 13:05</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mie 3 · Actualizado auto 15:06</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1478,7 +1478,8 @@ const EVENTS = {
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'15:30-16:00', title:'Entrega de pruebas bot de triage', attendees:4, org:'extdfx5.jzapata@rappi.com', type:'external', note:'Entrega de pruebas del bot de triage con equipo externo — Jaime Gomez + equipo ext dev' }
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio' },
@@ -1768,7 +1769,9 @@ const DEFAULT_TASKS = [
   { id:'t436', text:'Validar con Maria Fernanda Granada la metrica de merchants atendidos por el bot — formula: AI true inflow total vs agent inflow en Automations Evolution (segun Maf)', phase:'metrics', priority:'P1', source:'Maria Granada DM Mie 3 Jun 10:43', day:'wed', completed:false },
   { id:'t437', text:'Humanizar bot: cambiar el nombre del bot por uno mas humano y empatico — iterar entre varios nombres acogedores para el bot de Live/Merchants. Accion directa asignada a Juan Pablo en CX Weekly final.', phase:'build', priority:'P1', source:'CX Weekly Business Review Mie 3 Jun 11:58', day:'wed', completed:false },
   { id:'t438', text:'Coordinar con Elias Rivera implementacion de Order Status en bot Live — evaluar si se puede colgar trigger de entry issue L1 en Assembled para "estado de la orden". Elias pregunto el path por DM. Tambien accion de CX Weekly: Elias + Andres De Las Casas implementan el flujo.', phase:'build', priority:'P0', source:'CX Weekly 11:58 + Elias Rivera DM Mie 3 Jun 12:46', day:'wed', completed:false },
-  { id:'t439', text:'Validar que pruebas de flujos de correo esten listas esta tarde — Meiker y Cobos tienen como deadline antes de manana para el despliegue 60% de automatizacion de emails', phase:'build', priority:'P0', source:'CX Weekly Business Review Mie 3 Jun 11:58', day:'wed', completed:false }
+  { id:'t439', text:'Validar que pruebas de flujos de correo esten listas esta tarde — Meiker y Cobos tienen como deadline antes de manana para el despliegue 60% de automatizacion de emails', phase:'build', priority:'P0', source:'CX Weekly Business Review Mie 3 Jun 11:58', day:'wed', completed:false },
+  { id:'t440', text:'Investigar caida endpoint PROD_compensation_log_succesfull con Jose Ceron — endpoint devuelve 204 (no content) en Prod pero tiene datos. Evaluar si usar transactions-detail como alternativa o reportar a Tech', phase:'build', priority:'P0', source:'Jose Ceron DM Mie 3 Jun 15:05', day:'wed', completed:false },
+  { id:'t441', text:'Confirmar GO definitivo a Juan Restrepo para proceder con integracion de tiendas — ya recibio y aprobo los endpoints. Definir como mediremos la eficiencia del flujo una vez lanzado', phase:'build', priority:'P0', source:'Juan Restrepo DM Mie 3 Jun 15:05', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1812,19 +1815,19 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Jose Ceron (DM)', text: 'Assemble caido — endpoint PROD_compensation_log_succesfull no trae data en Prod. Log 204 no content (no error, pero no hay info en BD). Va a tocar usar endpoint transactions-detail como alternativa', time: 'Mie 3 Jun 15:05', type: 'dm', actionable: true },
+  { from: 'Juan Restrepo (DM)', text: 'Por mi perfecto iteremos! — confirmo GO para la integracion. Pregunta: como vamos midiendo la eficiencia? Y verifica si el feature flag del endpoint esta on o off en produccion', time: 'Mie 3 Jun 15:05', type: 'dm', actionable: true },
+  { from: 'Jaime Gomez (DM)', text: 'Juan hola! como vas? — saludo previo a la reunion Entrega de pruebas bot de triage de las 15:30', time: 'Mie 3 Jun 15:05', type: 'dm', actionable: false },
   { from: 'Elias Rivera (DM)', text: 'En Assembled se puede colgar trigger de entry issue L1 para order status? Quiere mapear "estado de la orden" desde Active and delivered orders — pide path del entry issue para configurarlo', time: 'Mie 3 Jun 12:46', type: 'dm', actionable: true },
-  { from: 'Esbeydi Reynoso (DM)', text: 'No hay entry issue puntual para order status — el 50% de contactos entra por: Active and delivered orders, Suspensions & Technical Support, Help from agent, Active orders', time: 'Mie 3 Jun 12:41', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez (DM)', text: 'Perfecto seguimos en esa meet — quedaron de revisar metricas del bot y entry issues activos de Food Live (cola encolada esta manana)', time: 'Mie 3 Jun 11:55', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (DM)', text: 'El artefacto de Claude que usas para Assembled se puede exportar a MD? — Juan Pablo le compartio el link del chat de capacitacion de Claude', time: 'Mie 3 Jun 11:04', type: 'dm', actionable: false },
   { from: 'Maria Fernanda Granada (DM)', text: 'Para saber cuantos merchants atendio el bot: AI true inflow total vs agent inflow. Esta en Automations Evolution', time: 'Mie 3 Jun 10:43', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Estas usando el endpoint de Dev en vez de Produccion — haz el cambio y deberia funcionar. (bug 404 API corregido)', time: 'Mie 3 Jun 09:41', type: 'dm', actionable: false },
   { from: 'Juan Restrepo (DM)', text: 'Recibi los nuevos endpoints, los voy a usar en el flujo — quedo pendiente de tu GO para proceder con la integracion en tiendas', time: 'Mar 2 Jun 16:07', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:00', '16:30-18:00'] },
   { day: 'Mar', blocks: ['8:00-11:00', '11:15-13:00', '14:00-15:30', '16:00-17:00'] },
-  { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
