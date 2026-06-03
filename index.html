@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mie 3 · Actualizado auto 11:06</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mie 3 · Actualizado auto 13:05</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1474,7 +1474,7 @@ const EVENTS = {
     { time:'13:00-13:45', title:'Donde esta mi RT?', attendees:10, org:'matias.kramer@rappi.com', type:'team', note:'Revision de solucion al motivo #1 de Merchants a soporte — rediseno arquitectura soporte Merchants y flujos Turbo' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas — estado bots Live y Suspensiones al 60%, plan escalar al 100%, proximos pasos' },
-    { time:'17:00-17:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades semana' }
+    { time:'17:15-17:45', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades semana' }
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo' },
@@ -1495,13 +1495,17 @@ const EVENTS = {
 const NOTES = [
   {
     id:61, title:'CX Weekly Business Review', date:'3 Jun',
-    summary:'Revision estrategica de metricas de servicio y alineacion de criterios operativos para optimizar la gestion de pedidos. Reporte optimizado excluyendo categorias minoristas no alimentarias — se mantiene objetivo 80% SLA. Analisis operativo revela imprecisiones en el registro de ordenes listas; se busca consolidar gestion de solicitudes para evitar repeticiones. Asignacion de Rapitenderos requiere 30 minutos de espera y contacto comercial previo. Persiste discrepancia entre asignacion teorica y presencia del repartidor.',
-    sections:['Informe de estrategia comercial','Analisis de asignacion operativa','Criterios para asignacion de Rapitenderos'],
+    summary:'Se evaluo la automatizacion de correos y la congestion operativa para proteger el nivel de servicio. Chat enfrenta congestion por casos duplicados y aumento de contactos — limita capacidad para resolver el atraso en correos. Se aprobo despliegue de automatizacion al 60% para emails para mitigar riesgos. Prioridad absoluta: proteger al usuario evitando lanzamientos prematuros. Contrato SPR vence el 19 de junio.',
+    sections:['Desafios en soporte tecnico (congestion chat)','Automatizacion email 60% aprobada','Integraciones y contratos pendientes (SPR vence 19 jun)'],
     actions:[
-      { text:'Enviar datos restaurantes: compartir datos especificos de restaurantes y proporcionar informacion para actualizar el documento de estrategia', owner:'Elias Rivera', phase:'build', priority:'P0' },
-      { text:'Revisar documento estrategia Merchant: analizar tabla y grafico, corregir formato y dar retroalimentacion sobre el enfoque', owner:'Andres Diaz / Elias Rivera', phase:'build', priority:'P0' },
-      { text:'Actualizar analisis asignacion rapitenderos: incorporar nueva definicion solicitada por Matias Kramer', owner:'Andres Diaz / Elias Rivera', phase:'build', priority:'P0' },
-      { text:'Hablar con Matias Kramer sobre estado del analisis de asignacion y confirmar validez del trabajo previo', owner:'Eugenio La Rosa', phase:'build', priority:'P1' }
+      { text:'Humanizar bot: cambiar el nombre del bot por uno mas humano y empatico e iterar entre varios nombres acogedores para el bot de Live/Merchants', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Implementar Order Status en bot Live: implementar flujo de estado de la orden para mitigar volumen de contactos y filtrar consultas antes de pasar a agentes', owner:'Elias Rivera / Andres De Las Casas', phase:'build', priority:'P0' },
+      { text:'Finalizar pruebas flujos de correo: asegurar funcionamiento antes de manana para despliegue 60% automatizacion emails', owner:'Meiker Munera / Andres Cobos', phase:'build', priority:'P0' },
+      { text:'Revisar 100% interacciones de correo durante el viernes para ajustar mensajes y configurar Assemble', owner:'El grupo', phase:'build', priority:'P0' },
+      { text:'Modificar formulario de reclamaciones para habilitar flujo del libro de reclamaciones en la automatizacion', owner:'Andres De Las Casas', phase:'build', priority:'P1' },
+      { text:'Renovar contrato SPR: definir extension y negociar terminos antes del 19 de junio', owner:'Eugenio La Rosa', phase:'build', priority:'P0' },
+      { text:'Implementar actualizaciones bots promociones y productos esta semana para reducir flujo contactos en chat', owner:'Maria Granada', phase:'build', priority:'P0' },
+      { text:'Migrar automatizaciones a Connect: confirmar cuales deben migrarse antes de retirar licencias de Customer', owner:'Natalia Intencipa / Andres Diaz / Juan Diego Gil', phase:'build', priority:'P1' }
     ]
   },
   {
@@ -1761,7 +1765,10 @@ const DEFAULT_TASKS = [
   { id:'t433', text:'Aclarar con Stephania entry issues conectados al bot — actualmente solo RT via %Food_Live%. Evaluar si agregar otros entry issues para desencolar la cola de Food Live (accion urgente, cola encolada esta manana Mie 3)', phase:'build', priority:'P0', source:'Stephania Gonzalez DM Mie 3 Jun 09:00', day:'wed', completed:false },
   { id:'t434', text:'Responder a Elias Rivera sobre exportar el artefacto de Claude / Assembled a un MD o formato compartible — lo pregunto por DM a las 11:04', phase:'build', priority:'P1', source:'Elias Rivera DM Mie 3 Jun 11:04', day:'wed', completed:false },
   { id:'t435', text:'Enviar metricas del bot a Stephania Gonzalez — quedo pendiente de manana; metricas de casos atendidos por el bot Food Live hoy y entry issues activos', phase:'metrics', priority:'P0', source:'Stephania Gonzalez DM Mie 3 Jun 09:20', day:'wed', completed:false },
-  { id:'t436', text:'Validar con Maria Fernanda Granada la metrica de merchants atendidos por el bot — formula: AI true inflow total vs agent inflow en Automations Evolution (segun Maf)', phase:'metrics', priority:'P1', source:'Maria Granada DM Mie 3 Jun 10:43', day:'wed', completed:false }
+  { id:'t436', text:'Validar con Maria Fernanda Granada la metrica de merchants atendidos por el bot — formula: AI true inflow total vs agent inflow en Automations Evolution (segun Maf)', phase:'metrics', priority:'P1', source:'Maria Granada DM Mie 3 Jun 10:43', day:'wed', completed:false },
+  { id:'t437', text:'Humanizar bot: cambiar el nombre del bot por uno mas humano y empatico — iterar entre varios nombres acogedores para el bot de Live/Merchants. Accion directa asignada a Juan Pablo en CX Weekly final.', phase:'build', priority:'P1', source:'CX Weekly Business Review Mie 3 Jun 11:58', day:'wed', completed:false },
+  { id:'t438', text:'Coordinar con Elias Rivera implementacion de Order Status en bot Live — evaluar si se puede colgar trigger de entry issue L1 en Assembled para "estado de la orden". Elias pregunto el path por DM. Tambien accion de CX Weekly: Elias + Andres De Las Casas implementan el flujo.', phase:'build', priority:'P0', source:'CX Weekly 11:58 + Elias Rivera DM Mie 3 Jun 12:46', day:'wed', completed:false },
+  { id:'t439', text:'Validar que pruebas de flujos de correo esten listas esta tarde — Meiker y Cobos tienen como deadline antes de manana para el despliegue 60% de automatizacion de emails', phase:'build', priority:'P0', source:'CX Weekly Business Review Mie 3 Jun 11:58', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1796,17 +1803,22 @@ const DEFAULT_DELEGATED = [
   { id:'d414', text:'Analizar pedidos sin repartidor: segmentar datos de contactos de soporte para diferenciar entre ordenes sin asignacion y ordenes con asignacion retrasada', owner:'Elias Rivera', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
   { id:'d415', text:'Agendar reunion seguimiento con dueno del algoritmo de asignacion para revisar analisis y definir proximos pasos sobre el problema RT', owner:'Matias Kramer', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
   { id:'d416', text:'Enviar datos especificos de restaurantes y proporcionar informacion necesaria para actualizar el documento de estrategia Merchant', owner:'Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d417', text:'Revisar tabla y grafico de la estrategia Merchant, corregir formato y proporcionar retroalimentacion sobre el enfoque — tambien actualizar analisis de asignacion con nueva definicion de Matias', owner:'Andres Diaz / Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' }
+  { id:'d417', text:'Revisar tabla y grafico de la estrategia Merchant, corregir formato y proporcionar retroalimentacion sobre el enfoque — tambien actualizar analisis de asignacion con nueva definicion de Matias', owner:'Andres Diaz / Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d418', text:'Finalizar pruebas de flujos de correo electronico antes de manana — asegurar funcionamiento para el despliegue 60% automatizacion emails', owner:'Meiker Munera / Andres Cobos', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' },
+  { id:'d419', text:'Implementar actualizaciones de bots de promociones y productos incorrectos esta semana para reducir flujo de contactos en el chat de soporte', owner:'Maria Granada', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' },
+  { id:'d420', text:'Modificar formulario de reclamaciones para habilitar el flujo del libro de reclamaciones en la automatizacion', owner:'Andres De Las Casas', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' },
+  { id:'d421', text:'Renovar contrato SPR: definir extension y negociar terminos antes del 19 de junio. Eugenio debe hablar con Matias Kramer para confirmar validez del trabajo previo.', owner:'Eugenio La Rosa', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' },
+  { id:'d422', text:'Migrar automatizaciones a Connect — confirmar cuales deben migrarse antes de retirar licencias de Customer para no interrumpir procesos', owner:'Natalia Intencipa / Andres Diaz / Juan Diego Gil', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Elias Rivera (DM)', text: 'Pregunta: el artefacto de claude que utilizas para assembled se puede exportar en un MD o algo asi para poder compartirlo? — pendiente de respuesta', time: 'Mie 3 Jun 11:04', type: 'dm', actionable: true },
-  { from: 'Maria Fernanda Granada (DM)', text: 'Para saber cuantos merchants atendio el bot: todo lo que sea AI true, restas el inflow total vs agent inflow. Esta en Automations Evolution', time: 'Mie 3 Jun 10:43', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Estas usando el endpoint de Dev en vez de el de Produccion — haz el cambio y deberia funcionar. (bug del API 404 corregido)', time: 'Mie 3 Jun 09:41', type: 'dm', actionable: false },
-  { from: 'Stephania Gonzalez (DM)', text: 'Quedo pendiente — esperando metricas del bot y estadisticas de casos atendidos/gestionados por el bot Food Live', time: 'Mie 3 Jun 09:20', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'Que entry issues tienen conectados actualmente? Solo RT como entry issue? Siguen encolados — cola Food Live encolada esta manana', time: 'Mie 3 Jun 09:07', type: 'dm', actionable: true },
-  { from: 'Juan Restrepo (DM)', text: 'Recibi los nuevos endpoints, los voy a usar en el flujo — quedo pendiente de tu GO para proceder con la integracion en tiendas', time: 'Mar 2 Jun 16:07', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Debemos implementar dos nuevos endpoints para validar el estado del reembolso — los estoy alistando, te taggeo cuando esten listos', time: 'Mar 2 Jun 15:50', type: 'dm', actionable: true }
+  { from: 'Elias Rivera (DM)', text: 'En Assembled se puede colgar trigger de entry issue L1 para order status? Quiere mapear "estado de la orden" desde Active and delivered orders — pide path del entry issue para configurarlo', time: 'Mie 3 Jun 12:46', type: 'dm', actionable: true },
+  { from: 'Esbeydi Reynoso (DM)', text: 'No hay entry issue puntual para order status — el 50% de contactos entra por: Active and delivered orders, Suspensions & Technical Support, Help from agent, Active orders', time: 'Mie 3 Jun 12:41', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez (DM)', text: 'Perfecto seguimos en esa meet — quedaron de revisar metricas del bot y entry issues activos de Food Live (cola encolada esta manana)', time: 'Mie 3 Jun 11:55', type: 'dm', actionable: true },
+  { from: 'Elias Rivera (DM)', text: 'El artefacto de Claude que usas para Assembled se puede exportar a MD? — Juan Pablo le compartio el link del chat de capacitacion de Claude', time: 'Mie 3 Jun 11:04', type: 'dm', actionable: false },
+  { from: 'Maria Fernanda Granada (DM)', text: 'Para saber cuantos merchants atendio el bot: AI true inflow total vs agent inflow. Esta en Automations Evolution', time: 'Mie 3 Jun 10:43', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Estas usando el endpoint de Dev en vez de Produccion — haz el cambio y deberia funcionar. (bug 404 API corregido)', time: 'Mie 3 Jun 09:41', type: 'dm', actionable: false },
+  { from: 'Juan Restrepo (DM)', text: 'Recibi los nuevos endpoints, los voy a usar en el flujo — quedo pendiente de tu GO para proceder con la integracion en tiendas', time: 'Mar 2 Jun 16:07', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
