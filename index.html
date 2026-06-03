@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mie 3 · Actualizado auto 15:06</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Mie 3 · Actualizado auto 17:08</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1495,6 +1495,16 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:62, title:'Entrega de pruebas bot de triage', date:'3 Jun',
+    summary:'La reunion definio el alcance del bot de clasificacion para categorizar 6 tipos de interacciones y establecio los parametros para validar la precision operativa. El entorno de pruebas se habilito en plataforma Connect para simular interacciones reales. Se identifico superposicion de datos entre categorias que requiere validacion cuidadosa. La metodologia integra registros externos para compensar limitaciones de reportes automatizados y se detecto la necesidad de perfiles de prueba diversos.',
+    sections:['Objetivo bot triage (6 categorias de interaccion)','Configuracion pruebas tecnicas en Connect','Metodologia y seguimiento con registros externos'],
+    actions:[
+      { text:'Probar Bot de Triaje: realizar pruebas exhaustivas para validar precision al clasificar las 6 categorias asignadas', owner:'Jaime Gomez', phase:'build', priority:'P1' },
+      { text:'Documentar Pruebas: registrar en Excel la trazabilidad de pruebas incluyendo casos con clasificacion correcta y respuestas inesperadas', owner:'Jaime Gomez', phase:'build', priority:'P1' },
+      { text:'Enviar usuarios de prueba adicionales a Jaime Gomez para continuar con la validacion del bot de triage', owner:'Juan Pablo Zapata (ext)', phase:'build', priority:'P1' }
+    ]
+  },
+  {
     id:61, title:'CX Weekly Business Review', date:'3 Jun',
     summary:'Se evaluo la automatizacion de correos y la congestion operativa para proteger el nivel de servicio. Chat enfrenta congestion por casos duplicados y aumento de contactos — limita capacidad para resolver el atraso en correos. Se aprobo despliegue de automatizacion al 60% para emails para mitigar riesgos. Prioridad absoluta: proteger al usuario evitando lanzamientos prematuros. Contrato SPR vence el 19 de junio.',
     sections:['Desafios en soporte tecnico (congestion chat)','Automatizacion email 60% aprobada','Integraciones y contratos pendientes (SPR vence 19 jun)'],
@@ -1771,7 +1781,9 @@ const DEFAULT_TASKS = [
   { id:'t438', text:'Coordinar con Elias Rivera implementacion de Order Status en bot Live — evaluar si se puede colgar trigger de entry issue L1 en Assembled para "estado de la orden". Elias pregunto el path por DM. Tambien accion de CX Weekly: Elias + Andres De Las Casas implementan el flujo.', phase:'build', priority:'P0', source:'CX Weekly 11:58 + Elias Rivera DM Mie 3 Jun 12:46', day:'wed', completed:false },
   { id:'t439', text:'Validar que pruebas de flujos de correo esten listas esta tarde — Meiker y Cobos tienen como deadline antes de manana para el despliegue 60% de automatizacion de emails', phase:'build', priority:'P0', source:'CX Weekly Business Review Mie 3 Jun 11:58', day:'wed', completed:false },
   { id:'t440', text:'Investigar caida endpoint PROD_compensation_log_succesfull con Jose Ceron — endpoint devuelve 204 (no content) en Prod pero tiene datos. Evaluar si usar transactions-detail como alternativa o reportar a Tech', phase:'build', priority:'P0', source:'Jose Ceron DM Mie 3 Jun 15:05', day:'wed', completed:false },
-  { id:'t441', text:'Confirmar GO definitivo a Juan Restrepo para proceder con integracion de tiendas — ya recibio y aprobo los endpoints. Definir como mediremos la eficiencia del flujo una vez lanzado', phase:'build', priority:'P0', source:'Juan Restrepo DM Mie 3 Jun 15:05', day:'wed', completed:false }
+  { id:'t441', text:'Confirmar GO definitivo a Juan Restrepo para proceder con integracion de tiendas — ya recibio y aprobo los endpoints. Definir como mediremos la eficiencia del flujo una vez lanzado', phase:'build', priority:'P0', source:'Juan Restrepo DM Mie 3 Jun 15:05', day:'wed', completed:false },
+  { id:'t442', text:'Enviar a Nicolas Bejarano datos de Snowflake sobre bot Food Live: cancelaciones crsan_product_not_available desde 26 mayo — cantidad de cancelaciones agente vs bot por dia, GMV cancelado y % del inflow total. Desglosar por dia y pais si es posible.', phase:'metrics', priority:'P0', source:'Nicolas Bejarano DM Mie 3 Jun 17:05', day:'wed', completed:false },
+  { id:'t443', text:'Revisar con Camilo Esquivel el microservicio de Redash como alternativa al API key directo — estima ~20 casos al dia en el flujo de integraciones. Confirmar si el microservicio es suficiente para el volumen proyectado.', phase:'build', priority:'P1', source:'Camilo Esquivel DM Mie 3 Jun 16:51', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1811,17 +1823,19 @@ const DEFAULT_DELEGATED = [
   { id:'d419', text:'Implementar actualizaciones de bots de promociones y productos incorrectos esta semana para reducir flujo de contactos en el chat de soporte', owner:'Maria Granada', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' },
   { id:'d420', text:'Modificar formulario de reclamaciones para habilitar el flujo del libro de reclamaciones en la automatizacion', owner:'Andres De Las Casas', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' },
   { id:'d421', text:'Renovar contrato SPR: definir extension y negociar terminos antes del 19 de junio. Eugenio debe hablar con Matias Kramer para confirmar validez del trabajo previo.', owner:'Eugenio La Rosa', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' },
-  { id:'d422', text:'Migrar automatizaciones a Connect — confirmar cuales deben migrarse antes de retirar licencias de Customer para no interrumpir procesos', owner:'Natalia Intencipa / Andres Diaz / Juan Diego Gil', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' }
+  { id:'d422', text:'Migrar automatizaciones a Connect — confirmar cuales deben migrarse antes de retirar licencias de Customer para no interrumpir procesos', owner:'Natalia Intencipa / Andres Diaz / Juan Diego Gil', source:'CX Weekly Business Review Mie 3 Jun', status:'pendiente' },
+  { id:'d423', text:'Probar Bot de Triaje: realizar pruebas exhaustivas para validar precision al clasificar las 6 categorias asignadas en la plataforma Connect', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
+  { id:'d424', text:'Documentar Pruebas del bot de triage: registrar en Excel la trazabilidad incluyendo casos con clasificacion correcta y respuestas inesperadas', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Jose Ceron (DM)', text: 'Assemble caido — endpoint PROD_compensation_log_succesfull no trae data en Prod. Log 204 no content (no error, pero no hay info en BD). Va a tocar usar endpoint transactions-detail como alternativa', time: 'Mie 3 Jun 15:05', type: 'dm', actionable: true },
-  { from: 'Juan Restrepo (DM)', text: 'Por mi perfecto iteremos! — confirmo GO para la integracion. Pregunta: como vamos midiendo la eficiencia? Y verifica si el feature flag del endpoint esta on o off en produccion', time: 'Mie 3 Jun 15:05', type: 'dm', actionable: true },
-  { from: 'Jaime Gomez (DM)', text: 'Juan hola! como vas? — saludo previo a la reunion Entrega de pruebas bot de triage de las 15:30', time: 'Mie 3 Jun 15:05', type: 'dm', actionable: false },
-  { from: 'Elias Rivera (DM)', text: 'En Assembled se puede colgar trigger de entry issue L1 para order status? Quiere mapear "estado de la orden" desde Active and delivered orders — pide path del entry issue para configurarlo', time: 'Mie 3 Jun 12:46', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'Perfecto seguimos en esa meet — quedaron de revisar metricas del bot y entry issues activos de Food Live (cola encolada esta manana)', time: 'Mie 3 Jun 11:55', type: 'dm', actionable: true },
-  { from: 'Maria Fernanda Granada (DM)', text: 'Para saber cuantos merchants atendio el bot: AI true inflow total vs agent inflow. Esta en Automations Evolution', time: 'Mie 3 Jun 10:43', type: 'dm', actionable: true },
-  { from: 'Juan Restrepo (DM)', text: 'Recibi los nuevos endpoints, los voy a usar en el flujo — quedo pendiente de tu GO para proceder con la integracion en tiendas', time: 'Mar 2 Jun 16:07', type: 'dm', actionable: true }
+  { from: 'Nicolas Bejarano (DM)', text: 'Preguntas sobre stat sig y datos de Snowflake del bot Food Live — cancels con reason crsan_product_not_available desde 26 mayo. Quiere cantidad de cancelaciones (agente vs bot), GMV cancelado y % del inflow total. Desglosado por dia y pais.', time: 'Mie 3 Jun 17:05', type: 'dm', actionable: true },
+  { from: 'Juan Restrepo (DM)', text: 'tremendooo gracicas!! — confirmacion final y visto bueno para la integracion de tiendas con los endpoints aprobados por Federico Weinstein', time: 'Mie 3 Jun 17:01', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: 'No hay API key de Redash disponible para consumir desde endpoint — estan usando microservicio propio. Estima ~20 casos al dia para el flujo de integraciones', time: 'Mie 3 Jun 16:51', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: 'Buenisimoooo / Gracias — reacciono al visto bueno de Juan Restrepo para el flujo de integraciones de tiendas', time: 'Mie 3 Jun 15:20', type: 'dm', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'Assemble caido — endpoint PROD_compensation_log_succesfull devuelve 204 no content en Prod. Evaluar transactions-detail como alternativa para el flujo de compensaciones', time: 'Mie 3 Jun 15:05', type: 'dm', actionable: true },
+  { from: 'Juan Restrepo (DM)', text: 'Por mi perfecto iteremos! — confirmo GO para la integracion. Como vamos midiendo la eficiencia? Verifica si feature flag del endpoint esta on o off en produccion', time: 'Mie 3 Jun 15:05', type: 'dm', actionable: true },
+  { from: 'Elias Rivera (DM)', text: 'En Assembled se puede colgar trigger de entry issue L1 para order status? Quiere mapear estado de la orden desde Active and delivered orders — pide path del entry issue', time: 'Mie 3 Jun 12:46', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
