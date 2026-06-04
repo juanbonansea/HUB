@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Jue 4 · Actualizado auto 07:08</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Jue 4 · Actualizado auto 09:06</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1788,12 +1788,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Andres Diaz (DM)', text: 'Cola del bot no baja en concurrencia 3 y hay 100 casos mas en cola — propone armar el flujo de order status juntos hoy (Jue 4). Tambien: quien asume el costo del incremento de ganancia del RT para match mas rapido, Rappi o el aliado?', time: 'Mie 3 Jun 17:30-18:11', type: 'dm', actionable: true },
-  { from: 'Nicolas Bejarano (DM)', text: 'Preguntas sobre stat sig y datos de Snowflake del bot Food Live — cancels con reason crsan_product_not_available desde 26 mayo. Quiere cantidad de cancelaciones (agente vs bot), GMV cancelado y % del inflow total. Tambien: si no hay grupo control, no puedes medir la eficiencia del bot.', time: 'Mie 3 Jun 17:02-17:09', type: 'dm', actionable: true },
-  { from: 'Juan Restrepo (DM)', text: 'tremendooo gracicas!! — confirmacion final y visto bueno para la integracion de tiendas con los endpoints aprobados por Federico Weinstein', time: 'Mie 3 Jun 17:01', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'No hay API key de Redash disponible — usan microservicio propio. Estima ~20 casos al dia para el flujo de integraciones. Juan confirmo que el microservicio tiene Redash detras.', time: 'Mie 3 Jun 16:24-16:52', type: 'dm', actionable: true },
-  { from: 'Jose Ceron (DM)', text: 'Endpoint PROD_compensation_log_succesfull devuelve 204 no content en Prod — evaluar transactions-detail como alternativa para el flujo de compensaciones', time: 'Mie 3 Jun 15:57', type: 'dm', actionable: true },
-  { from: 'Juan Restrepo (DM)', text: 'Por mi perfecto iteremos! — confirmo GO para la integracion. Como vamos midiendo la eficiencia? Verifica si feature flag del endpoint esta on o off en produccion.', time: 'Mie 3 Jun 15:05', type: 'dm', actionable: true }
+  { from: 'Maria Granada (Group DM)', text: 'Pregunta a Juan Pablo: Suspensiones pudimos dejarlo al 70% ayer? Y AI Bot problems with order - I received different order: ya estamos en todos los paises?', time: 'Jue 4 Jun 08:56', type: 'dm', actionable: true },
+  { from: 'Susana Paniagua (Group DM)', text: 'AI Bot Phase II Data update Vehicle ya estamos al 30%? Hay 2 errores — 1 ya solucionado, el otro es de permisos en la API, Jose lo esta revisando (push hecho). Bot de fotos de vehiculo OK.', time: 'Jue 4 Jun 08:59', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Comparte endpoints adelantados. Hoy no trabaja — dia compensatorio por elecciones y parcial final. Endpoints disponibles para revision.', time: 'Jue 4 Jun 07:22', type: 'dm', actionable: true },
+  { from: 'Andres Diaz (DM)', text: 'Cola del bot no baja en concurrencia 3 y hay 100 casos mas en cola — propone armar el flujo de order status juntos hoy (Jue 4). Tambien: quien asume el costo del incremento de ganancia del RT, Rappi o el aliado?', time: 'Mie 3 Jun 17:30-18:11', type: 'dm', actionable: true },
+  { from: 'Nicolas Bejarano (DM)', text: 'Datos Snowflake bot Food Live: cancels crsan_product_not_available desde 26 mayo — cantidad agente vs bot, GMV cancelado, % inflow. Sin grupo control no se puede medir eficiencia del bot.', time: 'Mie 3 Jun 17:02-17:09', type: 'dm', actionable: true },
+  { from: 'Juan Restrepo (DM)', text: 'Confirmacion final GO para integracion de tiendas — endpoints aprobados por Federico Weinstein. Solicita verificar feature flag en produccion.', time: 'Mie 3 Jun 15:05-17:01', type: 'dm', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'Endpoint PROD_compensation_log_succesfull devuelve 204 no content en Prod — evaluar transactions-detail como alternativa para el flujo de compensaciones', time: 'Mie 3 Jun 15:57', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
