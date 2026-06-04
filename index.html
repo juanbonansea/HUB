@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Jue 4 · Actualizado auto 09:06</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Jue 4 · Actualizado auto 11:07</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1484,6 +1484,7 @@ const EVENTS = {
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio' },
     { time:'10:00-11:00', title:'Primeros Auxilios Psicologicos (manana)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion virtual SST Colombia — identificar senales de alerta emocional, tecnicas de escucha y acompanamiento' },
+    { time:'11:00-12:00', title:'Flujo Order Status', attendees:4, org:'elias.rivera@rappi.com', type:'team', note:'Mapeo flujo Order Status con Elias Rivera, Andres Diaz y Fabi Diaz — implementar flujo estado de la orden en bot Live para mitigar volumen de contactos y filtrar consultas antes de pasar a agentes' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'15:00-16:00', title:'Primeros Auxilios Psicologicos (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion SST — misma capacitacion Primeros Auxilios Psicologicos, horario tarde' }
   ],
@@ -1788,20 +1789,20 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Maria Granada (Group DM)', text: 'Pregunta a Juan Pablo: Suspensiones pudimos dejarlo al 70% ayer? Y AI Bot problems with order - I received different order: ya estamos en todos los paises?', time: 'Jue 4 Jun 08:56', type: 'dm', actionable: true },
-  { from: 'Susana Paniagua (Group DM)', text: 'AI Bot Phase II Data update Vehicle ya estamos al 30%? Hay 2 errores — 1 ya solucionado, el otro es de permisos en la API, Jose lo esta revisando (push hecho). Bot de fotos de vehiculo OK.', time: 'Jue 4 Jun 08:59', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Comparte endpoints adelantados. Hoy no trabaja — dia compensatorio por elecciones y parcial final. Endpoints disponibles para revision.', time: 'Jue 4 Jun 07:22', type: 'dm', actionable: true },
-  { from: 'Andres Diaz (DM)', text: 'Cola del bot no baja en concurrencia 3 y hay 100 casos mas en cola — propone armar el flujo de order status juntos hoy (Jue 4). Tambien: quien asume el costo del incremento de ganancia del RT, Rappi o el aliado?', time: 'Mie 3 Jun 17:30-18:11', type: 'dm', actionable: true },
-  { from: 'Nicolas Bejarano (DM)', text: 'Datos Snowflake bot Food Live: cancels crsan_product_not_available desde 26 mayo — cantidad agente vs bot, GMV cancelado, % inflow. Sin grupo control no se puede medir eficiencia del bot.', time: 'Mie 3 Jun 17:02-17:09', type: 'dm', actionable: true },
-  { from: 'Juan Restrepo (DM)', text: 'Confirmacion final GO para integracion de tiendas — endpoints aprobados por Federico Weinstein. Solicita verificar feature flag en produccion.', time: 'Mie 3 Jun 15:05-17:01', type: 'dm', actionable: false },
-  { from: 'Jose Ceron (DM)', text: 'Endpoint PROD_compensation_log_succesfull devuelve 204 no content en Prod — evaluar transactions-detail como alternativa para el flujo de compensaciones', time: 'Mie 3 Jun 15:57', type: 'dm', actionable: true }
+  { from: 'Elias Rivera (Group DM)', text: 'Buen dia! Estoy atento para mapear el flujo de order status — a que hora podemos verlo? (Juan Pablo: veamonos a las 11)', time: 'Jue 4 Jun 09:59', type: 'dm', actionable: true },
+  { from: 'Maria Granada (Group DM)', text: 'Pregunta a Juan Pablo: Suspensiones al 70% ayer? AI Bot problems with order (different order): ya estamos en todos los paises? — Refund TC on hold por ahora, alineando con pagos.', time: 'Jue 4 Jun 10:03-10:33', type: 'dm', actionable: true },
+  { from: 'Juan Pablo (Group DM)', text: 'Suspensiones al 70% con fix pequeno pendiente. PROD_transactions endpoint sigue molestando ocasionalmente — reportado a Jose. Cuando se estabilice dejo al 30% y miro DSAT.', time: 'Jue 4 Jun 10:15-10:30', type: 'dm', actionable: false },
+  { from: 'Jose Ceron (DM)', text: 'Indicame el pais y OID para revisar el caso. Columna PROD_transactions_detail_order_transaction. Puedes call para revisar caso live?', time: 'Jue 4 Jun 10:07-11:03', type: 'dm', actionable: true },
+  { from: 'Susana Paniagua (Group DM)', text: 'AI Bot Phase II Data update Vehicle: 2 errores — 1 ya solucionado, el otro es de permisos en API, Jose lo esta revisando (push hecho). Fotos vehiculo OK. Analisis IA Bot Card problems AR en progreso.', time: 'Jue 4 Jun 08:59', type: 'dm', actionable: true },
+  { from: 'Andres Diaz (Group DM)', text: 'De una — listo para mapear flujo order status a las 11.', time: 'Jue 4 Jun 10:59', type: 'dm', actionable: false },
+  { from: 'Nicolas Bejarano (DM)', text: 'Datos Snowflake bot Food Live: cancels crsan_product_not_available desde 26 mayo — cantidad agente vs bot, GMV cancelado, % inflow. Sin grupo control no se puede medir eficiencia del bot.', time: 'Mie 3 Jun 17:02', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:00', '16:30-18:00'] },
   { day: 'Mar', blocks: ['8:00-11:00', '11:15-13:00', '14:00-15:30', '16:00-17:15'] },
   { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-15:30', '16:00-18:00'] },
-  { day: 'Jue', blocks: ['9:45-11:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
+  { day: 'Jue', blocks: ['9:45-11:00', '12:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
 
