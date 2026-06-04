@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Jue 4 · Actualizado auto 15:07</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Jue 4 · Actualizado auto 19:45</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1761,7 +1761,8 @@ const DEFAULT_TASKS = [
   { id:'t515', text:'Investigar por que hay tantos tickets sin exit rule en bot merchants — Isabela pide entender la causa raiz. Confirmar si son casos de disputas de pagos o hay otro origen.', phase:'metrics', priority:'P1', source:'Isabela Gomez DM Jue 4 Jun 11:58', day:'fri', completed:false },
   { id:'t516', text:'Validar con Esbeydi Reynoso por que el bot de aliados no muestra opcion de estado de la orden — confirmar si el flujo Order Status esta correctamente integrado en el arbol de decision de aliados', phase:'build', priority:'P1', source:'Esbeydi Reynoso DM Jue 4 Jun 12:37', day:'fri', completed:false },
   { id:'t517', text:'Preparar datos de contact rate y encolamiento para Checkpoint con Eugenio La Rosa (17:00 hoy) — traer numeros actuales de automatizacion y propuesta sobre contact rate', phase:'metrics', priority:'P0', source:'Calendar Jue 4 Jun 17:00', day:'thu', completed:false },
-  { id:'t518', text:'Responder a Maria Granada sobre entry issues para agregar en food_live — proponer cuales entry issues podemos incluir rapido con activos y ordenes entregadas (active and delivered orders)', phase:'build', priority:'P1', source:'Maria Granada DM Jue 4 Jun', day:'thu', completed:false }
+  { id:'t518', text:'Responder a Maria Granada sobre entry issues para agregar en food_live — proponer cuales entry issues podemos incluir rapido con activos y ordenes entregadas (active and delivered orders)', phase:'build', priority:'P1', source:'Maria Granada DM Jue 4 Jun', day:'thu', completed:false },
+  { id:'t519', text:'Resolver desalineacion screenkeys food_live: varios entry issues aparecen en espanol cuando todos deberian estar en ingles y no hacen match con BI. Seleccionar solo los que son de live (partial/only_ai false). Compartir data granular a Mafe y a Tech cuando la pidan.', phase:'build', priority:'P0', source:'Maria Granada DM Jue 4 Jun 16:48', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1796,12 +1797,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Maria Granada (DM)', text: 'Cuales entry issues ves que podamos agregar con lo que ya tenemos en food_live? Y cuales crees que podamos agregar rapido para cubrir mas — veo varios de active and delivered orders.', time: 'Jue 4 Jun ~14:xx', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Screenkeys no hacen match con BI — varios entry issues aparecen en espanol cuando todos deberian ser en ingles. Tenemos que seleccionar solo los que son de live. Necesitamos la data granular de esos casos que seguro tech va a pedir.', time: 'Jue 4 Jun 16:48-16:50', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Cuales entry issues ves que podamos agregar con lo que ya tenemos en food_live? Descarga los casos de Snowflake para los entry issues — tiene que ser todo lo que sea partial/only_ai false de food live. Hay varios de active and delivered orders.', time: 'Jue 4 Jun 14:00-16:00', type: 'dm', actionable: true },
   { from: 'Isabela Gomez (DM)', text: 'Juann preguntica, en que estas de merchants? vemos algun quick win para poderlo lograr el impacto. Lo viste con tech? Y sabemos por que hay tantos tickets sin exit rule?', time: 'Jue 4 Jun 11:36-11:58', type: 'dm', actionable: true },
   { from: 'Isabela Gomez (DM)', text: 'Cuantos tickets son a la semana? si lo subes, cuando dices activar te refieres en que %? Igual el de ticket sin exit rule me causa demasiada curiosidad por que sucede.', time: 'Jue 4 Jun 13:00', type: 'dm', actionable: true },
   { from: 'Esbeydi Reynoso (DM)', text: 'Ya hice la prueba y mira que no da opcion de estado de la orden, solo salen estas opciones. Me hace sentido que quede en problemas de RT porque se contactan para saber por que la orden va demorada.', time: 'Jue 4 Jun 12:32-12:37', type: 'dm', actionable: true },
   { from: 'Elias Rivera (Group DM)', text: 'Nos avisas cuando quede para poder revisarlo? (order status flow)', time: 'Jue 4 Jun ~13:xx', type: 'dm', actionable: true },
-  { from: 'Juan Pablo (#cx-management-team)', text: 'Yo voy a integrar order status tanto en suspensiones como en food live_problems with rt, pero en definitiva hay que crear una rama que solo sea order status para que no se filtren a otros flujos — solo para atender order status y cancelaciones de orden.', time: 'Jue 4 Jun ~12:xx', type: 'channel', actionable: false },
   { from: 'Nicolas Bejarano (DM)', text: 'Datos Snowflake bot Food Live: cancels crsan_product_not_available desde 26 mayo — cantidad agente vs bot, GMV cancelado, % inflow. Sin grupo control no se puede medir eficiencia del bot.', time: 'Mie 3 Jun 17:02', type: 'dm', actionable: true }
 ];
 
