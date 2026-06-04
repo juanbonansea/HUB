@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Jue 4 · Actualizado auto 18:05</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Jue 4 · Actualizado auto 15:07</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1487,11 +1487,12 @@ const EVENTS = {
     { time:'11:00-12:00', title:'Flujo Order Status', attendees:4, org:'elias.rivera@rappi.com', type:'team', note:'Mapeo flujo Order Status con Elias Rivera, Andres Diaz y Fabi Diaz — implementar flujo estado de la orden en bot Live para mitigar volumen de contactos y filtrar consultas antes de pasar a agentes' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:30-15:30', title:'Revision endpoints orden diferente', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Revision de endpoints para flujo de orden diferente con Jose Ceron — validar alternativa PROD_transactions_detail y cubrir endpoint compensation log' },
-    { time:'15:00-16:00', title:'Primeros Auxilios Psicologicos (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion SST — misma capacitacion Primeros Auxilios Psicologicos, horario tarde' }
+    { time:'15:00-16:00', title:'Primeros Auxilios Psicologicos (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion SST — misma capacitacion Primeros Auxilios Psicologicos, horario tarde' },
+    { time:'17:00-17:30', title:'Checkpoint - Contact Rate / automatizaciones', attendees:7, org:'eugenio.larosa@rappi.com', type:'team', note:'Decisiones sobre contact rate y encolamiento actual — Eugenio La Rosa, Maria Granada, Josefina Polivanoff, Isabela Gomez, Andres Cobos, Mike' }
   ],
   fri: [
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' }
+    { time:'11:30-12:00', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' },
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ]
 };
 
@@ -1758,7 +1759,9 @@ const DEFAULT_TASKS = [
   { id:'t513', text:'Preparar estado actualizado para Weekly QA AI (Vie 14:00) — avances bots Food Live, Suspensiones, flujos integraciones y Order Status', phase:'build', priority:'P1', source:'Calendar Vie 5 Jun 14:00', day:'fri', completed:false },
   { id:'t514', text:'Definir % de activacion de Order Status en food live y suspensiones — cuanto cubrimos del 37% identificado? Responder a Isabela con volumetria de tickets por semana.', phase:'metrics', priority:'P0', source:'Isabela Gomez DM Jue 4 Jun 13:00', day:'thu', completed:false },
   { id:'t515', text:'Investigar por que hay tantos tickets sin exit rule en bot merchants — Isabela pide entender la causa raiz. Confirmar si son casos de disputas de pagos o hay otro origen.', phase:'metrics', priority:'P1', source:'Isabela Gomez DM Jue 4 Jun 11:58', day:'fri', completed:false },
-  { id:'t516', text:'Validar con Esbeydi Reynoso por que el bot de aliados no muestra opcion de estado de la orden — confirmar si el flujo Order Status esta correctamente integrado en el arbol de decision de aliados', phase:'build', priority:'P1', source:'Esbeydi Reynoso DM Jue 4 Jun 12:37', day:'fri', completed:false }
+  { id:'t516', text:'Validar con Esbeydi Reynoso por que el bot de aliados no muestra opcion de estado de la orden — confirmar si el flujo Order Status esta correctamente integrado en el arbol de decision de aliados', phase:'build', priority:'P1', source:'Esbeydi Reynoso DM Jue 4 Jun 12:37', day:'fri', completed:false },
+  { id:'t517', text:'Preparar datos de contact rate y encolamiento para Checkpoint con Eugenio La Rosa (17:00 hoy) — traer numeros actuales de automatizacion y propuesta sobre contact rate', phase:'metrics', priority:'P0', source:'Calendar Jue 4 Jun 17:00', day:'thu', completed:false },
+  { id:'t518', text:'Responder a Maria Granada sobre entry issues para agregar en food_live — proponer cuales entry issues podemos incluir rapido con activos y ordenes entregadas (active and delivered orders)', phase:'build', priority:'P1', source:'Maria Granada DM Jue 4 Jun', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1793,12 +1796,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada (DM)', text: 'Cuales entry issues ves que podamos agregar con lo que ya tenemos en food_live? Y cuales crees que podamos agregar rapido para cubrir mas — veo varios de active and delivered orders.', time: 'Jue 4 Jun ~14:xx', type: 'dm', actionable: true },
   { from: 'Isabela Gomez (DM)', text: 'Juann preguntica, en que estas de merchants? vemos algun quick win para poderlo lograr el impacto. Lo viste con tech? Y sabemos por que hay tantos tickets sin exit rule?', time: 'Jue 4 Jun 11:36-11:58', type: 'dm', actionable: true },
-  { from: 'Juan Pablo (DM a Isabela)', text: 'Integrando order status en flujo de merchant ya que muchos merchants estan entrando por ahi. Si lo activo en food live y en suspensiones cubrimos el 37%. Los tickets sin exit rule son casos de disputas de pagos, no tienen que ver con automatizacion.', time: 'Jue 4 Jun 11:44-13:00', type: 'dm', actionable: false },
-  { from: 'Isabela Gomez (DM)', text: 'Cuantos tickets son a la semana? si lo subes, cuando dices activar te refieres en que %? Igual el de ticket sin exit rule me causa demasiada curiosidad por que sucede.', time: 'Jue 4 Jun 13:00-13:00', type: 'dm', actionable: true },
+  { from: 'Isabela Gomez (DM)', text: 'Cuantos tickets son a la semana? si lo subes, cuando dices activar te refieres en que %? Igual el de ticket sin exit rule me causa demasiada curiosidad por que sucede.', time: 'Jue 4 Jun 13:00', type: 'dm', actionable: true },
   { from: 'Esbeydi Reynoso (DM)', text: 'Ya hice la prueba y mira que no da opcion de estado de la orden, solo salen estas opciones. Me hace sentido que quede en problemas de RT porque se contactan para saber por que la orden va demorada.', time: 'Jue 4 Jun 12:32-12:37', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (Group DM)', text: 'Vamos con eso, todo nos sirve ahora mismo — en relacion a order status, si lo activo en food live y suspensiones cubrimos el 37%.', time: 'Jue 4 Jun 12:35', type: 'dm', actionable: false },
-  { from: 'Elias Rivera (Group DM)', text: 'Buen dia! Estoy atento para mapear el flujo de order status — a que hora podemos verlo? (Juan Pablo: veamonos a las 11)', time: 'Jue 4 Jun 09:59', type: 'dm', actionable: false },
+  { from: 'Elias Rivera (Group DM)', text: 'Nos avisas cuando quede para poder revisarlo? (order status flow)', time: 'Jue 4 Jun ~13:xx', type: 'dm', actionable: true },
+  { from: 'Juan Pablo (#cx-management-team)', text: 'Yo voy a integrar order status tanto en suspensiones como en food live_problems with rt, pero en definitiva hay que crear una rama que solo sea order status para que no se filtren a otros flujos — solo para atender order status y cancelaciones de orden.', time: 'Jue 4 Jun ~12:xx', type: 'channel', actionable: false },
   { from: 'Nicolas Bejarano (DM)', text: 'Datos Snowflake bot Food Live: cancels crsan_product_not_available desde 26 mayo — cantidad agente vs bot, GMV cancelado, % inflow. Sin grupo control no se puede medir eficiencia del bot.', time: 'Mie 3 Jun 17:02', type: 'dm', actionable: true }
 ];
 
@@ -1806,7 +1809,7 @@ const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:00', '16:30-18:00'] },
   { day: 'Mar', blocks: ['8:00-11:00', '11:15-13:00', '14:00-15:30', '16:00-17:15'] },
   { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-15:30', '16:00-18:00'] },
-  { day: 'Jue', blocks: ['12:00-13:00', '16:00-18:00'] },
+  { day: 'Jue', blocks: ['12:00-13:00', '16:00-17:00', '17:30-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
 
