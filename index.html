@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Vie 5 · Actualizado auto 13:10</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Vie 5 · Actualizado auto 11:07</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1491,9 +1491,11 @@ const EVENTS = {
     { time:'17:00-17:30', title:'Checkpoint - Contact Rate / automatizaciones', attendees:7, org:'eugenio.larosa@rappi.com', type:'team', note:'Decisiones sobre contact rate y encolamiento actual — Eugenio La Rosa, Maria Granada, Josefina Polivanoff, Isabela Gomez, Andres Cobos, Mike' }
   ],
   fri: [
+    { time:'8:15-10:30', title:'Food Live (focus)', attendees:0, type:'break', note:'Bloque de trabajo enfocado en Food Live' },
     { time:'10:30-11:00', title:'Revision Food Live', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Revision urgente de problema critico en Food Live con Juan Camilo Esquivel — detectado Jue 4 Jun, prioridad maxima' },
-    { time:'11:30-12:00', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Review semanal calidad AI — Catalina Symonds, Jaime Gomez, Jessica Torres, Angela Osuna, Susana Paniagua, Guadalupe Martinez' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'14:00-14:30', title:'Entry issues - AI false', attendees:4, org:'m.granada@rappi.com', type:'team', note:'Revision de entry issues con AI false con Maria Granada, Cristian Parada, Juan Esquivel' },
+    { time:'14:30-16:30', title:'Dif Product fix (focus)', attendees:0, type:'break', note:'Bloque de trabajo enfocado en Dif Product fix' }
   ]
 };
 
@@ -1792,13 +1794,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Andres Diaz (DM)', text: 'como podemos probar en assemble que el endpoint si me esta trayendo la data — i need you jajajja [+ Google Meet link compartido]', time: 'Vie 5 Jun 11:04', type: 'dm', actionable: true },
+  { from: 'Isabela Gomez (DM)', text: 'ayudame que si es antes mejor — es que merchants esta en la inmunda', time: 'Vie 5 Jun 10:43', type: 'dm', actionable: true },
   { from: 'Maria Granada (DM)', text: 'Hola Juan! Me avisas que te dice Juanca de lo de las keys', time: 'Vie 5 Jun 09:00', type: 'dm', actionable: true },
   { from: 'Elias Rivera (DM)', text: 'Buenos dias!! ya paso conversaciones por IA y te confirmo — mapeando order status: quiero saber estado de la orden, como va el pedido, como van los tiempos, que ha pasado con la orden, en que va la orden', time: 'Vie 5 Jun 08:39', type: 'dm', actionable: true },
   { from: 'Juan Pablo → Camilo Esquivel (DM)', text: '[URGENTE] Hola Juan te cite para manana ya que tenemos un problema con food live y lo debemos ver ASAP es super prioritario', time: 'Jue 4 Jun 18:00', type: 'dm', actionable: true },
   { from: 'Jaime Gomez (#ai-automations)', text: 'Team - valide casos tras lanzamiento AI. Bot asume audiencia Merchant cuando es Users. Solicita OID al usuario aunque no lo conoce. IA escala con agente por compensaciones previas. Exposicion de NI en handoff y responde en chino en escenarios mismatch.', time: 'Jue 4 Jun 13:44', type: 'channel', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Screenkeys food_live no hacen match con BI — entry issues en espanol cuando todos deberian ser en ingles. Seleccionar solo los que son de live (partial/only_ai false). Pasarlo en tabla dinamica para Cris. Todo lo de pagos no deberia ir.', time: 'Jue 4 Jun 16:48-17:38', type: 'dm', actionable: true },
-  { from: 'jose.ceron (#ai-automations)', text: 'Confirmo que el endpoint PROD_transactions_detail_order_transaction ya nos brinda la informacion en PROD. Lo que paso ayer era que no habian salido con el release de payments — ahora si esta disponible.', time: 'Jue 4 Jun 09:38', type: 'channel', actionable: false },
-  { from: 'Cristian Parada (#ai-automations)', text: 'Juan hola buenos dias! Podrias confirmarnos si al final encendiste el statsig?', time: 'Mar 2 Jun 08:45', type: 'channel', actionable: true }
+  { from: 'Maria Granada (DM)', text: 'Screenkeys food_live no hacen match con BI — entry issues en espanol cuando todos deberian ser en ingles. Seleccionar solo los que son de live (partial/only_ai false). Pasarlo en tabla dinamica para Cris. Todo lo de pagos no deberia ir.', time: 'Jue 4 Jun 16:48', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
@@ -1806,7 +1808,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-11:00', '11:15-13:00', '14:00-15:30', '16:00-17:15'] },
   { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Jue', blocks: ['12:00-13:00', '16:00-17:00', '17:30-18:00'] },
-  { day: 'Vie', blocks: ['8:15-10:30', '12:00-13:00', '14:30-16:30'] }
+  { day: 'Vie', blocks: ['11:00-13:00', '16:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
