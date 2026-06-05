@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Vie 5 · Actualizado auto 14:55</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Vie 5 · Actualizado auto 17:00</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1746,8 +1746,9 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t613', text:'[URGENTE] Responder a Camilo Esquivel: ya tiene las keys de WhatsApp listas — pregunto "las ejecuto?" a las 14:17. Confirmar si debe ejecutar las screen keys de WhatsApp Food Live.', phase:'build', priority:'P0', source:'Camilo Esquivel DM Vie 5 Jun 14:17', day:'fri', completed:false },
-  { id:'t601', text:'[CRITICO] Revision Food Live con Camilo Esquivel (10:30): diagnosticar problema critico detectado ayer — revisar flujo, endpoints y configuracion Assemble para food_live', phase:'build', priority:'P0', source:'Juan Pablo DM Jue 4 Jun 18:00 + Calendar', day:'fri', completed:false },
+  { id:'t614', text:'[HOY] Monitorear Bot Food Live (PROD) post-despliegue: estar disponible por si algo no funciona o la operacion reporta issues. Isabela pidio que la operacion este atenta y JP disponible. Bot en PROD_AI Bot_Phase I_Triage_Food_Live.', phase:'build', priority:'P0', source:'Isabela Gomez DM Vie 5 Jun 15:53 + Update #cx-management-team 16:15', day:'fri', completed:false },
+  { id:'t615', text:'[HOY] Validar cancellation reason endpoint con Mafe: revisar codigo crsan_product_not_available y demas reason codes para el flujo de cancelaciones del bot. Mafe preocupada por cobertura de casos de cancelacion.', phase:'build', priority:'P0', source:'Maria Granada DM Vie 5 Jun 16:34', day:'fri', completed:false },
+  { id:'t601', text:'Bot Food Live desplegado en PROD (~50% store issues). Seguimiento: completar restante 50% store issues, verificar cobertura cancelaciones con reason codes correctos y habilitar Portal de Aliados con Juan Esquivel.', phase:'build', priority:'P0', source:'Update #cx-management-team Vie 5 Jun 16:15 + Camilo Esquivel DM', day:'fri', completed:false },
   { id:'t602', text:'Resolver screenkeys food_live: entry issues en espanol no hacen match con BI. Seleccionar solo los que son de live (partial/only_ai false) y compartir data granular a Mafe en tabla dinamica para que se la pase a Cris. Excluir todo lo de pagos.', phase:'build', priority:'P0', source:'Maria Granada DM Jue 4 Jun 16:48', day:'fri', completed:false },
   { id:'t603', text:'Revisar 100% interacciones de correo electronico durante el viernes para ajustar mensajes y configurar la herramienta Assemble — accion de grupo critica pre-despliegue 60% automatizacion.', phase:'build', priority:'P0', source:'CX Weekly Business Review 3 Jun', day:'fri', completed:false },
   { id:'t604', text:'Humanizar bot: cambiar nombre del bot de Live/Merchants por uno mas humano y empatico — iterar entre varios nombres acogedores. Accion directa asignada en CX Weekly Business Review.', phase:'build', priority:'P0', source:'CX Weekly Business Review 3 Jun', day:'fri', completed:false },
@@ -1793,12 +1794,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel (DM)', text: 'Juan. ya tengo las de whatsapp — las ejecuto? [RESPONDER: confirmar si debe ejecutar las screen keys de WhatsApp Food Live]', time: 'Vie 5 Jun 14:17', type: 'dm', actionable: true },
+  { from: 'Juan Pablo (#cx-management-team)', text: 'Update Bot Food Live (Merchant): RT issues 100% automatizado. Store issues ~50% (orden status + cancelaciones con doble confirmacion). User issues 100% (contacto cliente). Juan Esquivel habilita Portal de Aliados via WhatsApp. Workflow: PROD_AI Bot_Phase I_Triage_Food_Live.', time: 'Vie 5 Jun 16:15', type: 'channel', actionable: false },
+  { from: 'Maria Granada (DM)', text: 'no pero cancellation reason para el endpoint — solo me preocupa cancelaciones. crsan_product_not_available con estos codes [PENDIENTE: validar razon de cancelacion y endpoint con tech]', time: 'Vie 5 Jun 16:34', type: 'dm', actionable: true },
+  { from: 'Isabela Gomez (DM)', text: 'Notificaste en algun lado esto? para que la operacion este mega atenta y tu estes ahi por si algo no funciona o nos reportan algo. [BOT FOOD LIVE EN PROD]', time: 'Vie 5 Jun 15:53', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'no, ando haciendo una configuracion de la iniciativa de Mail que ahorita van a desplegar [Portal de Aliados en progreso]', time: 'Vie 5 Jun 15:59', type: 'dm', actionable: false },
   { from: 'Elias Rivera (DM)', text: 'Si, Rappi no le paga nada por la orden — cuando el aliado cancela por agua/luz/gas, tienda cerrada, sistema Rappi, producto agotado o cambio de direccion, ellos asumen el 100% del valor', time: 'Vie 5 Jun 13:00', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (DM)', text: 'Revisando y es posible que los estados sean diferentes — en el response me trae pending_review ademas de created, in_progress, in_store, delivered, cancelled, finalized', time: 'Vie 5 Jun 12:44', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'dale intentemos ver que podriamos agregar mas al bot hoy que pueda ser funcional — le estoy agregando order status, cancelaciones, numeros del cliente', time: 'Vie 5 Jun 12:26', type: 'dm', actionable: true },
   { from: 'Maria Granada (DM)', text: 'Hola Juan! cuadrado con tech para que todos los entry lleguen al flujo hoy — avisame que te dicen para darle el heads up a la operacion', time: 'Vie 5 Jun 09:00', type: 'dm', actionable: true },
-  { from: 'Juan Pablo (#cx-management-team)', text: 'Voy a integrar order status en suspensiones y food live_problems with RT. En definitiva hay que crear una rama que solo sea order status para no filtrar a otros flujos — solo atender order status y cancelaciones de orden', time: 'Jue 4 Jun 14:53', type: 'channel', actionable: false },
   { from: 'Jaime Gomez (#ai-automations)', text: 'Team - valide casos tras lanzamiento AI. Bot asume audiencia Merchant cuando es Users. Solicita OID al usuario aunque no lo conoce. IA escala con agente por compensaciones previas. Exposicion de NI en handoff.', time: 'Jue 4 Jun 13:44', type: 'channel', actionable: true }
 ];
 
