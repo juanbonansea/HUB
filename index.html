@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Vie 5 · Actualizado auto 08:05</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Vie 5 · Actualizado auto 13:10</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1745,6 +1745,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t613', text:'Confirmar con Juanca (Camilo Esquivel) que le dijo de las keys — Mafe pregunto a las 9am que le confirmes. Pendiente de reunion Revision Food Live 10:30.', phase:'build', priority:'P0', source:'Maria Granada DM Vie 5 Jun 09:00', day:'fri', completed:false },
   { id:'t601', text:'[CRITICO] Revision Food Live con Camilo Esquivel (10:30): diagnosticar problema critico detectado ayer — revisar flujo, endpoints y configuracion Assemble para food_live', phase:'build', priority:'P0', source:'Juan Pablo DM Jue 4 Jun 18:00 + Calendar', day:'fri', completed:false },
   { id:'t602', text:'Resolver screenkeys food_live: entry issues en espanol no hacen match con BI. Seleccionar solo los que son de live (partial/only_ai false) y compartir data granular a Mafe en tabla dinamica para que se la pase a Cris. Excluir todo lo de pagos.', phase:'build', priority:'P0', source:'Maria Granada DM Jue 4 Jun 16:48', day:'fri', completed:false },
   { id:'t603', text:'Revisar 100% interacciones de correo electronico durante el viernes para ajustar mensajes y configurar la herramienta Assemble — accion de grupo critica pre-despliegue 60% automatizacion.', phase:'build', priority:'P0', source:'CX Weekly Business Review 3 Jun', day:'fri', completed:false },
@@ -1791,12 +1792,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada (DM)', text: 'Hola Juan! Me avisas que te dice Juanca de lo de las keys', time: 'Vie 5 Jun 09:00', type: 'dm', actionable: true },
+  { from: 'Elias Rivera (DM)', text: 'Buenos dias!! ya paso conversaciones por IA y te confirmo — mapeando order status: quiero saber estado de la orden, como va el pedido, como van los tiempos, que ha pasado con la orden, en que va la orden', time: 'Vie 5 Jun 08:39', type: 'dm', actionable: true },
   { from: 'Juan Pablo → Camilo Esquivel (DM)', text: '[URGENTE] Hola Juan te cite para manana ya que tenemos un problema con food live y lo debemos ver ASAP es super prioritario', time: 'Jue 4 Jun 18:00', type: 'dm', actionable: true },
-  { from: 'Jaime Gomez (#ai-automations)', text: 'Team - valide casos tras lanzamiento AI. Bot pregunta por la tienda asumiendo audiencia Merchant cuando es Users. Solicita OID al usuario aunque no lo conoce. IA escala con agente por compensaciones previas que ya existen. Ademas: exposicion de NI en handoff y responde en chino en escenarios mismatch.', time: 'Jue 4 Jun 13:44', type: 'channel', actionable: true },
-  { from: 'Maria Granada (#ai-automations)', text: 'Estamos revisando con ops como reducir el inflow de food_live porque estan encolados. Vemos oportunidad de agregar nuevas screen_keys al experimento. Juan bajo la data — podemos compartir cuales serian? Necesitamos a Cris para agregar estas screens nuevas al experimento.', time: 'Jue 4 Jun 16:49', type: 'channel', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Screenkeys food_live no hacen match con BI — entry issues en espanol cuando todos deberian ser en ingles. Seleccionar solo los que son de live (partial/only_ai false). Pasalo en tabla dinamica para que puedan sacar los casos puntuales. Todo lo de pagos no deberia ir.', time: 'Jue 4 Jun 16:48-17:38', type: 'dm', actionable: true },
-  { from: 'jose.ceron (#ai-automations)', text: 'Confirmo que el endpoint PROD_transactions_detail_order_transaction ya nos brinda la informacion en PROD. Lo que paso ayer era que no habian salido con el release por parte de payments — ahora si esta disponible.', time: 'Jue 4 Jun 09:38', type: 'channel', actionable: false },
-  { from: 'Susana Paniagua (#ai-automations)', text: 'Comparto documento del requerimiento MX Regulation_Doubts_contract para RTs Non Live — incluye links Assembled, Figma, Discovery y DT Rts Non live regulacion. cc Mafe, Andres, Meiker, Juan Pablo.', time: 'Mie 3 Jun 10:40', type: 'channel', actionable: false },
+  { from: 'Jaime Gomez (#ai-automations)', text: 'Team - valide casos tras lanzamiento AI. Bot asume audiencia Merchant cuando es Users. Solicita OID al usuario aunque no lo conoce. IA escala con agente por compensaciones previas. Exposicion de NI en handoff y responde en chino en escenarios mismatch.', time: 'Jue 4 Jun 13:44', type: 'channel', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Screenkeys food_live no hacen match con BI — entry issues en espanol cuando todos deberian ser en ingles. Seleccionar solo los que son de live (partial/only_ai false). Pasarlo en tabla dinamica para Cris. Todo lo de pagos no deberia ir.', time: 'Jue 4 Jun 16:48-17:38', type: 'dm', actionable: true },
+  { from: 'jose.ceron (#ai-automations)', text: 'Confirmo que el endpoint PROD_transactions_detail_order_transaction ya nos brinda la informacion en PROD. Lo que paso ayer era que no habian salido con el release de payments — ahora si esta disponible.', time: 'Jue 4 Jun 09:38', type: 'channel', actionable: false },
   { from: 'Cristian Parada (#ai-automations)', text: 'Juan hola buenos dias! Podrias confirmarnos si al final encendiste el statsig?', time: 'Mar 2 Jun 08:45', type: 'channel', actionable: true }
 ];
 
@@ -1805,7 +1806,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-11:00', '11:15-13:00', '14:00-15:30', '16:00-17:15'] },
   { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Jue', blocks: ['12:00-13:00', '16:00-17:00', '17:30-18:00'] },
-  { day: 'Vie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-18:00'] }
+  { day: 'Vie', blocks: ['8:15-10:30', '12:00-13:00', '14:30-16:30'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
