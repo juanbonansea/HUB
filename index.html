@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Lun 8 · Actualizado 08 Jun 11:04</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Lun 8 · Actualizado 08 Jun 13:06</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1739,6 +1739,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t811', text:'[INCIDENTE] Validar con Juan Esquivel si se desconfiguro algo en recetas del bot — aliado escribe, salta paso del bot y pasa directo a agente. Falla en WhatsApp Y portal Rappi Aliados. Reportado esta manana en #incident-management-process.', phase:'build', priority:'P0', source:'Slack #incident-management-process Lun 8 Jun', day:'mon', completed:false },
   { id:'t801', text:'[HOY] Revisar asociacion de order ID en tickets del flujo Live — analizar cancelaciones del dia anterior sin ticket asociado (tickets sin order ID generan perdidas diarias). Accion directa asignada en 1:1 con Andres 2 Jun.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'mon', completed:false },
   { id:'t802', text:'[HOY] Analizar cancelaciones sin ticket asociado: cruzar con herramientas de analisis para identificar si el problema radica en tickets sin order ID. Verificar si el lanzamiento AI genero esta perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'mon', completed:false },
   { id:'t803', text:'Humanizar bot: cambiar nombre del bot de Live/Merchants por uno mas humano y empatico — iterar entre varios nombres acogedores. Accion directa asignada en CX Weekly Business Review 3 Jun.', phase:'build', priority:'P0', source:'CX Weekly Business Review 3 Jun', day:'mon', completed:false },
@@ -1783,12 +1784,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel (DM)', text: '"Juan, ya tengo las de whatsapp — las ejecuto?" JP: "de unaaa". Camilo configurando iniciativa de Mail que van a desplegar. Portal de Aliados en progreso esta semana.', time: 'Vie 5 Jun 16:19', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Discusion entry issues y cancellation reasons: "solo me preocupa cancelaciones... no pero cancellation reason para el endpoint". Codigo crsan_product_not_available y reason codes pendientes de validar con tech.', time: 'Vie 5 Jun 16:34', type: 'dm', actionable: true },
-  { from: 'Isabela Gomez (DM)', text: 'Bot Food Live ya salio en WhatsApp. Isa: "Notificaste en algun lado? para que la operacion este mega atenta y tu estes ahi por si algo no funciona o nos reportan algo." JP informo a Merchant, Andy Diaz y Mafe.', time: 'Vie 5 Jun 15:53', type: 'dm', actionable: true },
-  { from: 'Isabela Gomez (DM)', text: '"Muestrame el thread de Mafe! para que la operacion este mega atenta." JP: ya informe y mandare update de como deje el bot + monto update #cx-management-team.', time: 'Vie 5 Jun 15:53', type: 'dm', actionable: false },
-  { from: 'Maria Granada (DM)', text: '"cuando dice que no puede completar la orden por agua/luz o porque van a cerrar la tienda y no pueden preparar la orden". JP explica flujo: aliado indica deseo de cancelar, se le informa costo 100%, se pide aprobacion y se cancela con reason crsan_product_not_available.', time: 'Vie 5 Jun 16:30', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Antes del deploy WhatsApp: consulta sobre config mail. JP le confirma ejecutar las queries de WhatsApp. Camilo haciendo config de Mail antes del deploy.', time: 'Vie 5 Jun 15:59', type: 'dm', actionable: false }
+  { from: '#incident-management-process', text: 'JP a @juan.esquivel: "me ayudas validando si se desconfiguro algo de las recetas? El aliado escribe y se salta el paso por el bot, pasa a agente de una y esta mal tanto en wha como en portal" — INCIDENTE ACTIVO, pendiente confirmacion.', time: 'Lun 8 Jun', type: 'channel', actionable: true },
+  { from: 'Esbeydi Reynoso (DM)', text: 'Bug bot: aliado escribe, bot salta paso y pasa directo a agente — reproduce en WhatsApp y Rappi Aliados. Esbeydi manda capturas. JP: "ya le dije ahi a tech... dependemos de tech". Pendiente ETA de solucion.', time: 'Lun 8 Jun', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: '"solo me preocupa cancelaciones... no pero cancellation reason jaja para el endpoint... en que casos estamos cancelando? listo perf." Alineacion reason codes endpoint cancelaciones. crsan_product_not_available confirmado.', time: 'Vie 5 Jun', type: 'dm', actionable: true },
+  { from: 'Isabela Gomez (DM)', text: 'Bot Food Live saliendo en WhatsApp. Isa: "para que la operacion este mega atenta y tu estes ahi por si algo no funciona o nos reportan algo." JP informo a Merchant, Andy Diaz y Mafe. Update en #cx-management-team.', time: 'Vie 5 Jun', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: '"no, ando haciendo una configuracion de la iniciativa de Mail que ahorita van a desplegar... ahora te aviso." Deployment Mail en progreso — JP al tanto. Queries WhatsApp ejecutadas.', time: 'Vie 5 Jun', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: '"cuando dice que no puede completar la orden por agua/luz o porque van a cerrar la tienda." JP explica flujo: aliado indica deseo de cancelar, se informa costo 100%, se pide aprobacion y se cancela. Flujo alineado.', time: 'Vie 5 Jun', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
