@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 1-5 Junio 2026 — Hoy Vie 5 · Actualizado auto 17:00</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Lun 8 · Actualizado auto</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1447,17 +1447,17 @@ function saveData() {
   }));
 }
 
-const DAYS = ['Lun 1','Mar 2','Mie 3','Jue 4','Vie 5'];
+const DAYS = ['Lun 8','Mar 9','Mie 10','Jue 11','Vie 12'];
 const DAY_KEYS = ['mon','tue','wed','thu','fri'];
-const DAY_NAMES_LONG = ['Lunes 1 Junio','Martes 2 Junio','Miercoles 3 Junio','Jueves 4 Junio','Viernes 5 Junio'];
-const DAY_DATES = [1,2,3,4,5];
+const DAY_NAMES_LONG = ['Lunes 8 Junio','Martes 9 Junio','Miercoles 10 Junio','Jueves 11 Junio','Viernes 12 Junio'];
+const DAY_DATES = [8,9,10,11,12];
 
 // Dynamic today detection
 function getTodayIndex() {
   const now = new Date();
   const d = now.getDate();
   const m = now.getMonth(); // 0-indexed, June = 5
-  if (m === 5 && d >= 1 && d <= 5) return d - 1;
+  if (m === 5 && d >= 8 && d <= 12) return d - 8;
   return -1; // outside this week
 }
 const TODAY_IDX = getTodayIndex();
@@ -1466,35 +1466,28 @@ const EVENTS = {
   mon: [
     { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:16, org:'isabela.gomez@rappi.com', type:'team', note:'Weekly de prioridades con equipo Support Product — actualizacion de avances, feedback Gantt Q4 y diseno' },
     { time:'10:00-11:00', title:'Shadowing Merchant (TU)', attendees:12, org:'carla.capristan@rappi.com', type:'shadowing', note:'Shadowing semanal Food Merchants con TaskUs — sesion top offender + top performance. Solo agente + 1 staff necesario' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'16:00-16:30', title:'Validacion flujo de integraciones', attendees:6, org:'juan.bonansea@rappi.com', type:'team', note:'Validacion del flujo de integraciones con Omar Flores, Andres De Las Casas, Federico Weinstein, German Coronel, Juan Esquivel' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   tue: [
-    { time:'11:00-11:15', title:'Juan Pablo / Jessica', attendees:2, org:'jessica.torres@rappi.com', type:'1on1', note:'Reunion express con Jessica Torres sobre el flujo de suspensiones — que necesita el equipo QA/Ops de Juan Pablo para avanzar' },
-    { time:'13:00-13:45', title:'Donde esta mi RT?', attendees:10, org:'matias.kramer@rappi.com', type:'team', note:'Revision de solucion al motivo #1 de Merchants a soporte — rediseno arquitectura soporte Merchants y flujos Turbo' },
+    { time:'10:00-10:30', title:'Horas Deal!', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Espacio quincenal de aprendizaje 70-20-10 — Udemy Business. Bloque de formacion formal. Recomendado: bloquear 2 espacios adicionales de 30min por semana para mantener el ritmo' },
+    { time:'11:00-12:00', title:'Global Business Connect: All Hands', attendees:1, org:'internalcommunications@rappi.com', type:'team', note:'All Hands mensual de Rappi — deep dive en Estrategia CX 2026. Traduccion simultanea disponible' },
+    { time:'12:30-13:00', title:'Entry issues - AI false', attendees:4, org:'m.granada@rappi.com', type:'team', note:'Reunion con Maria Granada, Cristian Parada y Juan Esquivel para revisar entry issues de AI false' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas — estado bots Live y Suspensiones al 60%, plan escalar al 100%, proximos pasos' },
-    { time:'17:15-17:45', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades semana' }
+    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades semana' },
+    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas — estado bots y proximos pasos' }
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:30-16:00', title:'Entrega de pruebas bot de triage', attendees:4, org:'extdfx5.jzapata@rappi.com', type:'external', note:'Entrega de pruebas del bot de triage con equipo externo — Jaime Gomez + equipo ext dev' }
+    { time:'14:30-15:00', title:'Assembled Assist <> Rappi Weekly Sync', attendees:8, org:'monica@assembledhq.com', type:'external', note:'Sync semanal con equipo Assembled — revision plan de implementacion. Docs: Rappi <> Assembled Assist | Implementation Plan + Notes' }
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio' },
-    { time:'10:00-11:00', title:'Primeros Auxilios Psicologicos (manana)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion virtual SST Colombia — identificar senales de alerta emocional, tecnicas de escucha y acompanamiento' },
-    { time:'11:00-12:00', title:'Flujo Order Status', attendees:4, org:'elias.rivera@rappi.com', type:'team', note:'Mapeo flujo Order Status con Elias Rivera, Andres Diaz y Fabi Diaz — implementar flujo estado de la orden en bot Live para mitigar volumen de contactos y filtrar consultas antes de pasar a agentes' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:30-15:30', title:'Revision endpoints orden diferente', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Revision de endpoints para flujo de orden diferente con Jose Ceron — validar alternativa PROD_transactions_detail y cubrir endpoint compensation log' },
-    { time:'15:00-16:00', title:'Primeros Auxilios Psicologicos (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Segunda sesion SST — misma capacitacion Primeros Auxilios Psicologicos, horario tarde' },
-    { time:'17:00-17:30', title:'Checkpoint - Contact Rate / automatizaciones', attendees:7, org:'eugenio.larosa@rappi.com', type:'team', note:'Decisiones sobre contact rate y encolamiento actual — Eugenio La Rosa, Maria Granada, Josefina Polivanoff, Isabela Gomez, Andres Cobos, Mike' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   fri: [
-    { time:'8:15-10:30', title:'Food Live (focus)', attendees:0, type:'break', note:'Bloque de trabajo enfocado en Food Live' },
-    { time:'10:30-11:00', title:'Revision Food Live', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Revision urgente de problema critico en Food Live con Juan Camilo Esquivel — detectado Jue 4 Jun, prioridad maxima' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:30-16:30', title:'Dif Product fix (focus)', attendees:0, type:'break', note:'Bloque de trabajo enfocado en Dif Product fix' }
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly QA AI con equipo — revision flujos de automatizacion, estado bots y proximas prioridades' }
   ]
 };
 
@@ -1746,20 +1739,16 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t614', text:'[HOY] Monitorear Bot Food Live (PROD) post-despliegue: estar disponible por si algo no funciona o la operacion reporta issues. Isabela pidio que la operacion este atenta y JP disponible. Bot en PROD_AI Bot_Phase I_Triage_Food_Live.', phase:'build', priority:'P0', source:'Isabela Gomez DM Vie 5 Jun 15:53 + Update #cx-management-team 16:15', day:'fri', completed:false },
-  { id:'t615', text:'[HOY] Validar cancellation reason endpoint con Mafe: revisar codigo crsan_product_not_available y demas reason codes para el flujo de cancelaciones del bot. Mafe preocupada por cobertura de casos de cancelacion.', phase:'build', priority:'P0', source:'Maria Granada DM Vie 5 Jun 16:34', day:'fri', completed:false },
-  { id:'t601', text:'Bot Food Live desplegado en PROD (~50% store issues). Seguimiento: completar restante 50% store issues, verificar cobertura cancelaciones con reason codes correctos y habilitar Portal de Aliados con Juan Esquivel.', phase:'build', priority:'P0', source:'Update #cx-management-team Vie 5 Jun 16:15 + Camilo Esquivel DM', day:'fri', completed:false },
-  { id:'t602', text:'Resolver screenkeys food_live: entry issues en espanol no hacen match con BI. Seleccionar solo los que son de live (partial/only_ai false) y compartir data granular a Mafe en tabla dinamica para que se la pase a Cris. Excluir todo lo de pagos.', phase:'build', priority:'P0', source:'Maria Granada DM Jue 4 Jun 16:48', day:'fri', completed:false },
-  { id:'t603', text:'Revisar 100% interacciones de correo electronico durante el viernes para ajustar mensajes y configurar la herramienta Assemble — accion de grupo critica pre-despliegue 60% automatizacion.', phase:'build', priority:'P0', source:'CX Weekly Business Review 3 Jun', day:'fri', completed:false },
-  { id:'t604', text:'Humanizar bot: cambiar nombre del bot de Live/Merchants por uno mas humano y empatico — iterar entre varios nombres acogedores. Accion directa asignada en CX Weekly Business Review.', phase:'build', priority:'P0', source:'CX Weekly Business Review 3 Jun', day:'fri', completed:false },
-  { id:'t605', text:'Revisar asociacion de order ID en tickets del flujo Live — analizar si cancelaciones del dia anterior no tienen ticket asociado (tickets sin order ID generan perdidas diarias)', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false },
-  { id:'t606', text:'Definir % activacion de Order Status en food live y suspensiones — cuanto cubrimos del 37% identificado? Responder a Isabela con volumetria de tickets por semana.', phase:'metrics', priority:'P0', source:'Isabela Gomez DM Jue 4 Jun 13:00', day:'fri', completed:false },
-  { id:'t607', text:'Preparar estado para Weekly QA AI (11:30): incluir hallazgos Jaime Gomez (bot asume audiencia Merchant cuando es User, solicita OID desconocido al usuario, escalados innecesarios por compensaciones previas) y avances flujos integraciones y Order Status', phase:'build', priority:'P1', source:'Calendar + Jaime Gomez #ai-automations Jue 4 Jun', day:'fri', completed:false },
-  { id:'t608', text:'Ajustar flujo suspensiones: revisar validacion user ID y mejorar pasos para captura del store ID — pendiente de 1:1 con Andres De Las Casas', phase:'build', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false },
-  { id:'t609', text:'Coordinar con Elias Rivera implementacion de Order Status en bot Live — implementar flujo estado de la orden para mitigar volumen contactos y filtrar antes de pasar a agentes', phase:'build', priority:'P1', source:'CX Weekly 3 Jun', day:'fri', completed:false },
-  { id:'t610', text:'Investigar por que hay tantos tickets sin exit rule en bot merchants — Isabela pide entender la causa raiz. Confirmar si son casos de disputas de pagos u otro origen.', phase:'metrics', priority:'P1', source:'Isabela Gomez DM Jue 4 Jun 11:58', day:'fri', completed:false },
-  { id:'t611', text:'Revisar problemas de productos: definir variables Lupe user ID, email y motivo de compensacion basandose en fase 2 — pendiente de Weekly QA AI del 29 May', phase:'build', priority:'P1', source:'Weekly QA AI 29 May', day:'fri', completed:false },
-  { id:'t612', text:'Sincronizar con Mafe resolucion de problemas de reembolso a tarjeta de credito en flujo producto diferente — TC desactivado temporalmente. Comparar gastos automatizados vs benchmark agentes humanos.', phase:'build', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false }
+  { id:'t801', text:'[HOY] Revisar asociacion de order ID en tickets del flujo Live — analizar cancelaciones del dia anterior sin ticket asociado (tickets sin order ID generan perdidas diarias). Accion directa asignada en 1:1 con Andres 2 Jun.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'mon', completed:false },
+  { id:'t802', text:'[HOY] Analizar cancelaciones sin ticket asociado: cruzar con herramientas de analisis para identificar si el problema radica en tickets sin order ID. Verificar si el lanzamiento AI genero esta perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'mon', completed:false },
+  { id:'t803', text:'Humanizar bot: cambiar nombre del bot de Live/Merchants por uno mas humano y empatico — iterar entre varios nombres acogedores. Accion directa asignada en CX Weekly Business Review 3 Jun.', phase:'build', priority:'P0', source:'CX Weekly Business Review 3 Jun', day:'mon', completed:false },
+  { id:'t804', text:'Alinear con Juan Restrepo sobre definiciones y soluciones implementadas en integracion de tiendas para asegurar cumplimiento con estandares del area.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'tue', completed:false },
+  { id:'t805', text:'Preparar para Entry issues - AI false (Mar 12:30): revisar entry issues donde AI false y definir acciones con Maria Granada, Cristian Parada y Juan Esquivel.', phase:'build', priority:'P0', source:'Calendar Mar 9 Jun', day:'tue', completed:false },
+  { id:'t806', text:'Ajustar suspensiones: revisar validacion de user ID en flujo de suspensiones y ajustar pasos para mejorar captura del store ID.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'wed', completed:false },
+  { id:'t807', text:'Preparar para Assembled Assist <> Rappi Weekly Sync (Mie 14:30): revisar Implementation Plan y Notes doc, definir avances y preguntas para el equipo de Assembled.', phase:'build', priority:'P1', source:'Calendar Mie 10 Jun', day:'wed', completed:false },
+  { id:'t808', text:'Sincronizar con Mafe resolucion de reembolso a tarjeta de credito en flujo producto diferente — TC desactivado temporalmente. Coordinar resolucion pendiente.', phase:'build', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'thu', completed:false },
+  { id:'t809', text:'Comparar compensaciones del flujo automatizado contra el benchmark de agentes humanos para asegurar que no se exceda el presupuesto.', phase:'metrics', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'thu', completed:false },
+  { id:'t810', text:'Preparar estado para Weekly QA AI (Vie 14:00): incluir avances flujos automatizacion, hallazgos bot triage y proximas prioridades.', phase:'build', priority:'P1', source:'Calendar Vie 12 Jun', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1778,37 +1767,36 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d501', text:'Probar Bot de Triaje: pruebas exhaustivas en Connect para validar precision al clasificar las 6 categorias asignadas', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
-  { id:'d502', text:'Documentar Pruebas: registrar en Excel la trazabilidad incluyendo casos con clasificacion correcta y respuestas inesperadas', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
-  { id:'d503', text:'Enviar usuarios de prueba adicionales a Jaime Gomez para continuar validacion del bot de triage', owner:'Juan Pablo Zapata (ext)', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
-  { id:'d504', text:'Implementar actualizaciones de bots de promociones y productos incorrectos para reducir flujo de contactos en chat de soporte', owner:'Maria Granada', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d505', text:'Finalizar pruebas de flujos de correo electronico — asegurar funcionamiento para el despliegue 60% automatizacion emails', owner:'Meiker Munera / Andres Cobos', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d506', text:'Implementar Order Status en bot Live: flujo de estado de la orden para mitigar volumen de contactos y filtrar antes de pasar a agentes', owner:'Elias Rivera / Andres De Las Casas', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d507', text:'Modificar formulario de reclamaciones para habilitar el flujo del libro de reclamaciones en la automatizacion', owner:'Andres De Las Casas', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d508', text:'Renovar contrato SPR: definir extension y negociar terminos antes del 19 de junio', owner:'Eugenio La Rosa', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d509', text:'Analizar pedidos sin repartidor: segmentar datos de soporte entre ordenes sin asignacion y con asignacion retrasada', owner:'Elias Rivera', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
-  { id:'d510', text:'Agendar reunion seguimiento con dueno del algoritmo de asignacion para revisar analisis y definir proximos pasos', owner:'Matias Kramer', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
-  { id:'d511', text:'Migrar automatizaciones a Connect — confirmar cuales deben migrarse antes de retirar licencias de Customer para no interrumpir procesos', owner:'Natalia Intencipa / Andres Diaz / Juan Diego Gil', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d512', text:'Enviar datos especificos de restaurantes y actualizar documento de estrategia Merchant', owner:'Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d513', text:'Revisar analisis de asignacion de rapitenderos con nueva definicion de Matias Kramer y actualizar estrategia', owner:'Andres Diaz / Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' }
+  { id:'d601', text:'Probar Bot de Triaje: pruebas exhaustivas en Connect para validar precision al clasificar las 6 categorias asignadas', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
+  { id:'d602', text:'Documentar Pruebas: registrar en Excel la trazabilidad incluyendo casos con clasificacion correcta y respuestas inesperadas', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
+  { id:'d603', text:'Enviar usuarios de prueba adicionales a Jaime Gomez para continuar validacion del bot de triage', owner:'Juan Pablo Zapata (ext)', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
+  { id:'d604', text:'Implementar actualizaciones de bots de promociones y productos incorrectos para reducir flujo de contactos en chat de soporte', owner:'Maria Granada', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d605', text:'Finalizar pruebas de flujos de correo electronico — asegurar funcionamiento para el despliegue 60% automatizacion emails', owner:'Meiker Munera / Andres Cobos', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d606', text:'Implementar Order Status en bot Live: flujo de estado de la orden para mitigar volumen de contactos y filtrar antes de pasar a agentes', owner:'Elias Rivera / Andres De Las Casas', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d607', text:'Modificar formulario de reclamaciones para habilitar el flujo del libro de reclamaciones en la automatizacion', owner:'Andres De Las Casas', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d608', text:'Renovar contrato SPR: definir extension y negociar terminos antes del 19 de junio — URGENTE deadline en 11 dias', owner:'Eugenio La Rosa', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d609', text:'Analizar pedidos sin repartidor: segmentar datos de soporte entre ordenes sin asignacion y con asignacion retrasada', owner:'Elias Rivera', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
+  { id:'d610', text:'Agendar reunion seguimiento con dueno del algoritmo de asignacion para revisar analisis y definir proximos pasos', owner:'Matias Kramer', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
+  { id:'d611', text:'Migrar automatizaciones a Connect — confirmar cuales deben migrarse antes de retirar licencias de Customer para no interrumpir procesos', owner:'Natalia Intencipa / Andres Diaz / Juan Diego Gil', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d612', text:'Enviar datos especificos de restaurantes y actualizar documento de estrategia Merchant', owner:'Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d613', text:'Revisar analisis de asignacion de rapitenderos con nueva definicion de Matias Kramer y actualizar estrategia', owner:'Andres Diaz / Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Juan Pablo (#cx-management-team)', text: 'Update Bot Food Live (Merchant): RT issues 100% automatizado. Store issues ~50% (orden status + cancelaciones con doble confirmacion). User issues 100% (contacto cliente). Juan Esquivel habilita Portal de Aliados via WhatsApp. Workflow: PROD_AI Bot_Phase I_Triage_Food_Live.', time: 'Vie 5 Jun 16:15', type: 'channel', actionable: false },
-  { from: 'Maria Granada (DM)', text: 'no pero cancellation reason para el endpoint — solo me preocupa cancelaciones. crsan_product_not_available con estos codes [PENDIENTE: validar razon de cancelacion y endpoint con tech]', time: 'Vie 5 Jun 16:34', type: 'dm', actionable: true },
-  { from: 'Isabela Gomez (DM)', text: 'Notificaste en algun lado esto? para que la operacion este mega atenta y tu estes ahi por si algo no funciona o nos reportan algo. [BOT FOOD LIVE EN PROD]', time: 'Vie 5 Jun 15:53', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'no, ando haciendo una configuracion de la iniciativa de Mail que ahorita van a desplegar [Portal de Aliados en progreso]', time: 'Vie 5 Jun 15:59', type: 'dm', actionable: false },
-  { from: 'Elias Rivera (DM)', text: 'Si, Rappi no le paga nada por la orden — cuando el aliado cancela por agua/luz/gas, tienda cerrada, sistema Rappi, producto agotado o cambio de direccion, ellos asumen el 100% del valor', time: 'Vie 5 Jun 13:00', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Hola Juan! cuadrado con tech para que todos los entry lleguen al flujo hoy — avisame que te dicen para darle el heads up a la operacion', time: 'Vie 5 Jun 09:00', type: 'dm', actionable: true },
-  { from: 'Jaime Gomez (#ai-automations)', text: 'Team - valide casos tras lanzamiento AI. Bot asume audiencia Merchant cuando es Users. Solicita OID al usuario aunque no lo conoce. IA escala con agente por compensaciones previas. Exposicion de NI en handoff.', time: 'Jue 4 Jun 13:44', type: 'channel', actionable: true }
+  { from: 'Camilo Esquivel (DM)', text: '"Juan, ya tengo las de whatsapp — las ejecuto?" JP: "de unaaa". Camilo configurando iniciativa de Mail que van a desplegar. Portal de Aliados en progreso esta semana.', time: 'Vie 5 Jun 16:19', type: 'dm', actionable: true },
+  { from: 'Maria Granada (DM)', text: 'Discusion entry issues y cancellation reasons: "solo me preocupa cancelaciones... no pero cancellation reason para el endpoint". Codigo crsan_product_not_available y reason codes pendientes de validar con tech.', time: 'Vie 5 Jun 16:34', type: 'dm', actionable: true },
+  { from: 'Isabela Gomez (DM)', text: 'Bot Food Live ya salio en WhatsApp. Isa: "Notificaste en algun lado? para que la operacion este mega atenta y tu estes ahi por si algo no funciona o nos reportan algo." JP informo a Merchant, Andy Diaz y Mafe.', time: 'Vie 5 Jun 15:53', type: 'dm', actionable: true },
+  { from: 'Isabela Gomez (DM)', text: '"Muestrame el thread de Mafe! para que la operacion este mega atenta." JP: ya informe y mandare update de como deje el bot + monto update #cx-management-team.', time: 'Vie 5 Jun 15:53', type: 'dm', actionable: false },
+  { from: 'Maria Granada (DM)', text: '"cuando dice que no puede completar la orden por agua/luz o porque van a cerrar la tienda y no pueden preparar la orden". JP explica flujo: aliado indica deseo de cancelar, se le informa costo 100%, se pide aprobacion y se cancela con reason crsan_product_not_available.', time: 'Vie 5 Jun 16:30', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Antes del deploy WhatsApp: consulta sobre config mail. JP le confirma ejecutar las queries de WhatsApp. Camilo haciendo config de Mail antes del deploy.', time: 'Vie 5 Jun 15:59', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:00', '16:30-18:00'] },
-  { day: 'Mar', blocks: ['8:00-11:00', '11:15-13:00', '14:00-15:30', '16:00-17:15'] },
-  { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '14:00-15:30', '16:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '12:00-13:00', '16:00-17:00', '17:30-18:00'] },
-  { day: 'Vie', blocks: ['11:00-13:00', '16:30-18:00'] }
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-10:00', '14:30-15:30', '16:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '15:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '9:45-13:00', '14:00-18:00'] },
+  { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
