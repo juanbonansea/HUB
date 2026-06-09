@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mar 9 · Actualizado 09 Jun 12:45</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mar 9 · Actualizado 09 Jun 15:05</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1472,14 +1472,15 @@ const EVENTS = {
     { time:'10:00-10:30', title:'Horas Deal!', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Espacio quincenal de aprendizaje 70-20-10 — Udemy Business. Bloque de formacion formal. Recomendado: bloquear 2 espacios adicionales de 30min por semana para mantener el ritmo' },
     { time:'11:00-12:00', title:'Global Business Connect: All Hands', attendees:1, org:'internalcommunications@rappi.com', type:'team', note:'All Hands mensual de Rappi — deep dive en Estrategia CX 2026. Traduccion simultanea disponible' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades semana' },
-    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas — estado bots y proximos pasos' }
+    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades semana' }
   ],
   wed: [
+    { time:'9:00-9:30', title:'Nuevos Flujos de AI - Kick Offs', attendees:6, org:'m.granada@rappi.com', type:'team', note:'Kick off nuevos flujos de AI con Maria Granada — definicion de alcance y prioridades para proxima iteracion de automatizacion' },
     { time:'9:45-10:00', title:'Entry issues - AI false', attendees:4, org:'m.granada@rappi.com', type:'team', note:'Reunion con Maria Granada, Cristian Parada y Juan Esquivel para revisar entry issues de AI false' },
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:30-15:00', title:'Assembled Assist <> Rappi Weekly Sync', attendees:8, org:'monica@assembledhq.com', type:'external', note:'Sync semanal con equipo Assembled — revision plan de implementacion. Docs: Rappi <> Assembled Assist | Implementation Plan + Notes' }
+    { time:'14:30-15:00', title:'Assembled Assist <> Rappi Weekly Sync', attendees:8, org:'monica@assembledhq.com', type:'external', note:'Sync semanal con equipo Assembled — revision plan de implementacion. Docs: Rappi <> Assembled Assist | Implementation Plan + Notes' },
+    { time:'16:30-17:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — plan food live, entry issues AI false y alineacion nuevos flujos de automatizacion' }
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio' },
@@ -1746,7 +1747,8 @@ const DEFAULT_TASKS = [
   { id:'t802', text:'[HOY] Analizar cancelaciones sin ticket asociado: cruzar con herramientas de analisis para identificar si el problema radica en tickets sin order ID. Verificar si el lanzamiento AI genero esta perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'mon', completed:false },
   { id:'t803', text:'Humanizar bot: cambiar nombre del bot de Live/Merchants por uno mas humano y empatico — iterar entre varios nombres acogedores. Accion directa asignada en CX Weekly Business Review 3 Jun.', phase:'build', priority:'P0', source:'CX Weekly Business Review 3 Jun', day:'mon', completed:false },
   { id:'t804', text:'Alinear con Juan Restrepo sobre definiciones y soluciones implementadas en integracion de tiendas para asegurar cumplimiento con estandares del area.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'tue', completed:false },
-  { id:'t805', text:'Preparar para Entry issues - AI false (Mar 12:30): revisar entry issues donde AI false y definir acciones con Maria Granada, Cristian Parada y Juan Esquivel.', phase:'build', priority:'P0', source:'Calendar Mar 9 Jun', day:'tue', completed:false },
+  { id:'t805', text:'Preparar para Entry issues - AI false (Mie 9:45): revisar entry issues donde AI false y definir acciones con Maria Granada, Cristian Parada y Juan Esquivel.', phase:'build', priority:'P0', source:'Calendar Mie 10 Jun', day:'wed', completed:false },
+  { id:'t814', text:'Preparar para Nuevos Flujos de AI - Kick Offs (Mie 9:00): nueva reunion agendada hoy por Maria Granada — definir alcance y prioridades para proxima iteracion de automatizacion AI.', phase:'build', priority:'P1', source:'Calendar Mie 10 Jun', day:'wed', completed:false },
   { id:'t806', text:'Ajustar suspensiones: revisar validacion de user ID en flujo de suspensiones y ajustar pasos para mejorar captura del store ID.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'wed', completed:false },
   { id:'t807', text:'Preparar para Assembled Assist <> Rappi Weekly Sync (Mie 14:30): revisar Implementation Plan y Notes doc, definir avances y preguntas para el equipo de Assembled.', phase:'build', priority:'P1', source:'Calendar Mie 10 Jun', day:'wed', completed:false },
   { id:'t808', text:'Sincronizar con Mafe resolucion de reembolso a tarjeta de credito en flujo producto diferente — TC desactivado temporalmente. Coordinar resolucion pendiente.', phase:'build', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'thu', completed:false },
@@ -1786,6 +1788,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Andres De Las Casas (DM)', text: 'Andres pide revision del plan food live enviado antes del 1:1 de manana (Mie 16:30). JP confirma: "Alineado con todo — estamos terminando con tech de mapear food live en todas las ramas. Aunque este al 100% no va por todas las ramas como update todavia, ya se esta trabajando en ello."', time: 'Mar 9 Jun 13:52', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel (DM)', text: 'Testing bot integraciones en DEV: Juan probando flujo consultar estado de integracion. Bot manda directo a agente en las opciones que van a agente de esta rama. Camilo pregunta si las opciones que van a agente tambien van al bot. JP confirma que no (nada de Finanzas ni pagos). Camilo pide acceso escritura al spreadsheet de casos. Confirman CO como pais de prueba.', time: 'Mar 9 Jun 12:38', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez (DM)', text: 'BUG WHATSAPP: Al seleccionar "ordenes Live" el bot manda directo a agente sin mostrar opciones de estado de orden. Juan: "Listo ya le reporto a Tech." Steph compartio chat_ids de prueba: 6a28432ff93043000a1fbd67, 6a2848f7f93043000a206eab. Confirmado Colombia.', time: 'Mar 9 Jun 12:27', type: 'dm', actionable: true },
   { from: 'Carol Castillo (DM)', text: 'Evidencias de "Error en respuestas del Bot - Flujo Mi tienda no aparece en la app Merchants Overall": Carol compartio chat_id 121d326e-8c3e-41c8-8bb2-06fd5bc2ee86 para revision. JP solicito las evidencias directamente ya que no tiene permisos para ver el ticket.', time: 'Mar 9 Jun 12:29', type: 'dm', actionable: true },
@@ -1796,8 +1799,8 @@ const SLACK_FEED = [
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-15:30', '16:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-9:45', '10:00-11:00', '12:00-13:00', '15:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-18:00'] },
+  { day: 'Mie', blocks: ['8:00-9:00', '10:00-11:00', '12:00-13:00', '15:00-16:30', '17:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '9:45-13:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
