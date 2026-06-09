@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Lun 8 · Actualizado 08 Jun 17:04</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mar 9 · Actualizado 09 Jun 07:04</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1784,11 +1784,11 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: '#incident-management-process', text: 'JP a @juan.esquivel: "me ayudas validando si se desconfiguro algo de las recetas? El aliado escribe y se salta el paso por el bot, pasa a agente de una y esta mal tanto en wha como en portal" — INCIDENTE ACTIVO, pendiente confirmacion.', time: 'Lun 8 Jun', type: 'channel', actionable: true },
-  { from: 'Esbeydi Reynoso (DM)', text: 'Bug bot: aliado escribe, bot salta paso y pasa directo a agente — reproduce en WhatsApp y Rappi Aliados. Esbeydi manda capturas. JP: "ya le dije ahi a tech... dependemos de tech". Pendiente ETA de solucion.', time: 'Lun 8 Jun', type: 'dm', actionable: true },
-  { from: 'Maria Granada (DM)', text: '"solo me preocupa cancelaciones... no pero cancellation reason jaja para el endpoint... en que casos estamos cancelando? listo perf." Alineacion reason codes endpoint cancelaciones. crsan_product_not_available confirmado.', time: 'Vie 5 Jun', type: 'dm', actionable: true },
-  { from: 'Isabela Gomez (DM)', text: 'Bot Food Live saliendo en WhatsApp. Isa: "para que la operacion este mega atenta y tu estes ahi por si algo no funciona o nos reportan algo." JP informo a Merchant, Andy Diaz y Mafe. Update en #cx-management-team.', time: 'Vie 5 Jun', type: 'dm', actionable: false },
+  { from: 'Esbeydi Reynoso (DM)', text: 'INCIDENTE CONFIRMADO. Esbeydi + Steph hicieron pruebas: "ambas me entraron directo a agente" — reproduce en WhatsApp Y Rappi Aliados. Esbeydi pregunta ETA de solucion. JP: bot escala a agente para issues de RT segun flujo, sospecha que solo un % de llamadas cae ahi. Pendiente validacion de Tech.', time: 'Mar 9 Jun', type: 'dm', actionable: true },
+  { from: '#incident-management-process', text: 'JP explica logica bot: "Si es por temas de rt el aliado va al bot, pero si el bot no logra darle solucion al aliado se escala a agente o si llegan por otra solicitud pero ingresan por problemas con rt el bot lo escala a agente." — Contexto del comportamiento esperado vs incidente reportado.', time: 'Lun 8 Jun', type: 'channel', actionable: true },
+  { from: 'Maria Granada (DM)', text: '"solo me preocupa cancelaciones... no pero cancellation reason jaja para el endpoint... en que casos estamos cancelando? listo perf." Alineacion reason codes endpoint cancelaciones. crsan_product_not_available confirmado.', time: 'Lun 8 Jun', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: '"no, ando haciendo una configuracion de la iniciativa de Mail que ahorita van a desplegar... ahora te aviso." Deployment Mail en progreso — JP al tanto. Queries WhatsApp ejecutadas.', time: 'Vie 5 Jun', type: 'dm', actionable: true },
+  { from: 'Isabela Gomez (DM)', text: 'Bot Food Live saliendo en WhatsApp. Isa: "para que la operacion este mega atenta y tu estes ahi por si algo no funciona o nos reportan algo." JP informo a Merchant, Andy Diaz y Mafe. Update en #cx-management-team.', time: 'Vie 5 Jun', type: 'dm', actionable: false },
   { from: 'Maria Granada (DM)', text: '"cuando dice que no puede completar la orden por agua/luz o porque van a cerrar la tienda." JP explica flujo: aliado indica deseo de cancelar, se informa costo 100%, se pide aprobacion y se cancela. Flujo alineado.', time: 'Vie 5 Jun', type: 'dm', actionable: false }
 ];
 
