@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mar 9 · Actualizado 09 Jun 11:35</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mar 9 · Actualizado 09 Jun 12:45</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1471,12 +1471,12 @@ const EVENTS = {
   tue: [
     { time:'10:00-10:30', title:'Horas Deal!', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Espacio quincenal de aprendizaje 70-20-10 — Udemy Business. Bloque de formacion formal. Recomendado: bloquear 2 espacios adicionales de 30min por semana para mantener el ritmo' },
     { time:'11:00-12:00', title:'Global Business Connect: All Hands', attendees:1, org:'internalcommunications@rappi.com', type:'team', note:'All Hands mensual de Rappi — deep dive en Estrategia CX 2026. Traduccion simultanea disponible' },
-    { time:'12:30-13:00', title:'Entry issues - AI false', attendees:4, org:'m.granada@rappi.com', type:'team', note:'Reunion con Maria Granada, Cristian Parada y Juan Esquivel para revisar entry issues de AI false' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades semana' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas — estado bots y proximos pasos' }
   ],
   wed: [
+    { time:'9:45-10:00', title:'Entry issues - AI false', attendees:4, org:'m.granada@rappi.com', type:'team', note:'Reunion con Maria Granada, Cristian Parada y Juan Esquivel para revisar entry issues de AI false' },
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:30-15:00', title:'Assembled Assist <> Rappi Weekly Sync', attendees:8, org:'monica@assembledhq.com', type:'external', note:'Sync semanal con equipo Assembled — revision plan de implementacion. Docs: Rappi <> Assembled Assist | Implementation Plan + Notes' }
@@ -1739,6 +1739,8 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t813', text:'[NUEVO HOY] BUG WHATSAPP: bot "ordenes Live" manda directo a agente sin mostrar opciones de estado de orden — Steph confirmo en pruebas. chat_ids: 6a28432ff93043000a1fbd67 y 6a2848f7f93043000a206eab (CO). Reportado a Tech. Pendiente: seguimiento y fix por Camilo.', phase:'build', priority:'P0', source:'DM Stephania Gonzalez Mar 9 Jun', day:'tue', completed:false },
+  { id:'t812', text:'[NUEVO HOY] Revisar bot "Mi tienda no aparece en la app" Merchants: Carol Castillo compartio chat_id 121d326e-8c3e-41c8-8bb2-06fd5bc2ee86. Investigar si el bot de suspensiones se filtro incorrectamente o llego por otro camino. Bot suspensiones pegado a "Mi tienda esta suspendida".', phase:'build', priority:'P0', source:'DM Carol Castillo / #incident_management_support Mar 9 Jun', day:'tue', completed:false },
   { id:'t811', text:'[INCIDENTE EN CURSO] ~11,000 casos bypassing el bot y pasando directo a agente. Raiz tecnica identificada: integration_id es diferente al user_id. Camilo Esquivel desplegando rama DEV para pruebas. Pendiente: validar en DEV con los store IDs de prueba (CO 900006531, CO 900280737). WhatsApp Y portal Rappi Aliados afectados.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 9 Jun', day:'tue', completed:false },
   { id:'t801', text:'[HOY] Revisar asociacion de order ID en tickets del flujo Live — analizar cancelaciones del dia anterior sin ticket asociado (tickets sin order ID generan perdidas diarias). Accion directa asignada en 1:1 con Andres 2 Jun.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'mon', completed:false },
   { id:'t802', text:'[HOY] Analizar cancelaciones sin ticket asociado: cruzar con herramientas de analisis para identificar si el problema radica en tickets sin order ID. Verificar si el lanzamiento AI genero esta perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'mon', completed:false },
@@ -1784,18 +1786,18 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel (DM)', text: 'Troubleshooting activo: ~11,000 casos van directo a agente sin pasar por el bot. Raiz identificada: "el integration_id es un numero diferente al del user_id." Camilo desplegando rama DEV para validar. JP compartio spreadsheets con casos de ejemplo.', time: 'Mar 9 Jun', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'Bot pregunta RT activo: mensaje de ganancia RT aprobado y funcionando. Order Status pendiente de fix en query. Steph paso store IDs integradas para pruebas de flujo integraciones: CO 900006531, CO 900280737. Sin ejecutar cambios en produccion.', time: 'Mar 9 Jun', type: 'dm', actionable: true },
-  { from: 'Esbeydi Reynoso (DM)', text: 'INCIDENTE CONFIRMADO Lun: Esbeydi + Steph hicieron pruebas "ambas me entraron directo a agente" — reproduce en WhatsApp Y Rappi Aliados. JP: bot escala a agente para issues de RT segun flujo. Pendiente validacion Tech (ahora identificado: integration_id != user_id).', time: 'Lun 8 Jun', type: 'dm', actionable: true },
-  { from: '#incident-management-process', text: 'JP explica logica bot: "Si es por temas de rt el aliado va al bot, pero si el bot no logra darle solucion al aliado se escala a agente o si llegan por otra solicitud pero ingresan por problemas con rt el bot lo escala a agente." — Comportamiento esperado vs incidente.', time: 'Lun 8 Jun', type: 'channel', actionable: true },
-  { from: 'Maria Granada (DM)', text: 'Alineacion reason codes endpoint cancelaciones: "solo me preocupa cancelaciones... crsan_product_not_available confirmado." Pendiente: implementar actualizaciones bots promociones y productos esta semana para reducir flujo contactos chat.', time: 'Lun 8 Jun', type: 'dm', actionable: true },
-  { from: 'Grupo Maria/Susana/Meiker (DM)', text: 'JP actualiza estado AI Bot Phase I Food Non Live Integrations: "no teniamos el approved del equipo de integraciones, apenas el viernes nos dieron endpoints y Juan Esquivel esta terminando de setearlos — nos vamos una semanita mas." Buen avance: reuniones con integraciones completas.', time: 'Mar 9 Jun', type: 'dm', actionable: true }
+  { from: 'Camilo Esquivel (DM)', text: 'Testing bot integraciones en DEV: Juan probando flujo consultar estado de integracion. Bot manda directo a agente en las opciones que van a agente de esta rama. Camilo pregunta si las opciones que van a agente tambien van al bot. JP confirma que no (nada de Finanzas ni pagos). Camilo pide acceso escritura al spreadsheet de casos. Confirman CO como pais de prueba.', time: 'Mar 9 Jun 12:38', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez (DM)', text: 'BUG WHATSAPP: Al seleccionar "ordenes Live" el bot manda directo a agente sin mostrar opciones de estado de orden. Juan: "Listo ya le reporto a Tech." Steph compartio chat_ids de prueba: 6a28432ff93043000a1fbd67, 6a2848f7f93043000a206eab. Confirmado Colombia.', time: 'Mar 9 Jun 12:27', type: 'dm', actionable: true },
+  { from: 'Carol Castillo (DM)', text: 'Evidencias de "Error en respuestas del Bot - Flujo Mi tienda no aparece en la app Merchants Overall": Carol compartio chat_id 121d326e-8c3e-41c8-8bb2-06fd5bc2ee86 para revision. JP solicito las evidencias directamente ya que no tiene permisos para ver el ticket.', time: 'Mar 9 Jun 12:29', type: 'dm', actionable: true },
+  { from: '#incident_management_support', text: 'Camilo pide a Maria Granada y JP verificar respuesta del bot. JP explica: "el bot de suspensiones esta pegado a Mi tienda esta suspendida — si me comparten el chat id averiguo si se filtro o llego por otro camino." Sirley: no corresponde a su team, el caso entra al backlog.', time: 'Mar 9 Jun 12:24', type: 'channel', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Troubleshooting activo: ~11,000 casos van directo a agente sin pasar por el bot. Raiz identificada: "el integration_id es un numero diferente al del user_id." Camilo desplegando rama DEV para validar. JP compartio spreadsheets con casos de ejemplo.', time: 'Mar 9 Jun 11:00', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez (DM)', text: 'Store IDs integradas para pruebas de flujo integraciones: CO 900006531, CO 900280737. Sin ejecutar cambios en produccion.', time: 'Mar 9 Jun 10:05', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:00', '14:30-15:30', '16:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-11:00', '12:00-13:00', '15:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-15:30', '16:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-9:45', '10:00-11:00', '12:00-13:00', '15:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '9:45-13:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
