@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mie 10 · Actualizado 10 Jun 17:20</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mie 10 · Actualizado 10 Jun 19:35</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1508,7 +1508,13 @@ const NOTES = [
       { text:'Revisar configuracion de tipos de tickets con problemas de productos para ajustar comportamiento del bot', owner:'Maria Granada / Angela Osuna', phase:'build', priority:'P1' },
       { text:'Finalizar ajuste en desarrollo para solucionar generacion de tickets duplicados', owner:'Cristian Parada', phase:'build', priority:'P1' },
       { text:'Actualizar bot con contexto sobre posibles demoras en Mexico por movilizaciones del Mundial para mejorar respuesta empatica', owner:'Angela Osuna', phase:'build', priority:'P1' },
-      { text:'Confirmar cuotas de AWS y verificar si hay riesgo de superar los limites', owner:'Andres Hamir Cobos', phase:'build', priority:'P1' }
+      { text:'Confirmar cuotas de AWS y verificar si hay riesgo de superar los limites', owner:'Andres Hamir Cobos', phase:'build', priority:'P1' },
+      { text:'Crear visuales y material de formacion para el equipo sobre la nueva herramienta de gestion de redes sociales Shelf', owner:'Mike Medina / Guadalupe Martinez / Juan Diego Gil', phase:'build', priority:'P1' },
+      { text:'Lanzar segunda fase de la promocion BP Promotion siguiendo los porcentajes de despliegue definidos', owner:'Angela Osuna', phase:'build', priority:'P1' },
+      { text:'Coordinar la aceleracion de implementacion de herramientas de prevencion de fraude en clientes grandes', owner:'Angela Osuna', phase:'build', priority:'P1' },
+      { text:'Informar a Cris sobre la persistencia de tickets duplicados proporcionando ejemplos especificos', owner:'Natalia Intencipa', phase:'build', priority:'P1' },
+      { text:'Revisar los requerimientos de configuracion de pagos enviados por Dimas en el hilo de comunicacion', owner:'Andres De Las Casas', phase:'build', priority:'P1' },
+      { text:'Investigar causas del aumento en la tasa de contacto de usuarios y notificar los hallazgos al equipo', owner:'Yerick Martinez', phase:'build', priority:'P1' }
     ]
   },
   {
@@ -1771,6 +1777,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t824', text:'[HOY Mie] Confirmar con Elias/equipo si Juan Esquivel (Camilo) puede desbloquear la conexion de workflow a entry issue de WhatsApp — Elias lo necesita y Jose esta de vacaciones. JP ya oriento al equipo pero validar que Juan Esquivel haya respondido y el equipo quedo desbloqueado.', phase:'build', priority:'P1', source:'Group DM Elias Rivera Mie 10 Jun 14:40', day:'wed', completed:false },
   { id:'t823', text:'[HOY Mie] Seguimiento tree display issue CO — Steph reporto que con numero 573014786898 el arbol de opciones (chatear/llamar al cliente) no siempre aparece. JP reporto a tech. Confirmar que tech tiene el issue, dar seguimiento y notificar a Steph cuando haya fix. Comportamiento: intermitente — misma orden, a veces si sale a veces no.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Mie 10 Jun 12:28', day:'wed', completed:false },
   { id:'t820', text:'[HOY Mie URGENTE] Dar numero de celular a Camilo para pruebas CO: Camilo pregunto por chat_id a las 9:04 — JP no lo tiene. Pendiente: compartir numero de celular con Camilo Esquivel para que pueda probar el bot en WhatsApp Colombia y validar fix desplegado anoche.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 10 Jun 09:04', day:'wed', completed:false },
   { id:'t819', text:'[HOY Mie] Responder a Steph sobre Order Status: ella pregunto "Como va lo de Order Status??" a las 9:09. Dar update de estado de integracion — tech continua mapeando todos los entry issues (menos finanzas y gestion de tienda). Confirmar avances del fix de WhatsApp CO.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Mie 10 Jun 09:09', day:'wed', completed:false },
@@ -1837,13 +1844,19 @@ const DEFAULT_DELEGATED = [
   { id:'d624', text:'Elaborar playbook de fallas tecnicas para gestionar flujo entrante sin afectar la concurrencia del sistema', owner:'Isabela Gomez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
   { id:'d625', text:'Finalizar ajuste en desarrollo para solucionar generacion de tickets duplicados — Natalia reportar ejemplos especificos a Cris', owner:'Cristian Parada / Natalia Intencipa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
   { id:'d626', text:'Actualizar bot con contexto sobre posibles demoras en Mexico por movilizaciones del Mundial para mejorar respuesta empatica', owner:'Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d627', text:'Confirmar cuotas de Amazon Web Services y verificar si hay riesgo de superar los limites ante volumen del Mundial', owner:'Andres Hamir Cobos', source:'CX Weekly Business Review 10 Jun', status:'pendiente' }
+  { id:'d627', text:'Confirmar cuotas de Amazon Web Services y verificar si hay riesgo de superar los limites ante volumen del Mundial', owner:'Andres Hamir Cobos', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d628', text:'Crear visuales y material de formacion para el equipo sobre la nueva herramienta de gestion de redes sociales Shelf', owner:'Mike Medina / Guadalupe Martinez / Juan Diego Gil', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d629', text:'Lanzar segunda fase de BP Promotion siguiendo los porcentajes de despliegue definidos', owner:'Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d630', text:'Coordinar aceleracion de implementacion de herramientas de prevencion de fraude en clientes grandes', owner:'Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d631', text:'Informar a Cristian Parada sobre la persistencia de tickets duplicados proporcionando ejemplos especificos', owner:'Natalia Intencipa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d632', text:'Revisar requerimientos de configuracion de pagos enviados por Dimas en el hilo de comunicacion', owner:'Andres De Las Casas', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d633', text:'Investigar causas del aumento en la tasa de contacto de usuarios y notificar hallazgos al equipo', owner:'Yerick Martinez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
+  { from: 'Elias Rivera (Group DM con Gregson/Manuel/Andres)', text: 'Elias pregunta a JP: "De pronto sabes como conectar un workflow a un entry issue de WhatsApp? Jose aparece de vacaciones." JP respondio: "jaja yo no, si con juan.esquivel pls." Manuel Gruezo confirmo que debe ser via recetas y Statsig. Equipo quedo contactando a Juan Esquivel (Camilo).', time: 'Mie 10 Jun 14:40', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez (DM)', text: 'Steph investiga un caso especifico — JP pregunto: "es una orden activa??" y pidio el order ID. Steph respondio "CO". Pendiente: dar seguimiento cuando comparta el ID completo para validar la orden.', time: 'Mie 10 Jun 14:14', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez (DM)', text: 'Issue del arbol persiste de forma INTERMITENTE — con la misma orden 573014786898, a veces aparecen las opciones "chatear/llamar al cliente" y a veces no. JP: "ya lo reporte a tech". Pendiente: confirmar fix tecnico y hacer seguimiento con Steph.', time: 'Mie 10 Jun 12:28', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'Steph confirma fix parcial: "Si sale ahora" — las opciones del arbol aparecieron al probar de nuevo. JP explico que el arbol creado permite responder por cualquier categoria si el usuario escribe su consulta de orden. Bot en si funciona correctamente en ambos casos.', time: 'Mie 10 Jun 11:48', type: 'dm', actionable: false },
-  { from: 'Stephania Gonzalez (DM)', text: 'Steph y companero no ven las opciones "quiero chatear con cliente / llamar al cliente" en el arbol del bot en Colombia. JP las ve bien en sus pruebas. Investigando inconsistencia — podria ser por tipo de cuenta o estado de la orden especifica.', time: 'Mie 10 Jun 10:58', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (Group DM)', text: 'Camilo a Gregson/Manuel: "prueben los endpoints desde Assembled con estas tiendas — si no funciona directamente desde Postman." Contexto: validacion integracion tiendas para nuevos flujos AI. Gregson respondio "Gracias Juan".', time: 'Mie 10 Jun 12:14', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez (DM)', text: 'Order Status fix de WhatsApp CO confirmado. JP explica: "ese arbol es el creado — si preguntas estado de la orden en cualquier categoria el bot responde." WA CO resuelto. Steph confirma funcionamiento con celebrate.', time: 'Mie 10 Jun 09:09', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel (DM)', text: '"ya puedes probar en CO" — fix desplegado anoche. Bug previo: al seleccionar ordenes activas/entregadas el bot reenviaba directo a agente sin mostrar el arbol. chat_id ejemplo: 6a2465b95aa0de000901147. Camilo continua revisando causa raiz.', time: 'Mar 9 Jun 20:07', type: 'dm', actionable: false },
