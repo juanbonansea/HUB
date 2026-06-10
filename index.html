@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mar 9 · Actualizado 09 Jun 17:11</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mie 10 · Actualizado 10 Jun 07:14</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1476,7 +1476,6 @@ const EVENTS = {
   ],
   wed: [
     { time:'9:00-9:30', title:'Nuevos Flujos de AI - Kick Offs', attendees:6, org:'m.granada@rappi.com', type:'team', note:'Kick off nuevos flujos de AI con Maria Granada — definicion de alcance y prioridades para proxima iteracion de automatizacion' },
-    { time:'9:45-10:00', title:'Entry issues - AI false', attendees:4, org:'m.granada@rappi.com', type:'team', note:'Reunion con Maria Granada, Cristian Parada y Juan Esquivel para revisar entry issues de AI false' },
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:30-15:00', title:'Assembled Assist <> Rappi Weekly Sync', attendees:8, org:'monica@assembledhq.com', type:'external', note:'Sync semanal con equipo Assembled — revision plan de implementacion. Docs: Rappi <> Assembled Assist | Implementation Plan + Notes' },
@@ -1740,6 +1739,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t817', text:'[HOY Mie URGENTE] Testear bot en CO: Camilo confirmo anoche "ya puedes probar en CO". Hacer pruebas en WhatsApp Colombia: verificar que al seleccionar ordenes activas/entregadas el bot muestra el arbol correcto y NO va directo a agente. Referencia chat_id: 6a2465b95aa0de000901147. Informar resultado a Camilo y a equipo Merchant.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 9 Jun 20:07', day:'wed', completed:false },
   { id:'t813', text:'[NUEVO HOY] BUG WHATSAPP: bot "ordenes Live" manda directo a agente sin mostrar opciones de estado de orden — Steph confirmo en pruebas. chat_ids: 6a28432ff93043000a1fbd67 y 6a2848f7f93043000a206eab (CO). Reportado a Tech. Pendiente: seguimiento y fix por Camilo.', phase:'build', priority:'P0', source:'DM Stephania Gonzalez Mar 9 Jun', day:'tue', completed:false },
   { id:'t812', text:'[NUEVO HOY] Revisar bot "Mi tienda no aparece en la app" Merchants: Carol Castillo compartio chat_id 121d326e-8c3e-41c8-8bb2-06fd5bc2ee86. Investigar si el bot de suspensiones se filtro incorrectamente o llego por otro camino. Bot suspensiones pegado a "Mi tienda esta suspendida".', phase:'build', priority:'P0', source:'DM Carol Castillo / #incident_management_support Mar 9 Jun', day:'tue', completed:false },
   { id:'t811', text:'[INCIDENTE EN CURSO] ~11,000 casos bypassing el bot y pasando directo a agente. Raiz tecnica identificada: integration_id es diferente al user_id. Camilo Esquivel desplegando rama DEV para pruebas. Pendiente: validar en DEV con los store IDs de prueba (CO 900006531, CO 900280737). WhatsApp Y portal Rappi Aliados afectados.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 9 Jun', day:'tue', completed:false },
@@ -1790,19 +1790,19 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel (DM)', text: 'Revisando entry issues: algunos casos ya integrados no estan cayendo al bot. JP pregunta si la mayoria vienen de WhatsApp — Camilo confirma que aun no ha ejecutado la receta. JP probo en WhatsApp y lo lleva directo a agente de una.', time: 'Mar 9 Jun 17:00', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'Steph pregunta por Order Status y entry issues. JP: "Tech continua integrando todos los entry issues menos finanzas y gestion de tienda — te aviso cuando este listo." Steph comparte numeros de prueba por pais: CO +57-1-5140348, AR +54-9-11-5984-5795, MX +52-1-55-4163-7682.', time: 'Mar 9 Jun 15:51', type: 'dm', actionable: false },
-  { from: 'Isabela / Meiker (Group DM)', text: 'JP informa a Isa sobre Mozart: sizing lo hicieron Mafe y Andy con metricas del backlog. Mozart une 3 portales del aliado para respuesta uniforme en cualquier canal sin inferencia. Equipo Merchant tiene plan de automatizaciones — JP lo discute manana con Andy.', time: 'Mar 9 Jun 15:37', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: 'Andres pide revision del plan food live antes del 1:1 de manana (Mie 16:30). JP confirma: "Alineado con todo — tech esta mapeando food live en todas las ramas. No va por todas como update todavia, pero ya se trabaja en ello."', time: 'Mar 9 Jun 13:52', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'Testing bot integraciones en DEV: JP probando flujo consultar estado de integracion. Bot manda directo a agente en ramas que van a agente. JP confirma: nada de Finanzas ni pagos van al bot. Pais de prueba: CO.', time: 'Mar 9 Jun 12:38', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'BUG WHATSAPP confirmado en Colombia: Al seleccionar "ordenes Live" el bot manda directo a agente sin mostrar opciones. chat_ids: 6a28432ff93043000a1fbd67 y 6a2848f7f93043000a206eab. Reportado a Tech.', time: 'Mar 9 Jun 12:27', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Troubleshooting activo: ~11,000 casos van directo a agente sin pasar por el bot. Raiz: "integration_id es diferente al user_id." Camilo desplegando rama DEV para validar.', time: 'Mar 9 Jun 11:00', type: 'dm', actionable: true }
+  { from: 'Camilo Esquivel (DM)', text: 'UPDATE Mie 10: "ya puedes probar en CO" — Camilo confirmo anoche que ya puede testearse en Colombia. Caso similar identificado: chat_id 6a2465b95aa0de000901147 (orden del 22 may, aliado contacto soporte sabado pasado). Bug: al seleccionar ordenes activas/entregadas, bot reenvia directo a agente sin mostrar arbol. Sigue revisando causa raiz.', time: 'Mar 9 Jun 20:07', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Revisando entry issues: algunos casos ya integrados no estan cayendo al bot. Bug confirmado por WhatsApp — "cuando el partner selecciona ordenes activas y entregadas hay casos donde lo reenvia de inmediato a un agente en vez de mostrarle el arbol que corresponda."', time: 'Mar 9 Jun 19:27', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez (DM)', text: 'Steph pregunta por Order Status y entry issues. JP: "Tech continua integrando todos los entry issues menos finanzas y gestion de tienda." Steph comparte numeros de prueba por pais: CO +57-1-5140348, AR +54-9-11-5984-5795, MX +52-1-55-4163-7682.', time: 'Mar 9 Jun 15:51', type: 'dm', actionable: false },
+  { from: 'Isabela / Meiker (Group DM)', text: 'JP informa a Isa sobre Mozart: sizing lo hicieron Mafe y Andy con metricas del backlog. Mozart une 3 portales del aliado para respuesta uniforme en cualquier canal sin inferencia. Equipo Merchant tiene plan de automatizaciones — discutir hoy Mie con Andy en 1:1 16:30.', time: 'Mar 9 Jun 15:37', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas (DM)', text: 'Andres pide revision del plan food live antes del 1:1 hoy (Mie 16:30). JP confirma: "Alineado con todo — tech esta mapeando food live en todas las ramas. No va por todas como update todavia, pero ya se trabaja en ello."', time: 'Mar 9 Jun 13:52', type: 'dm', actionable: false },
+  { from: 'Stephania Gonzalez (DM)', text: 'BUG WHATSAPP confirmado en Colombia: Al seleccionar "ordenes Live" el bot manda directo a agente sin mostrar opciones. chat_ids: 6a28432ff93043000a1fbd67 y 6a2848f7f93043000a206eab. Reportado a Tech — fix en progreso con Camilo.', time: 'Mar 9 Jun 12:27', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Troubleshooting activo: ~11,000 casos van directo a agente sin pasar por el bot. Raiz: "integration_id es diferente al user_id." Camilo desplegando rama DEV para validar. Update nocturno: ya listo para testear en CO.', time: 'Mar 9 Jun 11:00', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-18:00'] },
-  { day: 'Mie', blocks: ['8:00-9:00', '10:00-11:00', '12:00-13:00', '15:00-16:30', '17:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-9:00', '9:30-11:00', '12:00-13:00', '15:00-16:30', '17:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '9:45-13:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
@@ -1923,11 +1923,11 @@ function renderDashboard() {
    ================================================================ */
 function renderCalendar() {
   const dayLabels = [
-    { name:'Lunes 1 Junio', key:'mon' },
-    { name:'Martes 2 Junio', key:'tue' },
-    { name:'Miercoles 3 Junio', key:'wed' },
-    { name:'Jueves 4 Junio', key:'thu' },
-    { name:'Viernes 5 Junio', key:'fri' }
+    { name:'Lunes 8 Junio', key:'mon' },
+    { name:'Martes 9 Junio', key:'tue' },
+    { name:'Miercoles 10 Junio', key:'wed' },
+    { name:'Jueves 11 Junio', key:'thu' },
+    { name:'Viernes 12 Junio', key:'fri' }
   ];
 
   document.getElementById('calContent').innerHTML = dayLabels.map((d,i) => {
