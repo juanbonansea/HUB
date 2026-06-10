@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mie 10 · Actualizado 10 Jun 09:30</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mie 10 · Actualizado 10 Jun 15:15</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1493,6 +1493,19 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:63, title:'Nuevos Flujos de AI - Kick Offs', date:'10 Jun',
+    summary:'Revision tecnica de endpoints, gestion de regulaciones y flujos para soporte a comerciantes mediante integraciones. Se definio la creacion de 4 endpoints para modificar genero y foto de perfil RT. La implementacion de recetas en Mexico via llaves de pantalla ya fue gestionada. Persisten dudas tecnicas sobre el origen del Integration ID necesario para consumir los endpoints del microservicio de tiendas. Acceso a servicios Ridash es bloqueante para avanzar.',
+    sections:['Actualizacion perfiles RT - 4 endpoints (GET + modificacion)','Regulacion Mexico via llaves de pantalla (completado)','Soporte comerciantes - microservicio gestion estados tiendas'],
+    actions:[
+      { text:'Dar seguimiento a Gregson y Manuel: validar avance en desarrollo de endpoints y resolver dudas sobre Integration ID del microservicio de tiendas', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Desarrollar endpoints perfiles RT: crear puntos de enlace para cambio de genero y foto de perfil RT y flujo Cancha Change State', owner:'Gregson Murcia / Manuel Gruezo', phase:'build', priority:'P0' },
+      { text:'Probar endpoints integraciones: validar funcionamiento del microservicio para gestion de encendido y apagado de tiendas', owner:'Gregson Murcia / Manuel Gruezo', phase:'build', priority:'P0' },
+      { text:'Validar Integration ID: determinar el origen correcto del Integration ID requerido para consultas de la API', owner:'Gregson Murcia / Manuel Gruezo', phase:'build', priority:'P0' },
+      { text:'Acceder servicios Ridash: investigar microservicios de Ridash para obtener estado de webhooks en tiendas', owner:'Gregson Murcia / Manuel Gruezo', phase:'build', priority:'P1' },
+      { text:'Consultar Juan Esquivel: aclarar inconvenientes encontrados con Ridash y el desarrollo de las integraciones', owner:'Gregson Murcia / Manuel Gruezo', phase:'build', priority:'P0' }
+    ]
+  },
+  {
     id:62, title:'Entrega de pruebas bot de triage', date:'3 Jun',
     summary:'La reunion definio el alcance del bot de clasificacion para categorizar 6 tipos de interacciones y establecio los parametros para validar la precision operativa. El entorno de pruebas se habilito en plataforma Connect para simular interacciones reales. Se identifico superposicion de datos entre categorias que requiere validacion cuidadosa. La metodologia integra registros externos para compensar limitaciones de reportes automatizados y se detecto la necesidad de perfiles de prueba diversos.',
     sections:['Objetivo bot triage (6 categorias de interaccion)','Configuracion pruebas tecnicas en Connect','Metodologia y seguimiento con registros externos'],
@@ -1742,6 +1755,7 @@ const DEFAULT_TASKS = [
   { id:'t820', text:'[HOY Mie URGENTE] Dar numero de celular a Camilo para pruebas CO: Camilo pregunto por chat_id a las 9:04 — JP no lo tiene. Pendiente: compartir numero de celular con Camilo Esquivel para que pueda probar el bot en WhatsApp Colombia y validar fix desplegado anoche.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 10 Jun 09:04', day:'wed', completed:false },
   { id:'t819', text:'[HOY Mie] Responder a Steph sobre Order Status: ella pregunto "Como va lo de Order Status??" a las 9:09. Dar update de estado de integracion — tech continua mapeando todos los entry issues (menos finanzas y gestion de tienda). Confirmar avances del fix de WhatsApp CO.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Mie 10 Jun 09:09', day:'wed', completed:false },
   { id:'t818', text:'[HOY Mie] Documentar decisiones kick-off Nuevos Flujos de AI (9:00-9:30 hoy con Maria Granada, Susana, Gregson, Joan): registrar alcance y prioridades acordadas para la proxima iteracion de automatizacion AI y definir proximos pasos.', phase:'build', priority:'P1', source:'Calendar Mie 10 Jun', day:'wed', completed:false },
+  { id:'t822', text:'[HOY Mie] Seguimiento Integration ID - Nuevos Flujos AI: equipo Gregson/Manuel tiene dudas sobre el origen correcto del Integration ID para el microservicio de tiendas. Verificar si Juan Esquivel puede desbloquear esto y actualizar el hilo de comunicacion del equipo.', phase:'build', priority:'P1', source:'Nuevos Flujos de AI - Kick Offs Mie 10 Jun', day:'wed', completed:false },
   { id:'t817', text:'[HOY Mie URGENTE] Testear bot en CO: Camilo confirmo anoche "ya puedes probar en CO". Hacer pruebas en WhatsApp Colombia: verificar que al seleccionar ordenes activas/entregadas el bot muestra el arbol correcto y NO va directo a agente. Referencia chat_id: 6a2465b95aa0de000901147. Informar resultado a Camilo y a equipo Merchant.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 9 Jun 20:07', day:'wed', completed:false },
   { id:'t813', text:'[NUEVO HOY] BUG WHATSAPP: bot "ordenes Live" manda directo a agente sin mostrar opciones de estado de orden — Steph confirmo en pruebas. chat_ids: 6a28432ff93043000a1fbd67 y 6a2848f7f93043000a206eab (CO). Reportado a Tech. Pendiente: seguimiento y fix por Camilo.', phase:'build', priority:'P0', source:'DM Stephania Gonzalez Mar 9 Jun', day:'tue', completed:false },
   { id:'t812', text:'[NUEVO HOY] Revisar bot "Mi tienda no aparece en la app" Merchants: Carol Castillo compartio chat_id 121d326e-8c3e-41c8-8bb2-06fd5bc2ee86. Investigar si el bot de suspensiones se filtro incorrectamente o llego por otro camino. Bot suspensiones pegado a "Mi tienda esta suspendida".', phase:'build', priority:'P0', source:'DM Carol Castillo / #incident_management_support Mar 9 Jun', day:'tue', completed:false },
@@ -1789,11 +1803,16 @@ const DEFAULT_DELEGATED = [
   { id:'d610', text:'Agendar reunion seguimiento con dueno del algoritmo de asignacion para revisar analisis y definir proximos pasos', owner:'Matias Kramer', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
   { id:'d611', text:'Migrar automatizaciones a Connect — confirmar cuales deben migrarse antes de retirar licencias de Customer para no interrumpir procesos', owner:'Natalia Intencipa / Andres Diaz / Juan Diego Gil', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
   { id:'d612', text:'Enviar datos especificos de restaurantes y actualizar documento de estrategia Merchant', owner:'Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d613', text:'Revisar analisis de asignacion de rapitenderos con nueva definicion de Matias Kramer y actualizar estrategia', owner:'Andres Diaz / Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' }
+  { id:'d613', text:'Revisar analisis de asignacion de rapitenderos con nueva definicion de Matias Kramer y actualizar estrategia', owner:'Andres Diaz / Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d614', text:'Desarrollar endpoints perfiles RT: crear puntos de enlace para cambio de genero y foto de perfil RT y flujo Cancha Change State', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
+  { id:'d615', text:'Probar endpoints microservicio: validar funcionamiento de endpoints para gestion de encendido y apagado de tiendas', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
+  { id:'d616', text:'Validar origen Integration ID: determinar el campo correcto requerido para consultas de la API del microservicio de tiendas', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
+  { id:'d617', text:'Acceder servicios Ridash e investigar microservicios para obtener estado de webhooks en tiendas — coordinar con Juan Esquivel para desbloquear', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Stephania Gonzalez (DM)', text: 'Steph pregunta esta manana: "Como va lo de Order Status??" y "Como vas? Que tal todo??" — seguimiento sobre el estado de la integracion Order Status en el bot Live. Pendiente darle update de avances.', time: 'Mie 10 Jun 09:09', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez (DM)', text: 'A las 11:07 Steph dice "Para descartar que sea eso el problema" — sigue investigando posible issue adicional despues de que JP confirmo el fix de WhatsApp esta manana. Pendiente: revisar que escenario esta descartando Steph y confirmar si hay otro bug.', time: 'Mie 10 Jun 11:07', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez (DM)', text: 'Steph pregunto a las 9:09: "Como va lo de Order Status??" — JP respondio que WhatsApp estaba roto y tech estaba trabajando a full. Mas tarde JP confirmo "ya lo arreglamos", Steph probo y confirmo que funciono (:celebrate:). Issue de WhatsApp CO resuelto esta manana.', time: 'Mie 10 Jun 09:09', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel (DM)', text: 'Camilo pregunta: "hola Juan, tienes el chat_id?" — JP respondio no tenerlo y ofrece su numero de celular para pruebas en CO. Pendiente: compartir numero con Camilo para continuar validacion del bot en WhatsApp Colombia.', time: 'Mie 10 Jun 09:04', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'UPDATE anoche: "ya puedes probar en CO" — fix desplegado. Caso similar identificado: chat_id 6a2465b95aa0de000901147 (orden del 22 may, aliado contacto soporte sabado pasado). Bug: bot reenvia directo a agente sin mostrar arbol. Camilo sigue revisando causa raiz.', time: 'Mar 9 Jun 20:07', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel (DM)', text: 'Bug confirmado por WhatsApp — "cuando el partner selecciona ordenes activas y entregadas hay casos donde lo reenvia de inmediato a un agente en vez de mostrarle el arbol que corresponda."', time: 'Mar 9 Jun 19:27', type: 'dm', actionable: true },
