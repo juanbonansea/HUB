@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mie 10 · Actualizado 10 Jun 15:15</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Mie 10 · Actualizado 10 Jun 17:20</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1493,6 +1493,25 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:64, title:'CX Weekly Business Review', date:'10 Jun',
+    summary:'Se revisaron despliegues operativos, estrategias para el Mundial y priorizacion de soporte tecnico. Se valido la liberacion exitosa de correos electronicos y la estrategia para escalar despliegues en Colombia — proximas integraciones incluiran gestion de cuentas y programas de lealtad. El equipo decidio postergar la unificacion del servicio de atencion al cliente hasta finalizar el Mundial. Se priorizara la atencion por chat y la gestion de fallos de IA. Se trabaja en corregir tickets duplicados y ajustar politicas de compensacion proactiva tras analizar riesgos logisticos.',
+    sections:['Estado operativo e integraciones (CO email liberado + loyalty)','Preparativos Mundial — postergar unificacion CS, priorizar chat','Gestion tecnica: tickets duplicados, seguridad y compensacion proactiva'],
+    actions:[
+      { text:'Desplegar flujo PQR en Colombia durante el dia para permitir el flujo necesario de pruebas', owner:'Andres Hamir Cobos', phase:'build', priority:'P0' },
+      { text:'Apagar Proactive Mexico durante partido de manana y analizar impacto posterior', owner:'Eugenio La Rosa / Nicolas Bejarano', phase:'build', priority:'P0' },
+      { text:'Definir tipos de problemas que actuan como excepciones para evitar escalacion a agente humano cuando IA falle', owner:'Isabela Gomez', phase:'build', priority:'P0' },
+      { text:'Validar con equipo Fulfillment la estrategia de cierre de tickets para que no afecte negativamente la asignacion de pedidos', owner:'Isabela Gomez / Eugenio La Rosa', phase:'build', priority:'P0' },
+      { text:'Priorizar atencion del equipo en canal Chat Support por inicio del Mundial y altos volumenes de casos', owner:'Natalia Intencipa', phase:'build', priority:'P0' },
+      { text:'Crear playbook operativo para el Mundial y partidos relevantes para gestionar errores operativos', owner:'Eugenio La Rosa / Angela Osuna', phase:'build', priority:'P1' },
+      { text:'Elaborar playbook de fallas tecnicas para gestionar flujo entrante sin afectar la concurrencia', owner:'Isabela Gomez', phase:'build', priority:'P1' },
+      { text:'Coordinar call para revisar obtencion de datos desde Ridash y establecer alertas en tiempo real', owner:'Josefina Polivanoff / Andres Hamir Cobos', phase:'build', priority:'P1' },
+      { text:'Revisar configuracion de tipos de tickets con problemas de productos para ajustar comportamiento del bot', owner:'Maria Granada / Angela Osuna', phase:'build', priority:'P1' },
+      { text:'Finalizar ajuste en desarrollo para solucionar generacion de tickets duplicados', owner:'Cristian Parada', phase:'build', priority:'P1' },
+      { text:'Actualizar bot con contexto sobre posibles demoras en Mexico por movilizaciones del Mundial para mejorar respuesta empatica', owner:'Angela Osuna', phase:'build', priority:'P1' },
+      { text:'Confirmar cuotas de AWS y verificar si hay riesgo de superar los limites', owner:'Andres Hamir Cobos', phase:'build', priority:'P1' }
+    ]
+  },
+  {
     id:63, title:'Nuevos Flujos de AI - Kick Offs', date:'10 Jun',
     summary:'Revision tecnica de endpoints, gestion de regulaciones y flujos para soporte a comerciantes mediante integraciones. Se definio la creacion de 4 endpoints para modificar genero y foto de perfil RT. La implementacion de recetas en Mexico via llaves de pantalla ya fue gestionada. Persisten dudas tecnicas sobre el origen del Integration ID necesario para consumir los endpoints del microservicio de tiendas. Acceso a servicios Ridash es bloqueante para avanzar.',
     sections:['Actualizacion perfiles RT - 4 endpoints (GET + modificacion)','Regulacion Mexico via llaves de pantalla (completado)','Soporte comerciantes - microservicio gestion estados tiendas'],
@@ -1752,6 +1771,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t823', text:'[HOY Mie] Seguimiento tree display issue CO — Steph reporto que con numero 573014786898 el arbol de opciones (chatear/llamar al cliente) no siempre aparece. JP reporto a tech. Confirmar que tech tiene el issue, dar seguimiento y notificar a Steph cuando haya fix. Comportamiento: intermitente — misma orden, a veces si sale a veces no.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Mie 10 Jun 12:28', day:'wed', completed:false },
   { id:'t820', text:'[HOY Mie URGENTE] Dar numero de celular a Camilo para pruebas CO: Camilo pregunto por chat_id a las 9:04 — JP no lo tiene. Pendiente: compartir numero de celular con Camilo Esquivel para que pueda probar el bot en WhatsApp Colombia y validar fix desplegado anoche.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mie 10 Jun 09:04', day:'wed', completed:false },
   { id:'t819', text:'[HOY Mie] Responder a Steph sobre Order Status: ella pregunto "Como va lo de Order Status??" a las 9:09. Dar update de estado de integracion — tech continua mapeando todos los entry issues (menos finanzas y gestion de tienda). Confirmar avances del fix de WhatsApp CO.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Mie 10 Jun 09:09', day:'wed', completed:false },
   { id:'t818', text:'[HOY Mie] Documentar decisiones kick-off Nuevos Flujos de AI (9:00-9:30 hoy con Maria Granada, Susana, Gregson, Joan): registrar alcance y prioridades acordadas para la proxima iteracion de automatizacion AI y definir proximos pasos.', phase:'build', priority:'P1', source:'Calendar Mie 10 Jun', day:'wed', completed:false },
@@ -1807,18 +1827,27 @@ const DEFAULT_DELEGATED = [
   { id:'d614', text:'Desarrollar endpoints perfiles RT: crear puntos de enlace para cambio de genero y foto de perfil RT y flujo Cancha Change State', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
   { id:'d615', text:'Probar endpoints microservicio: validar funcionamiento de endpoints para gestion de encendido y apagado de tiendas', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
   { id:'d616', text:'Validar origen Integration ID: determinar el campo correcto requerido para consultas de la API del microservicio de tiendas', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
-  { id:'d617', text:'Acceder servicios Ridash e investigar microservicios para obtener estado de webhooks en tiendas — coordinar con Juan Esquivel para desbloquear', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' }
+  { id:'d617', text:'Acceder servicios Ridash e investigar microservicios para obtener estado de webhooks en tiendas — coordinar con Juan Esquivel para desbloquear', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
+  { id:'d618', text:'Desplegar flujo PQR en Colombia durante el dia para permitir el flujo necesario de pruebas — URGENTE para hoy', owner:'Andres Hamir Cobos', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d619', text:'Apagar Proactive Mexico durante partido de manana y analizar impacto posterior', owner:'Eugenio La Rosa / Nicolas Bejarano', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d620', text:'Definir tipos de problemas que actuan como excepciones para evitar escalacion a agente humano cuando sistema IA falle', owner:'Isabela Gomez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d621', text:'Validar con equipo Fulfillment la estrategia de cierre de tickets para que no afecte negativamente la asignacion de pedidos', owner:'Isabela Gomez / Eugenio La Rosa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d622', text:'Priorizar atencion del equipo en Canal Chat Support por inicio del Mundial y altos volumenes de casos durante el torneo', owner:'Natalia Intencipa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d623', text:'Crear playbook operativo para el Mundial y partidos relevantes — protocolo ante errores o problemas operativos durante el torneo', owner:'Eugenio La Rosa / Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d624', text:'Elaborar playbook de fallas tecnicas para gestionar flujo entrante sin afectar la concurrencia del sistema', owner:'Isabela Gomez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d625', text:'Finalizar ajuste en desarrollo para solucionar generacion de tickets duplicados — Natalia reportar ejemplos especificos a Cris', owner:'Cristian Parada / Natalia Intencipa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d626', text:'Actualizar bot con contexto sobre posibles demoras en Mexico por movilizaciones del Mundial para mejorar respuesta empatica', owner:'Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d627', text:'Confirmar cuotas de Amazon Web Services y verificar si hay riesgo de superar los limites ante volumen del Mundial', owner:'Andres Hamir Cobos', source:'CX Weekly Business Review 10 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Stephania Gonzalez (DM)', text: 'A las 11:07 Steph dice "Para descartar que sea eso el problema" — sigue investigando posible issue adicional despues de que JP confirmo el fix de WhatsApp esta manana. Pendiente: revisar que escenario esta descartando Steph y confirmar si hay otro bug.', time: 'Mie 10 Jun 11:07', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'Steph pregunto a las 9:09: "Como va lo de Order Status??" — JP respondio que WhatsApp estaba roto y tech estaba trabajando a full. Mas tarde JP confirmo "ya lo arreglamos", Steph probo y confirmo que funciono (:celebrate:). Issue de WhatsApp CO resuelto esta manana.', time: 'Mie 10 Jun 09:09', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'Camilo pregunta: "hola Juan, tienes el chat_id?" — JP respondio no tenerlo y ofrece su numero de celular para pruebas en CO. Pendiente: compartir numero con Camilo para continuar validacion del bot en WhatsApp Colombia.', time: 'Mie 10 Jun 09:04', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'UPDATE anoche: "ya puedes probar en CO" — fix desplegado. Caso similar identificado: chat_id 6a2465b95aa0de000901147 (orden del 22 may, aliado contacto soporte sabado pasado). Bug: bot reenvia directo a agente sin mostrar arbol. Camilo sigue revisando causa raiz.', time: 'Mar 9 Jun 20:07', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Bug confirmado por WhatsApp — "cuando el partner selecciona ordenes activas y entregadas hay casos donde lo reenvia de inmediato a un agente en vez de mostrarle el arbol que corresponda."', time: 'Mar 9 Jun 19:27', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'Steph pregunta por Order Status y entry issues. JP: "Tech continua integrando todos los entry issues menos finanzas y gestion de tienda." Steph comparte numeros de prueba por pais: CO +57-1-5140348, AR +54-9-11-5984-5795, MX +52-1-55-4163-7682.', time: 'Mar 9 Jun 15:51', type: 'dm', actionable: false },
-  { from: 'Isabela / Meiker (Group DM)', text: 'JP informa sobre Mozart: sizing hecho por Mafe y Andy con metricas del backlog. Mozart une 3 portales del aliado para respuesta uniforme. Equipo Merchant tiene plan de automatizaciones — discutido ayer con Andy en 1:1 16:30.', time: 'Mar 9 Jun 15:37', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (DM)', text: 'BUG WHATSAPP confirmado en Colombia: Al seleccionar "ordenes Live" el bot manda directo a agente sin mostrar opciones. chat_ids: 6a28432ff93043000a1fbd67 y 6a2848f7f93043000a206eab. Reportado a Tech — fix en progreso con Camilo.', time: 'Mar 9 Jun 12:27', type: 'dm', actionable: true }
+  { from: 'Stephania Gonzalez (DM)', text: 'Issue del arbol persiste de forma INTERMITENTE — con la misma orden 573014786898, a veces aparecen las opciones "chatear/llamar al cliente" y a veces no. JP: "ya lo reporte a tech". Pendiente: confirmar fix tecnico y hacer seguimiento con Steph.', time: 'Mie 10 Jun 12:28', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez (DM)', text: 'Steph confirma fix parcial: "Si sale ahora" — las opciones del arbol aparecieron al probar de nuevo. JP explico que el arbol creado permite responder por cualquier categoria si el usuario escribe su consulta de orden. Bot en si funciona correctamente en ambos casos.', time: 'Mie 10 Jun 11:48', type: 'dm', actionable: false },
+  { from: 'Stephania Gonzalez (DM)', text: 'Steph y companero no ven las opciones "quiero chatear con cliente / llamar al cliente" en el arbol del bot en Colombia. JP las ve bien en sus pruebas. Investigando inconsistencia — podria ser por tipo de cuenta o estado de la orden especifica.', time: 'Mie 10 Jun 10:58', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (Group DM)', text: 'Camilo a Gregson/Manuel: "prueben los endpoints desde Assembled con estas tiendas — si no funciona directamente desde Postman." Contexto: validacion integracion tiendas para nuevos flujos AI. Gregson respondio "Gracias Juan".', time: 'Mie 10 Jun 12:14', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez (DM)', text: 'Order Status fix de WhatsApp CO confirmado. JP explica: "ese arbol es el creado — si preguntas estado de la orden en cualquier categoria el bot responde." WA CO resuelto. Steph confirma funcionamiento con celebrate.', time: 'Mie 10 Jun 09:09', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel (DM)', text: '"ya puedes probar en CO" — fix desplegado anoche. Bug previo: al seleccionar ordenes activas/entregadas el bot reenviaba directo a agente sin mostrar el arbol. chat_id ejemplo: 6a2465b95aa0de000901147. Camilo continua revisando causa raiz.', time: 'Mar 9 Jun 20:07', type: 'dm', actionable: false },
+  { from: 'Isabela / Meiker (Group DM)', text: 'JP informa sobre Mozart: sizing con Mafe y Andy. Mozart une 3 portales del aliado para respuesta uniforme. Plan de automatizaciones Merchant discutido — revision con Andres hoy 16:30.', time: 'Mar 9 Jun 15:37', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
