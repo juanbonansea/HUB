@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Jue 11 · Actualizado 11 Jun 09:10</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Jue 11 · Actualizado 11 Jun 10:20</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1493,6 +1493,18 @@ const EVENTS = {
 
 const NOTES = [
   {
+    id:65, title:'CX Product PRD & design reviews', date:'11 Jun',
+    summary:'Se unifico la clasificacion tecnica de iniciativas y la metodologia de documentacion para mejorar la visibilidad operativa. Se establecio que toda iniciativa con intervencion tecnologica debe registrarse en la categoria de producto tecnico para garantizar visibilidad — las configuraciones sin desarrollo permanecen en el area de negocios. La planificacion requiere informacion detallada para cada proyecto del Q2 y Q3, con soporte de IA para fortalecer las descripciones. Se detectaron impactos contrapuestos en indicadores clave que requieren estrategia de priorizacion especifica. Los procesos de ideacion deben vincularse correctamente con las iniciativas creadas en la plataforma.',
+    sections:['Criterios clasificacion tecnica (iniciativas tech → producto tecnico; config sin dev → negocios)','Estandarizacion documentacion Q2-Q3 — uso de IA para fortalecer descripciones','Estrategia metricas priorizadas — impactos contrapuestos en KPIs requieren priorizacion'],
+    actions:[
+      { text:'Registrar preguntas: publicar dudas surgidas durante el proceso de llenado de informacion en el canal de Automation Product', owner:'El grupo', phase:'build', priority:'P1' },
+      { text:'Realizar check vespertino: reunion de seguimiento por la tarde para resolver las preguntas pendientes del equipo sobre Atlas y visibilidad de iniciativas', owner:'El grupo', phase:'build', priority:'P1' },
+      { text:'Discutir metricas: analizar iniciativas que podrian impactar multiples metricas para definir la prioridad de ejecucion', owner:'Isabela Gomez / Andres De Las Casas', phase:'build', priority:'P1' },
+      { text:'Agregar iniciativa: asegurar la inclusion de la iniciativa en el area de negocios al configurar la nueva herramienta', owner:'Nico Bejarano', phase:'build', priority:'P1' },
+      { text:'Enviar TR: compartir la informacion de Atlas con Daniel para resolver los problemas de visibilidad de las iniciativas', owner:'Isabela Gomez', phase:'build', priority:'P1' }
+    ]
+  },
+  {
     id:64, title:'CX Weekly Business Review', date:'10 Jun',
     summary:'Se revisaron despliegues operativos, estrategias para el Mundial y priorizacion de soporte tecnico. Se valido la liberacion exitosa de correos electronicos y la estrategia para escalar despliegues en Colombia — proximas integraciones incluiran gestion de cuentas y programas de lealtad. El equipo decidio postergar la unificacion del servicio de atencion al cliente hasta finalizar el Mundial. Se priorizara la atencion por chat y la gestion de fallos de IA. Se trabaja en corregir tickets duplicados y ajustar politicas de compensacion proactiva tras analizar riesgos logisticos.',
     sections:['Estado operativo e integraciones (CO email liberado + loyalty)','Preparativos Mundial — postergar unificacion CS, priorizar chat','Gestion tecnica: tickets duplicados, seguridad y compensacion proactiva'],
@@ -1777,11 +1789,13 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t830', text:'[HOY Jue] CX Product PRD & design reviews (9:00-9:45): revisar PRDs y disenos de la semana con Isabela, Andres De Las Casas, Angela Osuna y equipo CX Product. Preparar feedback constructivo.', phase:'build', priority:'P1', source:'Calendar Jue 11 Jun', day:'thu', completed:false },
+  { id:'t832', text:'[HOY Jue TARDE] Check post-PRD: reunion de seguimiento con equipo para resolver preguntas pendientes sobre Atlas y visibilidad de iniciativas en la plataforma. Acordado hoy en CX Product PRD.', phase:'build', priority:'P1', source:'CX Product PRD & design reviews 11 Jun', day:'thu', completed:false },
+  { id:'t831', text:'[HOY Jue] Publicar preguntas del PRD en canal Automation Product: registrar dudas surgidas durante el proceso de llenado de informacion de iniciativas Q2-Q3. Accion colectiva acordada hoy.', phase:'build', priority:'P1', source:'CX Product PRD & design reviews 11 Jun', day:'thu', completed:false },
+  { id:'t830', text:'[HOY Jue] Post-PRD review (reunido 9:00-9:45) — alinear metricas con impactos contrapuestos con Isabela y Andres De Las Casas. Toda iniciativa con intervencion tecnologica debe quedar en categoria producto tecnico. Validar con equipo.', phase:'build', priority:'P1', source:'CX Product PRD & design reviews 11 Jun', day:'thu', completed:false },
   { id:'t829', text:'[HOY Jue] Seguimiento Integration ID / Ridash — Gregson y Manuel: ayer el equipo acordo consultar a Juan Esquivel para desbloquear Ridash. Confirmar que esten avanzando en endpoints de perfiles RT y microservicio de tiendas.', phase:'build', priority:'P1', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', day:'thu', completed:false },
   { id:'t828', text:'[HOY Jue] Confirmar fix tree display issue CO: Steph reporto ayer arbol intermitente con orden 573014786898. Verificar con tech si el fix fue desplegado y notificar a Steph con resultado.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Mie 10 Jun', day:'thu', completed:false },
   { id:'t827', text:'[HOY Jue] Revisar data fulfillment ganancias Kafka: pendiente de DM con Andres De Las Casas (ayer). Analizar cuantos llamados se hacen a los RT desde Kafka y compartir hallazgos.', phase:'metrics', priority:'P1', source:'DM Andres De Las Casas Mie 10 Jun', day:'thu', completed:false },
-  { id:'t826', text:'[HOY Jue] Seguimiento portal Rappi Aliados con Camilo Esquivel: ayer reporto error en flujo de RTs (cambio de licencia y otros documentos). Verificar si lo resolvio y retomar el avance en portal.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Mie 10 Jun', day:'thu', completed:false },
+  { id:'t826', text:'[HOY Jue] Seguimiento portal Rappi Aliados con Camilo Esquivel: esta manana confirmo que el modulo en cuestion es Aliados (09:37). Aun resolviendo error en flujo de RTs (cambio de licencia). Hacer follow-up cuando termine y retomar avance en portal.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Jue 11 Jun', day:'thu', completed:false },
   { id:'t825', text:'[HOY Jue] Confirmar Proactive Mexico apagado para partido: segun decision del WBR ayer, Eugenio/Nicolas deberian desactivar Proactive Mexico. Confirmar ejecucion y monitorear impacto.', phase:'build', priority:'P1', source:'CX Weekly Business Review 10 Jun', day:'thu', completed:false },
   { id:'t824', text:'[HOY Jue] Revisar asociacion de order ID en tickets del flujo Live — analizar cancelaciones sin ticket asociado. Accion asignada en 1:1 con Andres 2 Jun, aun pendiente.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'thu', completed:false },
   { id:'t823', text:'[HOY Jue] Humanizar bot: cambiar nombre del bot Live/Merchants por uno mas humano y empatico. Accion asignada desde CX WBR 3 Jun — pendiente de ejecutar.', phase:'build', priority:'P0', source:'CX Weekly Business Review 3 Jun', day:'thu', completed:false },
@@ -1841,11 +1855,15 @@ const DEFAULT_DELEGATED = [
   { id:'d630', text:'Coordinar aceleracion de implementacion de herramientas de prevencion de fraude en clientes grandes', owner:'Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
   { id:'d631', text:'Informar a Cristian Parada sobre la persistencia de tickets duplicados proporcionando ejemplos especificos', owner:'Natalia Intencipa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
   { id:'d632', text:'Revisar requerimientos de configuracion de pagos enviados por Dimas en el hilo de comunicacion', owner:'Andres De Las Casas', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d633', text:'Investigar causas del aumento en la tasa de contacto de usuarios y notificar hallazgos al equipo', owner:'Yerick Martinez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' }
+  { id:'d633', text:'Investigar causas del aumento en la tasa de contacto de usuarios y notificar hallazgos al equipo', owner:'Yerick Martinez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
+  { id:'d634', text:'Agregar iniciativa: asegurar la inclusion de la iniciativa en el area de negocios al configurar la nueva herramienta de clasificacion tecnica', owner:'Nico Bejarano', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
+  { id:'d635', text:'Discutir metricas: analizar iniciativas que podrian impactar multiples metricas para definir la prioridad de ejecucion en la plataforma', owner:'Isabela Gomez / Andres De Las Casas', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
+  { id:'d636', text:'Enviar TR: compartir la informacion de Atlas con Daniel para resolver los problemas de visibilidad de las iniciativas en la plataforma', owner:'Isabela Gomez', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Hub Bot (resumen Jue 11 Jun)', text: 'Actualizado 09:10. Hoy: CX Product PRD & design reviews 9:00-9:45 (en curso). Tarde libre — deep work. Pendientes: Integration ID Gregson/Manuel, tree display CO, Kafka data Andres, portal Camilo. Proactive Mexico apagado para el partido de hoy.', time: 'Jue 11 Jun 09:10', type: 'dm', actionable: true },
+  { from: 'Hub Bot (resumen Jue 11 Jun)', text: 'Actualizado 10:20. PRD review completado (9:00-9:45) — acciones: publicar preguntas en Automation Product, check vespertino, alinear metricas contrapuestas con Isabela/Andres. Pendientes: Integration ID Gregson/Manuel, Kafka data Andres, portal Camilo. Nota: Proactive Mexico se apago para el partido de ayer.', time: 'Jue 11 Jun 10:20', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Camilo confirmo "seria aliados, si?" — JP pregunto a las 9:37 sobre el avance del portal. Camilo reporto ayer que estaba resolviendo un error en el flujo de RTs (cambio de licencia). Pendiente: esperar resolucion del error y retomar portal Aliados.', time: 'Jue 11 Jun 09:37', type: 'dm', actionable: true },
   { from: 'Elias Rivera (DM)', text: 'Elias confirmo "Si!!" disponibilidad para hablar — JP regreso de reunion y le pregunto si seguia ahi. Contexto: tema pendiente de workflow entry issue WhatsApp ya resuelto via Juan Esquivel. Equipo quedo desbloqueado.', time: 'Mie 10 Jun 17:03', type: 'dm', actionable: false },
   { from: 'Stephania Gonzalez (DM)', text: '"Seguré haciendo pruebas" — Steph continua validando el bot despues de que JP explico que el arbol se pinta segun reglas de estado de la orden (activa vs entregada vs recien creada). JP: "ya casi creo que encontramos todos los detallitos". Pendiente: confirmar resultado final de pruebas.', time: 'Mie 10 Jun 16:57', type: 'dm', actionable: true },
   { from: 'Andres De Las Casas (DM)', text: 'Andres menciono a @maria.restrepo en contexto de datos. JP anotó accion: "revisar data de fulfillment de la ganancia de kafka, cuantos llamados a los RT". Pendiente: analizar data Kafka fulfillment y compartir hallazgos.', time: 'Mie 10 Jun 16:41', type: 'dm', actionable: true },
