@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Jue 11 · Actualizado 11 Jun 10:20</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Jue 11 · Actualizado 11 Jun 17:30</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1486,6 +1486,7 @@ const EVENTS = {
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   fri: [
+    { time:'9:00-10:00', title:'Juan Pablo / Maria Valeria', attendees:2, org:'maria.dorantes@rappi.com', type:'1on1', note:'Reunion sobre automatizaciones — alinear flujos y evitar solapamiento entre iniciativas de ambos equipos' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly QA AI con equipo — revision flujos de automatizacion, estado bots y proximas prioridades' }
   ]
@@ -1789,6 +1790,8 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t834', text:'[HOY Jue] Definir tope de compensacion para flujo OCD: en DM con Mafe, acordado agregar limite MAX hoy. JP penso $100 USD, Mafe sugiere $150 USD — alinear y definir valor final. Para ecommerce ya hay logica de devolucion (tickets mas grandes).', phase:'build', priority:'P1', source:'DM Maria Granada Jue 11 Jun', day:'thu', completed:false },
+  { id:'t833', text:'[HOY Jue] Validar routing aliados en bot: Camilo Esquivel reporto solo encontrar 1 caso de aliados que no estaba pasando por el bot. JP dijo "dejame valido a ver". Completar esa validacion y confirmar que todos los entry issues excepto payments y gestion de mi tienda esten llegando correctamente.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Jue 11 Jun', day:'thu', completed:false },
   { id:'t832', text:'[HOY Jue TARDE] Check post-PRD: reunion de seguimiento con equipo para resolver preguntas pendientes sobre Atlas y visibilidad de iniciativas en la plataforma. Acordado hoy en CX Product PRD.', phase:'build', priority:'P1', source:'CX Product PRD & design reviews 11 Jun', day:'thu', completed:false },
   { id:'t831', text:'[HOY Jue] Publicar preguntas del PRD en canal Automation Product: registrar dudas surgidas durante el proceso de llenado de informacion de iniciativas Q2-Q3. Accion colectiva acordada hoy.', phase:'build', priority:'P1', source:'CX Product PRD & design reviews 11 Jun', day:'thu', completed:false },
   { id:'t830', text:'[HOY Jue] Post-PRD review (reunido 9:00-9:45) — alinear metricas con impactos contrapuestos con Isabela y Andres De Las Casas. Toda iniciativa con intervencion tecnologica debe quedar en categoria producto tecnico. Validar con equipo.', phase:'build', priority:'P1', source:'CX Product PRD & design reviews 11 Jun', day:'thu', completed:false },
@@ -1862,15 +1865,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Hub Bot (resumen Jue 11 Jun)', text: 'Actualizado 10:20. PRD review completado (9:00-9:45) — acciones: publicar preguntas en Automation Product, check vespertino, alinear metricas contrapuestas con Isabela/Andres. Pendientes: Integration ID Gregson/Manuel, Kafka data Andres, portal Camilo. Nota: Proactive Mexico se apago para el partido de ayer.', time: 'Jue 11 Jun 10:20', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Camilo confirmo "seria aliados, si?" — JP pregunto a las 9:37 sobre el avance del portal. Camilo reporto ayer que estaba resolviendo un error en el flujo de RTs (cambio de licencia). Pendiente: esperar resolucion del error y retomar portal Aliados.', time: 'Jue 11 Jun 09:37', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (DM)', text: 'Elias confirmo "Si!!" disponibilidad para hablar — JP regreso de reunion y le pregunto si seguia ahi. Contexto: tema pendiente de workflow entry issue WhatsApp ya resuelto via Juan Esquivel. Equipo quedo desbloqueado.', time: 'Mie 10 Jun 17:03', type: 'dm', actionable: false },
-  { from: 'Stephania Gonzalez (DM)', text: '"Seguré haciendo pruebas" — Steph continua validando el bot despues de que JP explico que el arbol se pinta segun reglas de estado de la orden (activa vs entregada vs recien creada). JP: "ya casi creo que encontramos todos los detallitos". Pendiente: confirmar resultado final de pruebas.', time: 'Mie 10 Jun 16:57', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas (DM)', text: 'Andres menciono a @maria.restrepo en contexto de datos. JP anotó accion: "revisar data de fulfillment de la ganancia de kafka, cuantos llamados a los RT". Pendiente: analizar data Kafka fulfillment y compartir hallazgos.', time: 'Mie 10 Jun 16:41', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: '"He estado revisando un error en el flujo de RTs — cambio de licencia y otros documentos. Apenas lo solucione regreso a ello." Respuesta a JP sobre avance en portal. Pendiente: hacer seguimiento cuando Camilo resuelva el error en flujo RTs y retome portal.', time: 'Mie 10 Jun 16:41', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (Group DM con Gregson/Manuel/Andres)', text: 'Equipo desbloqueo workflow entry issue WhatsApp. Juan Esquivel (Camilo) explico el arbol de flujos — 3 opciones: orden con RT, orden sin RT, RT se llevo el pedido — ya redireccionadas al bot Food_Live de Juan. Elias decidio dejarlo como esta por ahora.', time: 'Mie 10 Jun 15:38', type: 'dm', actionable: false },
-  { from: 'Stephania Gonzalez (DM)', text: 'Issue arbol INTERMITENTE persiste con orden 573014786898 — a veces el estado de la orden no da lo solicitado. JP explico comportamiento segun estado activo/entregado. JP: "ya lo reporte a tech". Pendiente: confirmar fix y notificar a Steph.', time: 'Mie 10 Jun 15:47', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (Group DM con Gregson/Manuel/Andres)', text: 'Elias pregunto a JP: "De pronto sabes como conectar un workflow a entry issue de WhatsApp? Jose aparece de vacaciones." JP respondio: "jaja yo no, si con juan.esquivel pls." Resuelto — Juan Esquivel brindo orientacion tecnica.', time: 'Mie 10 Jun 14:40', type: 'dm', actionable: false }
+  { from: 'Stephania Gonzalez (DM)', text: '"Hola Juan, todo bien y tu?" — check-in de Steph. Contexto: habia estado haciendo pruebas del bot despues de conversacion del mier sobre el arbol intermitente con orden 573014786898. Pendiente: confirmar si las pruebas quedaron completas.', time: 'Jue 11 Jun 12:28', type: 'dm', actionable: true },
+  { from: 'Elias Rivera (DM)', text: 'Elias pregunto: "para hacer el handoff toca especificar de alguna manera como debe enrutar el caso?" JP explico: "esa es la nota interna — como tal no toca poner nada, pero si pones es mucho mejor porque llega el contexto al agente humano y lo puede resolver mejor y mas rapido." Elias: "De una!" — desbloqueado.', time: 'Jue 11 Jun 12:05', type: 'dm', actionable: false },
+  { from: 'Maria Fernanda Granada (DM)', text: 'JP consulto a Mafe sobre replicar flujo CC de PWP en su flujo OCD. Mafe confirmo: mail y lupeuserid hardcodeados (usuario de lupe), agregar siglas del entry issue en state. Sobre topes de compensacion: Mafe sugiere max $150 USD; para ecommerce ya tiene logica de devolucion. JP pensaba $100 USD — pendiente alinear valor final del tope.', time: 'Jue 11 Jun 12:04', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Camilo reporto que casos de chats que deberian pasar por el bot solo encontro uno (aliados). Agrego aliados el viernes pasado; en logs no encuentra mas casos. JP dijo "dejame valido a ver" — pendiente completar validacion de routing aliados en bot.', time: 'Jue 11 Jun 11:37', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Camilo: "seria aliados, si?" (9:37 am). JP confirmo. Contexto: seguimiento portal Aliados — Camilo habia reportado ayer que estaba resolviendo un error en el flujo de RTs por cambio de licencia. Pendiente: retomar portal cuando resuelva el error.', time: 'Jue 11 Jun 09:37', type: 'dm', actionable: true },
+  { from: 'Elias Rivera (Group DM con Gregson/Manuel/Andres)', text: 'Equipo desbloqueo workflow entry issue WhatsApp. Juan Esquivel (Camilo) explico el arbol de flujos — 3 opciones: orden con RT, orden sin RT, RT se llevo el pedido — redireccionadas al bot Food_Live de Juan. Elias decidio dejarlo como esta por ahora.', time: 'Mie 10 Jun 15:38', type: 'dm', actionable: false },
+  { from: 'Andres De Las Casas (DM)', text: 'Andres comento data con maria.restrepo. JP anoto accion: "revisar data de fulfillment de la ganancia de kafka, cuantos llamados a los RT". Pendiente: analizar data Kafka fulfillment y compartir hallazgos.', time: 'Mie 10 Jun 16:41', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
@@ -1878,7 +1879,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-9:00', '9:30-11:00', '12:00-13:00', '15:00-16:30', '17:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '9:45-13:00', '14:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
+  { day: 'Vie', blocks: ['8:00-9:00', '10:00-13:00', '14:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
