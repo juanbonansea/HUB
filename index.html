@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Jue 11 · Actualizado 11 Jun 15:10</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Jue 11 · Actualizado 11 Jun 16:00</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1487,6 +1487,7 @@ const EVENTS = {
   ],
   fri: [
     { time:'9:00-10:00', title:'Juan Pablo / Maria Valeria', attendees:2, org:'maria.dorantes@rappi.com', type:'1on1', note:'Reunion sobre automatizaciones — alinear flujos y evitar solapamiento entre iniciativas de ambos equipos' },
+    { time:'10:30-11:00', title:'Revisión Sizings Q3', attendees:7, org:'andres.delascasas@rappi.com', type:'team', note:'Revision de sizings Q3 con Andres De Las Casas, Isabela, Angela, Maria Granada, Meiker y Nicolas' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly QA AI con equipo — revision flujos de automatizacion, estado bots y proximas prioridades' }
   ]
@@ -1807,6 +1808,7 @@ const DEFAULT_TASKS = [
   { id:'t822', text:'[HOY Jue] Ajustar suspensiones: revisar validacion de user ID en flujo de suspensiones y mejorar captura del store ID.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'thu', completed:false },
   { id:'t821', text:'[HOY Jue] Alinear con Juan Restrepo sobre definiciones y soluciones implementadas en integracion de tiendas para asegurar cumplimiento con estandares del area.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'thu', completed:false },
   { id:'t820', text:'[HOY Jue] Revisar configuracion pagos: hacer seguimiento a Andres De Las Casas sobre los requerimientos de pagos enviados por Dimas — asegurarse que lo tenga en el radar.', phase:'build', priority:'P1', source:'CX Weekly Business Review 10 Jun', day:'thu', completed:false },
+  { id:'t811', text:'[MANANA Vie] Preparar para Revision Sizings Q3 (Vie 10:30-11:00 con Andres De Las Casas y equipo): revisar estimaciones de tamano de iniciativas Q3, llegar con numeros claros y preguntas concretas sobre prioridades y recursos. Reunion creada hoy por Andres.', phase:'build', priority:'P1', source:'Calendar Vie 12 Jun — Revision Sizings Q3', day:'fri', completed:false },
   { id:'t810', text:'[MANANA Vie] Preparar estado para Weekly QA AI (Vie 14:00-14:30): incluir avances flujos de automatizacion, bot triage (Jaime Gomez validando 6 categorias), proximas prioridades de la semana.', phase:'build', priority:'P1', source:'Calendar Vie 12 Jun', day:'fri', completed:false },
   { id:'t809', text:'Comparar compensaciones del flujo automatizado contra benchmark de agentes humanos para asegurar que no se exceda el presupuesto.', phase:'metrics', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false },
   { id:'t808', text:'Sincronizar con Mafe resolucion de reembolso a tarjeta de credito en flujo producto diferente — TC desactivado temporalmente.', phase:'build', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false }
@@ -1867,13 +1869,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Camilo Esquivel (DM)', text: 'Camilo confirmo: ya desplego en todos los paises el issue_type sn_org_coyappns faltante de la plataforma de aliados — fix completo. Sobre el bug de WhatsApp recontacto: busco casos y solo encontro 1, no es problema generalizado. Diego ya esta al tanto del bug.', time: 'Jue 11 Jun 15:24', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel (DM)', text: 'JP reporto falla en WhatsApp Food: despues del arbol no se puede retomar la conversacion. Camilo: "no es por el deployed de las recetas, ya se lo reenvio a un companero que ha estado haciendo cambios en whatsapp". Tambien: "ya Diego esta al tanto". Pendiente: seguimiento con Diego para confirmar fix y cerrar con Steph.', time: 'Jue 11 Jun 15:04', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez (Group DM - automatizaciones)', text: 'Steph creo grupo con Elias Rivera, Andres Diaz, Alejandro Ruiz y Juan Pablo para llevar avances e inquietudes del desarrollo de automatizaciones. Mensaje inicial: "@juan.bonansea cualquier inquietud quedamos pendientes por este medio." Canal de coordinacion activo para el equipo.', time: 'Jue 11 Jun 14:31', type: 'dm', actionable: false },
   { from: 'Maria Fernanda Granada (Group DM)', text: 'Mafe hace follow up de 2 temas: (1) "@juan.bonansea ya todos los entry issues quedaron agregados a food_live, vimos algo adicional que podamos agregar al bot?" y (2) "@juan.bonansea tienes el cuadrito que hablamos el martes para ver cuantos casos deberian pasar por AI true?". Respuestas pendientes.', time: 'Jue 11 Jun 13:44', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez (DM)', text: '"Hola Juan, todo bien y tu?" — check-in de Steph. Contexto: habia estado haciendo pruebas del bot despues de conversacion del mier sobre el arbol intermitente con orden 573014786898. Pendiente: confirmar si las pruebas quedaron completas.', time: 'Jue 11 Jun 12:28', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (DM)', text: 'Elias pregunto: "para hacer el handoff toca especificar de alguna manera como debe enrutar el caso?" JP explico: la nota interna no es obligatoria pero si la incluye llega contexto al agente humano. Elias: "De una!" — desbloqueado.', time: 'Jue 11 Jun 12:05', type: 'dm', actionable: false },
   { from: 'Maria Fernanda Granada (DM)', text: 'JP consulto a Mafe sobre replicar flujo CC de PWP en su flujo OCD. Mafe confirmo: mail y lupeuserid hardcodeados, agregar siglas entry issue en state. Sobre topes de compensacion: Mafe sugiere max $150 USD; JP pensaba $100 USD — pendiente alinear valor final del tope.', time: 'Jue 11 Jun 12:04', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Camilo reporto que casos de chats que deberian pasar por el bot solo encontro uno (aliados). Agrego aliados el viernes pasado; en logs no encuentra mas casos. JP dijo "dejame valido a ver" — pendiente completar validacion de routing aliados en bot.', time: 'Jue 11 Jun 11:37', type: 'dm', actionable: true }
+  { from: 'Elias Rivera (DM)', text: 'Elias pregunto: "para hacer el handoff toca especificar de alguna manera como debe enrutar el caso?" JP explico: la nota interna no es obligatoria pero si la incluye llega contexto al agente humano. Elias: "De una!" — desbloqueado.', time: 'Jue 11 Jun 12:05', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
@@ -1881,7 +1883,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-9:00', '9:30-11:00', '12:00-13:00', '15:00-16:30', '17:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '9:45-13:00', '14:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-9:00', '10:00-13:00', '14:30-18:00'] }
+  { day: 'Vie', blocks: ['8:00-9:00', '11:00-13:00', '14:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
