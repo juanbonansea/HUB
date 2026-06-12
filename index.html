@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Vie 12 · Actualizado 12 Jun 17:00</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Vie 12 · Actualizado 12 Jun 15:07</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1490,7 +1490,6 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Revision Sizings Q3', attendees:7, org:'andres.delascasas@rappi.com', type:'team', note:'Revision de sizings Q3 con Andres De Las Casas, Isabela, Angela, Maria Granada, Meiker y Nicolas' },
     { time:'11:15-11:30', title:'Validacion flujo de integracion', attendees:3, org:'juan.bonansea@rappi.com', type:'1on1', note:'Sesion de validacion del flujo de integracion con Gregson Murcia y Manuel Gruezo — revisar endpoints perfiles RT, microservicio tiendas y desbloquear Integration ID / Ridash' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly QA AI con equipo — revision flujos de automatizacion, estado bots y proximas prioridades' },
     { time:'15:00-16:00', title:'Revision DSAT + Atlas', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Revision de datos DSAT y plataforma Atlas — analizar insatisfaccion flujos RTS y comerciantes para sizing Q3, coordinar con Meiker' }
   ]
 };
@@ -1817,7 +1816,7 @@ const DEFAULT_TASKS = [
   { id:'t906', text:'[HOY Vie] Definir tope de compensacion para flujo OCD: Mafe sugiere max $150 USD, JP pensaba $100 USD. Alinear y definir valor final del tope antes de configurar en el flujo.', phase:'build', priority:'P1', source:'DM Maria Fernanda Granada Jue 11 Jun', day:'fri', completed:false },
   { id:'t907', text:'[HOY Vie 11:15] Validacion flujo de integracion con Gregson Murcia y Manuel Gruezo: sesion para revisar endpoints perfiles RT, microservicio encendido/apagado tiendas y desbloquear Integration ID / Ridash. Gregson confirmo que estan finalizando entregas — validar PROD y definir proximos pasos.', phase:'build', priority:'P1', source:'Calendar + Group DM Gregson Murcia / Manuel Gruezo', day:'fri', completed:false },
   { id:'t915', text:'[HOY Vie] Confirmar con Cristian Parada que Store Id quede en metadata del flujo de suspensiones: la metadata de suspensiones para merchants non live llega sin el Store Id — los merchants no lo saben dar o lo dan mal. Agregar Store Id a metadata bajaria DSAT y reduciria handoff enormemente.', phase:'build', priority:'P1', source:'DM Cristian Parada Vie 12 Jun 10:21', day:'fri', completed:false },
-  { id:'t908', text:'[HOY Vie 14:00] Weekly QA AI con equipo (Maria Granada y team): preparar estado de flujos de automatizacion, avance bot triage (Jaime Gomez validando 6 categorias), proximas prioridades semana siguiente.', phase:'build', priority:'P1', source:'Calendar Vie 12 Jun 14:00 — Weekly QA AI', day:'fri', completed:false },
+  { id:'t908', text:'[HOY Vie] Coordination QA AI con Maria Granada: alinear estado de flujos de automatizacion, avance bot triage (Jaime Gomez validando 6 categorias) y proximas prioridades — meeting no aparece en calendario hoy, coordinar por Slack o ad-hoc.', phase:'build', priority:'P2', source:'Recurrente QA AI', day:'fri', completed:false },
   { id:'t909', text:'[HOY Vie] Confirmar Proactive Mexico apagado: validar con Eugenio La Rosa / Nicolas Bejarano si desactivaron Proactive Mexico durante el partido de ayer. Revisar impacto en metricas.', phase:'metrics', priority:'P1', source:'CX Weekly Business Review 10 Jun', day:'fri', completed:false },
   { id:'t910', text:'[HOY Vie] Revisar configuracion pagos: hacer seguimiento a Andres De Las Casas sobre los requerimientos de pagos enviados por Dimas — asegurarse que esten gestionados para la proxima semana.', phase:'build', priority:'P1', source:'CX Weekly Business Review 10 Jun', day:'fri', completed:false },
   { id:'t911', text:'[SEMANA] Revisar asociacion de order ID en tickets del flujo Live — analizar cancelaciones sin ticket asociado. Cruzar datos para identificar causa tecnica de la perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false },
@@ -1905,7 +1904,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-9:00', '9:30-11:00', '12:00-13:00', '15:00-16:30', '17:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '9:45-13:00', '14:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-9:00', '11:30-13:00', '16:00-18:00'] }
+  { day: 'Vie', blocks: ['8:00-9:00', '11:30-13:00', '14:00-15:00', '16:00-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
