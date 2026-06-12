@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Vie 12 · Actualizado 12 Jun 15:07</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Vie 12 · Actualizado 12 Jun 21:45</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1890,13 +1890,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Cristian Parada (DM)', text: 'Bug store_id en metadata de suspensiones: JP explica "la metadata de suspensiones llega sin el Store Id — con ese Store Id se consumen endpoints". Cris pregunta "y eso lo hacemos nosotros? osea nosotros tech support alimentamos ese panel?" — JP responde "Honestamente no se Cris, creia que si". Pendiente definir responsable del fix.', time: 'Vie 12 Jun 11:57', type: 'dm', actionable: true },
-  { from: 'Group DM Elias / Camilo / Gregson / Manuel', text: 'Elias Rivera solicita conectar flujo Assembled de compensated orders (Pagos y finanzas — Desacuerdo con ordenes canceladas) a todos los canales: partners, rappialiados y WhatsApp. Camilo pregunta si es para restaurantes — Elias confirma. Elias comparte casos de produccion de los ultimos dias para validar.', time: 'Vie 12 Jun 12:15', type: 'dm', actionable: true },
-  { from: 'Elias Rivera (DM)', text: 'Elias solicito 5 minutos de sesion sobre un flujo de Assembled. JP envio el link del workflow de compensated orders. Elias confirma con "Gracias!!!" — coordinacion resuelta.', time: 'Vie 12 Jun 11:18', type: 'dm', actionable: false },
-  { from: 'Group DM Gregson / Manuel / Camilo', text: 'JP convoco sesion de validacion de integracion. Gregson y Manuel estaban en otra meet. Manuel avisa: "Estamos en otra meet, no es la misma que creaste." JP se une a la sesion correcta. Sesion de validacion de flujos completada.', time: 'Vie 12 Jun 11:20', type: 'dm', actionable: false },
-  { from: 'Maria Fernanda Granada (Group DM)', text: 'Mafe hace follow up: (1) ya todos los entry issues quedaron agregados a food_live — hay algo adicional que agregar al bot? (2) tienes el cuadrito que hablamos el martes sobre cuantos casos deberian pasar por AI true? Ambas pendientes de respuesta de JP.', time: 'Jue 11 Jun 13:44', type: 'dm', actionable: true },
-  { from: 'Gregson Murcia (Group DM - AI Flujos)', text: 'Gregson confirma disponibilidad: "estamos finalizando unas entregas y con Manuel estamos afinandolos, si algo invitanos a una sesion, para estar involucrados en los procesos que tienen y si algo falla arreglarlo en ese mismo instante." — equipo comprometido con los endpoints de integracion.', time: 'Jue 11 Jun 17:39', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Camilo confirmo: ya desplego en todos los paises el issue_type sn_org_coyappns faltante de la plataforma de aliados — fix completo y global. Bug de WhatsApp recontacto: solo 1 caso encontrado, no generalizado. Diego al tanto del bug.', time: 'Jue 11 Jun 15:24', type: 'dm', actionable: false }
+  { from: 'Elias Rivera (DM + Group DM AI Flujos)', text: 'Elias pregunta como activar el 30% de contactos para la automatizacion. JP explica: es un AB test en Statsig — iniciar al 30% en paises pequenos, aplicar fixes, escalar al 100% global. Elias confirma "queremos lanzar solo el 30% inicialmente". Experimento Statsig pendiente de crear.', time: 'Vie 12 Jun 16:43', type: 'dm', actionable: true },
+  { from: 'Group DM Gregson / Manuel / Camilo', text: 'Error en integracion sin identificar — JP pregunta "Como van? encontraron el error?" Manuel responde "Aun no sabemos cual es". JP indica hablar con Federico Weinstein si necesitan ayuda del equipo que disponiblizo el endpoint.', time: 'Vie 12 Jun 16:00', type: 'dm', actionable: true },
+  { from: 'Meiker Munera (Group DM Mafe/Susana/JP)', text: 'Meiker pregunta a Mafe si las iniciativas de AI se agregan en el POD de AI Automations. Mafe confirma "sip". Contexto: definicion de estructura de POD para Q3.', time: 'Vie 12 Jun 15:10', type: 'dm', actionable: false },
+  { from: 'Cristian Parada (DM)', text: 'Bug store_id en metadata de suspensiones: JP explica "la metadata de suspensiones llega sin el Store Id — con ese Store Id se consumen endpoints". Cris pregunta si lo hace tech support. JP responde "Honestamente no se Cris, creia que si". Pendiente definir responsable del fix.', time: 'Vie 12 Jun 11:57', type: 'dm', actionable: true },
+  { from: 'Group DM Elias / Camilo / Gregson / Manuel', text: 'Elias Rivera solicita conectar flujo Assembled de compensated orders a todos los canales: partners, rappialiados y WhatsApp. Camilo pregunta si es para restaurantes — Elias confirma y comparte casos de produccion de los ultimos dias para validar.', time: 'Vie 12 Jun 12:15', type: 'dm', actionable: true },
+  { from: 'Maria Fernanda Granada (Group DM)', text: 'Mafe hace follow up: (1) ya todos los entry issues quedaron agregados a food_live — hay algo adicional? (2) tienes el cuadrito que hablamos el martes sobre cuantos casos deberian pasar por AI true? Ambas pendientes de respuesta de JP.', time: 'Jue 11 Jun 13:44', type: 'dm', actionable: true },
+  { from: 'Gregson Murcia (Group DM - AI Flujos)', text: 'Gregson confirma disponibilidad: "estamos finalizando unas entregas, si algo invitanos a una sesion para estar involucrados en los procesos que tienen y si algo falla arreglarlo en ese mismo instante." — equipo comprometido con los endpoints.', time: 'Jue 11 Jun 17:39', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
