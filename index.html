@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Vie 12 · Actualizado 12 Jun 09:09</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Vie 12 · Actualizado 12 Jun 10:45</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1487,7 +1487,8 @@ const EVENTS = {
   ],
   fri: [
     { time:'9:00-10:00', title:'Juan Pablo / Maria Valeria', attendees:2, org:'maria.dorantes@rappi.com', type:'1on1', note:'Reunion sobre automatizaciones — alinear flujos y evitar solapamiento entre iniciativas de ambos equipos' },
-    { time:'10:30-11:00', title:'Revisión Sizings Q3', attendees:7, org:'andres.delascasas@rappi.com', type:'team', note:'Revision de sizings Q3 con Andres De Las Casas, Isabela, Angela, Maria Granada, Meiker y Nicolas' },
+    { time:'10:30-11:00', title:'Revision Sizings Q3', attendees:7, org:'andres.delascasas@rappi.com', type:'team', note:'Revision de sizings Q3 con Andres De Las Casas, Isabela, Angela, Maria Granada, Meiker y Nicolas' },
+    { time:'11:15-11:30', title:'Validacion flujo de integracion', attendees:3, org:'juan.bonansea@rappi.com', type:'1on1', note:'Sesion de validacion del flujo de integracion con Gregson Murcia y Manuel Gruezo — revisar endpoints perfiles RT, microservicio tiendas y desbloquear Integration ID / Ridash' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly QA AI con equipo — revision flujos de automatizacion, estado bots y proximas prioridades' }
   ]
@@ -1797,7 +1798,8 @@ const DEFAULT_TASKS = [
   { id:'t904', text:'[HOY Vie] Enviar cuadrito de casos AI true a Maria Granada: acordado el martes — cuantos casos deberian pasar por AI true. Pendiente desde DM grupo Jue 11 Jun.', phase:'build', priority:'P1', source:'DM Maria Granada Group Jue 11 Jun', day:'fri', completed:false },
   { id:'t905', text:'[HOY Vie] Confirmar estado del bug WhatsApp recontacto con Diego: Camilo Esquivel reenvio el bug a Diego (esta al tanto). Verificar si el fix fue desplegado y notificar a Stephania Gonzalez con el resultado.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Jue 11 Jun 15:04', day:'fri', completed:false },
   { id:'t906', text:'[HOY Vie] Definir tope de compensacion para flujo OCD: Mafe sugiere max $150 USD, JP pensaba $100 USD. Alinear y definir valor final del tope antes de configurar en el flujo.', phase:'build', priority:'P1', source:'DM Maria Fernanda Granada Jue 11 Jun', day:'fri', completed:false },
-  { id:'t907', text:'[HOY Vie] Seguimiento Integration ID / Ridash con Gregson y Manuel: confirmar avance en endpoints de perfiles RT y microservicio de tiendas. Gregson respondio Jue 17:39 que estan finalizando entregas — hacer follow-up de PROD endpoints para construir flujo.', phase:'build', priority:'P1', source:'Group DM Gregson Murcia / Manuel Gruezo Jue 11 Jun', day:'fri', completed:false },
+  { id:'t907', text:'[HOY Vie 11:15] Validacion flujo de integracion con Gregson Murcia y Manuel Gruezo: sesion para revisar endpoints perfiles RT, microservicio encendido/apagado tiendas y desbloquear Integration ID / Ridash. Gregson confirmo que estan finalizando entregas — validar PROD y definir proximos pasos.', phase:'build', priority:'P1', source:'Calendar + Group DM Gregson Murcia / Manuel Gruezo', day:'fri', completed:false },
+  { id:'t915', text:'[HOY Vie] Confirmar con Cristian Parada que Store Id quede en metadata del flujo de suspensiones: la metadata de suspensiones para merchants non live llega sin el Store Id — los merchants no lo saben dar o lo dan mal. Agregar Store Id a metadata bajaria DSAT y reduciria handoff enormemente.', phase:'build', priority:'P1', source:'DM Cristian Parada Vie 12 Jun 10:21', day:'fri', completed:false },
   { id:'t908', text:'[HOY Vie 14:00] Weekly QA AI con equipo (Maria Granada y team): preparar estado de flujos de automatizacion, avance bot triage (Jaime Gomez validando 6 categorias), proximas prioridades semana siguiente.', phase:'build', priority:'P1', source:'Calendar Vie 12 Jun 14:00 — Weekly QA AI', day:'fri', completed:false },
   { id:'t909', text:'[HOY Vie] Confirmar Proactive Mexico apagado: validar con Eugenio La Rosa / Nicolas Bejarano si desactivaron Proactive Mexico durante el partido de ayer. Revisar impacto en metricas.', phase:'metrics', priority:'P1', source:'CX Weekly Business Review 10 Jun', day:'fri', completed:false },
   { id:'t910', text:'[HOY Vie] Revisar configuracion pagos: hacer seguimiento a Andres De Las Casas sobre los requerimientos de pagos enviados por Dimas — asegurarse que esten gestionados para la proxima semana.', phase:'build', priority:'P1', source:'CX Weekly Business Review 10 Jun', day:'fri', completed:false },
@@ -1858,17 +1860,18 @@ const DEFAULT_DELEGATED = [
   { id:'d633', text:'Investigar causas del aumento en la tasa de contacto de usuarios y notificar hallazgos al equipo', owner:'Yerick Martinez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
   { id:'d634', text:'Agregar iniciativa: asegurar la inclusion de la iniciativa en el area de negocios al configurar la nueva herramienta de clasificacion tecnica', owner:'Nico Bejarano', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
   { id:'d635', text:'Discutir metricas: analizar iniciativas que podrian impactar multiples metricas para definir la prioridad de ejecucion en la plataforma', owner:'Isabela Gomez / Andres De Las Casas', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
-  { id:'d636', text:'Enviar TR: compartir la informacion de Atlas con Daniel para resolver los problemas de visibilidad de las iniciativas en la plataforma', owner:'Isabela Gomez', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' }
+  { id:'d636', text:'Enviar TR: compartir la informacion de Atlas con Daniel para resolver los problemas de visibilidad de las iniciativas en la plataforma', owner:'Isabela Gomez', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
+  { id:'d637', text:'Agregar Store Id a la metadata del flujo de suspensiones para merchants non live — la metadata llega sin el Store Id lo que hace que los merchants no puedan identificarlo correctamente, aumentando DSAT y handoff rate. JP solicito este cambio para mejorar el flujo significativamente.', owner:'Cristian Parada', source:'DM Juan Pablo Vie 12 Jun 10:21', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Gregson Murcia (Group DM - AI Flujos)', text: 'Gregson respondio a JP: "Si estamos finalizando unas entregas y con Manuel estamos afinandolos, si algo invitanos a una sesion, para estar involucrados en los procesos que tienen y si algo falla arreglarlo en ese mismo instante." — equipo disponible para sesion hoy. Pendiente: construir flujo en PROD con endpoints listos.', time: 'Jue 11 Jun 17:39', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Camilo confirmo: ya desplego en todos los paises el issue_type sn_org_coyappns faltante de la plataforma de aliados — fix completo. Sobre el bug de WhatsApp recontacto: busco casos y solo encontro 1, no es problema generalizado. Diego ya esta al tanto del bug.', time: 'Jue 11 Jun 15:24', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel (DM)', text: 'JP reporto falla en WhatsApp Food: despues del arbol no se puede retomar la conversacion. Camilo: no es por el deployed de las recetas, ya se lo reenvio a companero que hace cambios en whatsapp. Diego ya esta al tanto. Pendiente: confirmar con Diego si fix fue desplegado.', time: 'Jue 11 Jun 15:04', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez (Group DM automatizaciones)', text: 'Steph creo grupo con Elias Rivera, Andres Diaz, Alejandro Ruiz y Juan Pablo para llevar avances e inquietudes del desarrollo de automatizaciones: "@juan.bonansea cualquier inquietud quedamos pendientes por este medio." Canal activo de coordinacion.', time: 'Jue 11 Jun 14:31', type: 'dm', actionable: false },
-  { from: 'Maria Fernanda Granada (Group DM)', text: 'Mafe hace follow up de 2 temas: (1) ya todos los entry issues quedaron agregados a food_live, vimos algo adicional que podamos agregar al bot? (2) tienes el cuadrito que hablamos el martes para ver cuantos casos deberian pasar por AI true? Ambas pendientes de respuesta.', time: 'Jue 11 Jun 13:44', type: 'dm', actionable: true },
-  { from: 'Maria Fernanda Granada (DM)', text: 'JP consulto a Mafe sobre flujo OCD: Mafe confirmo mail y lupeuserid hardcodeados, agregar siglas entry issue en state. Sobre topes de compensacion: Mafe sugiere max $150 USD; JP pensaba $100 USD — pendiente alinear valor final del tope hoy.', time: 'Jue 11 Jun 12:04', type: 'dm', actionable: true },
-  { from: 'Maria Fernanda Granada (Group DM)', text: 'Mafe informa que se descargara data de ayer para ver si hay algunos entry issues que todavia tienen inflow y no estan siendo cubiertos por el bot food_live. Pendiente validacion cruzada con JP.', time: 'Jue 11 Jun 17:09', type: 'dm', actionable: true }
+  { from: '#incident_management_support', text: 'JP a Carol sobre caso que no paso por el bot de suspensiones: "dado que no paso por el bot de suspensiones se debe ver con tech @cristian.parada para identificar por donde paso y cual fue el comportamiento erratico que tuvo esa automatizacion" — nueva incidencia en flujo suspensiones merchants, requiere investigacion con Cris.', time: 'Vie 12 Jun 10:24', type: 'channel', actionable: true },
+  { from: 'Group DM Camilo / Gregson / Manuel', text: 'JP confirmo sesion de validacion de integraciones: "Listos los socite ahorita para que lo miremos" — sesion activa con Gregson y Manuel para revisar endpoints y avance de microservicio tiendas.', time: 'Vie 12 Jun 10:27', type: 'dm', actionable: false },
+  { from: 'Cristian Parada (DM)', text: 'Cris pregunta donde exactamente JP necesita que se modifique la metadata. JP explica: "no es un endpoint como tal, es la metadata de suspensiones que me esta llegando sin el Store Id — con ese Store Id se consumen algunos endpoints" — bloqueante para reducir handoff en flujo suspensiones merchants non live.', time: 'Vie 12 Jun 10:21', type: 'dm', actionable: true },
+  { from: 'Maria Fernanda Granada (DM)', text: 'Mafe confirma: "yess — toca verlo con tech, estamos seguros que no paso por el bot?" — JP y Mafe coordinando para escalar a Cristian Parada el caso de suspension que no paso por el bot automatico.', time: 'Vie 12 Jun 10:13', type: 'dm', actionable: true },
+  { from: 'Gregson Murcia (Group DM - AI Flujos)', text: 'Gregson respondio a JP: "Si estamos finalizando unas entregas y con Manuel estamos afinandolos, si algo invitanos a una sesion, para estar involucrados en los procesos que tienen y si algo falla arreglarlo en ese mismo instante." — equipo disponible y comprometido con los endpoints.', time: 'Jue 11 Jun 17:39', type: 'dm', actionable: true },
+  { from: 'Maria Fernanda Granada (Group DM)', text: 'Mafe hace follow up: (1) ya todos los entry issues quedaron agregados a food_live, vimos algo adicional que podamos agregar al bot? (2) tienes el cuadrito que hablamos el martes para ver cuantos casos deberian pasar por AI true? Ambas pendientes de respuesta.', time: 'Jue 11 Jun 13:44', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Camilo confirmo: ya desplego en todos los paises el issue_type sn_org_coyappns faltante de la plataforma de aliados — fix completo. Bug de WhatsApp recontacto: solo 1 caso encontrado, no es generalizado. Diego al tanto.', time: 'Jue 11 Jun 15:24', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
@@ -1876,7 +1879,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-9:00', '9:30-11:00', '12:00-13:00', '15:00-16:30', '17:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '9:45-13:00', '14:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-9:00', '11:00-13:00', '14:30-18:00'] }
+  { day: 'Vie', blocks: ['8:00-9:00', '11:30-13:00', '14:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
