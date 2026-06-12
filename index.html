@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Vie 12 · Actualizado 12 Jun 10:45</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 8-12 Junio 2026 — Hoy Vie 12 · Actualizado 12 Jun 17:00</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1490,11 +1490,28 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Revision Sizings Q3', attendees:7, org:'andres.delascasas@rappi.com', type:'team', note:'Revision de sizings Q3 con Andres De Las Casas, Isabela, Angela, Maria Granada, Meiker y Nicolas' },
     { time:'11:15-11:30', title:'Validacion flujo de integracion', attendees:3, org:'juan.bonansea@rappi.com', type:'1on1', note:'Sesion de validacion del flujo de integracion con Gregson Murcia y Manuel Gruezo — revisar endpoints perfiles RT, microservicio tiendas y desbloquear Integration ID / Ridash' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly QA AI con equipo — revision flujos de automatizacion, estado bots y proximas prioridades' }
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly QA AI con equipo — revision flujos de automatizacion, estado bots y proximas prioridades' },
+    { time:'15:00-16:00', title:'Revision DSAT + Atlas', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Revision de datos DSAT y plataforma Atlas — analizar insatisfaccion flujos RTS y comerciantes para sizing Q3, coordinar con Meiker' }
   ]
 };
 
 const NOTES = [
+  {
+    id:66, title:'Revision Sizings Q3', date:'12 Jun',
+    summary:'Revision tecnica de plataforma Atlas y refinamiento de metodologias para iniciativas clave del tercer trimestre. La revision de logicas de dimensionamiento continuara pese a problemas tecnicos detectados en la plataforma — fallos en la carga de informacion son esperados en la etapa actual. Los calculos de impacto para iniciativas como Order Status y Agent AI requieren ajustes de precision; se cuestiono el uso de exposiciones como metrica principal optando por fuentes de datos alternativas. La estrategia actual requiere reagrupar iniciativas para priorizar servicios relevantes y corregir proyecciones volumetricas faltantes. Se ajustaron los criterios de retencion aplicados a los diversos casos de negocio analizados.',
+    sections:['Desafios plataforma Atlas — pods desaparecidos, fallos carga info bloqueante','Refinamiento metricas Order Status y Agent AI — exposiciones vs fuentes alternativas','Reestructuracion iniciativas Q3 — reagrupar, ajustar proyecciones volumetricas y criterios retencion'],
+    actions:[
+      { text:'Estimar DISAT: estimar la reduccion del DISAT para los flujos de RTS y comerciantes', owner:'Juan Pablo / Meiker Munera', phase:'metrics', priority:'P0' },
+      { text:'Gestionar Productos: gestionar los flujos de problem with products para el bot de Connect', owner:'Juan Pablo / Meiker Munera', phase:'build', priority:'P0' },
+      { text:'Evaluar insatisfaccion: analizar los datos de disat presentados en el segmento actual', owner:'Juan Pablo', phase:'metrics', priority:'P1' },
+      { text:'Presionar Atlas: publicar en el hilo de Atlas para presionar por la resolucion de los problemas de los pods desaparecidos', owner:'Maria Granada', phase:'build', priority:'P0' },
+      { text:'Validar Sizing: validar la logica utilizada para los calculos de sizing compartidos por el equipo', owner:'Nicolas Bejarano', phase:'build', priority:'P1' },
+      { text:'Coordinar Apagado: coordinar el apagado de las ciudades para el Proactive Traffic Controller antes del lunes', owner:'Nicolas Bejarano', phase:'build', priority:'P0' },
+      { text:'Ajustar Proyecciones: ajustar la base de datos de exposiciones y trafico para refinar las proyecciones de las iniciativas', owner:'Angela Osuna / Nicolas Bejarano', phase:'build', priority:'P1' },
+      { text:'Cargar Iniciativas: cargar las iniciativas de order delay y notification talk to agent en Atlas como impacto', owner:'Angela Osuna', phase:'build', priority:'P1' },
+      { text:'Consultar Carga Atlas: preguntar al equipo de Atlas como cargar los impactos de Editda y compensaciones en la plataforma', owner:'Andres De Las Casas', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:65, title:'CX Product PRD & design reviews', date:'11 Jun',
     summary:'Se unifico la clasificacion tecnica de iniciativas y la metodologia de documentacion para mejorar la visibilidad operativa. Se establecio que toda iniciativa con intervencion tecnologica debe registrarse en la categoria de producto tecnico para garantizar visibilidad — las configuraciones sin desarrollo permanecen en el area de negocios. La planificacion requiere informacion detallada para cada proyecto del Q2 y Q3, con soporte de IA para fortalecer las descripciones. Se detectaron impactos contrapuestos en indicadores clave que requieren estrategia de priorizacion especifica. Los procesos de ideacion deben vincularse correctamente con las iniciativas creadas en la plataforma.',
@@ -1806,7 +1823,10 @@ const DEFAULT_TASKS = [
   { id:'t911', text:'[SEMANA] Revisar asociacion de order ID en tickets del flujo Live — analizar cancelaciones sin ticket asociado. Cruzar datos para identificar causa tecnica de la perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false },
   { id:'t912', text:'[SEMANA] Humanizar bot: cambiar nombre del bot Live/Merchants por uno mas humano y empatico. Accion asignada desde CX WBR 3 Jun — pendiente de ejecutar.', phase:'build', priority:'P1', source:'CX Weekly Business Review 3 Jun', day:'fri', completed:false },
   { id:'t913', text:'[SEMANA] Ajustar suspensiones: revisar validacion de user ID en flujo de suspensiones y mejorar captura del store ID.', phase:'build', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false },
-  { id:'t914', text:'[SEMANA] Comparar compensaciones del flujo automatizado contra benchmark de agentes humanos para asegurar que no se exceda el presupuesto.', phase:'metrics', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false }
+  { id:'t914', text:'[SEMANA] Comparar compensaciones del flujo automatizado contra benchmark de agentes humanos para asegurar que no se exceda el presupuesto.', phase:'metrics', priority:'P1', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false },
+  { id:'t916', text:'[HOY Vie] Estimar reduccion DISAT para flujos RTS y comerciantes — acordado en Revision Sizings Q3 esta manana. Coordinar con Meiker Munera para calcular el impacto esperado y preparar proyeccion para Atlas.', phase:'metrics', priority:'P0', source:'Revision Sizings Q3 12 Jun', day:'fri', completed:false },
+  { id:'t917', text:'[HOY Vie] Gestionar flujos de problem with products para el bot de Connect — acordado en Revision Sizings Q3. Definir como se estructuran los flujos con Meiker y definir proximos pasos de implementacion.', phase:'build', priority:'P0', source:'Revision Sizings Q3 12 Jun', day:'fri', completed:false },
+  { id:'t918', text:'[HOY Vie 15:00] Revision DSAT + Atlas con Meiker — analizar datos de insatisfaccion del segmento actual y alinear sizing. Llevar los numeros de DISAT de flujos RTS y comerciantes ya calculados.', phase:'metrics', priority:'P1', source:'Calendar Vie 12 Jun 15:00 — Revision DSAT + Atlas', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1861,17 +1881,23 @@ const DEFAULT_DELEGATED = [
   { id:'d634', text:'Agregar iniciativa: asegurar la inclusion de la iniciativa en el area de negocios al configurar la nueva herramienta de clasificacion tecnica', owner:'Nico Bejarano', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
   { id:'d635', text:'Discutir metricas: analizar iniciativas que podrian impactar multiples metricas para definir la prioridad de ejecucion en la plataforma', owner:'Isabela Gomez / Andres De Las Casas', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
   { id:'d636', text:'Enviar TR: compartir la informacion de Atlas con Daniel para resolver los problemas de visibilidad de las iniciativas en la plataforma', owner:'Isabela Gomez', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
-  { id:'d637', text:'Agregar Store Id a la metadata del flujo de suspensiones para merchants non live — la metadata llega sin el Store Id lo que hace que los merchants no puedan identificarlo correctamente, aumentando DSAT y handoff rate. JP solicito este cambio para mejorar el flujo significativamente.', owner:'Cristian Parada', source:'DM Juan Pablo Vie 12 Jun 10:21', status:'pendiente' }
+  { id:'d637', text:'Agregar Store Id a la metadata del flujo de suspensiones para merchants non live — la metadata llega sin el Store Id lo que hace que los merchants no puedan identificarlo correctamente, aumentando DSAT y handoff rate. JP solicito este cambio para mejorar el flujo significativamente.', owner:'Cristian Parada', source:'DM Juan Pablo Vie 12 Jun 10:21', status:'pendiente' },
+  { id:'d638', text:'Presionar Atlas: publicar en el hilo de Atlas para presionar por la resolucion de los problemas de pods desaparecidos — bloqueante para completar el sizing Q3', owner:'Maria Granada', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
+  { id:'d639', text:'Validar la logica utilizada para los calculos de sizing compartidos por el equipo — asegurar que los numeros sean correctos antes de presentar el plan Q3', owner:'Nicolas Bejarano', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
+  { id:'d640', text:'Coordinar el apagado de ciudades para el Proactive Traffic Controller antes del lunes — URGENTE deadline fin de semana', owner:'Nicolas Bejarano', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
+  { id:'d641', text:'Ajustar base de datos de exposiciones y trafico para refinar las proyecciones de las iniciativas Q3', owner:'Angela Osuna / Nicolas Bejarano', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
+  { id:'d642', text:'Cargar las iniciativas de order delay y notification talk to agent en Atlas como impacto Q3', owner:'Angela Osuna', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
+  { id:'d643', text:'Consultar al equipo de Atlas como cargar los impactos de Editda y compensaciones en la plataforma para el plan Q3', owner:'Andres De Las Casas', source:'Revision Sizings Q3 12 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: '#incident_management_support', text: 'JP a Carol sobre caso que no paso por el bot de suspensiones: "dado que no paso por el bot de suspensiones se debe ver con tech @cristian.parada para identificar por donde paso y cual fue el comportamiento erratico que tuvo esa automatizacion" — nueva incidencia en flujo suspensiones merchants, requiere investigacion con Cris.', time: 'Vie 12 Jun 10:24', type: 'channel', actionable: true },
-  { from: 'Group DM Camilo / Gregson / Manuel', text: 'JP confirmo sesion de validacion de integraciones: "Listos los socite ahorita para que lo miremos" — sesion activa con Gregson y Manuel para revisar endpoints y avance de microservicio tiendas.', time: 'Vie 12 Jun 10:27', type: 'dm', actionable: false },
-  { from: 'Cristian Parada (DM)', text: 'Cris pregunta donde exactamente JP necesita que se modifique la metadata. JP explica: "no es un endpoint como tal, es la metadata de suspensiones que me esta llegando sin el Store Id — con ese Store Id se consumen algunos endpoints" — bloqueante para reducir handoff en flujo suspensiones merchants non live.', time: 'Vie 12 Jun 10:21', type: 'dm', actionable: true },
-  { from: 'Maria Fernanda Granada (DM)', text: 'Mafe confirma: "yess — toca verlo con tech, estamos seguros que no paso por el bot?" — JP y Mafe coordinando para escalar a Cristian Parada el caso de suspension que no paso por el bot automatico.', time: 'Vie 12 Jun 10:13', type: 'dm', actionable: true },
-  { from: 'Gregson Murcia (Group DM - AI Flujos)', text: 'Gregson respondio a JP: "Si estamos finalizando unas entregas y con Manuel estamos afinandolos, si algo invitanos a una sesion, para estar involucrados en los procesos que tienen y si algo falla arreglarlo en ese mismo instante." — equipo disponible y comprometido con los endpoints.', time: 'Jue 11 Jun 17:39', type: 'dm', actionable: true },
-  { from: 'Maria Fernanda Granada (Group DM)', text: 'Mafe hace follow up: (1) ya todos los entry issues quedaron agregados a food_live, vimos algo adicional que podamos agregar al bot? (2) tienes el cuadrito que hablamos el martes para ver cuantos casos deberian pasar por AI true? Ambas pendientes de respuesta.', time: 'Jue 11 Jun 13:44', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel (DM)', text: 'Camilo confirmo: ya desplego en todos los paises el issue_type sn_org_coyappns faltante de la plataforma de aliados — fix completo. Bug de WhatsApp recontacto: solo 1 caso encontrado, no es generalizado. Diego al tanto.', time: 'Jue 11 Jun 15:24', type: 'dm', actionable: false }
+  { from: 'Cristian Parada (DM)', text: 'Bug store_id en metadata de suspensiones: JP explica "la metadata de suspensiones llega sin el Store Id — con ese Store Id se consumen endpoints". Cris pregunta "y eso lo hacemos nosotros? osea nosotros tech support alimentamos ese panel?" — JP responde "Honestamente no se Cris, creia que si". Pendiente definir responsable del fix.', time: 'Vie 12 Jun 11:57', type: 'dm', actionable: true },
+  { from: 'Group DM Elias / Camilo / Gregson / Manuel', text: 'Elias Rivera solicita conectar flujo Assembled de compensated orders (Pagos y finanzas — Desacuerdo con ordenes canceladas) a todos los canales: partners, rappialiados y WhatsApp. Camilo pregunta si es para restaurantes — Elias confirma. Elias comparte casos de produccion de los ultimos dias para validar.', time: 'Vie 12 Jun 12:15', type: 'dm', actionable: true },
+  { from: 'Elias Rivera (DM)', text: 'Elias solicito 5 minutos de sesion sobre un flujo de Assembled. JP envio el link del workflow de compensated orders. Elias confirma con "Gracias!!!" — coordinacion resuelta.', time: 'Vie 12 Jun 11:18', type: 'dm', actionable: false },
+  { from: 'Group DM Gregson / Manuel / Camilo', text: 'JP convoco sesion de validacion de integracion. Gregson y Manuel estaban en otra meet. Manuel avisa: "Estamos en otra meet, no es la misma que creaste." JP se une a la sesion correcta. Sesion de validacion de flujos completada.', time: 'Vie 12 Jun 11:20', type: 'dm', actionable: false },
+  { from: 'Maria Fernanda Granada (Group DM)', text: 'Mafe hace follow up: (1) ya todos los entry issues quedaron agregados a food_live — hay algo adicional que agregar al bot? (2) tienes el cuadrito que hablamos el martes sobre cuantos casos deberian pasar por AI true? Ambas pendientes de respuesta de JP.', time: 'Jue 11 Jun 13:44', type: 'dm', actionable: true },
+  { from: 'Gregson Murcia (Group DM - AI Flujos)', text: 'Gregson confirma disponibilidad: "estamos finalizando unas entregas y con Manuel estamos afinandolos, si algo invitanos a una sesion, para estar involucrados en los procesos que tienen y si algo falla arreglarlo en ese mismo instante." — equipo comprometido con los endpoints de integracion.', time: 'Jue 11 Jun 17:39', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel (DM)', text: 'Camilo confirmo: ya desplego en todos los paises el issue_type sn_org_coyappns faltante de la plataforma de aliados — fix completo y global. Bug de WhatsApp recontacto: solo 1 caso encontrado, no generalizado. Diego al tanto del bug.', time: 'Jue 11 Jun 15:24', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
@@ -1879,7 +1905,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-9:00', '9:30-11:00', '12:00-13:00', '15:00-16:30', '17:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '9:45-13:00', '14:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-9:00', '11:30-13:00', '14:30-18:00'] }
+  { day: 'Vie', blocks: ['8:00-9:00', '11:30-13:00', '16:00-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
