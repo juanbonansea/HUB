@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Lun 15 · Actualizado 15 Jun 11:09</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Lun 15 · Actualizado 15 Jun 12:15</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1886,13 +1886,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Juan Pablo → Elias Rivera (DM)', text: 'HECHO: JP encendio el experimento Statsig AI chatbot merchants WA — "Hola Eli, apenas lo veo / prendido". El experimento ai_chatbot_merchants_wa_payments_finances_compensated_order ya esta activo. Camilo Esquivel habia configurado hasta paises medianos el viernes.', time: 'Lun 15 Jun 08:56', type: 'dm', actionable: false },
+  { from: 'Elias Rivera → JP (DM)', text: 'RESUELTO: Elias probo desde Argentina y no veia que el bot pasara ni a agente ni a la automatizacion. Reporto a JP a las 12:08. A las 12:11 Elias mismo confirmo "Paso a agente.." — el experimento Statsig activo esta funcionando correctamente en el rollout por paises. Monitorear que el flujo sea consistente.', time: 'Lun 15 Jun 12:11', type: 'dm', actionable: false },
+  { from: 'Juan Pablo → Elias Rivera (DM)', text: 'HECHO: JP encendio el experimento Statsig AI chatbot merchants WA a las 08:56 — "Hola Eli, apenas lo veo / prendido". El experimento ai_chatbot_merchants_wa_payments_finances_compensated_order ya esta activo. Camilo Esquivel habia configurado hasta paises medianos el viernes.', time: 'Lun 15 Jun 08:56', type: 'dm', actionable: false },
   { from: 'Daniel Alvarez en #cx-management-team', text: 'ALERTA Capacity Julio (Merch & RTS): Food tiene deficit ~5K USD semanal por +40% ACR y +3 min AHT. RTS NON con variacion CR +28%. Para julio: Food -15 FTE proyectados (posible deficit 12K USD semanal), RTS NON -44 FTE. Costo total requerido: Food 59K USD + RTS 87K USD. Josefina pregunto a JP y Maria sobre el plan de reduccion.', time: 'Vie 12 Jun 16:39', type: 'channel', actionable: true },
   { from: 'Josefina Polivanoff en #cx-management-team', text: 'Josefina a JP: "por el lado de merchants que estas viendo??" y luego "si porfa veamos numeros porque el agent CR hoy esta en 0.26 y proyectabamos a estas alturas estar en 0.18 y para julio deberiamos estar viendo 0.08!! me preocupa que no lleguemos." — Urgente preparar metricas CR merchants para el martes.', time: 'Vie 12 Jun 16:53', type: 'channel', actionable: true },
   { from: 'Juan Pablo en #cx-management-team', text: 'JP reporta avances del bot Merchant a Josefina: "esta semana terminamos de mapear subramas haciendo que todo el inflow que no sea payments pase por el bot... la reduccion ha sido grande." Promete metricas de casos escalados vs inflow para el martes (sesion 15 min acordada con Josefina).', time: 'Vie 12 Jun 16:53', type: 'channel', actionable: true },
-  { from: 'Camilo Esquivel (Group DM AI Flujos)', text: 'Camilo confirma "listo, ya quedo hasta paises medianos, pendiente encender el experimento." — YA SE HIZO esta manana por JP. Rollout gradual: WhatsApp primero en paises pequenos y medianos, luego escalar a todas las plataformas cuando este estable.', time: 'Vie 12 Jun 18:39', type: 'dm', actionable: false },
   { from: 'Maria Granada en #cx-management-team', text: 'Maria reporta sobre RTS plan: "Plan original (21k mensuales) + Adicional (73k mensuales) — hemos traido 66k tickets segun el pod... el inflow overall ha aumentado 45k tickets semanales. Veo muy dificil que lo traigamos porque si la base sigue creciendo." Propone reunion martes para evaluar cierres mas agresivos con trade off DSAT.', time: 'Vie 12 Jun 16:45', type: 'channel', actionable: true },
-  { from: 'Bot Hub (3er refresh del dia)', text: 'Hub actualizado 11:09 — datos calendario, Slack y notas al dia. Statsig experimento ya activo (08:56). Prioridad del dia: estimar DISAT RTS/comerciantes + preparar metricas CR para Josefina antes del martes. Workday deadline manana (17 Jun).', time: 'Lun 15 Jun 11:09', type: 'dm', actionable: false }
+  { from: 'Camilo Esquivel (Group DM AI Flujos)', text: 'Camilo confirma "listo, ya quedo hasta paises medianos, pendiente encender el experimento." — YA SE HIZO esta manana por JP. Rollout gradual: WhatsApp primero en paises pequenos y medianos, luego escalar a todas las plataformas cuando este estable.', time: 'Vie 12 Jun 18:39', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
