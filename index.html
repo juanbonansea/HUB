@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Lun 15 · Actualizado 15 Jun 09:10</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Lun 15 · Actualizado 15 Jun 11:09</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1892,7 +1892,7 @@ const SLACK_FEED = [
   { from: 'Juan Pablo en #cx-management-team', text: 'JP reporta avances del bot Merchant a Josefina: "esta semana terminamos de mapear subramas haciendo que todo el inflow que no sea payments pase por el bot... la reduccion ha sido grande." Promete metricas de casos escalados vs inflow para el martes (sesion 15 min acordada con Josefina).', time: 'Vie 12 Jun 16:53', type: 'channel', actionable: true },
   { from: 'Camilo Esquivel (Group DM AI Flujos)', text: 'Camilo confirma "listo, ya quedo hasta paises medianos, pendiente encender el experimento." — YA SE HIZO esta manana por JP. Rollout gradual: WhatsApp primero en paises pequenos y medianos, luego escalar a todas las plataformas cuando este estable.', time: 'Vie 12 Jun 18:39', type: 'dm', actionable: false },
   { from: 'Maria Granada en #cx-management-team', text: 'Maria reporta sobre RTS plan: "Plan original (21k mensuales) + Adicional (73k mensuales) — hemos traido 66k tickets segun el pod... el inflow overall ha aumentado 45k tickets semanales. Veo muy dificil que lo traigamos porque si la base sigue creciendo." Propone reunion martes para evaluar cierres mas agresivos con trade off DSAT.', time: 'Vie 12 Jun 16:45', type: 'channel', actionable: true },
-  { from: 'Juan Pablo DM a si mismo (Hub Lun 15)', text: 'Hub actualizado esta manana con agenda semana 15-19 Jun. Carryover principal: metricas DSAT Q3, cuadrito AI true para Mafe, Store Id metadata suspensiones, metricas CR merchants para Josefina. Experimento Statsig ya encendido (08:56).', time: 'Lun 15 Jun 07:19', type: 'dm', actionable: false }
+  { from: 'Bot Hub (3er refresh del dia)', text: 'Hub actualizado 11:09 — datos calendario, Slack y notas al dia. Statsig experimento ya activo (08:56). Prioridad del dia: estimar DISAT RTS/comerciantes + preparar metricas CR para Josefina antes del martes. Workday deadline manana (17 Jun).', time: 'Lun 15 Jun 11:09', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
@@ -2018,13 +2018,7 @@ function renderDashboard() {
    CALENDAR (Agenda)
    ================================================================ */
 function renderCalendar() {
-  const dayLabels = [
-    { name:'Lunes 8 Junio', key:'mon' },
-    { name:'Martes 9 Junio', key:'tue' },
-    { name:'Miercoles 10 Junio', key:'wed' },
-    { name:'Jueves 11 Junio', key:'thu' },
-    { name:'Viernes 12 Junio', key:'fri' }
-  ];
+  const dayLabels = DAY_NAMES_LONG.map((name, i) => ({ name, key: DAY_KEYS[i] }));
 
   document.getElementById('calContent').innerHTML = dayLabels.map((d,i) => {
     const isToday = i === TODAY_IDX;
