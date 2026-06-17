@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Mie 17 · Actualizado 17 Jun 15:07 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Mie 17 · Actualizado 17 Jun 22:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1495,6 +1495,16 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:70, title:'Alineacion new priorities', date:'17 Jun',
+    summary:'Reunion de alineacion post-CX WBR convocada por Maria Granada a las 12:30 con Juan Pablo, Meiker Munera, Susana Paniagua y Andres De Las Casas (opcional). El objetivo fue ajustar las prioridades Q3 del equipo de producto a la luz de lo revisado en el Business Review. Se alinearon los focos inmediatos para la semana: avanzar endpoints PROD con Gregson/Manuel para el flujo Food Non Live Integration, cerrar el sizing Q3 con estimaciones DSAT (pendiente Meiker), reagendar follow-up merchants con Josefina Polivanoff y resolver el issue del handoff Statsig que no pasa contexto al agente.',
+    sections:['Nuevas prioridades Q3 post-WBR — ajuste foco semana','Endpoints PROD Food Non Live Integration — JP termino flujo DEV, pendiente PROD','Sizing DSAT y follow-up merchants Josefina — blockers activos para plan Atlas'],
+    actions:[
+      { text:'Desplegar y probar endpoints PROD Food Non Live Integration — Gregson creo endpoints PROD a las 16:04, JP debe validar que el flujo queda funcional', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Recibir datos DSAT de Meiker para sizing Q3 — prometio enviarlos en un ratico desde las 11:59, hacer follow-up urgente', owner:'Juan Pablo / Meiker Munera', phase:'metrics', priority:'P0' },
+      { text:'Reagendar follow-up merchants con Josefina Polivanoff — CR actual 0.26% vs meta 0.18% ahora / 0.08% julio', owner:'Juan Pablo', phase:'metrics', priority:'P0' }
+    ]
+  },
   {
     id:69, title:'CX Weekly Business Review', date:'17 Jun',
     summary:'Revision semanal de metricas de negocio CX con enfasis en iniciativas Q3 y estado de automatizaciones activas. El resultado de la sesion genero una reunion inmediata de alineacion de nuevas prioridades a las 12:30 con Maria Granada y el equipo de producto. Se revisaron metricas de automatizacion, avance de bots merchants y estado de experimentos Statsig activos en Argentina y pendientes en otros paises. Se discutieron ajustes en la estrategia Q3 ante resultados del primer ciclo de implementaciones y el impacto esperado en DSAT.',
@@ -1866,7 +1876,10 @@ const DEFAULT_TASKS = [
   { id:'t1026', text:'[Mie 17 12:30 REALIZADO] Alineacion new priorities con Maria Granada, Meiker Munera y Susana Paniagua — reunion post-CX WBR para alinear nuevas prioridades Q3. Revisar notas y action items derivados de esta sesion.', phase:'build', priority:'P0', source:'Calendar Mie 17 Jun 12:30 — Alineacion new priorities', day:'wed', completed:true },
   { id:'t1027', text:'[PENDIENTE urgente] Recibir datos DSAT de Meiker Munera — prometio enviarlos "en un ratico" (Mie 11:59). Hacer follow-up si no llegan antes del fin de jornada. Requeridos para sizing iniciativas Q3 en Atlas.', phase:'metrics', priority:'P0', source:'DM Meiker Munera Mie 17 Jun 11:59', day:'wed', completed:false },
   { id:'t1028', text:'[PENDIENTE] Reagendar follow-up merchants con Josefina Polivanoff — sigue pendiente desde kickoff CR RT & Merchants Q3 del martes. Enviar DM a Josefina para coordinar sesion especifica sobre estrategia merchants (0.26% actual → 0.08% julio).', phase:'metrics', priority:'P0', source:'Group DM CR RT & Merchants Q3 Mar 16 Jun', day:'wed', completed:false },
-  { id:'t1029', text:'[PENDIENTE] Confirmar resultado pruebas endpoints Food Non Live en produccion — Gregson confirmo "todos de dev estan okay" con ayuda Juan Esquivel. JP iba a probar. Validar y cerrar este item esta semana.', phase:'build', priority:'P1', source:'Group DM Gregson Murcia Mar 16 Jun', day:'thu', completed:false }
+  { id:'t1029', text:'[PENDIENTE] Confirmar resultado pruebas endpoints Food Non Live en produccion — Gregson confirmo "todos de dev estan okay" con ayuda Juan Esquivel. JP iba a probar. Validar y cerrar este item esta semana.', phase:'build', priority:'P1', source:'Group DM Gregson Murcia Mar 16 Jun', day:'thu', completed:false },
+  { id:'t1030', text:'[HOY Mie 17 URGENTE] Desplegar y probar endpoints PROD Food Non Live Integration: JP termino flujo con endpoints DEV (pidio PROD a las 14:33 COT), Gregson creo los endpoints PROD a las 16:04. Ir a probar el flujo completo en produccion y confirmar que Food Non Live Integration queda funcional esta semana.', phase:'build', priority:'P0', source:'Group DM Gregson/Manuel/Camilo Mie 17 Jun 16:04', day:'wed', completed:false },
+  { id:'t1031', text:'[PENDIENTE Mie 17] Coordinar con Juan Esquivel / Stephania Gonzalez el numero de telefono o chat_id de los casos de WhatsApp reportados — Stephania solo tiene el brand (50897). Juan Esquivel pide este dato para investigar los casos en AWS Connect. Revisar si se puede obtener desde Connect o desde otra fuente.', phase:'build', priority:'P1', source:'DM Juan Esquivel + DM Stephania Gonzalez Mie 17 Jun 16:33-16:34', day:'wed', completed:false },
+  { id:'t1032', text:'[PENDIENTE] Seguimiento Elias Rivera — flujo "mi tienda no aparece en app": Elias confirmo que compensaciones espera nota de handoff antes de abrir en paises grandes (Juan Esquivel lo revisa). Para "mi tienda no aparece" coordinan con equipo de negocio (flujo practicamente igual al de ellos), tech tiene pendientes endpoints de la receta. Definir si JP mete el flujo en Food Live o espera al equipo de Elias.', phase:'build', priority:'P1', source:'DM Elias Rivera Mie 17 Jun 16:41-16:53', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1899,9 +1912,9 @@ const DEFAULT_DELEGATED = [
   { id:'d612', text:'Enviar datos especificos de restaurantes y actualizar documento de estrategia Merchant', owner:'Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
   { id:'d613', text:'Revisar analisis de asignacion de rapitenderos con nueva definicion de Matias Kramer y actualizar estrategia', owner:'Andres Diaz / Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
   { id:'d614', text:'Desarrollar endpoints perfiles RT: crear puntos de enlace para cambio de genero y foto de perfil RT y flujo Cancha Change State', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
-  { id:'d615', text:'Probar endpoints microservicio: validar funcionamiento de endpoints para gestion de encendido y apagado de tiendas', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
-  { id:'d616', text:'Validar origen Integration ID: determinar el campo correcto requerido para consultas de la API del microservicio de tiendas', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
-  { id:'d617', text:'Acceder servicios Ridash e investigar microservicios para obtener estado de webhooks en tiendas — coordinar con Juan Esquivel para desbloquear', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
+  { id:'d615', text:'[COMPLETADO Mie 17 16:04] Crear endpoints PROD Food Non Live Integration: Gregson confirmo "ya los creo los endpoints" en PROD — JP desplegó todos los paises esta manana. JP debe probar el flujo completo en produccion.', owner:'Gregson Murcia / Manuel Gruezo', source:'Group DM Mie 17 Jun 16:04', status:'completado' },
+  { id:'d616', text:'Validar origen Integration ID: determinar el campo correcto requerido para consultas de la API del microservicio de tiendas', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'en progreso' },
+  { id:'d617', text:'Acceder servicios Ridash e investigar microservicios para obtener estado de webhooks en tiendas — coordinar con Juan Esquivel para desbloquear', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'en progreso' },
   { id:'d620', text:'Definir tipos de problemas que actuan como excepciones para evitar escalacion a agente humano cuando sistema IA falle', owner:'Isabela Gomez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
   { id:'d621', text:'Validar con equipo Fulfillment la estrategia de cierre de tickets para que no afecte negativamente la asignacion de pedidos', owner:'Isabela Gomez / Eugenio La Rosa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
   { id:'d622', text:'Priorizar atencion del equipo en Canal Chat Support por inicio del Mundial y altos volumenes de casos durante el torneo', owner:'Natalia Intencipa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
@@ -1931,12 +1944,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Meiker Munera → JP (DM)', text: '"No, dame un ratico pls y te los paso ahora jaja" — DSAT iniciativas pendiente de pasar. Meiker se ocupo con algo despues de responder. PENDIENTE: recibir datos DSAT de Meiker para sizing Q3.', time: 'Mie 17 Jun 11:59', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez → JP (DM)', text: '"Excelente Juan gracias!!" — RESUELTO: bot no llego en fragmento horario, JP escalo con tech, ya corregido, validando causa raiz. JP confirmo "no hay nada roto, todo funcionando correctamente". Sin ticket por ahora.', time: 'Mie 17 Jun 11:48', type: 'dm', actionable: false },
-  { from: 'Stephania Gonzalez → JP (DM)', text: '"Pudiste encontrar algo??" + links AWS Connect trace records Mexico (brand ID 50897, 2 PQRs) — investigacion completada y resuelta. JP escalo con tech y confirmo sistema OK.', time: 'Mie 17 Jun 11:04', type: 'dm', actionable: false },
-  { from: 'Josefina → Group DM (Andres, Daniel, Maria, JP)', text: '"nos faltó hablar merchantss" — CR RT & Merchants Q3 kickoff termino con merchants pendiente. Reagendar follow-up con Josefina por Slack.', time: 'Mar 16 Jun', type: 'dm', actionable: true },
-  { from: 'Gregson Murcia → Group DM (JP, Camilo, Manuel)', text: 'ENDPOINTS FOOD NON LIVE OK: "todos de dev estan okay con ayuda juan.esquivel." — JP confirmo que iba a probar. Pendiente confirmar resultado de pruebas en produccion.', time: 'Mar 16 Jun', type: 'dm', actionable: true },
-  { from: 'Maria Granada (cal)', text: 'Nueva reunion "Alineacion new priorities" creada post-CX WBR para las 12:30 de hoy — asistentes: Maria, Meiker, Susana, JP (Andres opcional). Nuevas prioridades Q3 a definir.', time: 'Mie 17 Jun 11:47', type: 'dm', actionable: false }
+  { from: 'Gregson Murcia → Group DM (JP, Camilo, Manuel)', text: 'ENDPOINTS PROD FOOD NON LIVE LISTOS: "Vale, ya los creo los endpoints que vi que juan esta manana desplego todos los paises." — JP ya termino el flujo con DEV endpoints. ACCION: probar el flujo completo en produccion ahora.', time: 'Mie 17 Jun 16:04', type: 'dm', actionable: true },
+  { from: 'Elias Rivera → JP (DM)', text: '"Ya estoy revisando data con el equipo y te aviso" — Compensaciones espera nota de handoff antes de abrir en paises grandes (Juan Esquivel lo revisa). "Mi tienda no aparece en app": equipo de negocio trabajando en flujo similar, tech tiene endpoints receta pendientes. JP pregunto si se maneja en Food Live.', time: 'Mie 17 Jun 16:53', type: 'dm', actionable: true },
+  { from: 'Juan Esquivel → JP (DM)', text: '"puedes pedir porfa el numero de telefono o chat_id de los casos de whatsapp" — JP compartio 2 trace records de AWS Connect Mexico pero Esquivel confirmo que son casos PQR web, no WhatsApp. Pendiente: obtener phone/chat_id real de los casos reportados.', time: 'Mie 17 Jun 16:33', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez → JP (DM)', text: '"Solo tenemos es el brand que te compartí" + "No hemos podido encontrarlo" — sin numero de telefono ni chat_id para los casos WA Mexico reportados. Solo brand 50897. Juan Esquivel necesita el dato para investigar.', time: 'Mie 17 Jun 16:34', type: 'dm', actionable: false },
+  { from: 'Meiker Munera → JP (DM)', text: '"No, dame un ratico pls y te los paso ahora jaja" — DSAT iniciativas pendiente de pasar. PENDIENTE: hacer follow-up urgente si no llegaron los datos hoy.', time: 'Mie 17 Jun 11:59', type: 'dm', actionable: true },
+  { from: 'Josefina → Group DM (Andres, Daniel, Maria, JP)', text: '"nos faltó hablar merchantss" + "@juan.bonansea si porfa veamos numeros porque el agent CR hoy está en 0.26 y proyectábamos 0.18... para julio deberíamos estar en 0.08!!!" — Reagendar follow-up merchants con Josefina.', time: 'Mar 16 Jun', type: 'dm', actionable: true },
+  { from: 'Maria Granada → #ai-automations', text: '"Hola team! de este bot ya tenemos endpoints? o qué nos faltaría para salir esta semana?" — JP respondio que endpoints fallando, Gregson/Manuel/Esquivel trabajando en ello. Ahora Gregson confirmo PROD listos.', time: 'Mar 16 Jun 09:53', type: 'channel', actionable: false }
 ];
 
 const DEEP_WORK = [
