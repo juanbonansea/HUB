@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Mie 17 · Actualizado 17 Jun 15:45</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Mie 17 · Actualizado 17 Jun 18:10</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1477,6 +1477,7 @@ const EVENTS = {
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:55, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo de toda el area CX.' },
+    { time:'12:30-13:00', title:'Alineacion new priorities', attendees:5, org:'m.granada@rappi.com', type:'team', note:'Reunion rapida post-CX WBR con Maria Granada, Meiker Munera, Susana Paniagua y Andres De Las Casas (opcional) para alinear nuevas prioridades Q3 surgidas del Business Review. Agendada hoy por Maria a las 11:47 COT.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — estado flujos Live, integraciones y plan Q3. MOVIDO de Martes 15:30 a Miercoles 14:00.' }
   ],
@@ -1494,6 +1495,36 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:69, title:'CX Weekly Business Review', date:'17 Jun',
+    summary:'Revision semanal de metricas de negocio CX con enfasis en iniciativas Q3 y estado de automatizaciones activas. El resultado de la sesion genero una reunion inmediata de alineacion de nuevas prioridades a las 12:30 con Maria Granada y el equipo de producto. Se revisaron metricas de automatizacion, avance de bots merchants y estado de experimentos Statsig activos en Argentina y pendientes en otros paises. Se discutieron ajustes en la estrategia Q3 ante resultados del primer ciclo de implementaciones y el impacto esperado en DSAT.',
+    sections:['Revision metricas automatizacion — bots activos y experimentos Statsig','Ajustes estrategia Q3 — nuevas prioridades identificadas en WBR','Seguimiento CR merchants y RT — gap entre 0.26% actual y meta 0.08% julio'],
+    actions:[
+      { text:'Alinear nuevas prioridades Q3 con Maria Granada, Meiker y Susana — reunion 12:30 hoy post-WBR', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Coordinar con Meiker los datos DSAT de iniciativas para estimar reduccion de insatisfaccion Q3', owner:'Juan Pablo / Meiker Munera', phase:'metrics', priority:'P0' },
+      { text:'Follow-up con Josefina Polivanoff sobre estrategia CR merchants — pendiente desde kickoff Q3 del martes', owner:'Juan Pablo', phase:'metrics', priority:'P1' }
+    ]
+  },
+  {
+    id:68, title:'CR RT & Merchants - Inicio Q3', date:'16 Jun',
+    summary:'Reunion de kickoff Q3 para iniciativas de reduccion de Contact Rate en RT y Merchants. Se revisaron metas del trimestre y se asignaron responsables por flujo de automatizacion. El CR actual en merchants (0.26%) debe reducirse a 0.18% a corto plazo y a 0.08% en julio mediante implementacion de flujos del bot. La estrategia especifica para merchants quedo pendiente — Josefina Polivanoff solicito reunion de seguimiento. Se identifico que Daniel Alvarez reporto alerta de capacity julio (Food -15 FTE ~12K USD/semana + RTS NON -44 FTE ~19K USD/semana).',
+    sections:['Metas CR Q3 — reduccion 0.26% → 0.18% (ahora) → 0.08% (julio)','Asignacion responsables por flujo — merchants quedo pendiente con Josefina','Alerta capacity julio — impacto FTE y costos si no se logra la automatizacion'],
+    actions:[
+      { text:'Reagendar sesion merchants con Josefina Polivanoff — quedo pendiente del kickoff Q3 de ayer', owner:'Juan Pablo', phase:'metrics', priority:'P0' },
+      { text:'Preparar metricas detalladas CR merchants para seguimiento: 0.26% actual → 0.18% meta ahora → 0.08% julio', owner:'Juan Pablo', phase:'metrics', priority:'P0' },
+      { text:'Coordinar con Andres De Las Casas estado flujos Live y su impacto en CR RT para Q3', owner:'Juan Pablo / Andres De Las Casas', phase:'build', priority:'P1' }
+    ]
+  },
+  {
+    id:67, title:'Weekly - QA AI', date:'16 Jun',
+    summary:'Revision semanal de calidad de flujos de automatizacion AI. Se revisaron avances en las pruebas del bot de triage con Jaime Gomez validando las 6 categorias en Connect. Se discutio el sizing Q3 y las iniciativas que requieren ajuste de proyecciones. El equipo identifico necesidad urgente de estimar la reduccion de DISAT para flujos RTS y comerciantes para completar el plan Atlas. Se alerto sobre problemas con plataforma Atlas que bloquean carga de datos.',
+    sections:['Estado bot triage — 6 categorias en validacion por Jaime Gomez en Connect','Revision DSAT flujos activos — estimacion reduccion DISAT requerida para Atlas Q3','Sizing Q3 — proyecciones volumetricas pendientes de ajuste por Angela y Nicolas'],
+    actions:[
+      { text:'Estimar reduccion DISAT para flujos RTS y comerciantes — requerido para Atlas Q3', owner:'Juan Pablo / Meiker Munera', phase:'metrics', priority:'P0' },
+      { text:'Evaluar datos insatisfaccion presentados en el segmento actual de flujos activos', owner:'Juan Pablo', phase:'metrics', priority:'P1' },
+      { text:'Seguimiento Jaime Gomez sobre avance validacion 6 categorias bot triage — asegurar entrega y documentacion', owner:'Juan Pablo', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:66, title:'Revision Sizings Q3', date:'12 Jun',
     summary:'Revision tecnica de plataforma Atlas y refinamiento de metodologias para iniciativas clave del tercer trimestre. La revision de logicas de dimensionamiento continuara pese a problemas tecnicos detectados en la plataforma — fallos en la carga de informacion son esperados en la etapa actual. Los calculos de impacto para iniciativas como Order Status y Agent AI requieren ajustes de precision; se cuestiono el uso de exposiciones como metrica principal optando por fuentes de datos alternativas. La estrategia actual requiere reagrupar iniciativas para priorizar servicios relevantes y corregir proyecciones volumetricas faltantes. Se ajustaron los criterios de retencion aplicados a los diversos casos de negocio analizados.',
@@ -1831,7 +1862,11 @@ const DEFAULT_TASKS = [
   { id:'t1016', text:'[SEMANA] Humanizar bot: cambiar nombre del bot Live/Merchants por uno mas humano y empatico. Accion asignada desde CX WBR 3 Jun — carryover pendiente.', phase:'build', priority:'P1', source:'CX Weekly Business Review 3 Jun', day:'wed', completed:false },
   { id:'t1017', text:'[SEMANA] Revisar asociacion de order ID en tickets del flujo Live — analizar cancelaciones sin ticket asociado para identificar causa tecnica de la perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'tue', completed:false },
   { id:'t1018', text:'[HOY URGENTE Mar 16] Preparar metricas agent CR merchants para Josefina Polivanoff: actualmente en 0.26%, meta era 0.18% a estas alturas y 0.08% para julio. Daniel Alvarez reporto alerta de capacity julio (Food -15 FTE ~12K USD/semana + RTS NON -44 FTE ~19K USD/semana). Llevar metricas y plan de reduccion al 1:1 con Maria a las 14:00 — Josefina espera cifras claras sobre el impacto del bot en merchant CR.', phase:'metrics', priority:'P0', source:'#cx-management-team Vie 12 Jun + Alerta Capacity Julio', day:'tue', completed:false },
-  { id:'t1025', text:'[HOY Mie 17 PENDIENTE] Responder a Stephania Gonzalez: "Pudiste encontrar algo??" — siguiendo up sobre PQRs/casos Mexico via AWS Connect trace records compartidos el martes (brand IDs + links). Dar respuesta con hallazgos o indicar siguiente paso.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Mie 17 Jun', day:'wed', completed:false }
+  { id:'t1025', text:'[RESUELTO Mie 17 11:48] Stephania Gonzalez — PQRs Mexico via AWS Connect (brand ID 50897): JP escalo con tech, bot sin servicio en fragmento horario ya corregido, tech validando causa raiz. Confirmado "no hay nada roto, todo funcionando correctamente". Sin ticket por ahora hasta tener certidumbre de tech.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Mie 17 Jun', day:'wed', completed:true },
+  { id:'t1026', text:'[Mie 17 12:30 REALIZADO] Alineacion new priorities con Maria Granada, Meiker Munera y Susana Paniagua — reunion post-CX WBR para alinear nuevas prioridades Q3. Revisar notas y action items derivados de esta sesion.', phase:'build', priority:'P0', source:'Calendar Mie 17 Jun 12:30 — Alineacion new priorities', day:'wed', completed:true },
+  { id:'t1027', text:'[PENDIENTE urgente] Recibir datos DSAT de Meiker Munera — prometio enviarlos "en un ratico" (Mie 11:59). Hacer follow-up si no llegan antes del fin de jornada. Requeridos para sizing iniciativas Q3 en Atlas.', phase:'metrics', priority:'P0', source:'DM Meiker Munera Mie 17 Jun 11:59', day:'wed', completed:false },
+  { id:'t1028', text:'[PENDIENTE] Reagendar follow-up merchants con Josefina Polivanoff — sigue pendiente desde kickoff CR RT & Merchants Q3 del martes. Enviar DM a Josefina para coordinar sesion especifica sobre estrategia merchants (0.26% actual → 0.08% julio).', phase:'metrics', priority:'P0', source:'Group DM CR RT & Merchants Q3 Mar 16 Jun', day:'wed', completed:false },
+  { id:'t1029', text:'[PENDIENTE] Confirmar resultado pruebas endpoints Food Non Live en produccion — Gregson confirmo "todos de dev estan okay" con ayuda Juan Esquivel. JP iba a probar. Validar y cerrar este item esta semana.', phase:'build', priority:'P1', source:'Group DM Gregson Murcia Mar 16 Jun', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1896,12 +1931,12 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Stephania Gonzalez → JP (DM)', text: '"Pudiste encontrar algo??" — siguiendo up sobre investigacion de PQRs/casos Mexico via AWS Connect trace records compartidos el martes. PENDIENTE responder con hallazgos.', time: 'Mie 17 Jun', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez → JP (DM)', text: '"Son estos los pqrs [IDs]" + links AWS Connect trace records (Mexico) — investigacion activa de casos. JP respondio "Lo reviso" y "Listo". Conversacion sobre brand IDs y PQRs especificos.', time: 'Mar 16 Jun 17:42', type: 'dm', actionable: false },
-  { from: 'Stephania Gonzalez → JP (DM)', text: '"Tenemos este issue, nose si todo este bien o algo se rompió" — issue reportado. JP respondio "veo todo bien nada roto" / "pero si esta raro". Monitorear.', time: 'Mar 16 Jun 17:05', type: 'dm', actionable: false },
-  { from: 'Josefina → Group DM (Andres, Daniel, Maria, JP)', text: '"nos faltó hablar merchantss" — CR RT & Merchants Q3 kickoff termino con merchants pendiente. Reunion Josefina no esta en calendario Mie — coordinar follow-up por Slack.', time: 'Mar 16 Jun 16:06', type: 'dm', actionable: true },
-  { from: 'Gregson Murcia → Group DM (JP, Camilo, Manuel)', text: 'ENDPOINTS FOOD NON LIVE OK: "todos de dev estan okay con ayuda juan.esquivel." — Endpoints documentados. JP confirmo que fue a probar. Verificar estado final.', time: 'Mar 16 Jun ~14:xx', type: 'dm', actionable: false },
-  { from: 'Maria Granada → Group DM (Maria, Susana, Meiker, JP)', text: '"por ahora ninguna" — respuesta a consulta de prioridades. Q3 sin bloqueantes adicionales reportados por Maria.', time: 'Mar 16 Jun', type: 'dm', actionable: false }
+  { from: 'Meiker Munera → JP (DM)', text: '"No, dame un ratico pls y te los paso ahora jaja" — DSAT iniciativas pendiente de pasar. Meiker se ocupo con algo despues de responder. PENDIENTE: recibir datos DSAT de Meiker para sizing Q3.', time: 'Mie 17 Jun 11:59', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez → JP (DM)', text: '"Excelente Juan gracias!!" — RESUELTO: bot no llego en fragmento horario, JP escalo con tech, ya corregido, validando causa raiz. JP confirmo "no hay nada roto, todo funcionando correctamente". Sin ticket por ahora.', time: 'Mie 17 Jun 11:48', type: 'dm', actionable: false },
+  { from: 'Stephania Gonzalez → JP (DM)', text: '"Pudiste encontrar algo??" + links AWS Connect trace records Mexico (brand ID 50897, 2 PQRs) — investigacion completada y resuelta. JP escalo con tech y confirmo sistema OK.', time: 'Mie 17 Jun 11:04', type: 'dm', actionable: false },
+  { from: 'Josefina → Group DM (Andres, Daniel, Maria, JP)', text: '"nos faltó hablar merchantss" — CR RT & Merchants Q3 kickoff termino con merchants pendiente. Reagendar follow-up con Josefina por Slack.', time: 'Mar 16 Jun', type: 'dm', actionable: true },
+  { from: 'Gregson Murcia → Group DM (JP, Camilo, Manuel)', text: 'ENDPOINTS FOOD NON LIVE OK: "todos de dev estan okay con ayuda juan.esquivel." — JP confirmo que iba a probar. Pendiente confirmar resultado de pruebas en produccion.', time: 'Mar 16 Jun', type: 'dm', actionable: true },
+  { from: 'Maria Granada (cal)', text: 'Nueva reunion "Alineacion new priorities" creada post-CX WBR para las 12:30 de hoy — asistentes: Maria, Meiker, Susana, JP (Andres opcional). Nuevas prioridades Q3 a definir.', time: 'Mie 17 Jun 11:47', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
