@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Mar 16 · Actualizado 16 Jun 17:30</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Mie 17 · Actualizado 17 Jun 07:00</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1477,14 +1477,13 @@ const EVENTS = {
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:55, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo de toda el area CX.' },
-    { time:'12:15-12:45', title:'Josefina / Juan Pablo', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Reunion 30 min con Josefina Polivanoff para revisar metricas CR merchants — agent CR en 0.26% vs meta 0.18% ahora y 0.08% para julio. JP agendo hoy para llevar numeros y plan de reduccion.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — estado flujos Live, integraciones y plan Q3. MOVIDO de Martes 15:30 a Miercoles 14:00 (actualizado 15:21 COT hoy).' }
+    { time:'14:00-14:30', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — estado flujos Live, integraciones y plan Q3. MOVIDO de Martes 15:30 a Miercoles 14:00.' }
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio — revision de iniciativas Q2-Q3.' },
-    { time:'9:00-10:00', title:'Training: AgentOS', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'CONFLICTO con CX PRD — Capacitacion interna AgentOS: acceso a plataforma, gestion de equipos, creacion de agentes, herramientas y conectores. Jonathan y Mario guian el proceso. Agendado hoy 14:59 COT.' },
     { time:'10:00-11:00', title:'Higiene Postural - Tu Postura Habla por Ti', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion SST Colombia: higiene postural frente al computador, ajuste del puesto de trabajo y prevencion de lesiones. Turno manana. Opcional.' },
+    { time:'11:00-12:30', title:'Training: AgentOS', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Capacitacion interna AgentOS: acceso a plataforma, gestion de equipos, creacion de agentes, herramientas y conectores. Jonathan y Mario guian el proceso.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'15:00-16:00', title:'Higiene Postural - Tu Postura Habla por Ti (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion SST Colombia: higiene postural — turno tarde. Opcional.' }
   ],
@@ -1816,10 +1815,10 @@ const DEFAULT_TASKS = [
   { id:'t1024', text:'[HOY Mar 16 17:05 PENDIENTE] Stephania Gonzalez reporto issue por DM: "Tenemos este issue, nose si todo este bien o algo se rompió". Pendiente revisar y responder — puede estar relacionado con endpoints Statsig o Food Non Live Integration.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Mar 16 Jun 17:05', day:'tue', completed:false },
   { id:'t1004', text:'[CARRYOVER de Lun] Seguimiento Cristian Parada — Store Id en metadata de suspensiones: definir responsable del fix (tech support o dev?), dar fecha estimada y asegurar que quede registrado como tarea tecnica prioritaria.', phase:'build', priority:'P1', source:'DM Cristian Parada Vie 12 Jun', day:'tue', completed:false },
   { id:'t1015', text:'[HOY Mar 16 — URGENTE antes del 16:00] Estimar reduccion DISAT para flujos RTS y comerciantes — pendiente desde el Sizing Q3 del viernes. Coordinar con Meiker Munera para calcular impacto esperado. REQUERIDO para la Revision DSAT AI Q3 a las 16:00 de hoy.', phase:'metrics', priority:'P0', source:'Revision Sizings Q3 12 Jun', day:'tue', completed:false },
-  { id:'t1005', text:'[HOY Mar 16 11:30] Weekly QA AI con Maria Granada: llevar metricas de automatizacion, avance bot triage (Jaime Gomez validando 6 categorias) y estado flujos Q3.', phase:'metrics', priority:'P1', source:'Calendar Mar 16 Jun 11:30', day:'tue', completed:false },
-  { id:'t1006', text:'[HOY Mar 16 14:00] 1:1 con Maria Granada: agenda semanal — avances, blockers y prioridades. Llevar el cuadrito de casos AI true (pendiente desde martes 9 Jun).', phase:'build', priority:'P0', source:'Calendar Mar 16 Jun 14:00 — Juan Pablo / Maria', day:'tue', completed:false },
+  { id:'t1005', text:'[Mar 16 REALIZADO] Weekly QA AI con Maria Granada: llevar metricas de automatizacion, avance bot triage (Jaime Gomez validando 6 categorias) y estado flujos Q3.', phase:'metrics', priority:'P1', source:'Calendar Mar 16 Jun 11:30', day:'tue', completed:true },
+  { id:'t1006', text:'[Mar 16 REALIZADO] 1:1 con Maria Granada: agenda semanal — avances, blockers y prioridades. Llevar el cuadrito de casos AI true (pendiente desde martes 9 Jun).', phase:'build', priority:'P0', source:'Calendar Mar 16 Jun 14:00 — Juan Pablo / Maria', day:'tue', completed:true },
   { id:'t1007', text:'[Mie 17 14:00] 1:1 con Andres De Las Casas: estado flujos Live, integraciones Gregson/Manuel, plan Q3 sizings y blockers tecnicos. MOVIDO de Martes 15:30 a Miercoles 14:00 (15:21 COT).', phase:'build', priority:'P1', source:'Calendar Mie 17 Jun 14:00 — Juan Pablo / Andres', day:'wed', completed:false },
-  { id:'t1008', text:'[HOY Mar 16 16:00] Revision DSAT AI Q3 con Maria Granada y Meiker: llevar estimaciones de reduccion DISAT para flujos RTS y comerciantes. Preparar proyeccion de impacto para Atlas.', phase:'metrics', priority:'P0', source:'Calendar Mar 16 Jun 16:00 — Revision Dsat Ai Q3', day:'tue', completed:false },
+  { id:'t1008', text:'[Mar 16 REALIZADO] Revision DSAT AI Q3 con Maria Granada y Meiker: llevar estimaciones de reduccion DISAT para flujos RTS y comerciantes. Preparar proyeccion de impacto para Atlas.', phase:'metrics', priority:'P0', source:'Calendar Mar 16 Jun 16:00 — Revision Dsat Ai Q3', day:'tue', completed:true },
   { id:'t1009', text:'[HOY Mar 16] Preparar deck/numeros para reunion Josefina (Mie 12:15): agent CR merchants en 0.26% vs meta 0.18% ahora y 0.08% para julio — llevar metricas de reduccion del bot, casos escalados vs inflow y plan para llegar a 0.08% en julio. Reunion agendada esta manana en calendario.', phase:'metrics', priority:'P0', source:'DM Josefina Polivanoff + Calendar Mie 12:15', day:'tue', completed:false },
   { id:'t1020', text:'[RESUELTO 15:21] Conflicto 15:30 resuelto — 1:1 Andres movido a Mie 17 14:00. CR RT & Merchants Q3 procedio sin conflicto a las 15:30. Tema merchants quedo pendiente (Josefina pide follow-up).', phase:'build', priority:'P0', source:'Calendar Mar 16 Jun 15:30 — CR RT & Merchants Inicio Q3', day:'tue', completed:true },
   { id:'t1014', text:'[HOY Mar 16] Gestionar flujos problem with products para bot de Connect — pendiente de Revision Sizings Q3 Jun 12. Coordinar con Meiker Munera para definir estructura e implementacion.', phase:'build', priority:'P0', source:'Revision Sizings Q3 12 Jun', day:'tue', completed:false },
@@ -1896,20 +1895,19 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Stephania Gonzalez → JP (DM)', text: '"Hola Juan... Como vas?? Tienes 5 minutos? Tenemos este issue, nose si todo este bien o algo se rompió" — PENDIENTE de respuesta. Puede estar relacionado con endpoints Statsig o Food Non Live.', time: 'Mar 16 Jun 17:05', type: 'dm', actionable: true },
-  { from: 'Josefina → Group DM (Andres, Daniel, Maria, JP)', text: '"nos faltó hablar merchantss" y "volvemos??" — CR RT & Merchants Q3 termino con tema merchants pendiente. Coordinar follow-up con Josefina, Andres y Daniel.', time: 'Mar 16 Jun 16:06', type: 'dm', actionable: true },
-  { from: 'Gregson Murcia → Group DM (JP, Camilo, Manuel)', text: 'ENDPOINTS FOOD NON LIVE RESUELTOS: "Justo ya todos de dev estan okay (ahi con ayudo juan.esquivel). Ya probee y documente las respuestas." — BLOQUEANTE levantado. JP respondio "excelente voy a probar entonces."', time: 'Mar 16 Jun ~14:xx', type: 'dm', actionable: true },
-  { from: 'Maria Granada → QA AI Weekly (DM post-reunion)', text: '"de prioridades de tech esta semana para AI solo tenemos integradas?" — Confirmando que Food Non Live Integrations es la prioridad tecnica unica de la semana para AI.', time: 'Mar 16 Jun ~12:xx', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel → Group DM (JP, Elias, Andres, Gregson)', text: 'ARGENTINA CONTROL GROUP ACTIVO: "los chats de Argentina, el usuario ingresa al grupo de control" — Fix Statsig funciono para AR. Pendiente confirmar UY y demas paises.', time: 'Mar 16 Jun 12:05', type: 'dm', actionable: true },
-  { from: 'Elias Rivera → Group DM (JP, Camilo, Andres)', text: 'BUG EXPANSION Statsig: "solo pareciera estar habilitado en PE, en los demas paises no pasa a la automatizacion, se va directo a agente." AR y UY afectados — compartio casos de prueba.', time: 'Mar 16 Jun 09:38', type: 'dm', actionable: true },
-  { from: 'Elias Rivera → JP (DM Lun 15)', text: 'BUG handoff Statsig: el handoff del bot NO envia notas de contexto al agente — los agentes reciben el caso de cero sin historial de la conversacion. Experimento solo activo en Peru via WhatsApp.', time: 'Lun 15 Jun 14:20', type: 'dm', actionable: true }
+  { from: 'Stephania Gonzalez → JP (DM)', text: '"Son estos los pqrs [IDs]" + links AWS Connect trace records (Mexico) — investigacion activa de casos. JP respondio "Lo reviso" y "Listo". Conversacion en curso sobre brand IDs y PQRs especificos.', time: 'Mie 17 Jun', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez → JP (DM)', text: '"Tenemos este issue, nose si todo este bien o algo se rompió" — issue reportado ayer tarde. JP respondio "veo todo bien nada roto" / "pero si esta raro". Seguimiento con Stephania por DM.', time: 'Mar 16 Jun 17:05', type: 'dm', actionable: true },
+  { from: 'Josefina → Group DM (Andres, Daniel, Maria, JP)', text: '"nos faltó hablar merchantss" y "volvemos??" — CR RT & Merchants Q3 termino con tema merchants pendiente. Follow-up CR merchants aun abierto.', time: 'Mar 16 Jun 16:06', type: 'dm', actionable: true },
+  { from: 'Gregson Murcia → Group DM (JP, Camilo, Manuel)', text: 'ENDPOINTS FOOD NON LIVE RESUELTOS: "todos de dev estan okay con ayuda juan.esquivel. Ya probe y documente las respuestas." — JP pendiente probar en produccion.', time: 'Mar 16 Jun ~14:xx', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel → Group DM', text: 'ARGENTINA CONTROL GROUP ACTIVO: fix Statsig funciono para AR. Pendiente confirmar UY y demas paises — bug expansion aun abierto.', time: 'Mar 16 Jun 12:05', type: 'dm', actionable: true },
+  { from: 'Maria Granada → Group DM (Maria, Susana, Meiker, JP)', text: '"por ahora ninguna" — respuesta a consulta de prioridades del equipo.', time: 'Mar 16 Jun', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-11:30', '12:00-13:00', '14:30-15:30', '16:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:30-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
 
