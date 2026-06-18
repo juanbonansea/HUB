@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Jue 18 · Actualizado 18 Jun 15:06 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Jue 18 · Actualizado 18 Jun 17:15 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1495,6 +1495,15 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:72, title:'Training: AgentOS', date:'18 Jun',
+    summary:'Capacitacion interna sobre la plataforma AgentOS liderada por Jonatan Ponzo (Staff Engineer AI), Mario Malagon (Sr Eng Frontend) y Cristina Angel (VP Data). Temas: acceso y navegacion en la plataforma, gestion de equipos, creacion de agentes paso a paso, herramientas y conectores disponibles. Sesion realizada Jue 18 Jun 9:00-10:30. CONFLICTO con CX Product PRD (9:00-9:45) — asistencia parcial. La participacion de Cristina Angel (VP Data) senala relevancia estrategica para automatizaciones Q3.',
+    sections:['Acceso a plataforma AgentOS — primeros pasos y navegacion','Gestion de equipos y creacion de agentes — proceso paso a paso','Herramientas y conectores — integraciones disponibles para bots CX'],
+    actions:[
+      { text:'Explorar AgentOS para flujos de automatizacion merchants — evaluar si complementa o reemplaza Assemble/Connect en Q3', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Follow-up con Jonatan Ponzo y Mario Malagon — clarificar casos de uso especificos para CX Support bots y merchants', owner:'Juan Pablo', phase:'build', priority:'P2' }
+    ]
+  },
   {
     id:71, title:'CX Product PRD & design reviews', date:'18 Jun',
     summary:'Revision semanal de PRDs y disenos del equipo CX Product con Isabela Gomez y equipo amplio (23 asistentes). Sesion de hoy Jue 18 Jun 9:00-9:45. Notas Gemini pendientes de revision — Gmail requiere autorizacion. Contexto esperado: alineacion de iniciativas Q2-Q3, revision documentacion tecnica, criterios clasificacion y visibilidad de iniciativas en Atlas.',
@@ -1898,7 +1907,9 @@ const DEFAULT_TASKS = [
   { id:'t1037', text:'[HOY Jue 18] Automatizar flujo "ayuda con mi menu/catalogo" en bot merchants: Stephania Gonzalez compartio proceso — es autogestión via helpjuice, con escalacion a KAM o Soporte. JP ya tiene casi todo automatizado, falta definir el caso 4-4. Revisar y cerrar este flujo en Assembled esta semana.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Jue 18 Jun', day:'thu', completed:false },
   { id:'t1038', text:'[HOY Jue 18] Correr recetas flujo Food Non Live en paises pequeños: JP solicito a Gregson/Manuel ejecutar recetas del flujo Assembled (Food Non Live) en paises pequeños — portal y WhatsApp. UPDATE 14:48: Manuel confirmo que NO han creado recetas y no saben como. Camilo Esquivel asumio las recetas. Confirmar con Camilo que las recetas corrieron correctamente.', phase:'build', priority:'P1', source:'Group DM Camilo/Gregson/Manuel Jue 18 Jun', day:'thu', completed:false },
   { id:'t1041', text:'[HOY Jue 18 URGENTE 15:04] Investigar alerta bot RT reportada por Stephania Gonzalez: Steph mostro 2 casos donde el bot se salta hoy. No puede ver el chat_id. JP estaba revisando con VPN molestando. Acceder a AWS Connect y verificar si hay un bug real en el bot o son casos aislados — confirmar resultado a Steph.', phase:'build', priority:'P0', source:'DM Stephania Gonzalez Jue 18 Jun 13:43-15:04', day:'thu', completed:false },
-  { id:'t1042', text:'[HOY Jue 18] Confirmar con Camilo Esquivel avance de recetas Food Non Live: Camilo asumio las recetas de integraciones (~14:48) porque Gregson/Manuel no saben como crearlas. Verificar que Camilo pudo crearlas y que el flujo Food Non Live esta completo para paises pequeños (portal + WhatsApp).', phase:'build', priority:'P1', source:'Group DM Jue 18 Jun 14:47-14:48', day:'thu', completed:false }
+  { id:'t1042', text:'[HOY Jue 18] Confirmar con Camilo Esquivel avance de recetas Food Non Live: Camilo asumio las recetas de integraciones (~14:48) porque Gregson/Manuel no saben como crearlas. Verificar que Camilo pudo crearlas y que el flujo Food Non Live esta completo para paises pequeños (portal + WhatsApp).', phase:'build', priority:'P1', source:'Group DM Jue 18 Jun 14:47-14:48', day:'thu', completed:false },
+  { id:'t1043', text:'[HOY Jue 18 17:00] Responder a Josefina Polivanoff sobre analisis entry issues merchants: pregunto sobre el impacto del inflow por entry issue. JP mencionaba que estaba filtrando y tratando de automatizar para cumplir proyecciones. Responder con hallazgos actuales y coordinar sesion para cerrar el gap CR merchants (0.26% actual → 0.08% julio).', phase:'metrics', priority:'P0', source:'DM Josefina Polivanoff Jue 18 Jun 17:00', day:'thu', completed:false },
+  { id:'t1044', text:'[HOY Jue 18] Revisar spreadsheet de RT cases compartido por Stephania Gonzalez (16:16): casos de RT que llegaron a agentes por problemas de RT — para identificar gaps en la cobertura del bot. Revisar los casos del sheet y determinar patron de escape o flujo no automatizado.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Jue 18 Jun 16:16', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1964,6 +1975,8 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Josefina Polivanoff → JP (DM)', text: '"juaan como vas? no entiendo" — Josefina pregunto sobre el analisis de entry issues impactando el inflow merchants. JP habia mencionado que estaba tratando de filtrar para automatizar y cumplir con las proyecciones estimadas. PENDIENTE: responder a Josefina y alinear los datos de entry issue impact en merchant inflow para cerrar el gap CR.', time: 'Jue 18 Jun 17:00', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez → JP (DM)', text: 'Casos RT llegando a agentes: Steph compartio spreadsheet con casos especificos de RT que llegaron a agentes por problemas de RT — para identificar gaps en la cobertura del bot. "Aqui estan casitos por problemas de rt que llegaron a agentes". Revisar la hoja y cerrar el gap de cobertura.', time: 'Jue 18 Jun 16:16', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez → JP (DM)', text: 'ALERTA BOT: "Tenemos reportes de que el bot no esta funcionando" — Steph mostro 2 casos puntuales de hoy donde el bot se salta o no aparece. JP estaba fuera al almorzar, luego reviso pero VPN con problemas. Stephania no puede ver el chat_id. PENDIENTE: confirmar si es bug real o aislado — revisar en AWS Connect.', time: 'Jue 18 Jun 13:43-15:04', type: 'dm', actionable: true },
   { from: 'Meiker Munera → JP (DM)', text: 'DSAT Q3 ENVIADO: "Listo, Juan. Le apunté a que bajamos 5 puntos de cada iniciativa y esto es lo que impactaría en los overalls de AI y el total" — Meiker envio analisis con imagen mostrando impacto de bajar 5 puntos por iniciativa en los overalls de AI. BLOQUEANTE RESUELTO — ya puedes cargar sizing en Atlas.', time: 'Jue 18 Jun 12:33', type: 'dm', actionable: true },
   { from: 'Manuel Gruezo → Group DM (JP, Camilo, Gregson, Cristian)', text: 'BLOQUEANTE RECETAS: "Hasta ahora no hemos creado recetas. Solo hemos hecho lo del discovery de endpoints. No sabemos como se crean las recetas." — Camilo Esquivel respondio "Vale, yo continuo con ellas". ACCION: Camilo asumio las recetas de integraciones Food Non Live. Confirmar avance con Camilo.', time: 'Jue 18 Jun 14:47-14:48', type: 'dm', actionable: true },
