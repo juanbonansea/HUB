@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Jue 18 · Actualizado 18 Jun 09:07 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Jue 18 · Actualizado 18 Jun 11:07 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1484,7 +1484,7 @@ const EVENTS = {
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio — revision de iniciativas Q2-Q3.' },
     { time:'10:00-11:00', title:'Higiene Postural - Tu Postura Habla por Ti', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion SST Colombia: higiene postural frente al computador, ajuste del puesto de trabajo y prevencion de lesiones. Turno manana. Opcional.' },
-    { time:'11:00-12:30', title:'Training: AgentOS', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Capacitacion interna AgentOS: acceso a plataforma, gestion de equipos, creacion de agentes, herramientas y conectores. Jonathan y Mario guian el proceso.' },
+    { time:'9:00-10:30', title:'Training: AgentOS', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Capacitacion interna AgentOS: acceso a plataforma, gestion de equipos, creacion de agentes, herramientas y conectores. Jonatan Ponzo (Staff Eng AI) + Mario Malagon (Sr Eng Frontend) guian el proceso. CONFLICTO con CX PRD (9:00-9:45).' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'15:00-16:00', title:'Higiene Postural - Tu Postura Habla por Ti (tarde)', attendees:1, org:'ext-s.duenas@rappi.com', type:'learning', note:'Capacitacion SST Colombia: higiene postural — turno tarde. Opcional.' }
   ],
@@ -1892,7 +1892,9 @@ const DEFAULT_TASKS = [
   { id:'t1033', text:'[HOY Jue 18 — URGENTE manana] Follow-up Meiker Munera datos DSAT Q3: prometio enviarlos el Mie 17 Jun 11:59 y no llegaron. Escribirle ahora antes de CX PRD (9:00). Son bloqueantes para cargar sizing en Atlas y completar el plan Q3.', phase:'metrics', priority:'P0', source:'DM Meiker Munera Mie 17 Jun 11:59', day:'thu', completed:false },
   { id:'t1034', text:'[HOY Jue 18 — manana] Validar flujo Food Non Live en produccion: Gregson creo endpoints PROD el Mie 17 Jun 16:04. JP quedo en probar. Confirmar que el flujo Food Non Live Integration queda funcional end-to-end en produccion antes del viernes.', phase:'build', priority:'P0', source:'Group DM Gregson Murcia Mie 17 Jun 16:04', day:'thu', completed:false },
   { id:'t1035', text:'[HOY Jue 18 — manana] Reagendar sesion merchants con Josefina Polivanoff: CR actual 0.26% vs meta 0.18% (ahora) y 0.08% (julio). Alerta capacity: Food -15 FTE ~12K USD/sem + RTS NON -44 FTE ~19K USD/sem. Enviar DM a Josefina para agendar esta semana.', phase:'metrics', priority:'P0', source:'Group DM CR RT & Merchants + Josefina Group DM', day:'thu', completed:false },
-  { id:'t1036', text:'[HOY Jue 18 11:00] Training AgentOS: capacitacion interna con Jonatan Ponzo (Staff Eng AI) y Mario Malagon (Sr Eng Frontend). Temas: acceso plataforma, gestion de equipos, creacion de agentes, herramientas y conectores. Relevante para automatizaciones Q3.', phase:'build', priority:'P2', source:'Calendar Jue 18 Jun 11:00 — Training AgentOS', day:'thu', completed:false }
+  { id:'t1036', text:'[HOY Jue 18 9:00-10:30] Training AgentOS: capacitacion interna con Jonatan Ponzo (Staff Eng AI) y Mario Malagon (Sr Eng Frontend). Temas: acceso plataforma, gestion de equipos, creacion de agentes, herramientas y conectores. CONFLICTO con CX PRD (9:00-9:45). Relevante para automatizaciones Q3.', phase:'build', priority:'P2', source:'Calendar Jue 18 Jun 09:00 COT — Training AgentOS', day:'thu', completed:false },
+  { id:'t1037', text:'[HOY Jue 18] Automatizar flujo "ayuda con mi menu/catalogo" en bot merchants: Stephania Gonzalez compartio proceso — es autogestión via helpjuice, con escalacion a KAM o Soporte. JP ya tiene casi todo automatizado, falta definir el caso 4-4. Revisar y cerrar este flujo en Assembled esta semana.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Jue 18 Jun', day:'thu', completed:false },
+  { id:'t1038', text:'[HOY Jue 18] Correr recetas flujo Food Non Live en paises pequeños: JP solicito a Gregson/Manuel ejecutar recetas del flujo Assembled (Food Non Live) en paises pequeños — portal y WhatsApp. Confirmar que las recetas corrieron correctamente en todos los paises pequeños.', phase:'build', priority:'P1', source:'Group DM Camilo/Gregson/Manuel Jue 18 Jun', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1963,14 +1965,16 @@ const SLACK_FEED = [
   { from: 'Josefina Polivanoff → Group DM (Andres, Daniel, Maria, JP)', text: '"nos faltó hablar merchantss" + "@juan.bonansea si porfa veamos numeros porque el agent CR hoy está en 0.26 y proyectábamos 0.18... para julio deberíamos estar en 0.08!!!" — Reagendar sesion especifica merchants con Josefina esta semana.', time: 'Mar 16 Jun', type: 'dm', actionable: true },
   { from: 'Juan Esquivel → JP (DM)', text: '"puedes pedir porfa el numero de telefono o chat_id de los casos de whatsapp" — JP dio trace records AWS Connect Mexico pero eran PQR web. Pendiente: conseguir phone/chat_id real de casos WA con Stephania Gonzalez.', time: 'Mie 17 Jun 16:33', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez → JP (DM)', text: '"Solo tenemos es el brand que te compartí / No hemos podido encontrarlo" — solo tiene brand 50897. Juan Esquivel necesita phone/chat_id real para investigar los casos WA Mexico.', time: 'Mie 17 Jun 16:34', type: 'dm', actionable: false },
-  { from: 'Gregson Murcia → Group DM (JP, Camilo, Manuel)', text: '"Listo agregados todos" — Gregson confirmo endpoints PROD Food Non Live Integration creados en todos los paises. JP respondio "ok algo mas que le podamos meter a food live que baje el inflow que se te ocurra??" buscando optimizacion adicional.', time: 'Jue 18 Jun (reciente)', type: 'dm', actionable: true }
+  { from: 'Gregson Murcia → Group DM (JP, Camilo, Manuel)', text: '"Listo agregados todos" — Gregson confirmo endpoints PROD Food Non Live Integration creados en todos los paises. JP respondio "ok algo mas que le podamos meter a food live que baje el inflow que se te ocurra??" buscando optimizacion adicional.', time: 'Jue 18 Jun', type: 'dm', actionable: true },
+  { from: 'JP → Group DM (Camilo, Gregson, Manuel)', text: 'Hola Team! pide correr recetas del flujo Assembled (Food Non Live) en paises pequeños — tanto en portal como en WhatsApp. En proceso de alineacion del arranque de Food Non Live en paises pequeños. JP indica que ya tiene automatizado casi todo menos el caso 4-4.', time: 'Jue 18 Jun mañana', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez → JP (DM)', text: '"Juan consulta, estos son todos los procesos relacionados a catalogos y menu." — JP pidio el procedimiento de "ayuda con mi menu/catalogo" para automatizarlo en el bot. Stephania comparte guia helpjuice: proceso es casi autogestión con escalacion a KAM; si no tiene KAM escala a Soporte. JP identifico que ya tiene automatizado casi todo excepto el flujo 4-4.', time: 'Jue 18 Jun', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-11:30', '12:00-13:00', '14:30-15:30', '16:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:30-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '14:00-15:00', '16:00-18:00'] },
+  { day: 'Jue', blocks: ['10:30-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
 ];
 
