@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Jue 18 · Actualizado 18 Jun 17:15 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 15-19 Junio 2026 — Hoy Vie 19 · Actualizado 19 Jun 07:09 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1490,11 +1490,21 @@ const EVENTS = {
   ],
   fri: [
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal de QA AI con Maria Granada y equipo — cierre de semana, estado de flujos y proximas prioridades Q3.' }
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal de QA AI con Maria Granada y equipo — cierre de semana, estado de flujos y proximas prioridades Q3.' },
+    { time:'15:30-16:30', title:'[Importante] Alineacion de Soporte en plataforma unificada', attendees:6, org:'maria.dorantes@rappi.com', type:'team', note:'Alineacion sobre implementacion de Soporte en plataforma unificada. Convocada por Maria Dorantes (Mexico). Participantes: Carlos Natera, Leandro Gallippi, Enrique Macias. Andres De Las Casas declino.' }
   ]
 };
 
 const NOTES = [
+  {
+    id:73, title:'[Importante] Alineacion de Soporte en plataforma unificada', date:'19 Jun',
+    summary:'Reunion convocada por Maria Dorantes (Mexico) para revisar la implementacion de Soporte en plataforma unificada. Participantes: Carlos Natera, Leandro Gallippi, Enrique Macias, Juan Pablo Bonansea. Andres De Las Casas declino. El objetivo es alinear el equipo CX en la adopcion de la plataforma unificada de soporte — estrategia clave para unificar canales de atencion en Mexico y otros mercados. Reunion programada para hoy Vie 19 Jun 15:30-16:30 COT.',
+    sections:['Implementacion plataforma unificada soporte — estado y cronograma','Alineacion entre equipos CX Mexico y Colombia','Proximos pasos para unificacion de canales de atencion'],
+    actions:[
+      { text:'Participar y documentar acuerdos de la alineacion de Soporte en plataforma unificada — identificar action items de JP', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Alinear con Andres De Las Casas (declino) sobre los acuerdos alcanzados en la sesion', owner:'Juan Pablo', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:72, title:'Training: AgentOS', date:'18 Jun',
     summary:'Capacitacion interna sobre la plataforma AgentOS liderada por Jonatan Ponzo (Staff Engineer AI), Mario Malagon (Sr Eng Frontend) y Cristina Angel (VP Data). Temas: acceso y navegacion en la plataforma, gestion de equipos, creacion de agentes paso a paso, herramientas y conectores disponibles. Sesion realizada Jue 18 Jun 9:00-10:30. CONFLICTO con CX Product PRD (9:00-9:45) — asistencia parcial. La participacion de Cristina Angel (VP Data) senala relevancia estrategica para automatizaciones Q3.',
@@ -1886,6 +1896,9 @@ const DEFAULT_TASKS = [
   { id:'t1011', text:'[REALIZADO Mie 17 11:00] CX Weekly Business Review — completado. Gemini notes pendientes (Gmail requiere autorizacion). Ver actualizaciones en #cx-management-team.', phase:'build', priority:'P1', source:'Calendar Mie 17 Jun 11:00', day:'wed', completed:true },
   { id:'t1012', text:'[Jue 18 9:00] CX Product PRD & design reviews: llevar PRDs o actualizaciones de diseno pendientes del equipo para revision semanal. CONFLICTO con Training AgentOS al mismo horario — decidir cual priorizar.', phase:'build', priority:'P1', source:'Calendar Jue 18 Jun 09:00', day:'thu', completed:false },
   { id:'t1022', text:'[Jue 18 9:00 NUEVO] Training AgentOS: capacitacion interna plataforma AgentOS (Jonathan + Mario) — acceso a plataforma, gestion de equipos, creacion de agentes, herramientas y conectores. CONFLICTO con CX PRD al mismo horario — agendado hoy 14:59 COT. Relevante para el trabajo de automatizacion Q3.', phase:'build', priority:'P2', source:'Calendar Jue 18 Jun 09:00 — Training AgentOS', day:'thu', completed:false },
+  { id:'t1045', text:'[HOY Vie 19 HACER AHORA] Compartir analisis entry issues a Josefina Polivanoff: Andy envio los datos ayer noche. JP tiene la data. Preparar resumen del impacto de entry issues en merchant inflow y enviar a Josefina por DM — cierre critico para reagendar sesion CR merchants (0.26% → 0.08% julio).', phase:'metrics', priority:'P0', source:'DM Josefina Polivanoff Jue 18 Jun + DM Andy datos 21:57', day:'fri', completed:false },
+  { id:'t1046', text:'[HOY Vie 19] Confirmar routing correcto con Camilo Esquivel: Camilo pregunto por cual bot deben pasar los casos de RT. Validar el arbol de decision del bot, confirmar que Food Live es el routing correcto y que no hay casos escapandose sin pasar por el bot.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Jue 18 Jun 17:21', day:'fri', completed:false },
+  { id:'t1047', text:'[HOY Vie 19 15:30] [Importante] Alineacion de Soporte en plataforma unificada: reunion convocada por Maria Dorantes (Mexico) con Carlos Natera, Leandro Gallippi, Enrique Macias. Preparar contexto de la plataforma unificada para discutir estrategia de implementacion de soporte.', phase:'build', priority:'P0', source:'Calendar Vie 19 Jun 15:30 — Alineacion Soporte Plataforma', day:'fri', completed:false },
   { id:'t1013', text:'[Vie 19 14:00] Weekly QA AI — cierre de semana: revisar avances de la semana, definir prioridades Q3 y dejar alineado el plan para la siguiente semana con Maria Granada.', phase:'metrics', priority:'P2', source:'Calendar Vie 19 Jun 14:00', day:'fri', completed:false },
   { id:'t1016', text:'[SEMANA] Humanizar bot: cambiar nombre del bot Live/Merchants por uno mas humano y empatico. Accion asignada desde CX WBR 3 Jun — carryover pendiente.', phase:'build', priority:'P1', source:'CX Weekly Business Review 3 Jun', day:'wed', completed:false },
   { id:'t1017', text:'[SEMANA] Revisar asociacion de order ID en tickets del flujo Live — analizar cancelaciones sin ticket asociado para identificar causa tecnica de la perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'tue', completed:false },
@@ -1971,11 +1984,14 @@ const DEFAULT_DELEGATED = [
   { id:'d643', text:'Consultar al equipo de Atlas como cargar los impactos de Editda y compensaciones en la plataforma para el plan Q3', owner:'Andres De Las Casas', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
   { id:'d644', text:'Completar configuracion experimento Statsig AI chatbot merchants WA: finalizar setup para paises grandes y todas las plataformas (WhatsApp, Portal Partners, RapiAliados) — ya quedo configurado hasta paises medianos y encendido el Lun 15 Jun', owner:'Camilo Esquivel', source:'Group DM AI Flujos Vie 12 Jun', status:'en progreso' },
   { id:'d645', text:'URGENTE — Corregir handoff bot Statsig merchants WA: el handoff NO envia notas de contexto al agente. Los agentes reciben el caso de cero sin ningun contexto de la conversacion previa. Elias Rivera reporto este bug el Lun 15 Jun 14:20. Definir responsable del fix y asegurar que el handoff pase el contexto completo de la conversacion al agente.', owner:'Andres De Las Casas / Camilo Esquivel', source:'DM Elias Rivera Lun 15 Jun 14:20', status:'pendiente' },
-  { id:'d646', text:'Crear recetas Food Non Live Integration para paises pequeños (portal y WhatsApp): Camilo Esquivel asumio las recetas a las 14:48 del Jue 18 Jun porque Gregson y Manuel no sabian como crearlas. Confirmar que las recetas quedan creadas y el flujo funcional antes de fin de semana.', owner:'Camilo Esquivel', source:'Group DM Jue 18 Jun 14:47-14:48', status:'en progreso' }
+  { id:'d646', text:'Crear recetas Food Non Live Integration para paises pequeños (portal y WhatsApp): Camilo Esquivel asumio las recetas a las 14:48 del Jue 18 Jun. Confirmar con JP Vie 19 que las recetas quedaron creadas y el flujo esta funcional en produccion.', owner:'Camilo Esquivel', source:'Group DM Jue 18 Jun 14:47-14:48', status:'en progreso' },
+  { id:'d647', text:'Confirmar routing de casos RT en bot: Camilo Esquivel pregunto por cual bot deben pasar los casos RT (Food Live?). JP debe responder y confirmar que el arbol de decision es correcto — seguimiento pendiente Vie 19 Jun.', owner:'Camilo Esquivel', source:'DM Camilo Esquivel Jue 18 Jun 17:21', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Josefina Polivanoff → JP (DM)', text: '"juaan como vas? no entiendo" — Josefina pregunto sobre el analisis de entry issues impactando el inflow merchants. JP habia mencionado que estaba tratando de filtrar para automatizar y cumplir con las proyecciones estimadas. PENDIENTE: responder a Josefina y alinear los datos de entry issue impact en merchant inflow para cerrar el gap CR.', time: 'Jue 18 Jun 17:00', type: 'dm', actionable: true },
+  { from: 'JP → Josefina Polivanoff (DM)', text: '"Tranqui jose ya andy me mando la data, gracias te cuento cualquier cosa" — Andy/Andres finalmente envio los datos que JP necesitaba para el analisis de entry issues. JP confirma que tiene la data y promete hacer el follow-up. Pendiente: compartir hallazgos a Josefina y reagendar sesion merchants CR.', time: 'Jue 18 Jun 21:57', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel → JP (DM)', text: '"por cual bot deberian pasar? Food live?" — Camilo revisando con JP el routing de casos que no pasan por el bot. JP habia compartido spreadsheet de casos RT llegando directamente a agentes sin pasar por el arbol de decision. Pendiente: confirmar el routing correcto y cerrar el gap de cobertura del bot.', time: 'Jue 18 Jun 17:21', type: 'dm', actionable: true },
+  { from: 'Josefina Polivanoff → JP (DM)', text: '"juaan como vas? no entiendo" — Josefina pregunto sobre el analisis de entry issues impactando el inflow merchants. JP habia mencionado que estaba tratando de filtrar para automatizar y cumplir con las proyecciones estimadas. RESUELTO PARCIAL: Andy envio datos a JP esa misma noche. Pendiente compartir analisis a Josefina.', time: 'Jue 18 Jun 17:00', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez → JP (DM)', text: 'Casos RT llegando a agentes: Steph compartio spreadsheet con casos especificos de RT que llegaron a agentes por problemas de RT — para identificar gaps en la cobertura del bot. "Aqui estan casitos por problemas de rt que llegaron a agentes". Revisar la hoja y cerrar el gap de cobertura.', time: 'Jue 18 Jun 16:16', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez → JP (DM)', text: 'ALERTA BOT: "Tenemos reportes de que el bot no esta funcionando" — Steph mostro 2 casos puntuales de hoy donde el bot se salta o no aparece. JP estaba fuera al almorzar, luego reviso pero VPN con problemas. Stephania no puede ver el chat_id. PENDIENTE: confirmar si es bug real o aislado — revisar en AWS Connect.', time: 'Jue 18 Jun 13:43-15:04', type: 'dm', actionable: true },
   { from: 'Meiker Munera → JP (DM)', text: 'DSAT Q3 ENVIADO: "Listo, Juan. Le apunté a que bajamos 5 puntos de cada iniciativa y esto es lo que impactaría en los overalls de AI y el total" — Meiker envio analisis con imagen mostrando impacto de bajar 5 puntos por iniciativa en los overalls de AI. BLOQUEANTE RESUELTO — ya puedes cargar sizing en Atlas.', time: 'Jue 18 Jun 12:33', type: 'dm', actionable: true },
@@ -1991,7 +2007,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-11:30', '12:00-13:00', '14:30-15:30', '16:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:30-18:00'] },
   { day: 'Jue', blocks: ['10:30-13:00', '14:00-15:00', '16:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-13:00', '14:30-18:00'] }
+  { day: 'Vie', blocks: ['8:00-13:00', '14:30-15:30', '16:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
