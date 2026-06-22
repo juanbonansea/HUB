@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 22-26 Junio 2026 — Hoy Lun 22 · Actualizado 22 Jun COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 22-26 Junio 2026 — Hoy Lun 22 · Actualizado 22 Jun 13:50 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1473,8 +1473,7 @@ const EVENTS = {
   tue: [
     { time:'10:00-10:30', title:'Horas Deal!', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Espacio quincenal Drop Everything and Learn (DEAL) — explorar Udemy Business, avanzar en curso activo. Modelo 70-20-10, 10% formacion formal.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances y proximas prioridades de la semana.' },
-    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — estado flujos Live, integraciones y plan Q3.' }
+    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — estado flujos Live, integraciones Food Non Live (confirmar end-to-end en produccion) y plan Q3.' }
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:55, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo de toda el area CX.' },
@@ -1482,8 +1481,9 @@ const EVENTS = {
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio — revision de iniciativas Q2-Q3.' },
+    { time:'12:30-13:00', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 con Maria Granada — MOVIDA de Martes 23 Jun a Jueves 25 Jun (actualizado hoy 22 Jun). Traer: avances bot, experimentos Q3, blockers semana.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal de QA AI — revision estado flujos automatizacion, bot triage y next steps Q3. Nota: m.granada fuera de oficina esta semana. Movida de Vie 26 a Jue 25.' }
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal de QA AI — revision estado flujos automatizacion, bot triage y next steps Q3. Movida de Vie 26 a Jue 25.' }
   ],
   fri: [
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
@@ -1878,7 +1878,7 @@ const DEFAULT_TASKS = [
   { id:'t2005', text:'[URGENTE — HOY Lun 22] Compartir analisis entry issues merchants a Josefina Polivanoff: datos disponibles desde Andy (Jue 18 Jun). Preparar resumen impacto entry issues en merchant inflow y enviar por DM. CR actual 0.26% vs 0.08% julio.', phase:'metrics', priority:'P0', source:'DM Josefina + DM Andy datos Jue 18 Jun', day:'mon', completed:false },
   { id:'t2006', text:'[URGENTE — HOY Lun 22] Reagendar sesion merchants con Josefina Polivanoff: Josefina ofrecio meet ("te mando meet si queres y vemos"). Confirmar invitacion o enviar DM para agendar sesion CR merchants urgente esta semana.', phase:'metrics', priority:'P0', source:'DM Josefina Polivanoff Vie 19 Jun', day:'mon', completed:false },
   { id:'t2007', text:'[HOY Lun 22] Confirmar routing casos RT con Camilo Esquivel: pregunto por cual bot deben pasar los RT (Food Live?). HOY Camilo tiene dudas sobre arbol WhatsApp por ser diferente a los otros flujos. Responder y alinear arboles de decision.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Jue 18 + Lun 22 Jun', day:'mon', completed:false },
-  { id:'t2008', text:'[Mar 23 14:00] 1:1 Maria Granada: traer actualizacion avances bot automatizacion, estado experimentos Q3, blockers y prioridades de la semana.', phase:'build', priority:'P1', source:'Calendar Mar 23 Jun 14:00', day:'tue', completed:false },
+  { id:'t2008', text:'[Jue 25 12:30] 1:1 Maria Granada: traer actualizacion avances bot automatizacion, estado experimentos Q3, blockers y prioridades. MOVIDA de Mar 23 a Jue 25 (cambio hoy 22 Jun).', phase:'build', priority:'P1', source:'Calendar Jue 25 Jun 12:30', day:'thu', completed:false },
   { id:'t2009', text:'[Mar 23 15:30] 1:1 Andres De Las Casas: estado flujos Live, integraciones Food Non Live (confirmar end-to-end en produccion) y plan Q3.', phase:'build', priority:'P1', source:'Calendar Mar 23 Jun 15:30', day:'tue', completed:false },
   { id:'t2010', text:'[SEMANA] Validar flujo Food Non Live Integration en produccion: Camilo corrio recetas todos los paises Vie 19 Jun. JP quedo en revisar. Confirmar funcionalidad end-to-end.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Vie 19 Jun 12:07', day:'tue', completed:false },
   { id:'t2011', text:'[SEMANA] Coordinar Readout experimento "completely different order" con Nicolas Bejarano: al 50% todos los paises por 1+ semana, solo 500 users (bajo trafico). Nicolas sumo al Gantt. Coordinar analisis en Statsig urgente.', phase:'metrics', priority:'P1', source:'DM Nicolas Bejarano Vie 19 Jun 14:35', day:'tue', completed:false },
@@ -1970,9 +1970,9 @@ const SLACK_FEED = [
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-12:00', '14:45-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:00', '10:30-13:00', '16:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-10:00', '10:30-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-18:00'] },
-  { day: 'Jue', blocks: ['9:45-13:00', '14:30-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '9:45-12:30', '14:30-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:00-18:00'] }
 ];
 
