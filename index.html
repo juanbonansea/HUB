@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 22-26 Junio 2026 — Hoy Lun 22 · Actualizado 22 Jun 13:50 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 22-26 Junio 2026 — Hoy Lun 22 · Actualizado 22 Jun 11:07 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1890,7 +1890,8 @@ const DEFAULT_TASKS = [
   { id:'t2017', text:'[Jue 25 14:00] Weekly QA AI: llevar metricas flujos automatizacion, estado bot triage y next steps Q3. Nota: m.granada fuera de oficina esta semana; reunion movida de Vie 26 a Jue 25.', phase:'metrics', priority:'P1', source:'Calendar Jue 25 Jun 14:00', day:'thu', completed:false },
   { id:'t2018', text:'[SEMANA] Revisar casos RT que se escapan del bot (~10/semana) con Stephania Gonzalez: identificar patron de escape o flujo no automatizado. Ver sheet de casos RT compartido por Stephania (Jue 18 Jun).', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Jue 18 Jun', day:'thu', completed:false },
   { id:'t2019', text:'[SEMANA] Humanizar bot: cambiar nombre bot Live/Merchants por uno mas humano y empatico. Carryover pendiente desde CX WBR 3 Jun.', phase:'build', priority:'P1', source:'CX Weekly Business Review 3 Jun', day:'fri', completed:false },
-  { id:'t2020', text:'[SEMANA] Revisar asociacion order ID en tickets flujo Live: analizar cancelaciones sin ticket asociado para identificar causa tecnica de la perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false }
+  { id:'t2020', text:'[SEMANA] Revisar asociacion order ID en tickets flujo Live: analizar cancelaciones sin ticket asociado para identificar causa tecnica de la perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false },
+  { id:'t2021', text:'[URGENTE — HOY Lun 22] Encender experimento y bot en Assembled: Camilo confirmo "listo Juan, falta encender el experimento y el bot en assembled" (10:12 AM hoy). Alinear porcentaje con Camilo (JP quiere 30%, Camilo sugiere 10% en pequeños) y activar en Assembled.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Lun 22 Jun 10:12', day:'mon', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1960,12 +1961,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel → JP (DM)', text: 'FLUJO WHATSAPP — ARBOL DECISION (hoy): "estoy con la de whatsapp, solo que no entiendo muy bien como funciona ese arbol, porque es diferente a los otros." Camilo trabaja en flujo WhatsApp y tiene dudas sobre la estructura del arbol de decision. Accion: alinear con Camilo esta semana sobre diferencias con otros flujos.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
-  { from: 'JP → Camilo Esquivel (DM)', text: 'SEGUIMIENTO RECETAS INTEGRATIONS (hoy): JP pregunto a Camilo si pudo adelantar las recetas de integrations pendientes esta semana. Contexto: Camilo ya completo recetas Food Non Live (Vie 19). Seguimiento activo.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
-  { from: 'Nicolas Bejarano → JP (DM)', text: 'EXPERIMENTO COMPLETELY DIFFERENT ORDER — TRAFICO BAJO (Vie 19): Nicolas sumo el experimento al Gantt y pregunto size inicial. "hay muy poquito trafico, 500 users — esta bien?" Experimento ai_chatbot_vendor_user_related_pw_completely_different_order al 50% en todos los paises. Pendiente: definir size y coordinar Readout en Statsig.', time: 'Vie 19 Jun', type: 'dm', actionable: true },
-  { from: 'JP → Nicolas Bejarano (DM)', text: 'READOUT EXPERIMENTO (Vie 19): JP pidio ayuda a Nicolas para analizar eficiencia de compensaciones del flujo "completely different order". Flujo valida producto totalmente diferente, compensa en creditos y TC. Power BI no logra evidenciar si las compensaciones incrementadas son eficientes. Nicolas compartio link al spreadsheet y lo sumo al gantt.', time: 'Vie 19 Jun', type: 'dm', actionable: true },
-  { from: 'Valeria Dorantes → JP (DM)', text: 'COORDINACION PRODUCTO CERRADA (Vie 19): "No no Juan, con eso esta ok! Muchas graciasss. Cualquier cosita, te molesto." Valeria Dorantes confirmo que no necesitan nada adicional del lado de producto. Alineacion cerrada satisfactoriamente.', time: 'Vie 19 Jun', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel → JP (DM)', text: 'RECETAS FOOD NON LIVE COMPLETADAS (Vie 19 12:07): "ya corri la receta en todos los paises con el issue_type del arbol que hacia falta, la mayoria de las conversaciones si pasan por el bot." Flujo Food Non Live Integration 100% desplegado en todos los paises. Hito Q3 cerrado. JP respondio: "ya reviso Juan, muchas gracias."', time: 'Vie 19 Jun', type: 'dm', actionable: false }
+  { from: 'Camilo Esquivel → JP (DM)', text: 'BOT ASSEMBLED LISTO — FALTA ENCENDER (hoy 10:12): "listo Juan, falta encender el experimento y el bot en assembled." Integracion lista, solo falta activarlo. ACCION INMEDIATA de JP.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel ↔ JP (DM)', text: 'PORCENTAJE ROLLOUT MERCHANTS (hoy 09:56): Camilo sugiere iniciar 10% en pequeños. JP respondio "30% pls". Pendiente alinear porcentaje final antes de encender el experimento en Assembled.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez → JP (DM)', text: 'HELPJUICE MERCHANTS — PROCESO NUEVO (hoy 09:55): Stephania compartio links helpjuice sobre pedido no aparece en tablet / pedido con demora en entrega. JP pidio reunion de 15 min para entender el proceso. Steph ocupada miercoles — coordino con Esbeydi para cubrir.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
+  { from: 'Esbeydi Reynoso → JP (DM)', text: 'REUNION COORDINADA (hoy 10:33-11:02): Esbeydi pidio 2 min a JP. Se reunieron a las 11 AM via Google Meet. Contexto: Esbeydi cubre proceso helpjuice merchants que Stephania compartio. Reunion realizada.', time: 'Lun 22 Jun', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel → JP (DM)', text: 'FLUJO WHATSAPP — ARBOL DIFERENTE (hoy): Camilo tiene dudas sobre estructura del arbol WhatsApp porque es diferente a los otros flujos. JP debe alinear y documentar la logica para el equipo.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
+  { from: 'Nicolas Bejarano → JP (DM)', text: 'EXPERIMENTO CDO — TRAFICO BAJO (Vie 19): Solo 500 users en experimento ai_chatbot_vendor_user_related_pw_completely_different_order al 50% en todos los paises. Nicolas lo sumo al Gantt. Pendiente: coordinar Readout en Statsig y definir si el size es suficiente.', time: 'Vie 19 Jun', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel → JP (DM)', text: 'RECETAS FOOD NON LIVE COMPLETADAS (Vie 19 12:07): "ya corri la receta en todos los paises con el issue_type del arbol que hacia falta." Flujo Food Non Live Integration 100% desplegado. Hito Q3 cerrado.', time: 'Vie 19 Jun', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
