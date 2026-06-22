@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 22-26 Junio 2026 — Hoy Lun 22 · Actualizado 22 Jun 15:06 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 22-26 Junio 2026 — Hoy Lun 22 · Actualizado 22 Jun 17:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1978,6 +1978,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Stephania Gonzalez → JP (DM)', text: 'DATA REVIEW MERCHANTS (hoy 16:38-16:41): Stephania pregunto "Pudiste revisar la data?" refiriendose al sheet de casos RT merchants. JP confirmo que si lo vio ("si si lo vi") y prometio compartir lo que vio en cuanto pueda — "dejame que ando un poco ocupado y ya te comparto lo que vi". PENDIENTE: JP debe compartir analisis con Stephania hoy.', time: 'Lun 22 Jun 16:41', type: 'dm', actionable: true },
   { from: 'Maria Fernanda Granada → JP (DM)', text: 'CALIDAD BOT LOOKS_BAD (hoy ~15:00): Maria pregunto si cuando el bot retorna looks_bad deberian rechazar el ticket. Contexto: de quality dijeron que ese campo no lo estan validando actualmente. JP habia preguntado si el endpoint GET fraud_risk_by_oid en PWP lo usa para algo — Maria confirmo que no, ese lo saca de info_automations.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
   { from: 'Gregson Murcia → Grupo AI Flujos (Group DM)', text: 'COBERTURAS BLOQUEADO — PUSH ACTIVO (hoy tarde): "Con respecto a coberturas andamos haciendo push para saber quien nos puede ayudar. Todavia no nos responden, estamos tratando de saber como." Endpoint cruzar coberturas sigue bloqueado por otro equipo sin respuesta aun.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
   { from: 'Elias Rivera → Grupo AI Flujos (Group DM)', text: 'PUBLICAR TIENDA AVANZANDO — SOLO COBERTURAS QUEDA (hoy tarde): "Muchas gracias!! Teniendo el de publicar solo faltaria el de comparar coberturas y estamos." Confirma que el endpoint publicar tienda (PUT gateway config) ya esta avanzando con Gregson. Solo queda coberturas.', time: 'Lun 22 Jun', type: 'dm', actionable: false },
