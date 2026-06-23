@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 22-26 Junio 2026 — Hoy Mar 23 · Actualizado 23 Jun 08:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 22-26 Junio 2026 — Hoy Mar 23 · Actualizado 23 Jun 09:07 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1477,6 +1477,7 @@ const EVENTS = {
   ],
   wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:55, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo de toda el area CX.' },
+    { time:'11:00-12:00', title:'Training: Atlas 🚀 ⚠️ CONFLICTO', attendees:1, org:'gabriela.fontana@rappi.com', type:'learning', note:'Capacitacion sobre plataforma Atlas (Zoom). Agregado Mie 23 Jun 07:28 — CONFLICTO con CX WBR. Definir asistencia.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   thu: [
@@ -1898,6 +1899,7 @@ const DEFAULT_TASKS = [
   { id:'t2011', text:'[SEMANA] Coordinar Readout experimento "completely different order" con Nicolas Bejarano: al 50% todos los paises por 1+ semana, solo 500 users (bajo trafico). Nicolas sumo al Gantt. Coordinar analisis en Statsig urgente.', phase:'metrics', priority:'P1', source:'DM Nicolas Bejarano Vie 19 Jun 14:35', day:'tue', completed:false },
   { id:'t2012', text:'[SEMANA — URGENTE] Cargar sizing Q3 en Atlas: datos DSAT de Meiker recibidos (bajar 5 puntos por iniciativa, impacto en overalls AI y total). Validar numeros y cargar en Atlas para desbloquear plan Q3.', phase:'metrics', priority:'P0', source:'DM Meiker Munera Jue 18 Jun 12:33', day:'tue', completed:false },
   { id:'t2013', text:'[Mie 24 11:00] CX Weekly Business Review: preparar highlights de la semana, metricas automatizacion (bot desplegado 100%), proximas iniciativas Q3 y posicion frente al Mundial.', phase:'metrics', priority:'P1', source:'Calendar Mie 24 Jun 11:00', day:'wed', completed:false },
+  { id:'t2023', text:'[⚠️ CONFLICTO Mie 24 11:00] Training Atlas 🚀 vs CX WBR — ambos a las 11:00-12:00. Evento Atlas agregado hoy Mar 23 07:28 AM por Gabriela Fontana. Decidir asistencia: CX WBR es critico (55 personas, Eugenio organiza); Atlas es training. Confirmar si hay otra sesion Atlas disponible.', phase:'build', priority:'P1', source:'Calendar Mie 24 Jun 11:00 — agregado Mar 23 Jun 07:28', day:'wed', completed:false },
   { id:'t2014', text:'[SEMANA] Automatizar flujo "ayuda con mi menu/catalogo" en bot merchants: autogestion via helpjuice con escalacion a KAM/Soporte. Falta definir caso 4-4 en Assembled. Proceso documentado por Stephania.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Jue 18 Jun', day:'wed', completed:false },
   { id:'t2015', text:'[SEMANA] Documentar acuerdos Portal Unificado con Andres De Las Casas: equipo Mexico se lleva canal nuevo y automatizaciones de soporte. Confirmar si hay trabajo pendiente del lado CX y clarificar workload Q3.', phase:'build', priority:'P1', source:'DM Andres De Las Casas + Reunion Vie 19 Jun 15:30', day:'wed', completed:false },
   { id:'t2016', text:'[Jue 25 9:00] CX Product PRD & design reviews: preparar materiales y actualizaciones de disenio CX Product para revision semanal con equipo amplio.', phase:'build', priority:'P2', source:'Calendar Jue 25 Jun 09:00', day:'thu', completed:false },
@@ -1985,7 +1987,8 @@ const SLACK_FEED = [
   { from: 'Gregson Murcia → Grupo AI Flujos (Group DM)', text: 'COBERTURAS BLOQUEADO — PUSH ACTIVO (Lun 22 tarde): "Con respecto a coberturas andamos haciendo push para saber quien nos puede ayudar. Todavia no nos responden." Endpoint cruzar coberturas sigue bloqueado por otro equipo sin respuesta.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
   { from: 'Elias Rivera → Grupo AI Flujos (Group DM)', text: 'PUBLICAR TIENDA AVANZANDO — SOLO COBERTURAS QUEDA (Lun 22 tarde): "Muchas gracias!! Teniendo el de publicar solo faltaria el de comparar coberturas y estamos." Endpoint publicar tienda (PUT gateway config) avanzando con Gregson. Solo queda coberturas.', time: 'Lun 22 Jun', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel → JP (DM)', text: 'BOT ASSEMBLED LISTO — FALTA ENCENDER (Lun 22 10:12): "listo Juan, falta encender el experimento y el bot en assembled." Integracion lista, solo falta activarlo. Si no se activo ayer, es accion URGENTE de JP hoy.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
-  { from: 'Nicolas Bejarano → JP (DM)', text: 'EXPERIMENTO CDO — TRAFICO BAJO (Vie 19): Solo 500 users en experimento completely_different_order al 50% en todos los paises. Nicolas lo sumo al Gantt. Pendiente: coordinar Readout en Statsig y definir si el size es suficiente.', time: 'Vie 19 Jun', type: 'dm', actionable: true }
+  { from: 'Nicolas Bejarano → JP (DM)', text: 'EXPERIMENTO CDO — TRAFICO BAJO (Vie 19): Solo 500 users en experimento completely_different_order al 50% en todos los paises. Nicolas lo sumo al Gantt. Pendiente: coordinar Readout en Statsig y definir si el size es suficiente.', time: 'Vie 19 Jun', type: 'dm', actionable: true },
+  { from: '📅 Calendar Alert (Hub Bot)', text: '⚠️ CONFLICTO Mie 24 Jun 11:00-12:00: "Training: Atlas 🚀" (Gabriela Fontana / Zoom) agregado hoy Mar 23 a las 07:28 AM — coincide exactamente con CX WBR (Eugenio La Rosa, 55 personas). Debes elegir cual asistir o contactar a Gabriela para reagendar el training.', time: 'Mar 23 Jun 07:28', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
