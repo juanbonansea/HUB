@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mar 7 · Actualizado 7 Jul 15:30 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mar 7 · Actualizado 7 Jul 21:10 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1929,8 +1929,8 @@ const DEFAULT_TASKS = [
   { id:'t3007', text:'[Vie 10 11:15] Kick off Cancelaciones <> Product-Tech: preparar agenda, estructura del bot y entregables para reunion con Elias Rivera, Diego Mesa y Stephania. JP organiza.', phase:'build', priority:'P1', source:'Calendar Vie 10 Jul 11:15', day:'fri', completed:false },
   { id:'t3008', text:'[Vie 10 14:00] Weekly QA AI: llevar metricas flujos automatizacion, estado bot cancelaciones y next steps Q3.', phase:'metrics', priority:'P1', source:'Calendar Vie 10 Jul 14:00', day:'fri', completed:false },
   { id:'t3009', text:'[SEMANA] Coordinar Readout experimento CDO con Nicolas Bejarano: al 50% todos los paises, 500 users. Definir si sample es suficiente o ajustar para obtener resultados estadisticamente significativos.', phase:'metrics', priority:'P1', source:'Prioridades semana anterior', day:'wed', completed:false },
-  { id:'t3010', text:'[SEMANA] Revisar notas Gemini sesion Payments Merchant (Lun 6 15:45): grabacion disponible en Drive. Extraer action items y definir proximos pasos con Susana Paniagua.', phase:'build', priority:'P2', source:'Calendar Lun 6 Jul 15:45', day:'wed', completed:false }
-]
+  { id:'t3010', text:'[SEMANA] Revisar notas Gemini sesion Payments Merchant (Lun 6 15:45): grabacion disponible en Drive. Extraer action items y definir proximos pasos con Susana Paniagua.', phase:'build', priority:'P2', source:'Calendar Lun 6 Jul 15:45', day:'wed', completed:false },
+  { id:'t3011', text:'[Mañana] Llenar columna N del spreadsheet de Valeria Dorantes (Mexico) con issue types ya mapeados — arbol listo, necesita enlazar issue types al flujo. JP prometio ayudar Mie 8 Jul.', phase:'build', priority:'P2', source:'DM Valeria Dorantes Mar 7 Jul 16:00', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1957,17 +1957,15 @@ const DEFAULT_DELEGATED = [
   { id:'d706', text:'Implementar Order Status en bot Live: flujo de estado de la orden para mitigar volumen de contactos y filtrar antes de pasar a agentes', owner:'Elias Rivera / Andres De Las Casas', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
   { id:'d707', text:'Agregar Store Id a la metadata del flujo de suspensiones para merchants non live — metadata llega sin Store Id causando que merchants no puedan identificarlo, aumentando DSAT y handoff rate.', owner:'Cristian Parada', source:'DM Juan Pablo Vie 12 Jun', status:'pendiente' },
   { id:'d708', text:'Completar configuracion experimento Statsig AI chatbot merchants WA: finalizar setup para paises grandes y todas las plataformas (WhatsApp, Portal Partners, RapiAliados)', owner:'Camilo Esquivel', source:'Group DM AI Flujos Vie 12 Jun', status:'en progreso' }
-]
 ];
 
 const SLACK_FEED = [
-  { from: 'Stephania Gonzalez → JP (DM)', text: 'CASOS BOT FOOD LIVE (Mar 7 13:28-14:52): Stephania comparte Contact Records de AWS Connect donde ordenes canceladas estan llegando al bot de Food Live. JP confirmo que el routing es incorrecto: "no es una orden live debe recaer en canceladas no en el bot de food live". Bot de Cancelaciones aun no construido — bug de routing activo.', time: 'Mar 7 Jul 14:52', type: 'dm', actionable: true },
-  { from: 'JP → Stephania Gonzalez (DM)', text: 'ROUTING BUG CONFIRMADO (Mar 7 14:52): JP confirmo que las ordenes canceladas que Stephania reporta NO deben ir al bot de food live sino al bot de canceladas (pendiente construccion). Mismo patron en multiples Contact Records compartidos.', time: 'Mar 7 Jul 14:52', type: 'dm', actionable: true },
+  { from: 'Valeria Dorantes → JP (DM)', text: 'ISSUE TYPES MAPPING (Mar 7 Jul 15:55): Valeria pide que JP llene columna N con issue types ya mapeados en spreadsheet de flujos (arbol de decision ya listo). Necesita enlazarlo bien con lo que JP esta construyendo. JP respondio: "ok ahorita estoy ocupado, manana te ayudo".', time: 'Mar 7 Jul 15:55', type: 'dm', actionable: true },
+  { from: 'JP → Stephania Gonzalez (DM)', text: 'BOT CANCELACIONES OWNERSHIP + KICK OFF VIE (Mar 7 Jul 15:59): JP confirma que las ordenes canceladas NO deben ir al bot Food Live. Tomo ownership del bot de Cancelaciones (proyecto de Elias), sale en ~2 semanas. Cito a Stephania el viernes para mapear el proceso con tech.', time: 'Mar 7 Jul 15:59', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez → JP (DM)', text: 'CASOS BOT FOOD LIVE (Mar 7 13:28-14:52): Stephania comparte Contact Records de AWS Connect donde ordenes canceladas llegan al bot de Food Live. JP confirmo routing incorrecto: deben ir al bot de canceladas (aun no construido). Bug de routing activo.', time: 'Mar 7 Jul 14:52', type: 'dm', actionable: true },
   { from: 'Elias Rivera + Manuel Gruezo (DM)', text: 'BUG WA AUTOMATIZACION (Lun 6 Jul 19:37): fuga en WhatsApp — ordenes escapan la automatizacion. Portal Partners OK, solo WA con fuga. Manuel implementando fix en MS. JP debe confirmar que el fix esta desplegado.', time: 'Lun 6 Jul 19:37', type: 'dm', actionable: true },
-  { from: 'JP → Elias Rivera (DM)', text: 'OWNERSHIP BOT CANCELACIONES (Lun 6 Jul): JP confirmo ownership del bot de Cancelaciones a Elias Rivera. Handoff realizado Hoy Mar 7 11:45 con Elias Rivera y Diego Aguo.', time: 'Lun 6 Jul', type: 'dm', actionable: false },
-  { from: '📅 Calendar Alert (Hub Bot)', text: '⚠️ CONFLICTO Mie 8 Jul 11:00-12:00: Training Atlas (Gabriela Fontana / Zoom) coincide con CX WBR (Eugenio La Rosa, 55 personas). Contactar a Gabriela Fontana para reagendar Atlas.', time: 'Mie 8 Jul 11:00', type: 'dm', actionable: true },
-  { from: '📅 Calendar Alert (Hub Bot)', text: 'KICK OFF CANCELACIONES Vie 10 Jul 11:15: JP organiza reunion con Elias Rivera, Diego Mesa y Stephania Gonzalez (opcional) para arrancar desarrollo bot Cancelaciones. Preparar agenda y entregables.', time: 'Vie 10 Jul 11:15', type: 'dm', actionable: false }
-]
+  { from: '📅 Conflicto Agenda', text: '⚠️ CONFLICTO Mie 8 Jul 11:00-12:00: Training Atlas (Gabriela Fontana / Zoom) coincide con CX WBR (Eugenio La Rosa, 55 personas). Contactar a Gabriela Fontana para reagendar Atlas. CX WBR es critico.', time: 'Mie 8 Jul 11:00', type: 'dm', actionable: true },
+  { from: '📅 Kick off Confirmado', text: 'KICK OFF CANCELACIONES Vie 10 Jul 11:15: JP organiza con Elias Rivera, Diego Mesa y Stephania Gonzalez (opcional). Arrancar desarrollo bot Cancelaciones — preparar agenda y entregables.', time: 'Vie 10 Jul 11:15', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
@@ -1976,7 +1974,6 @@ const DEEP_WORK = [
   { day: 'Mie', blocks: ['8:00-10:30', '14:00-15:00', '15:30-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-10:30', '14:30-18:00'] }
-]
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
