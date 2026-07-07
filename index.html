@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 22-26 Junio 2026 — Hoy Mar 23 · Actualizado 23 Jun 11:06 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mar 7 · Actualizado 7 Jul 15:30 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1447,51 +1447,85 @@ function saveData() {
   }));
 }
 
-const DAYS = ['Lun 22','Mar 23','Mie 24','Jue 25','Vie 26'];
+const DAYS = ['Lun 6','Mar 7','Mie 8','Jue 9','Vie 10'];
 const DAY_KEYS = ['mon','tue','wed','thu','fri'];
-const DAY_NAMES_LONG = ['Lunes 22 Junio','Martes 23 Junio','Miercoles 24 Junio','Jueves 25 Junio','Viernes 26 Junio'];
-const DAY_DATES = [22,23,24,25,26];
+const DAY_NAMES_LONG = ['Lunes 6 Julio','Martes 7 Julio','Miercoles 8 Julio','Jueves 9 Julio','Viernes 10 Julio'];
+const DAY_DATES = [6,7,8,9,10];
 
 // Dynamic today detection
 function getTodayIndex() {
   const now = new Date();
   const d = now.getDate();
-  const m = now.getMonth(); // 0-indexed, June = 5
-  if (m === 5 && d >= 22 && d <= 26) return d - 22;
+  const m = now.getMonth(); // 0-indexed, July = 6
+  if (m === 6 && d >= 6 && d <= 10) return d - 6;
   return -1; // outside this week
 }
 const TODAY_IDX = getTodayIndex();
 
 const EVENTS = {
   mon: [
-    { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:16, org:'andres.delascasas@rappi.com', type:'team', note:'Weekly de prioridades con equipo Support Product — actualizacion de avances, feedback Gantt Q4 y diseno. Recurrente todos los lunes.' },
-    { time:'10:00-11:00', title:'Shadowing Merchant (TU)', attendees:15, org:'carla.capristan@rappi.com', type:'shadowing', note:'Shadowing semanal Food Merchants con TaskUs — sesion top offender + top performance. Solo agente + 1 staff necesario. JP es opcional.' },
-    { time:'12:00-12:30', title:'Weekly - Prioridades AI', attendees:10, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal de prioridades AI con Maria Granada y equipo — alinear plan semana, revisar experimentos activos y blockers Q3.' },
+    { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:12, org:'andres.delascasas@rappi.com', type:'team', note:'Weekly de prioridades con equipo Support Product — actualizacion de avances, feedback Gantt Q4 y diseno. Recurrente todos los lunes.' },
+    { time:'10:00-11:00', title:'Shadowing Merchant (TU)', attendees:15, org:'carla.capristan@rappi.com', type:'shadowing', note:'Shadowing semanal Food Merchants con TaskUs — sesion top offender + top performance. JP es opcional.' },
+    { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones con equipo Cristian Parada. JP es opcional. Recurrente Lun-Vie.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:15-14:45', title:'Assembled Assist <> Rappi Weekly Sync', attendees:10, org:'monica@assembledhq.com', type:'external', note:'Sync semanal con equipo Assembled (Monica, Becca, Jake) + equipo Rappi (m.granada) — revisar implementation plan y avances de integracion Assembled Assist.' }
+    { time:'15:00-15:30', title:'Check Merchants & RT subiniciativas', attendees:4, org:'m.granada@rappi.com', type:'team', note:'Revision de subiniciativas Merchants y RT con Maria Granada, Meiker Munera, Angela Osuna.' },
+    { time:'15:45-16:15', title:'Payments Merchant', attendees:2, org:'juan.bonansea@rappi.com', type:'team', note:'Reunion sobre pagos en flujo Merchant con Susana Paniagua. Grabacion disponible en Drive. Gemini notes generadas.' }
   ],
   tue: [
-    { time:'10:00-10:30', title:'Horas Deal!', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'Espacio quincenal Drop Everything and Learn (DEAL) — explorar Udemy Business, avanzar en curso activo. Modelo 70-20-10, 10% formacion formal.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — estado flujos Live, integraciones Food Non Live (confirmar end-to-end en produccion) y plan Q3.' }
+    { time:'10:00-10:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — alinear prioridades semana, avances bot cancelaciones, subiniciativas Merchants & RT, conflictos de agenda.' },
+    { time:'10:00-10:30', title:'¡Horas Deal! 🚀 ⚠️ CONFLICTO', attendees:1, org:'internalcommunications@rappi.com', type:'learning', note:'CONFLICTO con 1:1 Maria Granada. Espacio quincenal DEAL — Udemy Business, formacion formal. Modelo 70-20-10.' },
+    { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
+    { time:'11:45-12:15', title:'Elias Daniel / Juan Pablo Cancelaciones', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'Handoff bot Cancelaciones — JP tomo ownership el Lun 6. Participantes: Elias Rivera, Diego Aguo. Definir estructura, plan Q3 y metricas. Gemini notes generadas.' },
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   wed: [
+    { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:55, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo de toda el area CX.' },
-    { time:'11:00-12:00', title:'Training: Atlas 🚀 ⚠️ CONFLICTO', attendees:1, org:'gabriela.fontana@rappi.com', type:'learning', note:'Capacitacion sobre plataforma Atlas (Zoom). Agregado Mie 23 Jun 07:28 — CONFLICTO con CX WBR. Definir asistencia.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'11:00-12:00', title:'Training: Atlas 🚀 ⚠️ CONFLICTO', attendees:1, org:'gabriela.fontana@rappi.com', type:'learning', note:'CONFLICTO con CX WBR. Capacitacion sobre plataforma Atlas (Zoom). Contactar a Gabriela para reagendar.' },
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'15:00-15:30', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — llevar avances bot cancelaciones, plan Q3, pendientes Live.' }
   ],
   thu: [
-    { time:'9:00-9:45', title:'CX Product PRD & design reviews', attendees:23, org:'isabela.gomez@rappi.com', type:'team', note:'Review semanal de PRDs y disenos CX Product con equipo amplio — revision de iniciativas Q2-Q3.' },
-    { time:'12:30-13:00', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 con Maria Granada — MOVIDA de Martes 23 Jun a Jueves 25 Jun (actualizado hoy 22 Jun). Traer: avances bot, experimentos Q3, blockers semana.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal de QA AI — revision estado flujos automatizacion, bot triage y next steps Q3. Movida de Vie 26 a Jue 25.' }
+    { time:'9:00-9:45', title:'CX Design Review', attendees:11, org:'andres.delascasas@rappi.com', type:'team', note:'Review semanal de disenos CX con equipo amplio — alineacion iniciativas Q3.' },
+    { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   fri: [
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
+    { time:'11:15-12:00', title:'Kick off Cancelaciones <> Product-Tech', attendees:4, org:'juan.bonansea@rappi.com', type:'team', note:'Kick off entre JP y equipo Product-Tech para bot Cancelaciones. Participantes: Elias Rivera, Diego Mesa, Stephania Gonzalez (opcional). JP organiza.' },
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal QA AI — revision estado flujos automatizacion, metricas y next steps Q3.' }
   ]
 };
 
 const NOTES = [
+  {
+    id:76, title:'Elias Daniel / Juan Pablo Cancelaciones', date:'7 Jul',
+    summary:'Handoff del bot de Cancelaciones entre JP y Elias Rivera (Mar 7 Jul 11:45-12:15 COT). JP tomo ownership del bot desde el Lun 6 Jul. Participantes: Elias Rivera, Diego Aguo. Contexto: ordenes canceladas estaban llegando incorrectamente al bot de Food Live en lugar del bot de Cancelaciones (reportado por Stephania via DM con multiples Contact Records AWS Connect). JP confirmo que el routing es incorrecto — las ordenes canceladas deben ir al bot de canceladas (aun no construido). La reunion definio la estructura del bot, plan Q3 y metricas. Gemini notes generadas.',
+    sections:[
+      'Ownership bot Cancelaciones — JP tomo ownership desde Lun 6, Elias hace handoff a JP',
+      'Bug routing: ordenes canceladas llegan a bot food live en lugar de bot canceladas (pendiente construccion)',
+      'Estructura y plan Q3 bot Cancelaciones — pendiente documentar output de la sesion'
+    ],
+    actions:[
+      { text:'Documentar estructura completa del bot de Cancelaciones: flujos, casos de uso, metricas y plan Q3. Output del handoff de hoy.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Investigar y corregir bug de routing: ordenes canceladas entrando al bot de Food Live. Revisar logica con Camilo/Cristian Parada.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Preparar Kick off Cancelaciones <> Product-Tech para Vie 10 Jul 11:15 — definir agenda y entregables.', owner:'Juan Pablo', phase:'build', priority:'P1' }
+    ]
+  },
+  {
+    id:75, title:'Payments Merchant con Susana', date:'6 Jul',
+    summary:'Reunion sobre flujo de pagos en bot Merchant (Lun 6 Jul 15:45-16:15 COT). Participantes: JP y Susana Paniagua. Grabacion disponible en Drive (adjunta al evento en Google Calendar). Gemini notes disponibles en Google Docs. Subiniciativa activa dentro del proyecto Merchants & RT Q3 — revision del flujo de pagos para identificar casos automatizables.',
+    sections:[
+      'Flujo de pagos Merchant — casos de soporte relacionados con pagos y posibilidades de automatizacion',
+      'Subiniciativa Merchants pagos dentro de Q3 — estado y proximos pasos',
+      'Grabacion y Gemini notes disponibles en Google Drive / Docs'
+    ],
+    actions:[
+      { text:'Revisar notas Gemini de la sesion Payments Merchant (Google Docs adjunto al evento Cal Lun 6 Jul 15:45) y extraer action items especificos.', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Definir proximos pasos subiniciativa Payments Merchant con Susana Paniagua — alinear en proxima 1:1.', owner:'Juan Pablo / Susana Paniagua', phase:'build', priority:'P2' }
+    ]
+  },
   {
     id:74, title:'Weekly - Prioridades AI', date:'22 Jun',
     summary:'Reunion semanal de prioridades AI con Maria Granada y equipo (22 Jun 12:00-12:30 COT). Grabacion disponible. Temas: (1) Food Non Live Integration — Gregson/Manuel configurando gateway PUT para endpoint "publicar tienda"; endpoint "visibilidad tienda en direccion" pendiente confirmacion nombre (DEV_geo_stores_by_location?); coberturas bloqueado por otro equipo con push activo sin respuesta. Elias confirmo que el endpoint del viernes esta funcionando bien. (2) Bot merchants en Assembled — Camilo confirmo "listo, falta encender el experimento y el bot en assembled". JP debe alinear porcentaje rollout (JP quiere 30%, Camilo sugiere 10% en pequenos) y activar hoy. (3) Experimento "completely different order" (CDO) al 50% todos los paises pero solo 500 usuarios — Nicolas pendiente readout formal en Statsig. (4) Sizing Q3 en Atlas — datos DSAT de Meiker disponibles (5 puntos por iniciativa), pendiente cargar en Atlas. (5) Assembled Assist sync programado a las 14:15 con Monica/Becca/Jake para revisar implementation plan semana.',
@@ -1886,30 +1920,17 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t2001', text:'[Lun 22 9:30] Prioridades Support Product: llevar actualizacion estado bot automatizacion, avances flujos Q3 y feedback Gantt Q4.', phase:'build', priority:'P1', source:'Calendar Lun 22 Jun 09:30', day:'mon', completed:false },
-  { id:'t2002', text:'[Lun 22 12:00] Weekly Prioridades AI: alinear prioridades con equipo, revisar experimentos activos (completely different order al 50%) y pendientes de la semana.', phase:'build', priority:'P1', source:'Calendar Lun 22 Jun 12:00', day:'mon', completed:false },
-  { id:'t2003', text:'[Lun 22 14:15] Assembled Assist Weekly Sync: revisar implementation plan, avances de la semana y pendientes del lado Rappi.', phase:'build', priority:'P1', source:'Calendar Lun 22 Jun 14:15', day:'mon', completed:false },
-  { id:'t2004', text:'[URGENTE — PENDIENTE] Realizar fixes de Jaime Gomez en bot: JP se comprometio publicamente en #ai-automations Vie 19 Jun. Verificar cuales son los fixes, aplicarlos en Assembled y notificar al equipo en el canal.', phase:'build', priority:'P0', source:'#ai-automations Vie 19 Jun 14:25', day:'tue', completed:false },
-  { id:'t2005', text:'[URGENTE — PENDIENTE] Compartir analisis entry issues merchants a Josefina Polivanoff: datos disponibles desde Andy (Jue 18 Jun). Preparar resumen impacto entry issues en merchant inflow y enviar por DM. CR actual 0.26% vs 0.08% julio.', phase:'metrics', priority:'P0', source:'DM Josefina + DM Andy datos Jue 18 Jun', day:'tue', completed:false },
-  { id:'t2006', text:'[URGENTE — PENDIENTE] Reagendar sesion merchants con Josefina Polivanoff: Josefina ofrecio meet ("te mando meet si queres y vemos"). Confirmar invitacion o enviar DM para agendar sesion CR merchants urgente esta semana.', phase:'metrics', priority:'P0', source:'DM Josefina Polivanoff Vie 19 Jun', day:'tue', completed:false },
-  { id:'t2007', text:'[HOY Lun 22] Confirmar routing casos RT con Camilo Esquivel: pregunto por cual bot deben pasar los RT (Food Live?). HOY Camilo tiene dudas sobre arbol WhatsApp por ser diferente a los otros flujos. Responder y alinear arboles de decision.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Jue 18 + Lun 22 Jun', day:'mon', completed:false },
-  { id:'t2008', text:'[Jue 25 12:30] 1:1 Maria Granada: traer actualizacion avances bot automatizacion, estado experimentos Q3, blockers y prioridades. MOVIDA de Mar 23 a Jue 25 (cambio hoy 22 Jun).', phase:'build', priority:'P1', source:'Calendar Jue 25 Jun 12:30', day:'thu', completed:false },
-  { id:'t2009', text:'[Mar 23 15:30] 1:1 Andres De Las Casas: estado flujos Live, integraciones Food Non Live (confirmar end-to-end en produccion) y plan Q3.', phase:'build', priority:'P1', source:'Calendar Mar 23 Jun 15:30', day:'tue', completed:false },
-  { id:'t2010', text:'[SEMANA] Validar flujo Food Non Live Integration en produccion: Camilo corrio recetas todos los paises Vie 19 Jun. JP quedo en revisar. Confirmar funcionalidad end-to-end.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Vie 19 Jun 12:07', day:'tue', completed:false },
-  { id:'t2011', text:'[SEMANA] Coordinar Readout experimento "completely different order" con Nicolas Bejarano: al 50% todos los paises por 1+ semana, solo 500 users (bajo trafico). Nicolas sumo al Gantt. Coordinar analisis en Statsig urgente.', phase:'metrics', priority:'P1', source:'DM Nicolas Bejarano Vie 19 Jun 14:35', day:'tue', completed:false },
-  { id:'t2012', text:'[SEMANA — URGENTE] Cargar sizing Q3 en Atlas: datos DSAT de Meiker recibidos (bajar 5 puntos por iniciativa, impacto en overalls AI y total). Validar numeros y cargar en Atlas para desbloquear plan Q3.', phase:'metrics', priority:'P0', source:'DM Meiker Munera Jue 18 Jun 12:33', day:'tue', completed:false },
-  { id:'t2013', text:'[Mie 24 11:00] CX Weekly Business Review: preparar highlights de la semana, metricas automatizacion (bot desplegado 100%), proximas iniciativas Q3 y posicion frente al Mundial.', phase:'metrics', priority:'P1', source:'Calendar Mie 24 Jun 11:00', day:'wed', completed:false },
-  { id:'t2023', text:'[⚠️ CONFLICTO Mie 24 11:00] Training Atlas 🚀 vs CX WBR — ambos a las 11:00-12:00. Evento Atlas agregado hoy Mar 23 07:28 AM por Gabriela Fontana. Decidir asistencia: CX WBR es critico (55 personas, Eugenio organiza); Atlas es training. Confirmar si hay otra sesion Atlas disponible.', phase:'build', priority:'P1', source:'Calendar Mie 24 Jun 11:00 — agregado Mar 23 Jun 07:28', day:'wed', completed:false },
-  { id:'t2014', text:'[SEMANA] Automatizar flujo "ayuda con mi menu/catalogo" en bot merchants: autogestion via helpjuice con escalacion a KAM/Soporte. Falta definir caso 4-4 en Assembled. Proceso documentado por Stephania.', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Jue 18 Jun', day:'wed', completed:false },
-  { id:'t2015', text:'[SEMANA] Documentar acuerdos Portal Unificado con Andres De Las Casas: equipo Mexico se lleva canal nuevo y automatizaciones de soporte. Confirmar si hay trabajo pendiente del lado CX y clarificar workload Q3.', phase:'build', priority:'P1', source:'DM Andres De Las Casas + Reunion Vie 19 Jun 15:30', day:'wed', completed:false },
-  { id:'t2016', text:'[Jue 25 9:00] CX Product PRD & design reviews: preparar materiales y actualizaciones de disenio CX Product para revision semanal con equipo amplio.', phase:'build', priority:'P2', source:'Calendar Jue 25 Jun 09:00', day:'thu', completed:false },
-  { id:'t2017', text:'[Jue 25 14:00] Weekly QA AI: llevar metricas flujos automatizacion, estado bot triage y next steps Q3. Nota: m.granada fuera de oficina esta semana; reunion movida de Vie 26 a Jue 25.', phase:'metrics', priority:'P1', source:'Calendar Jue 25 Jun 14:00', day:'thu', completed:false },
-  { id:'t2018', text:'[SEMANA] Revisar casos RT que se escapan del bot (~10/semana) con Stephania Gonzalez: identificar patron de escape o flujo no automatizado. Ver sheet de casos RT compartido por Stephania (Jue 18 Jun).', phase:'build', priority:'P1', source:'DM Stephania Gonzalez Jue 18 Jun', day:'thu', completed:false },
-  { id:'t2019', text:'[SEMANA] Humanizar bot: cambiar nombre bot Live/Merchants por uno mas humano y empatico. Carryover pendiente desde CX WBR 3 Jun.', phase:'build', priority:'P1', source:'CX Weekly Business Review 3 Jun', day:'fri', completed:false },
-  { id:'t2020', text:'[SEMANA] Revisar asociacion order ID en tickets flujo Live: analizar cancelaciones sin ticket asociado para identificar causa tecnica de la perdida de asociacion.', phase:'build', priority:'P0', source:'Juan Pablo / Andres 2 Jun', day:'fri', completed:false },
-  { id:'t2021', text:'[URGENTE — PENDIENTE] Encender experimento y bot en Assembled: Camilo confirmo "listo Juan, falta encender el experimento y el bot en assembled" (Lun 22 10:12). Alinear porcentaje con Camilo (JP quiere 30%, Camilo sugiere 10% en pequeños) y activar en Assembled.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Lun 22 Jun 10:12', day:'tue', completed:false },
-  { id:'t2022', text:'[HOY Mar 23] Enviar listado tipificaciones automatizadas a Stephania Gonzalez: incluir nombre del issue type, fecha de salida de la automatizacion y % actual de cobertura. Stephania confirmo que suspensiones e integradas ya estan, pregunto por gestion de mi tienda (JP: no hay automatizacion ahi) y solicito agregar cuando salieron y el %. JP ya prometio "Va de una".', phase:'metrics', priority:'P1', source:'DM Stephania Gonzalez Mar 23 Jun 17:56', day:'tue', completed:false },
-  { id:'t2024', text:'[URGENTE HOY Mar 23 AM] Probar WhatsApp issue_type en pais pequeno: Camilo encontro bug — en WA el issue_type no llega correcto en el primer request (llega el del turno anterior). Camilo pidio probar en un pais pequeno para validar el fix que acaba de subir al experimento. Debe resolverse ANTES de 1:1 con Andres 15:30 — es el bloqueante del trafico del bot integraciones.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 23 Jun 10:46', day:'tue', completed:false }
+  { id:'t3001', text:'[URGENTE] Documentar estructura completa bot Cancelaciones: output del handoff con Elias Rivera (Hoy Mar 7 11:45). Incluir flujos, casos de uso, metricas, plan Q3 y responsables.', phase:'build', priority:'P0', source:'Reunion Elias/JP Cancelaciones Mar 7 Jul', day:'tue', completed:false },
+  { id:'t3002', text:'[URGENTE] Investigar bug routing: ordenes canceladas entrando a bot Food Live en vez de bot Cancelaciones. Stephania compartio Contact Records AWS Connect. Revisar logica con Camilo/Cristian Parada.', phase:'build', priority:'P0', source:'DM Stephania Gonzalez Mar 7 Jul', day:'tue', completed:false },
+  { id:'t3003', text:'[URGENTE] Cargar sizing Q3 en Atlas: datos DSAT de Meiker disponibles. Bloqueante para plan Q3. Pendiente desde semanas atras.', phase:'metrics', priority:'P0', source:'Prioridades semana anterior', day:'tue', completed:false },
+  { id:'t3004', text:'[Mie 8 11:00] Resolver conflicto Training Atlas vs CX WBR: ambos 11:00-12:00. Contactar a Gabriela Fontana para reagendar Atlas. CX WBR es critico (55 personas, Eugenio organiza).', phase:'build', priority:'P0', source:'Calendar Mie 8 Jul 11:00', day:'wed', completed:false },
+  { id:'t3005', text:'[Mie 8 15:00] 1:1 Andres De Las Casas: llevar avances bot cancelaciones, plan Q3, pendientes Live y estado conflicto Atlas vs WBR.', phase:'build', priority:'P1', source:'Calendar Mie 8 Jul 15:00', day:'wed', completed:false },
+  { id:'t3006', text:'[Jue 9 9:00] CX Design Review: preparar actualizaciones de disenos e iniciativas CX para revision semanal con equipo amplio.', phase:'build', priority:'P1', source:'Calendar Jue 9 Jul 09:00', day:'thu', completed:false },
+  { id:'t3007', text:'[Vie 10 11:15] Kick off Cancelaciones <> Product-Tech: preparar agenda, estructura del bot y entregables para reunion con Elias Rivera, Diego Mesa y Stephania. JP organiza.', phase:'build', priority:'P1', source:'Calendar Vie 10 Jul 11:15', day:'fri', completed:false },
+  { id:'t3008', text:'[Vie 10 14:00] Weekly QA AI: llevar metricas flujos automatizacion, estado bot cancelaciones y next steps Q3.', phase:'metrics', priority:'P1', source:'Calendar Vie 10 Jul 14:00', day:'fri', completed:false },
+  { id:'t3009', text:'[SEMANA] Coordinar Readout experimento CDO con Nicolas Bejarano: al 50% todos los paises, 500 users. Definir si sample es suficiente o ajustar para obtener resultados estadisticamente significativos.', phase:'metrics', priority:'P1', source:'Prioridades semana anterior', day:'wed', completed:false },
+  { id:'t3010', text:'[SEMANA] Revisar notas Gemini sesion Payments Merchant (Lun 6 15:45): grabacion disponible en Drive. Extraer action items y definir proximos pasos con Susana Paniagua.', phase:'build', priority:'P2', source:'Calendar Lun 6 Jul 15:45', day:'wed', completed:false }
+]
 ];
 
 const DEFAULT_BOTS = [
@@ -1928,75 +1949,34 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d601', text:'Probar Bot de Triaje: pruebas exhaustivas en Connect para validar precision al clasificar las 6 categorias asignadas', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
-  { id:'d602', text:'Documentar Pruebas: registrar en Excel la trazabilidad incluyendo casos con clasificacion correcta y respuestas inesperadas', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
-  { id:'d603', text:'Enviar usuarios de prueba adicionales a Jaime Gomez para continuar validacion del bot de triage', owner:'Juan Pablo Zapata (ext)', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
-  { id:'d604', text:'Implementar actualizaciones de bots de promociones y productos incorrectos para reducir flujo de contactos en chat de soporte', owner:'Maria Granada', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d605', text:'Finalizar pruebas de flujos de correo electronico — asegurar funcionamiento para el despliegue 60% automatizacion emails', owner:'Meiker Munera / Andres Cobos', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d606', text:'Implementar Order Status en bot Live: flujo de estado de la orden para mitigar volumen de contactos y filtrar antes de pasar a agentes', owner:'Elias Rivera / Andres De Las Casas', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d607', text:'Modificar formulario de reclamaciones para habilitar el flujo del libro de reclamaciones en la automatizacion', owner:'Andres De Las Casas', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d608', text:'Renovar contrato SPR: definir extension y negociar terminos antes del 19 de junio — URGENTE deadline ESTA SEMANA (Vie 19 Jun)', owner:'Eugenio La Rosa', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d609', text:'Analizar pedidos sin repartidor: segmentar datos de soporte entre ordenes sin asignacion y con asignacion retrasada', owner:'Elias Rivera', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
-  { id:'d610', text:'Agendar reunion seguimiento con dueno del algoritmo de asignacion para revisar analisis y definir proximos pasos', owner:'Matias Kramer', source:'Donde esta mi RT? 2 Jun', status:'pendiente' },
-  { id:'d611', text:'Migrar automatizaciones a Connect — confirmar cuales deben migrarse antes de retirar licencias de Customer para no interrumpir procesos', owner:'Natalia Intencipa / Andres Diaz / Juan Diego Gil', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d612', text:'Enviar datos especificos de restaurantes y actualizar documento de estrategia Merchant', owner:'Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d613', text:'Revisar analisis de asignacion de rapitenderos con nueva definicion de Matias Kramer y actualizar estrategia', owner:'Andres Diaz / Elias Rivera', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
-  { id:'d614', text:'Desarrollar endpoints perfiles RT: crear puntos de enlace para cambio de genero y foto de perfil RT y flujo Cancha Change State', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'pendiente' },
-  { id:'d615', text:'[COMPLETADO Mie 17 16:04] Crear endpoints PROD Food Non Live Integration: Gregson confirmo "ya los creo los endpoints" en PROD — JP desplegó todos los paises esta manana. JP debe probar el flujo completo en produccion.', owner:'Gregson Murcia / Manuel Gruezo', source:'Group DM Mie 17 Jun 16:04', status:'completado' },
-  { id:'d616', text:'Validar origen Integration ID: determinar el campo correcto requerido para consultas de la API del microservicio de tiendas', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'en progreso' },
-  { id:'d617', text:'Acceder servicios Ridash e investigar microservicios para obtener estado de webhooks en tiendas — coordinar con Juan Esquivel para desbloquear', owner:'Gregson Murcia / Manuel Gruezo', source:'Nuevos Flujos de AI - Kick Offs 10 Jun', status:'en progreso' },
-  { id:'d620', text:'Definir tipos de problemas que actuan como excepciones para evitar escalacion a agente humano cuando sistema IA falle', owner:'Isabela Gomez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d621', text:'Validar con equipo Fulfillment la estrategia de cierre de tickets para que no afecte negativamente la asignacion de pedidos', owner:'Isabela Gomez / Eugenio La Rosa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d622', text:'Priorizar atencion del equipo en Canal Chat Support por inicio del Mundial y altos volumenes de casos durante el torneo', owner:'Natalia Intencipa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d623', text:'Crear playbook operativo para el Mundial y partidos relevantes — protocolo ante errores o problemas operativos durante el torneo', owner:'Eugenio La Rosa / Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d624', text:'Elaborar playbook de fallas tecnicas para gestionar flujo entrante sin afectar la concurrencia del sistema', owner:'Isabela Gomez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d625', text:'Finalizar ajuste en desarrollo para solucionar generacion de tickets duplicados — Natalia reportar ejemplos especificos a Cris', owner:'Cristian Parada / Natalia Intencipa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d626', text:'Actualizar bot con contexto sobre posibles demoras en Mexico por movilizaciones del Mundial para mejorar respuesta empatica', owner:'Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d627', text:'Confirmar cuotas de Amazon Web Services y verificar si hay riesgo de superar los limites ante volumen del Mundial', owner:'Andres Hamir Cobos', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d628', text:'Crear visuales y material de formacion para el equipo sobre la nueva herramienta de gestion de redes sociales Shelf', owner:'Mike Medina / Guadalupe Martinez / Juan Diego Gil', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d629', text:'Lanzar segunda fase de BP Promotion siguiendo los porcentajes de despliegue definidos', owner:'Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d630', text:'Coordinar aceleracion de implementacion de herramientas de prevencion de fraude en clientes grandes', owner:'Angela Osuna', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d631', text:'Informar a Cristian Parada sobre la persistencia de tickets duplicados proporcionando ejemplos especificos', owner:'Natalia Intencipa', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d632', text:'Revisar requerimientos de configuracion de pagos enviados por Dimas en el hilo de comunicacion', owner:'Andres De Las Casas', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d633', text:'Investigar causas del aumento en la tasa de contacto de usuarios y notificar hallazgos al equipo', owner:'Yerick Martinez', source:'CX Weekly Business Review 10 Jun', status:'pendiente' },
-  { id:'d634', text:'Agregar iniciativa: asegurar la inclusion de la iniciativa en el area de negocios al configurar la nueva herramienta de clasificacion tecnica', owner:'Nico Bejarano', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
-  { id:'d635', text:'Discutir metricas: analizar iniciativas que podrian impactar multiples metricas para definir la prioridad de ejecucion en la plataforma', owner:'Isabela Gomez / Andres De Las Casas', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
-  { id:'d636', text:'Enviar TR: compartir la informacion de Atlas con Daniel para resolver los problemas de visibilidad de las iniciativas en la plataforma', owner:'Isabela Gomez', source:'CX Product PRD & design reviews 11 Jun', status:'pendiente' },
-  { id:'d637', text:'Agregar Store Id a la metadata del flujo de suspensiones para merchants non live — la metadata llega sin el Store Id lo que hace que los merchants no puedan identificarlo correctamente, aumentando DSAT y handoff rate. JP solicito este cambio para mejorar el flujo significativamente.', owner:'Cristian Parada', source:'DM Juan Pablo Vie 12 Jun 10:21', status:'pendiente' },
-  { id:'d638', text:'Presionar Atlas: publicar en el hilo de Atlas para presionar por la resolucion de los problemas de pods desaparecidos — bloqueante para completar el sizing Q3', owner:'Maria Granada', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
-  { id:'d639', text:'Validar la logica utilizada para los calculos de sizing compartidos por el equipo — asegurar que los numeros sean correctos antes de presentar el plan Q3', owner:'Nicolas Bejarano', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
-  { id:'d640', text:'Coordinar el apagado de ciudades para el Proactive Traffic Controller antes del lunes — URGENTE deadline fin de semana', owner:'Nicolas Bejarano', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
-  { id:'d641', text:'Ajustar base de datos de exposiciones y trafico para refinar las proyecciones de las iniciativas Q3', owner:'Angela Osuna / Nicolas Bejarano', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
-  { id:'d642', text:'Cargar las iniciativas de order delay y notification talk to agent en Atlas como impacto Q3', owner:'Angela Osuna', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
-  { id:'d643', text:'Consultar al equipo de Atlas como cargar los impactos de Editda y compensaciones en la plataforma para el plan Q3', owner:'Andres De Las Casas', source:'Revision Sizings Q3 12 Jun', status:'pendiente' },
-  { id:'d644', text:'Completar configuracion experimento Statsig AI chatbot merchants WA: finalizar setup para paises grandes y todas las plataformas (WhatsApp, Portal Partners, RapiAliados) — ya quedo configurado hasta paises medianos y encendido el Lun 15 Jun', owner:'Camilo Esquivel', source:'Group DM AI Flujos Vie 12 Jun', status:'en progreso' },
-  { id:'d645', text:'URGENTE — Corregir handoff bot Statsig merchants WA: el handoff NO envia notas de contexto al agente. Los agentes reciben el caso de cero sin ningun contexto de la conversacion previa. Elias Rivera reporto este bug el Lun 15 Jun 14:20. Definir responsable del fix y asegurar que el handoff pase el contexto completo de la conversacion al agente.', owner:'Andres De Las Casas / Camilo Esquivel', source:'DM Elias Rivera Lun 15 Jun 14:20', status:'pendiente' },
-  { id:'d646', text:'[COMPLETADO Vie 19 12:07] Camilo confirmo: "ya corrí la receta en todos los países con el issue_type del árbol que hacía falta." Camilo asumio las recetas Jue 18 (~14:48), encontro arbol sin mapear y lo corrigio, ajusto experimento faltante en Statsig, y confirmo que la mayoría de conversaciones si pasan por el bot. Flujo Food Non Live Integration 100% desplegado.', owner:'Camilo Esquivel', source:'DM Camilo Esquivel Vie 19 Jun 12:07', status:'completado' },
-  { id:'d647', text:'Confirmar routing de casos RT en bot: Camilo Esquivel pregunto por cual bot deben pasar los casos RT (Food Live?). JP debe responder y confirmar que el arbol de decision es correcto — seguimiento pendiente Vie 19 Jun.', owner:'Camilo Esquivel', source:'DM Camilo Esquivel Jue 18 Jun 17:21', status:'pendiente' },
-  { id:'d648', text:'Proveer analisis de Readout para experimento "completely different order" (ai_chatbot_vendor_user_related_pw_completely_different_order): JP solicito ayuda para evaluar si las compensaciones incrementadas son eficientes. El flujo valida productos completamente diferentes y compensa en creditos y TC. Experimento al 50% en todos los paises por una semana en Statsig.', owner:'Nicolas Bejarano', source:'DM Nicolas Bejarano Vie 19 Jun 14:35', status:'pendiente' },
-  { id:'d649', text:'Definir y documentar arbol de decision flujo WhatsApp: Camilo Esquivel tiene dudas sobre como funciona el arbol del flujo WhatsApp porque es diferente a los otros flujos existentes. Alinear y documentar la logica para que el equipo pueda implementarlo correctamente.', owner:'Camilo Esquivel', source:'DM Camilo Esquivel Lun 22 Jun', status:'pendiente' },
-  { id:'d650', text:'Proveer Readout experimento "completely different order" en Statsig: JP solicito analisis de eficiencia de compensaciones. Experimento al 50% en todos los paises por 1+ semana, solo 500 users de trafico. Nicolas sumo al Gantt y tiene el spreadsheet. Pendiente analisis formal en Statsig.', owner:'Nicolas Bejarano', source:'DM Nicolas Bejarano Vie 19 Jun 14:35', status:'pendiente' },
-  { id:'d651', text:'Completar endpoints pendientes Food Non Live Integration: Elias confirmo que el endpoint del viernes funciona bien. Publicar tienda (PUT) en configuracion gateway por Gregson — Elias confirmo "teniendo el de publicar solo faltaria el de coberturas". Visibilidad tienda: Gregson confirmando nombre (DEV_geo_stores_by_location?). Coberturas: bloqueado por otro equipo, push activo sin respuesta. Objetivo: cerrar publicar y visibilidad esta semana; desbloquear coberturas.', owner:'Gregson Murcia / Manuel Gruezo', source:'Group DM AI Flujos Lun 22 Jun', status:'en progreso' },
-  { id:'d617b', text:'Seguimiento endpoint "cruzar coberturas": Elias Rivera reporto que este endpoint esta pendiente de otro equipo (no Gregson/Manuel). Identificar cual equipo es responsable y hacer seguimiento para desbloquear el flujo completo de Food Non Live Integration.', owner:'Elias Rivera / Juan Pablo', source:'Group DM AI Flujos Lun 22 Jun 12:55', status:'pendiente' },
-  { id:'d652', text:'Definir validacion looks_bad en bot calidad: Maria Granada pregunto si cuando el bot retorna looks_bad deben rechazar el ticket. De quality dijeron que no lo estan validando actualmente. JP debe alinear criterio de rechazo con equipo quality y confirmar la logica en el bot.', owner:'Juan Pablo / Maria Granada', source:'DM Maria Granada Lun 22 Jun', status:'pendiente' }
+  { id:'d701', text:'Implementar fix WhatsApp automatizacion: solo WA con fuga (portal partners OK). Manuel Gruezo implementando fix en MS desde Lun 6 Jul 19:37. Confirmar que el fix esta desplegado y el flujo WA ya no tiene fugas.', owner:'Manuel Gruezo / Elias Rivera', source:'DM Elias Rivera + Manuel Gruezo Lun 6 Jul', status:'en progreso' },
+  { id:'d702', text:'Confirmar datos DSAT Atlas para sizing Q3: Meiker tiene los datos (5 puntos por iniciativa). JP debe confirmar que Meiker cargo los datos en Atlas para desbloquear el plan Q3.', owner:'Meiker Munera', source:'Prioridades semana anterior', status:'pendiente' },
+  { id:'d703', text:'Seguimiento endpoints Food Non Live Integration — coberturas bloqueado por otro equipo. Gregson haciendo push para desbloquear. Definir quien es responsable del endpoint cruzar coberturas.', owner:'Gregson Murcia / Manuel Gruezo', source:'Group DM AI Flujos Lun 22 Jun', status:'en progreso' },
+  { id:'d704', text:'Readout experimento CDO en Statsig: Nicolas pendiente analisis formal. Experimento al 50% todos los paises, 500 users, 1+ semana. JP solicito ayuda para evaluar eficiencia compensaciones.', owner:'Nicolas Bejarano', source:'DM Nicolas Bejarano Vie 19 Jun', status:'pendiente' },
+  { id:'d705', text:'Probar Bot de Triaje: pruebas exhaustivas en Connect para validar precision al clasificar las 6 categorias asignadas', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
+  { id:'d706', text:'Implementar Order Status en bot Live: flujo de estado de la orden para mitigar volumen de contactos y filtrar antes de pasar a agentes', owner:'Elias Rivera / Andres De Las Casas', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
+  { id:'d707', text:'Agregar Store Id a la metadata del flujo de suspensiones para merchants non live — metadata llega sin Store Id causando que merchants no puedan identificarlo, aumentando DSAT y handoff rate.', owner:'Cristian Parada', source:'DM Juan Pablo Vie 12 Jun', status:'pendiente' },
+  { id:'d708', text:'Completar configuracion experimento Statsig AI chatbot merchants WA: finalizar setup para paises grandes y todas las plataformas (WhatsApp, Portal Partners, RapiAliados)', owner:'Camilo Esquivel', source:'Group DM AI Flujos Vie 12 Jun', status:'en progreso' }
+]
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel → JP (DM)', text: 'BUG WHATSAPP ISSUE_TYPE — PROBAR EN PAIS PEQUENO (Mar 23 10:46): Camilo agrego al experimento el issue_type que el usuario elige en el primer nodo, pero encontro bug: en WhatsApp no llega en el primer request el issue_type completo, sino el del turno anterior. Pidio a JP: "¿Podrías probar en algun país pequeño, porfa?" — accion urgente de JP ahora mismo para validar el fix antes de 1:1 con Andres 15:30.', time: 'Mar 23 Jun 10:46', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel → JP (DM)', text: 'NOTAS INTERNAS EN PROGRESO (Mar 23 10:47): "esperemos que si, estoy haciendo unas pruebas en el ticket de notas internas para continuar con las recetas." Camilo avanzando en pruebas de notas internas en el ticket de integraciones para retomar recetas pendientes.', time: 'Mar 23 Jun 10:47', type: 'dm', actionable: false },
-  { from: 'JP → Camilo Esquivel (DM)', text: 'SIN TRAFICO BOT WA AYER — VERIFICAR EXPERIMENTO (Mar 23 10:36): JP noto que ayer no hubo trafico del bot de integraciones en WhatsApp. Pregunto: 1) como va con integraciones en portales, alcanza para hoy? 2) "no veo trafico del bot de integraciones en wa el dia de ayer — puedes hacer un double check de que este bien configurado el experimento y todo porfa". Camilo respondio agregando issue_type y encontro el bug de WhatsApp.', time: 'Mar 23 Jun 10:36', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez → JP (DM)', text: 'LISTADO TIPIFICACIONES — PENDIENTE ENTREGA (Mar 23 17:56 ayer): Stephania pidio agregar al listado cuando salieron las automatizaciones y el % actual. Pregunto por gestion de mi tienda (JP: no hay automatizacion), suspensiones e integradas al 100% (JP: si, Uruguay Ecuador y CR). JP confirmo "Va de una". PENDIENTE: JP debe enviar listado con issue type + fecha salida + % cobertura.', time: 'Lun 22 Jun 17:56', type: 'dm', actionable: true },
-  { from: 'Maria Fernanda Granada → JP (DM)', text: 'CALIDAD BOT LOOKS_BAD (Lun 22 ~15:00): Maria pregunto si cuando el bot retorna looks_bad deberian rechazar el ticket. Quality confirmo que ese campo no lo estan validando actualmente. JP habia preguntado si el endpoint GET fraud_risk_by_oid en PWP lo usa — Maria confirmo que no, sale de info_automations.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
-  { from: 'Gregson Murcia → Grupo AI Flujos (Group DM)', text: 'COBERTURAS BLOQUEADO — PUSH ACTIVO (Lun 22 tarde): "Con respecto a coberturas andamos haciendo push para saber quien nos puede ayudar. Todavia no nos responden." Endpoint cruzar coberturas sigue bloqueado por otro equipo sin respuesta.', time: 'Lun 22 Jun', type: 'dm', actionable: true },
-  { from: '📅 Calendar Alert (Hub Bot)', text: '⚠️ CONFLICTO Mie 24 Jun 11:00-12:00: Training Atlas (Gabriela Fontana / Zoom) agregado Mar 23 07:28 — coincide exactamente con CX WBR (Eugenio La Rosa, 55 personas). Debes elegir cual asistir o contactar a Gabriela para reagendar.', time: 'Mar 23 Jun 07:28', type: 'dm', actionable: true }
+  { from: 'Stephania Gonzalez → JP (DM)', text: 'CASOS BOT FOOD LIVE (Mar 7 13:28-14:52): Stephania comparte Contact Records de AWS Connect donde ordenes canceladas estan llegando al bot de Food Live. JP confirmo que el routing es incorrecto: "no es una orden live debe recaer en canceladas no en el bot de food live". Bot de Cancelaciones aun no construido — bug de routing activo.', time: 'Mar 7 Jul 14:52', type: 'dm', actionable: true },
+  { from: 'JP → Stephania Gonzalez (DM)', text: 'ROUTING BUG CONFIRMADO (Mar 7 14:52): JP confirmo que las ordenes canceladas que Stephania reporta NO deben ir al bot de food live sino al bot de canceladas (pendiente construccion). Mismo patron en multiples Contact Records compartidos.', time: 'Mar 7 Jul 14:52', type: 'dm', actionable: true },
+  { from: 'Elias Rivera + Manuel Gruezo (DM)', text: 'BUG WA AUTOMATIZACION (Lun 6 Jul 19:37): fuga en WhatsApp — ordenes escapan la automatizacion. Portal Partners OK, solo WA con fuga. Manuel implementando fix en MS. JP debe confirmar que el fix esta desplegado.', time: 'Lun 6 Jul 19:37', type: 'dm', actionable: true },
+  { from: 'JP → Elias Rivera (DM)', text: 'OWNERSHIP BOT CANCELACIONES (Lun 6 Jul): JP confirmo ownership del bot de Cancelaciones a Elias Rivera. Handoff realizado Hoy Mar 7 11:45 con Elias Rivera y Diego Aguo.', time: 'Lun 6 Jul', type: 'dm', actionable: false },
+  { from: '📅 Calendar Alert (Hub Bot)', text: '⚠️ CONFLICTO Mie 8 Jul 11:00-12:00: Training Atlas (Gabriela Fontana / Zoom) coincide con CX WBR (Eugenio La Rosa, 55 personas). Contactar a Gabriela Fontana para reagendar Atlas.', time: 'Mie 8 Jul 11:00', type: 'dm', actionable: true },
+  { from: '📅 Calendar Alert (Hub Bot)', text: 'KICK OFF CANCELACIONES Vie 10 Jul 11:15: JP organiza reunion con Elias Rivera, Diego Mesa y Stephania Gonzalez (opcional) para arrancar desarrollo bot Cancelaciones. Preparar agenda y entregables.', time: 'Vie 10 Jul 11:15', type: 'dm', actionable: false }
+]
 ];
 
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '11:00-12:00', '14:45-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:00', '10:30-13:00', '14:00-15:30', '16:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-11:00', '14:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '9:45-12:30', '14:30-18:00'] },
-  { day: 'Vie', blocks: ['8:00-13:00', '14:00-18:00'] }
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '16:15-18:00'] },
+  { day: 'Mar', blocks: ['8:00-10:00', '14:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-10:30', '14:00-15:00', '15:30-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-18:00'] },
+  { day: 'Vie', blocks: ['8:00-10:30', '14:30-18:00'] }
+]
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
