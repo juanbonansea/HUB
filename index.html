@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mie 8 · Actualizado 8 Jul 15:07 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mie 8 · Actualizado 8 Jul 17:01 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1494,7 +1494,8 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'11:15-12:00', title:'Kick off Cancelaciones <> Product-Tech', attendees:4, org:'juan.bonansea@rappi.com', type:'team', note:'Kick off entre JP y equipo Product-Tech para bot Cancelaciones. Participantes: Elias Rivera, Diego Mesa, Stephania Gonzalez (opcional). JP organiza.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal QA AI — revision estado flujos automatizacion, metricas y next steps Q3.' }
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal QA AI — revision estado flujos automatizacion, metricas y next steps Q3.' },
+    { time:'16:30-17:00', title:'Assembled-Snowflake', attendees:6, org:'deisy.daza@rappi.com', type:'external', note:'Integracion Assembled con Snowflake — con Jorge Calvache, Maria Granada, Deisy Daza, Cristian Parada y Andres De Las Casas. Agendada Mie 8 Jul.' }
   ]
 };
 
@@ -1945,7 +1946,9 @@ const DEFAULT_TASKS = [
   { id:'t3008', text:'[Vie 10 14:00] Weekly QA AI: llevar metricas flujos automatizacion, estado bot cancelaciones y next steps Q3.', phase:'metrics', priority:'P1', source:'Calendar Vie 10 Jul 14:00', day:'fri', completed:false },
   { id:'t3009', text:'[SEMANA] Coordinar Readout experimento CDO con Nicolas Bejarano: al 50% todos los paises, 500 users. Definir si sample es suficiente o ajustar para resultados estadisticamente significativos.', phase:'metrics', priority:'P1', source:'Prioridades semana anterior', day:'wed', completed:false },
   { id:'t3010', text:'[SEMANA] Revisar notas Gemini sesion Payments Merchant (Lun 6 15:45): grabacion disponible en Drive. Extraer action items y definir proximos pasos con Susana Paniagua.', phase:'build', priority:'P2', source:'Calendar Lun 6 Jul 15:45', day:'wed', completed:false },
-  { id:'t3012', text:'[SEMANA] Trabajar fixes bot de triage identificados por Jaime Gomez (#ai-automations Jul 2): revisar hallazgos y completar correcciones. JP prometio avisar cuando esten los fixes.', phase:'build', priority:'P2', source:'Slack #ai-automations Jue 2 Jul', day:'wed', completed:false }
+  { id:'t3012', text:'[SEMANA] Trabajar fixes bot de triage identificados por Jaime Gomez (#ai-automations Jul 2): revisar hallazgos y completar correcciones. JP prometio avisar cuando esten los fixes.', phase:'build', priority:'P2', source:'Slack #ai-automations Jue 2 Jul', day:'wed', completed:false },
+  { id:'t3016', text:'[PENDIENTE] Revisar y priorizar items que Andres De Las Casas compartio en #cx-management-team (Mie 8 13:14): "Me ayudas a revisar esto y ver la prioridad de cada uno. Alinea cuales de esto fallos ya se trabajaron con Diego Mesa." Cc Maria Granada y Cristian Parada.', phase:'build', priority:'P1', source:'Slack #cx-management-team Mie 8 Jul 13:14', day:'thu', completed:false },
+  { id:'t3017', text:'[Vie 10 16:30] Assembled-Snowflake: reunion integracion Assembled con Snowflake. Confirmar agenda con Deisy Daza — Jorge Calvache, Maria Granada, Cristian Parada y Andres De Las Casas tambien asisten.', phase:'build', priority:'P2', source:'Calendar Vie 10 Jul 16:30 (nueva)', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1975,13 +1978,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'JP → Maria Granada (DM)', text: 'ATLAS INPUT METRICS (Mie 8 Jul): JP consulta a Maria como registrar inputs metrics en Atlas — "una dudita de Atlas los inputs metrics es llenar este segmento de Idea brief o donde se llenan?" — bloqueante para sizing Q3. Maria respondio y JP quedo confundido, pide 10 minutos de Meet para aclarar.', time: 'Mie 8 Jul', type: 'dm', actionable: true },
-  { from: 'Susana Paniagua → JP (DM)', text: 'POST-WBR PRIORIDAD CANCELACIONES (Mie 8 Jul 12:06): Susana pregunta a JP cuando tiene kick off de cancelaciones. JP: "La otra semanita". Andres pregunto en WBR — JP aclara prioridad por inflow: cancelaciones primero, payments de segunda. Susana se suma al kick off.', time: 'Mie 8 Jul 12:06', type: 'dm', actionable: true },
-  { from: 'JP → Elias Rivera (DM)', text: 'ENTRY ISSUES BOT CANCELACIONES (Mie 8 Jul 9:10): JP pregunta a Elias confirmar entry issues del bot — solo "Payments and finances_Disagreement with canceled and compensated orders_Cancelled order". Pide quien ayuda con reason_id y cancel_reason para la tabla del bot.', time: 'Mie 8 Jul 9:10', type: 'dm', actionable: true },
-  { from: 'JP → Stephania Gonzalez (DM)', text: 'ACCESO DOC CANCELACIONES (esta semana): JP pide acceso para editar documento de Stephania sobre cancelaciones — "Me regalas acceso para editar el doc steph pls". Stephania es contacto clave para routing fix del bot.', time: 'Esta semana', type: 'dm', actionable: false },
-  { from: 'Susana Paniagua → JP (DM)', text: 'ACCESO FIGJAM PAYMENTS (Mie 8 Jul 10:11): JP pide acceso a FigJam de Payments. Susana da acceso de inmediato — colaboracion activa en flujo Payments Merchant.', time: 'Mie 8 Jul 10:11', type: 'dm', actionable: false },
-  { from: 'Valeria Dorantes → JP (DM)', text: 'ISSUE TYPES MAPPING (Mar 7 Jul 15:55): Valeria pide a JP llenar columna N con issue types ya mapeados en spreadsheet de flujos. Arbol de decision listo, necesita enlazarlo con lo que JP construye. Pendiente de JP.', time: 'Mar 7 Jul 15:55', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez → JP (DM)', text: 'CASOS BOT FOOD LIVE (Mar 7 Jul 14:48): Stephania comparte Contact Records de AWS Connect — ordenes canceladas llegan al bot de Food Live. JP confirmo routing incorrecto: deben ir al bot de canceladas (aun no construido). Bug activo.', time: 'Mar 7 Jul 14:48', type: 'dm', actionable: true }
+  { from: 'Cristian Parada → JP (#cx-prod-eng-leads)', text: 'GANTT Q3 CONFIRMACION (Mie 8 16:35): Cristian pregunta a JP, Meiker y Andres si el gantt esta listo para montarlo en Jira — "necesitamos ya ponernos a cuadrar el coco con manu pa empezar Q3". Sirley tambien pide confirmacion. JP respondio "Done!" a las 16:59.', time: 'Mie 8 16:59', type: 'channel', actionable: false },
+  { from: 'Maria Granada → JP (DM)', text: 'ALINEACION MERCHANTS (Mie 8 15:33-16:48): Maria recomienda "super alinear las expectativas con merchants porque son muy soñadores y quieren hacer de todo" y advierte que no tienen recursos para todo. JP agradece el consejo.', time: 'Mie 8 15:59', type: 'dm', actionable: false },
+  { from: 'Andres De Las Casas → JP (#cx-management-team)', text: 'REVISION PRIORIDADES FALLOS (Mie 8 13:14): Andres pide a JP ayuda para revisar prioridad de items y alinear cuales fallos ya se trabajaron con Diego Mesa. Cc Maria Granada y Cristian Parada.', time: 'Mie 8 13:14', type: 'channel', actionable: true },
+  { from: 'Valeria Dorantes → JP (#rest-portal-unificado)', text: 'ISSUE TYPES MAPPING (Mie 8 15:17): Valeria confirma que el esqueleto del arbol quedo listo. Pendiente de que JP pase los issue types para anclarlos a opciones nuevas. Esta semana vera con tech para crear nuevos issue types.', time: 'Mie 8 15:17', type: 'channel', actionable: true },
+  { from: 'Susana Paniagua → JP (DM)', text: 'ASSEMBLED CAIDA (Mie 8 16:53): Susana avisa al grupo de dejar en el hilo los eventos donde se caiga la pg de Assembled antes de cerrar el hilo. FYI para Andres, Maria, Meiker y JP.', time: 'Mie 8 16:53', type: 'dm', actionable: false },
+  { from: 'JP → Maria Granada (DM)', text: 'ATLAS INPUT METRICS (Mie 8 14:24): JP consulta a Maria como registrar inputs metrics en Atlas — bloqueante para sizing Q3. Maria respondio y JP quedo confundido, pidio 10 minutos de Meet para aclarar.', time: 'Mie 8 14:34', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez → JP (DM)', text: 'ISSUE BOT CANCELACIONES (Mie 8 15:19): Stephania pregunta a JP si un issue quedo bien. Contexto: routing ordenes canceladas a bot Food Live — bug activo pendiente de resolver antes del kick off Vie 10.', time: 'Mie 8 15:19', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
@@ -1989,7 +1992,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-10:00', '14:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-10:30', '14:30-18:00'] }
+  { day: 'Vie', blocks: ['8:00-10:30', '14:30-16:30', '17:00-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
