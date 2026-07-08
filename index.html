@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mie 8 · Actualizado 8 Jul 11:06 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mie 8 · Actualizado 8 Jul 17:30 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1482,7 +1482,8 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:55, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal — revision de metricas, automatizaciones y desempeno operativo de toda el area CX.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:00-15:30', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — llevar avances bot cancelaciones, plan Q3, pendientes Live.' }
+    { time:'15:00-15:30', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas — llevar avances bot cancelaciones, plan Q3, pendientes Live.' },
+    { time:'15:30-16:00', title:'Alineacion Plan Merchants', attendees:4, org:'m.granada@rappi.com', type:'team', note:'Alineacion sobre el plan de iniciativas Merchants Q3 con Maria Granada, Elias Rivera y F. Diaz. Reunion creada hoy Mie 8 Jul 12:05 COT — temas: estructura y prioridades del plan Merchants.' }
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Design Review', attendees:11, org:'andres.delascasas@rappi.com', type:'team', note:'Review semanal de disenos CX con equipo amplio — alineacion iniciativas Q3.' },
@@ -1923,6 +1924,7 @@ const DEFAULT_TASKS = [
   { id:'t3002', text:'[P0 PENDIENTE] Investigar bug routing: ordenes canceladas entrando a bot Food Live en vez de bot Cancelaciones. Stephania compartio Contact Records AWS Connect. Revisar logica con Camilo/Cristian Parada.', phase:'build', priority:'P0', source:'DM Stephania Gonzalez Mar 7 Jul', day:'wed', completed:false },
   { id:'t3003', text:'[P0 PENDIENTE] Cargar sizing Q3 en Atlas: datos DSAT de Meiker disponibles. Bloqueante para plan Q3. Pendiente desde semanas atras.', phase:'metrics', priority:'P0', source:'Prioridades semana anterior', day:'wed', completed:false },
   { id:'t3005', text:'[HOY Mie 8 15:00] 1:1 Andres De Las Casas: llevar avances bot cancelaciones, plan Q3 y pendientes Live.', phase:'build', priority:'P1', source:'Calendar Mie 8 Jul 15:00', day:'wed', completed:false },
+  { id:'t3013', text:'[HOY Mie 8 15:30] Alineacion Plan Merchants con Maria Granada, Elias Rivera y F. Diaz — nueva reunion agendada esta manana. Llevar estado subiniciativas Merchants Q3 y proximos pasos.', phase:'build', priority:'P1', source:'Calendar Mie 8 Jul 15:30', day:'wed', completed:false },
   { id:'t3011', text:'[HOY Mie 8] Llenar columna N del spreadsheet de Valeria Dorantes (Mexico) con issue types ya mapeados — arbol listo, necesita enlazar issue types al flujo. JP prometio ayudar hoy.', phase:'build', priority:'P1', source:'DM Valeria Dorantes Mar 7 Jul 16:00', day:'wed', completed:false },
   { id:'t3006', text:'[Jue 9 9:00] CX Design Review: preparar actualizaciones de disenos e iniciativas CX para revision semanal con equipo amplio.', phase:'build', priority:'P1', source:'Calendar Jue 9 Jul 09:00', day:'thu', completed:false },
   { id:'t3007', text:'[Vie 10 11:15] Kick off Cancelaciones <> Product-Tech: preparar agenda, estructura del bot y entregables para reunion con Elias Rivera, Diego Mesa y Stephania. JP organiza.', phase:'build', priority:'P1', source:'Calendar Vie 10 Jul 11:15', day:'fri', completed:false },
@@ -1959,19 +1961,19 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'JP → Elias Rivera (DM)', text: 'ENTRY ISSUES BOT CANCELACIONES (Mie 8 Jul): JP pregunta a Elias confirmar entry issues del bot: solo tiene "Payments and finances_Disagreement with canceled and compensated orders_Cancelled order". Tambien pide quien del equipo ayuda con reason_id y cancel_reason para tabla de informacion que consuma el bot.', time: 'Mie 8 Jul', type: 'dm', actionable: true },
+  { from: 'Susana Paniagua → JP (DM)', text: 'POST-WBR PRIORIDAD CANCELACIONES (Mie 8 Jul 12:06): Susana pregunta a JP cuando tiene kick off de cancelaciones. JP responde "La otra semanita" (prox semana). Susana comenta que Andres pregunto en la reunion — contexto: post-CX WBR discusion sobre prioridad cancelaciones. JP aclara: "por inflow va a quedar priorizado cancelaciones por inflow y payments de segundas tal cual". Susana ofrece apoyo. JP la invita al kick off.', time: 'Mie 8 Jul 12:06', type: 'dm', actionable: true },
+  { from: 'JP → Elias Rivera (DM)', text: 'ENTRY ISSUES BOT CANCELACIONES (Mie 8 Jul 9:10): JP pregunta a Elias confirmar entry issues del bot: solo tiene "Payments and finances_Disagreement with canceled and compensated orders_Cancelled order". Tambien pide quien del equipo ayuda con reason_id y cancel_reason para tabla de informacion que consuma el bot.', time: 'Mie 8 Jul 9:10', type: 'dm', actionable: true },
+  { from: 'Susana Paniagua → JP (DM)', text: 'ACCESO FIGJAM PAYMENTS (Mie 8 Jul 10:11): JP pide acceso a FigJam de Payments ("no me dejo por permisos"). Susana le da acceso de inmediato — colaboracion activa en flujo Payments Merchant.', time: 'Mie 8 Jul 10:11', type: 'dm', actionable: false },
   { from: 'JP → #incident-management-process', text: 'FIX ASSEMBLED CONFIRMADO (Lun 6 Jul 9:27): JP confirma fix de bug en Assembled — prompting mal configurado esperaba respuesta inmediata del cliente para tomar accion. Ya corregido: bot actua conforme a respuesta del aliado y no antes ni arbitrariamente.', time: 'Lun 6 Jul 9:27', type: 'dm', actionable: false },
-  { from: 'JP → Stephania (#cx-product)', text: 'REVISION CHAT IDS BOT FOOD LIVE (Lun 6 Jul 14:50): JP responde a reporte de Stephania — "regalame los chat id al DM y los revisamos a ver si hay algun error". Revision activa del routing de ordenes canceladas entrando a bot Food Live.', time: 'Lun 6 Jul 14:50', type: 'dm', actionable: true },
-  { from: 'Valeria Dorantes → JP (DM)', text: 'ISSUE TYPES MAPPING (Mar 7 Jul 15:55): Valeria pide que JP llene columna N con issue types ya mapeados en spreadsheet de flujos. Arbol de decision ya listo, necesita enlazarlo con lo que JP esta construyendo. JP prometio ayudar hoy Mie 8.', time: 'Mar 7 Jul 15:55', type: 'dm', actionable: true },
+  { from: 'Valeria Dorantes → JP (DM)', text: 'ISSUE TYPES MAPPING (Mar 7 Jul 15:55): Valeria pide que JP llene columna N con issue types ya mapeados en spreadsheet de flujos. Arbol de decision ya listo, necesita enlazarlo con lo que JP esta construyendo. Pendiente de JP.', time: 'Mar 7 Jul 15:55', type: 'dm', actionable: true },
   { from: 'Stephania Gonzalez → JP (DM)', text: 'CASOS BOT FOOD LIVE (Mar 7 Jul 14:48): Stephania comparte Contact Records de AWS Connect donde ordenes canceladas llegan al bot de Food Live. JP confirmo routing incorrecto: deben ir al bot de canceladas (aun no construido). Bug activo.', time: 'Mar 7 Jul 14:48', type: 'dm', actionable: true },
-  { from: 'JP → Jaime Gomez (#ai-automations)', text: 'BOT DE TRIAGE FIXES (Jue 2 Jul 15:34): JP agradece a Jaime por hallazgos en bot de triage y confirma que va a trabajarlos. "Aviso cuando esten los fixes completos!" — pendiente seguimiento.', time: 'Jue 2 Jul 15:34', type: 'dm', actionable: true },
-  { from: '📅 Kick off Confirmado', text: 'KICK OFF CANCELACIONES Vie 10 Jul 11:15: JP organiza con Elias Rivera, Diego Mesa y Stephania Gonzalez (opcional). Arrancar desarrollo bot Cancelaciones — preparar agenda y entregables.', time: 'Vie 10 Jul 11:15', type: 'dm', actionable: false }
+  { from: 'JP → Jaime Gomez (#ai-automations)', text: 'BOT DE TRIAGE FIXES (Jue 2 Jul 15:34): JP agradece a Jaime por hallazgos en bot de triage y confirma que va a trabajarlos. "Aviso cuando esten los fixes completos!" — pendiente seguimiento.', time: 'Jue 2 Jul 15:34', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '16:15-18:00'] },
   { day: 'Mar', blocks: ['8:00-10:00', '14:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-15:00', '15:30-18:00'] },
+  { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-10:30', '14:30-18:00'] }
 ];
