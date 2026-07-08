@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mie 8 · Actualizado 8 Jul 13:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mie 8 · Actualizado 8 Jul 11:06 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1959,6 +1959,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'JP → Elias Rivera (DM)', text: 'ENTRY ISSUES BOT CANCELACIONES (Mie 8 Jul): JP pregunta a Elias confirmar entry issues del bot: solo tiene "Payments and finances_Disagreement with canceled and compensated orders_Cancelled order". Tambien pide quien del equipo ayuda con reason_id y cancel_reason para tabla de informacion que consuma el bot.', time: 'Mie 8 Jul', type: 'dm', actionable: true },
   { from: 'JP → #incident-management-process', text: 'FIX ASSEMBLED CONFIRMADO (Lun 6 Jul 9:27): JP confirma fix de bug en Assembled — prompting mal configurado esperaba respuesta inmediata del cliente para tomar accion. Ya corregido: bot actua conforme a respuesta del aliado y no antes ni arbitrariamente.', time: 'Lun 6 Jul 9:27', type: 'dm', actionable: false },
   { from: 'JP → Stephania (#cx-product)', text: 'REVISION CHAT IDS BOT FOOD LIVE (Lun 6 Jul 14:50): JP responde a reporte de Stephania — "regalame los chat id al DM y los revisamos a ver si hay algun error". Revision activa del routing de ordenes canceladas entrando a bot Food Live.', time: 'Lun 6 Jul 14:50', type: 'dm', actionable: true },
   { from: 'Valeria Dorantes → JP (DM)', text: 'ISSUE TYPES MAPPING (Mar 7 Jul 15:55): Valeria pide que JP llene columna N con issue types ya mapeados en spreadsheet de flujos. Arbol de decision ya listo, necesita enlazarlo con lo que JP esta construyendo. JP prometio ayudar hoy Mie 8.', time: 'Mar 7 Jul 15:55', type: 'dm', actionable: true },
