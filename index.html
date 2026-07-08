@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mie 8 · Actualizado 8 Jul 17:30 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Mie 8 · Actualizado 8 Jul 15:07 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1499,6 +1499,19 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:77, title:'CX Weekly Business Review', date:'8 Jul',
+    summary:'Revision semanal de metricas y operaciones CX (Mie 8 Jul 11:00-12:00 COT). ~55 asistentes. Organizada por Eugenio La Rosa. Gemini notes disponibles en Google Docs adjunto al evento en Calendar. Temas: metricas automatizacion semana, estado bots activos, prioridades Q3, experimentos Statsig, CR merchants y RT. Post-WBR: Susana Paniagua contacto a JP (12:06 COT) para confirmar kick off Cancelaciones — Andres De Las Casas pregunto sobre cancelaciones en la reunion. JP confirmo prioridad por inflow: cancelaciones primero, payments de segunda.',
+    sections:[
+      'Metricas operativas CX semana — revision desempeno flujos automatizacion activos',
+      'Prioridades Q3 — cancelaciones y merchants plan como temas principales del WBR',
+      'Post-WBR Susana confirmo: Andres pregunto por cancelaciones — JP prioriza inflow primero, payments de segunda'
+    ],
+    actions:[
+      { text:'Revisar Gemini notes CX WBR (Mie 8 Jul, doc adjunto en Calendar): extraer action items especificos para JP y pendientes del equipo.', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Confirmar prioridad cancelaciones vs payments con Andres De Las Casas — segun Susana, pregunto en WBR. Llevar en 1:1 15:00 hoy.', owner:'Juan Pablo', phase:'build', priority:'P0' }
+    ]
+  },
   {
     id:76, title:'Elias Daniel / Juan Pablo Cancelaciones', date:'7 Jul',
     summary:'Handoff del bot de Cancelaciones entre JP y Elias Rivera (Mar 7 Jul 11:45-12:15 COT). JP tomo ownership del bot desde el Lun 6 Jul. Participantes: Elias Rivera, Diego Aguo. Contexto: ordenes canceladas estaban llegando incorrectamente al bot de Food Live en lugar del bot de Cancelaciones (reportado por Stephania via DM con multiples Contact Records AWS Connect). JP confirmo que el routing es incorrecto — las ordenes canceladas deben ir al bot de canceladas (aun no construido). La reunion definio la estructura del bot, plan Q3 y metricas. Gemini notes generadas.',
@@ -1920,6 +1933,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t3014', text:'[HOY Mie 8] Revisar Gemini notes de CX WBR (11:00-12:00): doc adjunto en Google Calendar. Extraer action items — Andres pregunto sobre cancelaciones segun Susana (post-WBR DM). Confirmar en 1:1 con Andres a las 15:00.', phase:'build', priority:'P1', source:'Calendar Mie 8 Jul 11:00 + DM Susana', day:'wed', completed:false },
   { id:'t3001', text:'[P0 PENDIENTE] Documentar estructura completa bot Cancelaciones: output del handoff con Elias Rivera (Mar 7 11:45). Incluir flujos, casos de uso, metricas, plan Q3 y responsables. Reunion ya ocurrio — urgente documentar.', phase:'build', priority:'P0', source:'Reunion Elias/JP Cancelaciones Mar 7 Jul', day:'wed', completed:false },
   { id:'t3002', text:'[P0 PENDIENTE] Investigar bug routing: ordenes canceladas entrando a bot Food Live en vez de bot Cancelaciones. Stephania compartio Contact Records AWS Connect. Revisar logica con Camilo/Cristian Parada.', phase:'build', priority:'P0', source:'DM Stephania Gonzalez Mar 7 Jul', day:'wed', completed:false },
   { id:'t3003', text:'[P0 PENDIENTE] Cargar sizing Q3 en Atlas: datos DSAT de Meiker disponibles. Bloqueante para plan Q3. Pendiente desde semanas atras.', phase:'metrics', priority:'P0', source:'Prioridades semana anterior', day:'wed', completed:false },
@@ -1961,13 +1975,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Susana Paniagua → JP (DM)', text: 'POST-WBR PRIORIDAD CANCELACIONES (Mie 8 Jul 12:06): Susana pregunta a JP cuando tiene kick off de cancelaciones. JP responde "La otra semanita" (prox semana). Susana comenta que Andres pregunto en la reunion — contexto: post-CX WBR discusion sobre prioridad cancelaciones. JP aclara: "por inflow va a quedar priorizado cancelaciones por inflow y payments de segundas tal cual". Susana ofrece apoyo. JP la invita al kick off.', time: 'Mie 8 Jul 12:06', type: 'dm', actionable: true },
-  { from: 'JP → Elias Rivera (DM)', text: 'ENTRY ISSUES BOT CANCELACIONES (Mie 8 Jul 9:10): JP pregunta a Elias confirmar entry issues del bot: solo tiene "Payments and finances_Disagreement with canceled and compensated orders_Cancelled order". Tambien pide quien del equipo ayuda con reason_id y cancel_reason para tabla de informacion que consuma el bot.', time: 'Mie 8 Jul 9:10', type: 'dm', actionable: true },
-  { from: 'Susana Paniagua → JP (DM)', text: 'ACCESO FIGJAM PAYMENTS (Mie 8 Jul 10:11): JP pide acceso a FigJam de Payments ("no me dejo por permisos"). Susana le da acceso de inmediato — colaboracion activa en flujo Payments Merchant.', time: 'Mie 8 Jul 10:11', type: 'dm', actionable: false },
-  { from: 'JP → #incident-management-process', text: 'FIX ASSEMBLED CONFIRMADO (Lun 6 Jul 9:27): JP confirma fix de bug en Assembled — prompting mal configurado esperaba respuesta inmediata del cliente para tomar accion. Ya corregido: bot actua conforme a respuesta del aliado y no antes ni arbitrariamente.', time: 'Lun 6 Jul 9:27', type: 'dm', actionable: false },
-  { from: 'Valeria Dorantes → JP (DM)', text: 'ISSUE TYPES MAPPING (Mar 7 Jul 15:55): Valeria pide que JP llene columna N con issue types ya mapeados en spreadsheet de flujos. Arbol de decision ya listo, necesita enlazarlo con lo que JP esta construyendo. Pendiente de JP.', time: 'Mar 7 Jul 15:55', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez → JP (DM)', text: 'CASOS BOT FOOD LIVE (Mar 7 Jul 14:48): Stephania comparte Contact Records de AWS Connect donde ordenes canceladas llegan al bot de Food Live. JP confirmo routing incorrecto: deben ir al bot de canceladas (aun no construido). Bug activo.', time: 'Mar 7 Jul 14:48', type: 'dm', actionable: true },
-  { from: 'JP → Jaime Gomez (#ai-automations)', text: 'BOT DE TRIAGE FIXES (Jue 2 Jul 15:34): JP agradece a Jaime por hallazgos en bot de triage y confirma que va a trabajarlos. "Aviso cuando esten los fixes completos!" — pendiente seguimiento.', time: 'Jue 2 Jul 15:34', type: 'dm', actionable: true }
+  { from: 'JP → Maria Granada (DM)', text: 'ATLAS INPUT METRICS (Mie 8 Jul): JP consulta a Maria como registrar inputs metrics en Atlas — "una dudita de Atlas los inputs metrics es llenar este segmento de Idea brief o donde se llenan?" — bloqueante para sizing Q3. Maria respondio y JP quedo confundido, pide 10 minutos de Meet para aclarar.', time: 'Mie 8 Jul', type: 'dm', actionable: true },
+  { from: 'Susana Paniagua → JP (DM)', text: 'POST-WBR PRIORIDAD CANCELACIONES (Mie 8 Jul 12:06): Susana pregunta a JP cuando tiene kick off de cancelaciones. JP: "La otra semanita". Andres pregunto en WBR — JP aclara prioridad por inflow: cancelaciones primero, payments de segunda. Susana se suma al kick off.', time: 'Mie 8 Jul 12:06', type: 'dm', actionable: true },
+  { from: 'JP → Elias Rivera (DM)', text: 'ENTRY ISSUES BOT CANCELACIONES (Mie 8 Jul 9:10): JP pregunta a Elias confirmar entry issues del bot — solo "Payments and finances_Disagreement with canceled and compensated orders_Cancelled order". Pide quien ayuda con reason_id y cancel_reason para la tabla del bot.', time: 'Mie 8 Jul 9:10', type: 'dm', actionable: true },
+  { from: 'JP → Stephania Gonzalez (DM)', text: 'ACCESO DOC CANCELACIONES (esta semana): JP pide acceso para editar documento de Stephania sobre cancelaciones — "Me regalas acceso para editar el doc steph pls". Stephania es contacto clave para routing fix del bot.', time: 'Esta semana', type: 'dm', actionable: false },
+  { from: 'Susana Paniagua → JP (DM)', text: 'ACCESO FIGJAM PAYMENTS (Mie 8 Jul 10:11): JP pide acceso a FigJam de Payments. Susana da acceso de inmediato — colaboracion activa en flujo Payments Merchant.', time: 'Mie 8 Jul 10:11', type: 'dm', actionable: false },
+  { from: 'Valeria Dorantes → JP (DM)', text: 'ISSUE TYPES MAPPING (Mar 7 Jul 15:55): Valeria pide a JP llenar columna N con issue types ya mapeados en spreadsheet de flujos. Arbol de decision listo, necesita enlazarlo con lo que JP construye. Pendiente de JP.', time: 'Mar 7 Jul 15:55', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez → JP (DM)', text: 'CASOS BOT FOOD LIVE (Mar 7 Jul 14:48): Stephania comparte Contact Records de AWS Connect — ordenes canceladas llegan al bot de Food Live. JP confirmo routing incorrecto: deben ir al bot de canceladas (aun no construido). Bug activo.', time: 'Mar 7 Jul 14:48', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
