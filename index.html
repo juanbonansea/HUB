@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Jue 9 · Actualizado 9 Jul 08:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Jue 9 · Actualizado 9 Jul 09:15 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1947,7 +1947,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t3801', text:'[P0 HOY Jue 9] Preparar agenda Kick off Cancelaciones Vie 10 11:15 — definir estructura del bot, entregables esperados y responsables. Elias Rivera compartio entry issues Assembled ayer (Mie 8 17:08): mayor mismatch en "Integration support" y "Gestao da minha loja". Confirmar si el BI que JP pidio a Elias (noche Mie 8) esta disponible.', phase:'build', priority:'P0', source:'Calendar Vie 10 + Group DM Elias Mie 8 17:08', day:'thu', completed:false },
+  { id:'t3801', text:'[P0 HOY Jue 9] Preparar agenda Kick off Cancelaciones Vie 10 11:15 — BI YA RECIBIDO de Elias (Jue 9 08:55, Power BI link disponible). Definir estructura del bot, entregables y responsables. Entry issues Assembled (mismatch: "Integration support" y "Gestao da minha loja") tambien disponibles para revisar. Pendiente: responder a Andres Diaz en Group DM que pide update del estado.', phase:'build', priority:'P0', source:'Calendar Vie 10 + DM Elias Jue 9 08:55', day:'thu', completed:false },
   { id:'t3001', text:'[P0 PENDIENTE] Documentar estructura completa bot Cancelaciones: output del handoff con Elias Rivera (Mar 7 11:45). Incluir flujos, casos de uso, metricas, plan Q3 y responsables. Urgente antes del Kick off Vie 10.', phase:'build', priority:'P0', source:'Reunion Elias/JP Cancelaciones Mar 7 Jul', day:'thu', completed:false },
   { id:'t3003', text:'[P0 PENDIENTE] Cargar sizing Q3 en Atlas: datos DSAT de Meiker disponibles (5 puntos por iniciativa). Bloqueante para plan Q3. Pendiente desde semanas atras.', phase:'metrics', priority:'P0', source:'Prioridades semana anterior', day:'thu', completed:false },
   { id:'t3802', text:'[P1 HOY Jue 9] Revisar spreadsheet entry issues Assembled (Elias, Mie 8 17:08): issues sin handoff desde Assembled. Amarillo = candidatos para orquestador; Azul = automatizaciones Merchants Q3 ya priorizadas. Confirmar cuales sumar al backlog.', phase:'build', priority:'P1', source:'Group DM Elias Rivera Mie 8 Jul 17:08', day:'thu', completed:false },
@@ -1988,13 +1988,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Elias Rivera → JP, Maria, F.Diaz (Group DM)', text: 'ENTRY ISSUES ASSEMBLED (Mie 8 17:08): Elias comparte top issue types de la semana que llegaron a agente SIN handoff desde Assembled. Amarillo = candidatos para orquestador; Azul = automatizaciones Merchants Q3 ya priorizadas. Mayor mismatch: "Integration support" y "Gestao da minha loja". JP respondio: "Listo reviso y manana si algo les aviso." — pendiente confirmar hoy Jue 9.', time: 'Mie 8 17:08', type: 'dm', actionable: true },
-  { from: 'JP → Elias Rivera (DM)', text: 'SOLICITUD BI (Mie 8 20:21): JP pidio a Elias el BI: "eli me puedes mandar el BI". Pendiente de respuesta — necesario para preparar el Kick off Cancelaciones Vie 10 11:15.', time: 'Mie 8 20:21', type: 'dm', actionable: true },
-  { from: 'Cristian Parada → JP (#cx-prod-eng-leads)', text: 'GANTT Q3 CONFIRMADO (Mie 8 16:59): Cristian pregunto si el gantt estaba listo para Jira — "necesitamos ponernos a cuadrar con manu pa empezar Q3". JP respondio "Done!" — gantt listo para subir.', time: 'Mie 8 16:59', type: 'channel', actionable: false },
-  { from: 'Andres De Las Casas → JP (#cx-management-team)', text: 'REVISION PRIORIDADES FALLOS (Mie 8 13:14): Andres pide a JP revisar prioridad de items y alinear cuales fallos ya se trabajaron con Diego Mesa. Cc Maria Granada y Cristian Parada. Sin respuesta aun de JP.', time: 'Mie 8 13:14', type: 'channel', actionable: true },
-  { from: 'Stephania Gonzalez → JP (DM)', text: 'BUG ROUTING RESUELTO (Mie 8 15:19-17:19): Stephania pregunto si un issue quedo bien. JP confirmo "correcto ya quedo, hay reincidencia?" — bug de routing aparentemente resuelto. Pendiente confirmar si hubo reincidencia.', time: 'Mie 8 17:19', type: 'dm', actionable: false },
-  { from: 'Susana Paniagua → JP, Maria, Meiker (Group DM)', text: 'ASSEMBLED CAIDA (Mie 8 16:53): Susana pide registrar en el hilo cualquier evento de caida de la plataforma Assembled antes de cerrarlo.', time: 'Mie 8 16:53', type: 'dm', actionable: false },
-  { from: 'Maria Granada → JP (DM)', text: 'ALINEACION MERCHANTS (Mie 8 15:33-16:48): Maria recomienda "super alinear las expectativas con merchants porque son muy soñadores y quieren hacer de todo" — recursos limitados, ser selectivos en scope. JP: "si tal cual, gracias!"', time: 'Mie 8 15:59', type: 'dm', actionable: false }
+  { from: 'Elias Rivera → JP (DM)', text: 'BI CANCELACIONES RECIBIDO (Jue 9 08:55): Elias envio el link del Power BI de Cancelaciones: "Buenos dias!! solo es ese entry issue, te comparto el Link del BI. En un momento te paso los reason, me toca descargarlos desde data." — BI disponible para preparar el Kick off de manana Vie 10 11:15. JP respondio "Hola Eli yo tenia estas en el radar".', time: 'Jue 9 08:55', type: 'dm', actionable: true },
+  { from: 'Andres Diaz → Grupo (Group DM)', text: 'UPDATE SOLICITADO (Jue 9 08:37): Andres Diaz pregunto en el grupo (Camilo, Elias, Gregson, Manuel, JP): "buen dia, tenemos update?" — sobre el estado del bot / automatizaciones. Pendiente de respuesta de JP.', time: 'Jue 9 08:37', type: 'dm', actionable: true },
+  { from: 'Elias Rivera → JP, Maria, F.Diaz (Group DM)', text: 'ENTRY ISSUES ASSEMBLED (Mie 8 17:08): Elias comparte top issue types sin handoff desde Assembled. Amarillo = candidatos para orquestador; Azul = automatizaciones Merchants Q3. Mayor mismatch: "Integration support" y "Gestao da minha loja". JP respondio: "Listo reviso y manana si algo les aviso."', time: 'Mie 8 17:08', type: 'dm', actionable: true },
+  { from: 'Cristian Parada → JP (#cx-prod-eng-leads)', text: 'GANTT Q3 CONFIRMADO (Mie 8 16:59): Cristian pregunto si el gantt estaba listo para Jira. JP respondio "Done!" — gantt listo para subir a Jira y arrancar Q3.', time: 'Mie 8 16:59', type: 'channel', actionable: false },
+  { from: 'Andres De Las Casas → JP (#cx-management-team)', text: 'REVISION PRIORIDADES FALLOS (Mie 8 13:14): Andres pide revisar prioridad de items y alinear cuales fallos ya se trabajaron con Diego Mesa. Cc Maria Granada y Cristian Parada. Pendiente respuesta JP.', time: 'Mie 8 13:14', type: 'channel', actionable: true },
+  { from: 'Susana Paniagua → JP, Maria, Meiker (Group DM)', text: 'ASSEMBLED CAIDA (Mie 8 16:53): Susana pide registrar en el hilo eventos de caida de Assembled antes de cerrarlo. Seguimiento para historico de incidentes.', time: 'Mie 8 16:53', type: 'dm', actionable: false },
+  { from: 'Maria Granada → JP (DM)', text: 'ALINEACION MERCHANTS (Mie 8 15:33-16:48): Maria recomienda "super alinear las expectativas con merchants porque son muy soñadores" — recursos limitados, ser selectivos en scope. JP confirmo alineacion.', time: 'Mie 8 15:59', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
