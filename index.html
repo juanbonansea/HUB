@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Jue 9 · Actualizado 9 Jul 20:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Jue 9 · Actualizado 9 Jul 17:08 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1512,6 +1512,19 @@ const NOTES = [
     actions:[
       { text:'Revisar Gemini notes CX Design Review (Jue 9 Jul, Google Docs adjunto en Calendar) y extraer action items especificos para JP.', owner:'Juan Pablo', phase:'build', priority:'P1' },
       { text:'Confirmar con equipo CX si hay pendientes de diseno para el Kick off Cancelaciones Vie 10 11:15.', owner:'Juan Pablo', phase:'build', priority:'P1' }
+    ]
+  },
+  {
+    id:79, title:'Alineacion Plan Merchants', date:'8 Jul',
+    summary:'Reunion de alineacion sobre el plan de iniciativas Merchants Q3 (Mie 8 Jul 15:30-16:00 COT). Organizadora: Maria Granada. Participantes: Elias Rivera, F. Diaz y JP. Reunion creada el mismo dia (12:05 COT) como seguimiento inmediato al CX WBR de la manana. Gemini notes disponibles en Google Docs adjunto al evento en Calendar. Objetivo: definir estructura, prioridades y cronograma del plan Merchants Q3, incluyendo asignacion de responsables y alineacion entre el equipo de producto (JP, Elias) y la coordinacion de Maria Granada.',
+    sections:[
+      'Estructura plan Merchants Q3 — cronograma y responsables por subiniciativa',
+      'Prioridades del plan — cancelaciones, pagos y flujos de automatizacion',
+      'Alineacion JP-Elias-FDiaz sobre proximos pasos y dependencias tecnicas'
+    ],
+    actions:[
+      { text:'Revisar Gemini notes Alineacion Plan Merchants (Mie 8 Jul 15:30, Google Docs adjunto en Calendar) y extraer action items para JP.', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Definir con Maria Granada el cronograma Q3 post-alineacion: fechas de entrega, responsables y dependencias entre subiniciativas Merchants.', owner:'Juan Pablo / Maria Granada', phase:'build', priority:'P1' }
     ]
   },
   {
@@ -1948,6 +1961,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t3921', text:'[P1 HOY Jue 9] Revisar analisis de mismatch y entry issues compartido por Elias Rivera en group DM (Jue 9 ~16:30): Claude genero el analisis — puede servir para diseno del orquestador AI Merchants. Leer y extraer insights accionables para el Kick off Cancelaciones Vie 10.', phase:'build', priority:'P1', source:'Group DM Elias/FDiaz/Maria/JP Jue 9', day:'thu', completed:false },
   { id:'t3901', text:'[P0 HOY Jue 9] SCOPE BOT CAMBIA: Elias confirmo (DM 10:59) que el bot DEBE ejecutar ajuste desde automatizacion cuando aplique — no es solo informativo. Confirmar este enfoque transaccional con Andres De Las Casas antes del Kick off Vie 10.', phase:'build', priority:'P0', source:'DM Elias Rivera Jue 9 10:59', day:'thu', completed:false },
   { id:'t3902', text:'[P0 HOY Jue 9] Revisar y documentar 6 endpoints requeridos del bot (Elias DM 10:59): (1) info orden, (2) partner-payment validar como se pago, (3) Lupe reason_id, (4) order_events RT salio de tienda?, (5) contract conditions para recalculo, (6) endpoint ajuste/reembolso. Confirmar cuales existen vs por construir.', phase:'build', priority:'P0', source:'DM Elias Rivera Jue 9 10:59', day:'thu', completed:false },
   { id:'t3801', text:'[P0 HOY Jue 9] Preparar agenda Kick off Cancelaciones Vie 10 11:15: scope transaccional definido, 6 endpoints identificados, cancel reasons file recibido. Definir entregables, responsables y plan Q3.', phase:'build', priority:'P0', source:'Calendar Vie 10 + DM Elias Jue 9 10:59', day:'thu', completed:false },
@@ -1982,6 +1996,7 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d710', text:'Resolver problema de ambiente en bot merchants: equipo (Camilo, Elias, Gregson, Manuel) no encuentra la causa en dev. Camilo propone desplegar en paises pequenos para probar (Jue 9 ~17:00). JP debe confirmar si hay luz verde para deploy en paises chicos y hacer seguimiento al diagnostico.', owner:'Camilo Esquivel / Elias Rivera / Gregson Murcia', source:'Group DM Jue 9 Jul', status:'en progreso' },
   { id:'d701', text:'Implementar fix WhatsApp automatizacion: solo WA con fuga (portal partners OK). Manuel Gruezo implementando fix en MS desde Lun 6 Jul 19:37. Confirmar que el fix esta desplegado y el flujo WA ya no tiene fugas.', owner:'Manuel Gruezo / Elias Rivera', source:'DM Elias Rivera + Manuel Gruezo Lun 6 Jul', status:'en progreso' },
   { id:'d702', text:'Confirmar datos DSAT Atlas para sizing Q3: Meiker tiene los datos (5 puntos por iniciativa). JP debe confirmar que Meiker cargo los datos en Atlas para desbloquear el plan Q3.', owner:'Meiker Munera', source:'Prioridades semana anterior', status:'pendiente' },
   { id:'d703', text:'Seguimiento endpoints Food Non Live Integration — coberturas bloqueado por otro equipo. Gregson haciendo push para desbloquear. Definir quien es responsable del endpoint cruzar coberturas.', owner:'Gregson Murcia / Manuel Gruezo', source:'Group DM AI Flujos Lun 22 Jun', status:'en progreso' },
@@ -1994,13 +2009,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Camilo Esquivel → Group DM (Merchants)', text: 'ENV ISSUE BOT MERCHANTS (Jue 9 ~17:00): Camilo en group DM con Elias, Andres Diaz, Gregson, Manuel Gruezo y JP: "en dev no encontramos la causa de porque no nos funciona, al parecer es un problema de ambiente, podemos desplegar en paises pequenos y vamos probando?" — blocker en merchants bot, propone testing en paises chicos.', time: 'Jue 9 ~17:00', type: 'dm', actionable: true },
+  { from: 'Elias Rivera → Group DM (Elias/FDiaz/Maria/JP)', text: 'ANALISIS MISMATCH CLAUDE (Jue 9 ~16:30): Elias comparte analisis armado por Claude sobre mismatch y entry issues de la semana: "Les comparto un analisis que nos armo claude de mismatch y de los entry issues que nos han llegado esta semana, tal vez les puede servir para el orquestador." Util para el diseno del orquestador AI Merchants.', time: 'Jue 9 ~16:30', type: 'dm', actionable: true },
   { from: 'JP → Elias Rivera (DM)', text: 'REVISION ENDPOINTS AGENDADA (Jue 9 14:37): JP cito a Elias a las 4:30pm para revisar bien los endpoints del bot Cancelaciones. Reunion creada: "Revision de Endpoints" 16:30-17:15 COT.', time: 'Jue 9 14:37', type: 'dm', actionable: false },
   { from: 'Alejandro Ruiz → JP (DM)', text: 'FOLLOW UP ENTRY ISSUES (Jue 9 14:43): Alejandro pregunta sobre entry issues que salen como handoff vs los que no. JP respondio que esta ocupado y respondera manana temprano.', time: 'Jue 9 14:43', type: 'dm', actionable: true },
   { from: 'Elias Rivera → JP (DM)', text: 'BOTS 100% (Jue 9 12:19): Elias pregunto: "los bots de integradas, suspensiones y live estan al 100% ya?" JP confirmo (12:39): "asi es". Bots integradas, suspensiones y live funcionando al 100%.', time: 'Jue 9 12:19', type: 'dm', actionable: false },
   { from: 'Alejandro Ruiz → JP (DM)', text: 'ENTRY ISSUES MERCHANTS (Jue 9 12:08): Alejandro (diego.aguo) pide que JP comparta los entry issues que ya estan automatizados del lado merchants. Pendiente respuesta de JP.', time: 'Jue 9 12:08', type: 'dm', actionable: true },
-  { from: 'Elias Rivera → JP (DM)', text: 'FIGMA AI MERCHANTS ORCHESTRATOR (Jue 9 11:14): Elias comparte Figma del orquestador AI Merchants (solicitado por JP). JP va a hacer el Figma del bot Cancelaciones y cita a Elias en la tarde para double check.', time: 'Jue 9 11:14', type: 'dm', actionable: true },
-  { from: 'Elias Rivera → JP (DM)', text: 'ENDPOINTS BOT CANCELACIONES (Jue 9 10:59): 6 endpoints necesarios: (1) info orden, (2) partner-payment validar pago, (3) Lupe reason_id, (4) order_events si salio de tienda, (5) contract conditions para recalculo, (6) ajuste reembolso. Bot DEBE ejecutar ajuste desde automatizacion — no solo informar. Glosario de copys en helpjuice disponible.', time: 'Jue 9 10:59', type: 'dm', actionable: true },
-  { from: 'JP → Group DM Cancelaciones', text: 'PRE-KICK OFF (Jue 9 10:34): JP lanzo 4 preguntas antes del Kick off Vie 10: (1) approach informativo vs transaccional?, (2) fuente datos: Power BI o endpoints directos?, (3) pide a Andres Diaz traducir codigos a lenguaje natural, (4) casos de escalamiento mas alla de "no info". CC Andres De Las Casas.', time: 'Jue 9 10:34', type: 'dm', actionable: true }
+  { from: 'Elias Rivera → JP (DM)', text: 'ENDPOINTS BOT CANCELACIONES (Jue 9 10:59): 6 endpoints necesarios: (1) info orden, (2) partner-payment validar pago, (3) Lupe reason_id, (4) order_events si salio de tienda, (5) contract conditions para recalculo, (6) ajuste reembolso. Bot DEBE ejecutar ajuste desde automatizacion — no solo informar. Glosario de copys en helpjuice disponible.', time: 'Jue 9 10:59', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
