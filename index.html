@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Jue 9 · Actualizado 9 Jul 09:15 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Jue 9 · Actualizado 9 Jul 15:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1494,7 +1494,7 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'11:15-12:00', title:'Kick off Cancelaciones <> Product-Tech', attendees:4, org:'juan.bonansea@rappi.com', type:'team', note:'Kick off entre JP y equipo Product-Tech para bot Cancelaciones. Participantes: Elias Rivera, Diego Mesa, Stephania Gonzalez (opcional). JP organiza.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal QA AI — revision estado flujos automatizacion, metricas y next steps Q3.' },
+    { time:'14:30-15:00', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal QA AI — revision estado flujos automatizacion, metricas y next steps Q3.' },
     { time:'16:30-17:00', title:'Assembled-Snowflake', attendees:6, org:'deisy.daza@rappi.com', type:'external', note:'Integracion Assembled con Snowflake — con Jorge Calvache, Maria Granada, Deisy Daza, Cristian Parada y Andres De Las Casas. Agendada Mie 8 Jul.' }
   ]
 };
@@ -1947,18 +1947,19 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t3801', text:'[P0 HOY Jue 9] Preparar agenda Kick off Cancelaciones Vie 10 11:15 — BI YA RECIBIDO de Elias (Jue 9 08:55, Power BI link disponible). Definir estructura del bot, entregables y responsables. Entry issues Assembled (mismatch: "Integration support" y "Gestao da minha loja") tambien disponibles para revisar. Pendiente: responder a Andres Diaz en Group DM que pide update del estado.', phase:'build', priority:'P0', source:'Calendar Vie 10 + DM Elias Jue 9 08:55', day:'thu', completed:false },
-  { id:'t3001', text:'[P0 PENDIENTE] Documentar estructura completa bot Cancelaciones: output del handoff con Elias Rivera (Mar 7 11:45). Incluir flujos, casos de uso, metricas, plan Q3 y responsables. Urgente antes del Kick off Vie 10.', phase:'build', priority:'P0', source:'Reunion Elias/JP Cancelaciones Mar 7 Jul', day:'thu', completed:false },
-  { id:'t3003', text:'[P0 PENDIENTE] Cargar sizing Q3 en Atlas: datos DSAT de Meiker disponibles (5 puntos por iniciativa). Bloqueante para plan Q3. Pendiente desde semanas atras.', phase:'metrics', priority:'P0', source:'Prioridades semana anterior', day:'thu', completed:false },
-  { id:'t3802', text:'[P1 HOY Jue 9] Revisar spreadsheet entry issues Assembled (Elias, Mie 8 17:08): issues sin handoff desde Assembled. Amarillo = candidatos para orquestador; Azul = automatizaciones Merchants Q3 ya priorizadas. Confirmar cuales sumar al backlog.', phase:'build', priority:'P1', source:'Group DM Elias Rivera Mie 8 Jul 17:08', day:'thu', completed:false },
-  { id:'t3016', text:'[P1 PENDIENTE] Revisar y priorizar items de Andres De Las Casas (#cx-management-team Mie 8 13:14): alinear cuales fallos ya se trabajaron con Diego Mesa. Cc Maria Granada y Cristian Parada.', phase:'build', priority:'P1', source:'Slack #cx-management-team Mie 8 Jul 13:14', day:'thu', completed:false },
-  { id:'t3011', text:'[P1 PENDIENTE] Pasar issue types a Valeria Dorantes (#rest-portal-unificado): arbol ya listo, Valeria espera input de JP para anclar issue types a opciones nuevas. Pendiente desde Mar 7.', phase:'build', priority:'P1', source:'DM Valeria Dorantes Mar 7 Jul 16:00', day:'thu', completed:false },
-  { id:'t3007', text:'[Vie 10 11:15] Kick off Cancelaciones <> Product-Tech: llevar agenda preparada, estructura del bot y entregables con Elias Rivera, Diego Mesa y Stephania Gonzalez (opcional). JP es organizador.', phase:'build', priority:'P1', source:'Calendar Vie 10 Jul 11:15', day:'fri', completed:false },
-  { id:'t3008', text:'[Vie 10 14:00] Weekly QA AI: llevar metricas flujos automatizacion, estado bot cancelaciones y next steps Q3.', phase:'metrics', priority:'P1', source:'Calendar Vie 10 Jul 14:00', day:'fri', completed:false },
-  { id:'t3017', text:'[Vie 10 16:30] Assembled-Snowflake: reunion integracion Assembled con Snowflake. Confirmar agenda con Deisy Daza — Jorge Calvache, Maria Granada, Cristian Parada y Andres De Las Casas.', phase:'build', priority:'P2', source:'Calendar Vie 10 Jul 16:30', day:'fri', completed:false },
+  { id:'t3901', text:'[P0 HOY Jue 9] SCOPE BOT CAMBIA: Elias confirmo (DM 10:59) que el bot DEBE ejecutar ajuste desde automatizacion cuando aplique — no es solo informativo. Confirmar este enfoque transaccional con Andres De Las Casas antes del Kick off Vie 10.', phase:'build', priority:'P0', source:'DM Elias Rivera Jue 9 10:59', day:'thu', completed:false },
+  { id:'t3902', text:'[P0 HOY Jue 9] Revisar y documentar 6 endpoints requeridos del bot (Elias DM 10:59): (1) info orden, (2) partner-payment validar como se pago, (3) Lupe reason_id, (4) order_events RT salio de tienda?, (5) contract conditions para recalculo, (6) endpoint ajuste/reembolso. Confirmar cuales existen vs por construir.', phase:'build', priority:'P0', source:'DM Elias Rivera Jue 9 10:59', day:'thu', completed:false },
+  { id:'t3801', text:'[P0 HOY Jue 9] Preparar agenda Kick off Cancelaciones Vie 10 11:15: scope transaccional definido, 6 endpoints identificados, cancel reasons file recibido. Definir entregables, responsables y plan Q3.', phase:'build', priority:'P0', source:'Calendar Vie 10 + DM Elias Jue 9 10:59', day:'thu', completed:false },
+  { id:'t3903', text:'[P1 HOY Jue 9] Pedir a Andres Diaz (f.diaz) que traduzca cancel reason codes a reglas en lenguaje natural para el bot — evitar alucinaciones. Glosario helpjuice disponible (Elias 09:38). Pendiente respuesta en group DM de preguntas JP (10:34).', phase:'build', priority:'P1', source:'Group DM Cancelaciones Jue 9 10:34', day:'thu', completed:false },
+  { id:'t3001', text:'[P0 PENDIENTE] Documentar estructura completa bot Cancelaciones: output handoff Elias Rivera (Mar 7 11:45). Incluir flujos, casos de uso, metricas, plan Q3 y responsables. Urgente antes del Kick off Vie 10.', phase:'build', priority:'P0', source:'Reunion Elias/JP Cancelaciones Mar 7 Jul', day:'thu', completed:false },
+  { id:'t3003', text:'[P0 PENDIENTE] Cargar sizing Q3 en Atlas: datos DSAT de Meiker disponibles (5 puntos por iniciativa). Bloqueante para plan Q3.', phase:'metrics', priority:'P0', source:'Prioridades semana anterior', day:'thu', completed:false },
+  { id:'t3016', text:'[P1 HOY Jue 9] Responder Andres De Las Casas (#cx-management-team Mie 8 13:14): revisar cuales fallos ya se trabajaron con Diego Mesa. Cc Maria Granada y Cristian Parada.', phase:'build', priority:'P1', source:'Slack #cx-management-team Mie 8 Jul 13:14', day:'thu', completed:false },
+  { id:'t3011', text:'[P1 PENDIENTE] Pasar issue types a Valeria Dorantes (#rest-portal-unificado): arbol ya listo, Valeria espera input de JP. Pendiente desde Mar 7.', phase:'build', priority:'P1', source:'DM Valeria Dorantes Mar 7 Jul 16:00', day:'thu', completed:false },
+  { id:'t3007', text:'[Vie 10 11:15] Kick off Cancelaciones <> Product-Tech: llevar scope transaccional, 6 endpoints, agenda y entregables. Elias Rivera, Diego Mesa y Stephania Gonzalez (opcional). JP organiza.', phase:'build', priority:'P1', source:'Calendar Vie 10 Jul 11:15', day:'fri', completed:false },
+  { id:'t3008', text:'[Vie 10 14:30] Weekly QA AI: llevar metricas flujos automatizacion, estado bot cancelaciones y next steps Q3.', phase:'metrics', priority:'P1', source:'Calendar Vie 10 Jul 14:30', day:'fri', completed:false },
+  { id:'t3017', text:'[Vie 10 16:30] Assembled-Snowflake: integracion con Snowflake — Jorge Calvache, Maria Granada, Deisy Daza, Cristian Parada y Andres De Las Casas.', phase:'build', priority:'P2', source:'Calendar Vie 10 Jul 16:30', day:'fri', completed:false },
   { id:'t3009', text:'[SEMANA] Coordinar Readout experimento CDO con Nicolas Bejarano: al 50% todos los paises, 500 users. Definir si sample es suficiente.', phase:'metrics', priority:'P1', source:'Prioridades semana anterior', day:'thu', completed:false },
-  { id:'t3010', text:'[SEMANA] Revisar notas Gemini sesion Payments Merchant (Lun 6 15:45): grabacion disponible en Drive. Extraer action items y definir proximos pasos con Susana Paniagua.', phase:'build', priority:'P2', source:'Calendar Lun 6 Jul 15:45', day:'thu', completed:false },
-  { id:'t3012', text:'[SEMANA] Trabajar fixes bot de triage identificados por Jaime Gomez (#ai-automations Jul 2). JP prometio avisar cuando esten los fixes.', phase:'build', priority:'P2', source:'Slack #ai-automations Jue 2 Jul', day:'thu', completed:false }
+  { id:'t3010', text:'[SEMANA] Revisar notas Gemini sesion Payments Merchant (Lun 6 15:45): grabacion en Drive. Extraer action items y definir proximos pasos con Susana Paniagua.', phase:'build', priority:'P2', source:'Calendar Lun 6 Jul 15:45', day:'thu', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1984,17 +1985,18 @@ const DEFAULT_DELEGATED = [
   { id:'d705', text:'Probar Bot de Triaje: pruebas exhaustivas en Connect para validar precision al clasificar las 6 categorias asignadas', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' },
   { id:'d706', text:'Implementar Order Status en bot Live: flujo de estado de la orden para mitigar volumen de contactos y filtrar antes de pasar a agentes', owner:'Elias Rivera / Andres De Las Casas', source:'CX Weekly Business Review 3 Jun', status:'pendiente' },
   { id:'d707', text:'Agregar Store Id a la metadata del flujo de suspensiones para merchants non live — metadata llega sin Store Id causando que merchants no puedan identificarlo, aumentando DSAT y handoff rate.', owner:'Cristian Parada', source:'DM Juan Pablo Vie 12 Jun', status:'pendiente' },
-  { id:'d708', text:'Completar configuracion experimento Statsig AI chatbot merchants WA: finalizar setup para paises grandes y todas las plataformas (WhatsApp, Portal Partners, RapiAliados)', owner:'Camilo Esquivel', source:'Group DM AI Flujos Vie 12 Jun', status:'en progreso' }
+  { id:'d708', text:'Completar configuracion experimento Statsig AI chatbot merchants WA: finalizar setup para paises grandes y todas las plataformas (WhatsApp, Portal Partners, RapiAliados)', owner:'Camilo Esquivel', source:'Group DM AI Flujos Vie 12 Jun', status:'en progreso' },
+  { id:'d709', text:'Fix bug Statsig/facts-manager experimento bot merchants (Jue 9 09:19): experimento no se evalua correctamente en facts-manager. Movido a rules-engine pero pierde la eleccion del usuario. Debe identificar el motivo y corregir en facts-manager. Bot merchants bloqueado hasta que este resuelto.', owner:'Camilo Esquivel', source:'Group DM Jue 9 Jul 09:19', status:'en progreso' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Elias Rivera → JP (DM)', text: 'BI CANCELACIONES RECIBIDO (Jue 9 08:55): Elias envio el link del Power BI de Cancelaciones: "Buenos dias!! solo es ese entry issue, te comparto el Link del BI. En un momento te paso los reason, me toca descargarlos desde data." — BI disponible para preparar el Kick off de manana Vie 10 11:15. JP respondio "Hola Eli yo tenia estas en el radar".', time: 'Jue 9 08:55', type: 'dm', actionable: true },
-  { from: 'Andres Diaz → Grupo (Group DM)', text: 'UPDATE SOLICITADO (Jue 9 08:37): Andres Diaz pregunto en el grupo (Camilo, Elias, Gregson, Manuel, JP): "buen dia, tenemos update?" — sobre el estado del bot / automatizaciones. Pendiente de respuesta de JP.', time: 'Jue 9 08:37', type: 'dm', actionable: true },
-  { from: 'Elias Rivera → JP, Maria, F.Diaz (Group DM)', text: 'ENTRY ISSUES ASSEMBLED (Mie 8 17:08): Elias comparte top issue types sin handoff desde Assembled. Amarillo = candidatos para orquestador; Azul = automatizaciones Merchants Q3. Mayor mismatch: "Integration support" y "Gestao da minha loja". JP respondio: "Listo reviso y manana si algo les aviso."', time: 'Mie 8 17:08', type: 'dm', actionable: true },
-  { from: 'Cristian Parada → JP (#cx-prod-eng-leads)', text: 'GANTT Q3 CONFIRMADO (Mie 8 16:59): Cristian pregunto si el gantt estaba listo para Jira. JP respondio "Done!" — gantt listo para subir a Jira y arrancar Q3.', time: 'Mie 8 16:59', type: 'channel', actionable: false },
+  { from: 'Elias Rivera → JP (DM)', text: 'ENDPOINTS BOT CANCELACIONES (Jue 9 10:59): 6 endpoints necesarios: (1) info orden, (2) partner-payment validar pago, (3) Lupe reason_id, (4) order_events si salio de tienda, (5) contract conditions para recalculo, (6) ajuste reembolso. Bot DEBE ejecutar ajuste desde automatizacion — no solo informar. Glosario de copys en helpjuice disponible.', time: 'Jue 9 10:59', type: 'dm', actionable: true },
+  { from: 'JP → Group DM Cancelaciones', text: 'PRE-KICK OFF (Jue 9 10:34): JP lanzo 4 preguntas antes del Kick off Vie 10: (1) approach informativo vs transaccional?, (2) fuente datos: Power BI o endpoints directos?, (3) pide a Andres Diaz traducir codigos a lenguaje natural, (4) casos de escalamiento mas alla de "no info". CC Andres De Las Casas.', time: 'Jue 9 10:34', type: 'dm', actionable: true },
+  { from: 'Maria Granada → JP (DM)', text: 'RT ORQUESTADOR CONTEXTO (Jue 9 10:43): JP pregunto si al rutear a otro flujo el bot llega con contexto o desde ceros. Maria: "en teoria llega con el contexto pero hay que probarlo en rts a veces falla." Pendiente validar comportamiento en RT.', time: 'Jue 9 10:43', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel → group', text: 'BUG STATSIG/FACTS-MANAGER (Jue 9 09:19): experimento no se evalua correctamente en facts-manager. Movido a rules-engine pero pierde la eleccion del usuario. Debe encontrar el motivo y hacer fix en facts-manager. Bot merchants bloqueado.', time: 'Jue 9 09:19', type: 'dm', actionable: true },
+  { from: 'Elias Rivera → JP (DM)', text: 'CANCEL REASONS FILE (Jue 9 09:38): Elias comparte spreadsheet con todos los cancel reasons y condiciones. Categorias: No pago / Pago porcentaje segun contrato / No pago cobra comision como orden finalizada / No pago cobra por inactividad aliado. Excepcion = aplica ajuste si orden fue entregada al RT.', time: 'Jue 9 09:38', type: 'dm', actionable: true },
   { from: 'Andres De Las Casas → JP (#cx-management-team)', text: 'REVISION PRIORIDADES FALLOS (Mie 8 13:14): Andres pide revisar prioridad de items y alinear cuales fallos ya se trabajaron con Diego Mesa. Cc Maria Granada y Cristian Parada. Pendiente respuesta JP.', time: 'Mie 8 13:14', type: 'channel', actionable: true },
-  { from: 'Susana Paniagua → JP, Maria, Meiker (Group DM)', text: 'ASSEMBLED CAIDA (Mie 8 16:53): Susana pide registrar en el hilo eventos de caida de Assembled antes de cerrarlo. Seguimiento para historico de incidentes.', time: 'Mie 8 16:53', type: 'dm', actionable: false },
-  { from: 'Maria Granada → JP (DM)', text: 'ALINEACION MERCHANTS (Mie 8 15:33-16:48): Maria recomienda "super alinear las expectativas con merchants porque son muy soñadores" — recursos limitados, ser selectivos en scope. JP confirmo alineacion.', time: 'Mie 8 15:59', type: 'dm', actionable: false }
+  { from: 'Cristian Parada → JP (#cx-prod-eng-leads)', text: 'GANTT Q3 CONFIRMADO (Mie 8 16:59): Cristian pregunto si el gantt estaba listo para Jira. JP respondio "Done!" — gantt listo para subir a Jira y arrancar Q3.', time: 'Mie 8 16:59', type: 'channel', actionable: false }
 ];
 
 const DEEP_WORK = [
@@ -2002,7 +2004,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-10:00', '14:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-15:00', '16:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-10:30', '14:30-16:30', '17:00-18:00'] }
+  { day: 'Vie', blocks: ['8:00-10:30', '12:00-13:00', '15:00-16:30', '17:00-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
