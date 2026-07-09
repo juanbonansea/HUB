@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Jue 9 · Actualizado 9 Jul 18:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 6-10 Julio 2026 — Hoy Jue 9 · Actualizado 9 Jul 20:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1488,7 +1488,8 @@ const EVENTS = {
   thu: [
     { time:'9:00-9:45', title:'CX Design Review', attendees:11, org:'andres.delascasas@rappi.com', type:'team', note:'Review semanal de disenos CX con equipo amplio — alineacion iniciativas Q3.' },
     { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'16:30-17:15', title:'Revisión de Endpoints', attendees:2, org:'juan.bonansea@rappi.com', type:'team', note:'Reunion con Elias Rivera para revisar y confirmar los 6 endpoints necesarios para el bot de Cancelaciones. Citada por JP en DM Jue 9 14:37 ("Te cite a las 4:30 para que veamos bien lo de los endpoints"). Base: DM Elias Jue 9 10:59 con especificacion de endpoints requeridos.' }
   ],
   fri: [
     { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
@@ -1961,7 +1962,8 @@ const DEFAULT_TASKS = [
   { id:'t3009', text:'[SEMANA] Coordinar Readout experimento CDO con Nicolas Bejarano: al 50% todos los paises, 500 users. Definir si sample es suficiente.', phase:'metrics', priority:'P1', source:'Prioridades semana anterior', day:'thu', completed:false },
   { id:'t3010', text:'[SEMANA] Revisar notas Gemini sesion Payments Merchant (Lun 6 15:45): grabacion en Drive. Extraer action items y definir proximos pasos con Susana Paniagua.', phase:'build', priority:'P2', source:'Calendar Lun 6 Jul 15:45', day:'thu', completed:false },
   { id:'t3018', text:'[P1 HOY Jue 9] Compartir con Alejandro Ruiz (diego.aguo) los entry issues de merchants que ya estan automatizados. Solicito via DM Jue 9 12:08.', phase:'build', priority:'P1', source:'DM Alejandro Ruiz Jue 9 12:08', day:'thu', completed:false },
-  { id:'t3019', text:'[P1 HOY Jue 9] Hacer Figma del flujo bot Cancelaciones y citar a Elias en la tarde para double check — compromiso asumido en DM Jue 9 11:13. Usar como base el Figma AI Merchants Orchestrator que Elias compartio.', phase:'build', priority:'P1', source:'DM Elias Rivera Jue 9 11:13', day:'thu', completed:false }
+  { id:'t3019', text:'[P1 HOY Jue 9 16:30] Revision de Endpoints con Elias Rivera — AGENDADA (JP cito a Elias a las 4:30pm, DM 14:37). Revisar los 6 endpoints del bot Cancelaciones y confirmar cuales existen vs por construir. Usar Figma AI Merchants Orchestrator como referencia. Hacer Figma del bot Cancelaciones.', phase:'build', priority:'P1', source:'DM Elias Rivera Jue 9 11:13 + 14:37', day:'thu', completed:false },
+  { id:'t3020', text:'[P1 VIE 10 MANANA TEMPRANO] Responder Alejandro Ruiz (diego.aguo): compartir entry issues de merchants automatizados. Preguntar cuales salen como handoff vs cuales no. Compromiso asumido en DM Jue 9 14:34.', phase:'build', priority:'P1', source:'DM Alejandro Ruiz Jue 9 14:34', day:'fri', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -1992,20 +1994,20 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'JP → Elias Rivera (DM)', text: 'REVISION ENDPOINTS AGENDADA (Jue 9 14:37): JP cito a Elias a las 4:30pm para revisar bien los endpoints del bot Cancelaciones. Reunion creada: "Revision de Endpoints" 16:30-17:15 COT.', time: 'Jue 9 14:37', type: 'dm', actionable: false },
+  { from: 'Alejandro Ruiz → JP (DM)', text: 'FOLLOW UP ENTRY ISSUES (Jue 9 14:43): Alejandro pregunta sobre entry issues que salen como handoff vs los que no. JP respondio que esta ocupado y respondera manana temprano.', time: 'Jue 9 14:43', type: 'dm', actionable: true },
   { from: 'Elias Rivera → JP (DM)', text: 'BOTS 100% (Jue 9 12:19): Elias pregunto: "los bots de integradas, suspensiones y live estan al 100% ya?" JP confirmo (12:39): "asi es". Bots integradas, suspensiones y live funcionando al 100%.', time: 'Jue 9 12:19', type: 'dm', actionable: false },
   { from: 'Alejandro Ruiz → JP (DM)', text: 'ENTRY ISSUES MERCHANTS (Jue 9 12:08): Alejandro (diego.aguo) pide que JP comparta los entry issues que ya estan automatizados del lado merchants. Pendiente respuesta de JP.', time: 'Jue 9 12:08', type: 'dm', actionable: true },
   { from: 'Elias Rivera → JP (DM)', text: 'FIGMA AI MERCHANTS ORCHESTRATOR (Jue 9 11:14): Elias comparte Figma del orquestador AI Merchants (solicitado por JP). JP va a hacer el Figma del bot Cancelaciones y cita a Elias en la tarde para double check.', time: 'Jue 9 11:14', type: 'dm', actionable: true },
   { from: 'Elias Rivera → JP (DM)', text: 'ENDPOINTS BOT CANCELACIONES (Jue 9 10:59): 6 endpoints necesarios: (1) info orden, (2) partner-payment validar pago, (3) Lupe reason_id, (4) order_events si salio de tienda, (5) contract conditions para recalculo, (6) ajuste reembolso. Bot DEBE ejecutar ajuste desde automatizacion — no solo informar. Glosario de copys en helpjuice disponible.', time: 'Jue 9 10:59', type: 'dm', actionable: true },
-  { from: 'JP → Group DM Cancelaciones', text: 'PRE-KICK OFF (Jue 9 10:34): JP lanzo 4 preguntas antes del Kick off Vie 10: (1) approach informativo vs transaccional?, (2) fuente datos: Power BI o endpoints directos?, (3) pide a Andres Diaz traducir codigos a lenguaje natural, (4) casos de escalamiento mas alla de "no info". CC Andres De Las Casas.', time: 'Jue 9 10:34', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel → group', text: 'BUG STATSIG/FACTS-MANAGER (Jue 9 09:19): experimento no se evalua correctamente en facts-manager. Movido a rules-engine pero pierde la eleccion del usuario. Debe encontrar el motivo y hacer fix en facts-manager. Bot merchants bloqueado.', time: 'Jue 9 09:19', type: 'dm', actionable: true },
-  { from: 'Elias Rivera → JP (DM)', text: 'CANCEL REASONS FILE (Jue 9 09:38): Elias comparte spreadsheet con todos los cancel reasons y condiciones. Categorias: No pago / Pago porcentaje segun contrato / No pago cobra comision como orden finalizada / No pago cobra por inactividad aliado. Excepcion = aplica ajuste si orden fue entregada al RT.', time: 'Jue 9 09:38', type: 'dm', actionable: true }
+  { from: 'JP → Group DM Cancelaciones', text: 'PRE-KICK OFF (Jue 9 10:34): JP lanzo 4 preguntas antes del Kick off Vie 10: (1) approach informativo vs transaccional?, (2) fuente datos: Power BI o endpoints directos?, (3) pide a Andres Diaz traducir codigos a lenguaje natural, (4) casos de escalamiento mas alla de "no info". CC Andres De Las Casas.', time: 'Jue 9 10:34', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '16:15-18:00'] },
   { day: 'Mar', blocks: ['8:00-10:00', '14:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-15:00', '16:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-16:30', '17:15-18:00'] },
   { day: 'Vie', blocks: ['8:00-10:30', '12:00-13:00', '15:00-16:30', '17:00-18:00'] }
 ];
 
