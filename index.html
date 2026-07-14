@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 14 Jul 15:07 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 14 Jul 17:04 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1993,6 +1993,7 @@ const DEFAULT_TASKS = [
   { id:'t5015', text:'[P1 SEMANA] Escalar con Cristian Parada problema capacidad tech: Diego es el unico disponible para 5 iniciativas activas (Canceladas + Payments + Orquestador + 2 flujos ops). Pedir asignacion adicional o re-priorizar. Alineado con Maria.', phase:'build', priority:'P1', source:'DM Maria Granada Mar 14 10:55', day:'tue', completed:false },
   { id:'t5005', text:'[P0 PENDIENTE] Cargar sizing Q3 en Atlas con datos DSAT de Meiker (5 puntos por iniciativa). Bloqueante critico para plan Q3 — pendiente desde semana anterior.', phase:'metrics', priority:'P0', source:'Prioridades semana anterior', day:'tue', completed:false },
   { id:'t5006', text:'[P1 VERIFICAR] Ticket BIG-89124 Snowflake: Jorge respondio "Listo Juan" — verificar que acceso a las tablas quedo activo definitivamente.', phase:'build', priority:'P1', source:'DM Jorge Calvache Mar 14', day:'tue', completed:false },
+  { id:'t5017', text:'[P1 HOY] Crear ticket en Jira para whitelist IPs Assembled en Snowflake: Jeyson Acero (secops) indico el formulario en rappidev.atlassian.net/servicedesk/customer/portal/39/group/3240/create/7532. IPs a incluir: 54.80.0.48, 100.28.41.208, 18.235.213.68.', phase:'build', priority:'P1', source:'#secops_on_schedule Mar 14 15:21', day:'tue', completed:false },
   { id:'t5007', text:'[P1 VIE 17 11:30] Preparar agenda Kick off Payments <> Product-Tech: scope bot Payments Merchant, entregables y responsables. Participantes: Elias Rivera, Susana Paniagua, Diego Mesa. JP organiza.', phase:'build', priority:'P1', source:'Calendar Vie 17 Jul 11:30', day:'fri', completed:false },
   { id:'t5008', text:'[P1 MIE 15 11:00] CX Weekly Business Review: preparar actualizacion metricas automatizacion, estado bot Cancelaciones y plan Merchants Q3.', phase:'metrics', priority:'P1', source:'Calendar Mie 15 Jul 11:00', day:'wed', completed:false },
   { id:'t5009', text:'[P1 SEMANA] Confirmar con Joyce tabla compensaciones Snowflake para bot Cancelaciones — Elias espera respuesta de Joyce desde Jul 10.', phase:'build', priority:'P1', source:'DM Elias Rivera Jul 10 17:02', day:'tue', completed:false },
@@ -2032,7 +2033,8 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'JP → #secops_on_schedule', text: 'IPs ASSEMBLED CONFIRMADAS PARA SNOWFLAKE (Mar 14): JP confirmo con Assembled las IPs de egress estatic routing: 54.80.0.48, 100.28.41.208, 18.235.213.68. Solicita a secops agregar estas IPs a network policy de Snowflake. La IP dinamica inicial (3.88.115.25) ya no aplica.', time: 'Mar 14', type: 'channel', actionable: true },
+  { from: 'Jeyson Acero → #secops_on_schedule', text: 'TICKET REQUERIDO PARA IP WHITELIST (Mar 14 15:21): Jeyson Acero (secops) responde al hilo de IPs Assembled: hay que cargar un ticket en el portal de servicio de Rappi (rappidev.atlassian.net/servicedesk/customer/portal/39/group/3240/create/7532) para que puedan agregar las IPs a la network policy de Snowflake. JP respondio "Gracias!" — pendiente crear el ticket.', time: 'Mar 14 15:21', type: 'channel', actionable: true },
+  { from: 'JP → #secops_on_schedule', text: 'IPs ASSEMBLED CONFIRMADAS PARA SNOWFLAKE (Mar 14): JP confirmo con Assembled las IPs de egress estatic routing: 54.80.0.48, 100.28.41.208, 18.235.213.68. Solicita a secops agregar estas IPs a network policy de Snowflake. La IP dinamica inicial (3.88.115.25) ya no aplica.', time: 'Mar 14 14:51', type: 'channel', actionable: true },
   { from: 'Alejandro Ruiz → JP (DM)', text: 'MERCHANTS BYPASSEANDO AUTOMATIZACIONES (Mar 14): Alejandro Ruiz reporta que esta viendo casos de entry issues en servicio de merchants donde aliados pasan directamente a agente humano SIN handoff en contact_reason_key. Pregunta si es normal o si los aliados estan saltandose las automatizaciones. JP respondio: posibles causas son bot que escala mal registrado, o tipificacion incorrecta — pidio ejemplos (chat_ids) para validar.', time: 'Mar 14', type: 'dm', actionable: true },
   { from: 'Alejandro Ruiz → JP (DM)', text: 'DATA SEMANA 06/07 DISPONIBLE: Alejandro comparte spreadsheet con datos de la semana del 6 de julio sobre entry issues en servicio merchants. Pendiente de revision por JP.', time: 'Mar 14', type: 'dm', actionable: true },
   { from: 'Susana Paniagua → Group DM (Maria/Susana/Meiker/JP)', text: 'ASSEMBLED KNOWLEDGE NO SINCRONIZA (Mar 14 12:13): Susana reporta que articulo de Knowledge del viernes no se sincronizo. Meiker: ultima actualizacion fue en abril. Susana escribe a Assembled para que sincronicen — no hay boton manual.', time: 'Mar 14 12:13', type: 'dm', actionable: true },
