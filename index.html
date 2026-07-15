@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 15 Jul 10:40 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 15 Jul 09:07 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1983,6 +1983,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t5018', text:'[P0 HOY Mie 15] Payments endpoint ajustes: confirmar con Diego Mesa que integracion Snowflake obtiene datos de ajustes por orden cancelada (JP propuso esta ruta hoy). Validar antes del Kick off Vie 17 11:30 — cierra el bloqueo principal del bot Payments.', phase:'build', priority:'P0', source:'DM Diego Mesa Mie 15 Jul', day:'wed', completed:false },
   { id:'t5001', text:'[P0 HOY Mie 15 12:30] 1:1 Maria Granada: llevar (1) estado bot Cancelaciones — endpoints listos para lanzar; (2) scope compensaciones; (3) riesgo capacidad tech (Diego+5 iniciativas); (4) agenda Kick off Payments Vie 17 11:30.', phase:'build', priority:'P0', source:'Calendar Mie 15 Jul 12:30', day:'wed', completed:false },
   { id:'t5002', text:'[P0 HOY Mie 15 17:00] 1:1 Andres De Las Casas: llevar avances bot Cancelaciones — scope transaccional, 6 endpoints, estado Figma, alineacion roadmap (Cancelaciones 5400 > Payments 3220 > Orquestador vs propuestas ops), plan Q3.', phase:'build', priority:'P0', source:'Calendar Mie 15 Jul 17:00', day:'wed', completed:false },
   { id:'t5000', text:'[P0 URGENTE Mie 15] Bot Cancelaciones: confirmar con Elias/Camilo los endpoints listos y dar luz verde para construccion — prioridad #1 de Maria esta semana. Diego tiene endpoint transacciones/metodo pago, falta endpoint ajustes por orden.', phase:'build', priority:'P0', source:'Group DM Prioridades W14/07 + DM Diego Mesa Mar 14', day:'wed', completed:false },
@@ -2033,6 +2034,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'JP → Diego Mesa (DM)', text: 'SNOWFLAKE COMO SOLUCION AJUSTES PAYMENTS (Mie 15 Jul): JP propone usar integracion Snowflake para obtener datos de ajustes por orden cancelada — resuelve el bloqueo del endpoint faltante en MS partner-payment. "con la integracion de snowflake llegamos mas facil a ese dato". Pendiente confirmar con Diego antes del Kick off Payments Vie 17 11:30.', time: 'Mie 15 Jul', type: 'dm', actionable: true },
   { from: 'Diego Mesa → JP (DM)', text: 'ENDPOINTS PAYMENTS BOT — BLOQUEO AJUSTES (Mar 14 18:06-19:11): Diego buscando endpoints para bot Payments: metodo de pago + transacciones por orden ya los tiene (ms partner-payment). BLOQUEO: no existe endpoint en ese ms que retorne ajustes aplicados en una orden cancelada (campo clave para saber si aplica excepcion de reembolso vs pago segun contrato). JP sugiere usar microservicio de Redash que mostro Elias. Diego confirma que Lupe trae todo lo de la orden pero no el campo de ajuste. Pendiente resolver antes del Kick off Payments Vie 17.', time: 'Mar 14 18:06', type: 'dm', actionable: true },
   { from: 'Andres De Las Casas → JP (DM)', text: 'ALINEACION ROADMAP vs OPS (Mar 14 17:32-17:52): Andres pregunta por AI Agents Merchants que Eugenio puso a ops. JP explica: ops quiere lanzar 2 flujos (legal_information + portal partners) fuera del roadmap. JP ya hablo con Elias/Andy Diaz y fue claro: esta semana es Cancelaciones + Payments + Orquestador. Inflows JP: Cancelaciones 5400, Payments 3220, Orquestador reduce unidentified. Inflows ops: portal partners 1445, legal info desconocido. Andres y Maria aligned: NO comprometerse con flujos de ops hasta cerrar el plan.', time: 'Mar 14 17:32', type: 'dm', actionable: false },
   { from: 'Jeyson Acero → #secops_on_schedule', text: 'TICKET REQUERIDO PARA IP WHITELIST (Mar 14 15:21): Jeyson Acero (secops) indica que hay que cargar ticket en portal de servicio (rappidev.atlassian.net/servicedesk/customer/portal/39/group/3240/create/7532) para agregar IPs de Assembled a network policy de Snowflake. JP respondio "Gracias!" — PENDIENTE crear ticket.', time: 'Mar 14 15:21', type: 'channel', actionable: true },
