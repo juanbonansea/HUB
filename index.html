@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 15 Jul 18:03 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 15 Jul 21:10 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1496,6 +1496,20 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:87, title:'Analisis Entry Issues Contractuales — Temas con Mayor Inflow', date:'15 Jul',
+    summary:'Elias Rivera compartio en Group DM (Mie 15 Jul 14:48) el analisis de los entry issues contractuales con mayor participacion en el inflow de agentes humanos. Datos de agent_tracker (BI): 4 issues de temas contractuales representan el 76.70% de toda la participacion de lo que llega a agente por temas contractuales — con 933 contactos la semana pasada. Los issues son: (1) Bank account management / How to change my bank account, (2) Gestion de mi tienda / Change my company name, (3) Bank account management / Status of a bank account change, (4) Bank account management / Status of a bank account change / With a support agent. Ademas, Maria Granada propuso en el mismo hilo adelantar la iniciativa contemplada en "linea 13" y hacer el kick off la proxima semana — Elias respondio "Me parece perfecto!". JP co-propuso con Maria la iniciativa.',
+    sections:[
+      'Top 4 entry issues contractuales = 76.70% del inflow — 933 contactos semana pasada (datos BI agent_tracker)',
+      'Elias Rivera: "propone mapear workflow de contractuales en general e incluir impacto de bank account" — analisis en construccion',
+      'Decision: kickoff iniciativa linea 13 (contractuales/bank account) adelantado a proxima semana — Maria Granada + Elias alineados'
+    ],
+    actions:[
+      { text:'Revisar spreadsheet agent_tracker compartida por Elias en Group DM (Mie 15 14:48) — datos de 933 contactos contractuales semana pasada y los 4 issues principales.', owner:'Juan Pablo', phase:'metrics', priority:'P0' },
+      { text:'Confirmar agenda y participantes para Kick off "linea 13" (contractuales) la proxima semana — Maria y Elias ya alineados. Elias dijo "estamos atentos a la reu".', owner:'Juan Pablo / Maria Granada', phase:'build', priority:'P1' },
+      { text:'Revisar analisis workflow contractuales completo cuando Elias lo comparta (comprometio hacerlo hoy) — dejar comentarios en el doc.', owner:'Juan Pablo', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:86, title:'Orquestador Merchant — Reunion con Juan Esquivel', date:'15 Jul',
     summary:'Reunion rapida (Mie 15 Jul 14:45-15:00 COT) entre JP y Juan Esquivel, creada hoy mismo a las 17:04. JP termino el orquestador Merchant y Maria Granada confirmo que Juan Esquivel va a ayudar con la implementacion. En DM con Maria (hoy): "igual cuando lo tengas ponte un hilito para alinear y pasemosle a que issues los vamos a pegar". JP respondio "de una ya hablo con el". Contexto: el orquestador debe pegarse a los issues con mayor missmatch para reducir inflow de agente humano — prioridad #3 de Maria esta semana segun alineacion del Mar 14.',
@@ -2010,6 +2024,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t5021', text:'[P0 NUEVO] Revisar spreadsheet agent_tracker de Elias (Group DM Mie 15 14:48): 4 issues contractuales = 76.70% del inflow a agente, 933 contactos semana pasada. Coordinar Kick off "linea 13" para proxima semana — Maria + Elias ya alineados, JP co-propone la iniciativa.', phase:'metrics', priority:'P0', source:'Group DM Mie 15 Jul 14:48-14:59', day:'wed', completed:false },
   { id:'t5019', text:'[P1 HOY Mie 15 14:45] Reunion Orquestador Merchant con Juan Esquivel: alinear logica del orquestador (ya listo) y definir issues objetivo para reducir inflow agente humano. Post-reunion: hacer hilo con Maria para confirmar issues a pegar.', phase:'build', priority:'P1', source:'Calendar Mie 15 Jul 14:45 (creado hoy)', day:'wed', completed:false },
   { id:'t5020', text:'[P1 SEMANA] Revisar analisis workflow contractuales de Elias Rivera (comprometido hoy en Group DM) — mapeo de temas contractuales e impacto bank account. Dejar comentarios en el doc cuando lo comparta.', phase:'build', priority:'P1', source:'Group DM Andres/Elias/Maria/FDiaz/JP Mie 15 Jul', day:'wed', completed:false },
   { id:'t5018', text:'[P0 HOY Mie 15] Payments endpoint ajustes: confirmar con Diego Mesa que integracion Snowflake obtiene datos de ajustes por orden cancelada (JP propuso esta ruta hoy). Validar antes del Kick off Vie 17 11:30 — cierra el bloqueo principal del bot Payments.', phase:'build', priority:'P0', source:'DM Diego Mesa Mie 15 Jul', day:'wed', completed:false },
@@ -2049,7 +2064,7 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d821', text:'Analisis workflow contractuales: Elias Rivera va a trabajar en mapeo de temas contractuales (incluyendo impacto de bank account) y comprometio compartirlo hoy en el Group DM con Andres, Maria, FDiaz y JP.', owner:'Elias Rivera', source:'Group DM Andres/Elias/Maria/FDiaz/JP Mie 15 Jul', status:'en progreso — entrega hoy' },
+  { id:'d821', text:'Analisis workflow contractuales: Elias Rivera compartio data BI (14:48 Mie 15): 4 issues contractuales = 76.70% del inflow, 933 contactos semana pasada — spreadsheet agent_tracker en Group DM. Analisis workflow completo pendiente (prometido hoy). Kickoff linea 13 acordado para proxima semana con Maria.', owner:'Elias Rivera', source:'Group DM Andres/Elias/Maria/FDiaz/JP Mie 15 Jul', status:'DATA COMPARTIDA — revisar spreadsheet y esperar doc workflow completo' },
   { id:'d810', text:'Deploy bot merchants en paises GRANDES: bot funcionando OK en pequenos (confirmado Camilo Jul 10). Elias confirmo que podian salir en grandes esta semana. Pendiente luz verde de JP.', owner:'Camilo Esquivel / Elias Rivera', source:'Group DM Merchants Jul 10 17:25', status:'en progreso' },
   { id:'d818', text:'Double-check opcion Test en Assembled: Meiker reporto que ya funciona (Mar 14 10:07). Pendiente confirmacion de Maria Granada, Susana Paniagua y JP para validar.', owner:'Meiker Munera', source:'Group DM Maria/Susana/Meiker/JP Mar 14', status:'pendiente respuesta equipo' },
   { id:'d819', text:'Assembled Knowledge sync: articulo de Knowledge del viernes no se sincronizo. Meiker confirma ultima actualizacion fue en abril. Susana escribe a Assembled para que sincronicen — no hay boton en la herramienta para hacerlo manualmente.', owner:'Susana Paniagua (gestiona con Assembled)', source:'Group DM Maria/Susana/Meiker/JP Mar 14 12:13', status:'en gestion con Assembled' },
@@ -2064,6 +2079,8 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Maria Granada + Elias Rivera → Group DM (Andres/FDiaz/JP)', text: 'KICKOFF LINEA 13 (contractuales) ADELANTADO A SEMANA PROXIMA (Mie 15 Jul 14:57-14:59): Maria propone adelantar la iniciativa linea 13 y hacer kick off la proxima semana. Elias: "Me parece perfecto! Estamos atentos a la reu." JP co-propone la iniciativa con Maria.', time: 'Mie 15 Jul 14:59', type: 'dm', actionable: true },
+  { from: 'Elias Rivera → Group DM (Maria/Andres/FDiaz/JP)', text: 'DATA CONTRACTUALES COMPARTIDA (Mie 15 Jul 14:48): 4 entry issues contractuales = 76.70% del inflow de agentes. 933 contactos la semana pasada. Top issues: Bank account management (cambio, status, status con agente), Gestion mi tienda (cambio nombre empresa). Data en spreadsheet agent_tracker (BI).', time: 'Mie 15 Jul 14:48', type: 'dm', actionable: true },
   { from: 'Elias Rivera → Group DM (Maria/Andres/FDiaz/JP)', text: 'ANALISIS WORKFLOW CONTRACTUALES (Mie 15 Jul): Elias va a trabajar en analisis de temas contractuales — propone mapear workflow general e incluir impacto de bank account. Comprometio compartirlo hoy para que el equipo deje comentarios.', time: 'Mie 15 Jul', type: 'dm', actionable: true },
   { from: 'Maria Granada → Group DM (Maria/Andres/FDiaz/JP)', text: 'SALIDAS MERCHANTS — SIN SALIDAS ESTA SEMANA (Mie 15 Jul): Maria confirma que esta semana no tienen ninguna salida. Las salidas empiezan la proxima semana segun Gantt: 30%-50%-70%-100% segun comportamiento a partir del live.', time: 'Mie 15 Jul', type: 'dm', actionable: false },
   { from: 'Maria Granada → JP (DM)', text: 'ORQUESTADOR — ALINEAR ISSUES (Mie 15 Jul): "igual cuando lo tengas ponte un hilito para alinear y pasemosle a que issues los vamos a pegar" — JP respondio "de una ya hablo con el". Juan Esquivel confirmado como apoyo para el orquestador.', time: 'Mie 15 Jul', type: 'dm', actionable: true },
