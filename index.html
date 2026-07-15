@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 15 Jul 21:10 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 15 Jul 17:08 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -2025,7 +2025,7 @@ const _NOTES_ARCHIVED = [
 
 const DEFAULT_TASKS = [
   { id:'t5021', text:'[P0 NUEVO] Revisar spreadsheet agent_tracker de Elias (Group DM Mie 15 14:48): 4 issues contractuales = 76.70% del inflow a agente, 933 contactos semana pasada. Coordinar Kick off "linea 13" para proxima semana — Maria + Elias ya alineados, JP co-propone la iniciativa.', phase:'metrics', priority:'P0', source:'Group DM Mie 15 Jul 14:48-14:59', day:'wed', completed:false },
-  { id:'t5019', text:'[P1 HOY Mie 15 14:45] Reunion Orquestador Merchant con Juan Esquivel: alinear logica del orquestador (ya listo) y definir issues objetivo para reducir inflow agente humano. Post-reunion: hacer hilo con Maria para confirmar issues a pegar.', phase:'build', priority:'P1', source:'Calendar Mie 15 Jul 14:45 (creado hoy)', day:'wed', completed:false },
+  { id:'t5019', text:'[P1 PENDIENTE] Orquestador Merchant — reunion con Juan Esquivel realizada (Mie 15 14:45-15:00). Camilo Esquivel confirmo que el deploy queda EN ESPERA mientras JP define issues objetivo. Hacer hilo con Maria Granada para confirmar issues a pegar antes de proceder.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Mie 15 16:46 + Calendar Mie 15 Jul 14:45', day:'wed', completed:false },
   { id:'t5020', text:'[P1 SEMANA] Revisar analisis workflow contractuales de Elias Rivera (comprometido hoy en Group DM) — mapeo de temas contractuales e impacto bank account. Dejar comentarios en el doc cuando lo comparta.', phase:'build', priority:'P1', source:'Group DM Andres/Elias/Maria/FDiaz/JP Mie 15 Jul', day:'wed', completed:false },
   { id:'t5018', text:'[P0 HOY Mie 15] Payments endpoint ajustes: confirmar con Diego Mesa que integracion Snowflake obtiene datos de ajustes por orden cancelada (JP propuso esta ruta hoy). Validar antes del Kick off Vie 17 11:30 — cierra el bloqueo principal del bot Payments.', phase:'build', priority:'P0', source:'DM Diego Mesa Mie 15 Jul', day:'wed', completed:false },
   { id:'t5001', text:'[P0 JUE 16 12:30] 1:1 Maria Granada: llevar (1) estado bot Cancelaciones — endpoints listos para lanzar; (2) scope compensaciones; (3) riesgo capacidad tech (Diego+5 iniciativas); (4) agenda Kick off Payments Vie 17 11:30.', phase:'build', priority:'P0', source:'Calendar Jue 16 Jul 12:30 (movida de Mar 14)', day:'thu', completed:false },
@@ -2079,6 +2079,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Camilo Esquivel → JP (DM)', text: 'ORQUESTADOR EN ESPERA MIENTRAS SE DEFINE (Mie 15 Jul 16:46): Camilo pregunta si el Orquestador Merchant "queda en espera mientras se define". JP: "sisi dejame definirlo con el equipo y te aviso." Confirma que el orquestador NO se deploya hasta que JP defina con Maria/equipo los issues objetivo. Camilo: "bueno".', time: 'Mie 15 Jul 16:46', type: 'dm', actionable: true },
   { from: 'Maria Granada + Elias Rivera → Group DM (Andres/FDiaz/JP)', text: 'KICKOFF LINEA 13 (contractuales) ADELANTADO A SEMANA PROXIMA (Mie 15 Jul 14:57-14:59): Maria propone adelantar la iniciativa linea 13 y hacer kick off la proxima semana. Elias: "Me parece perfecto! Estamos atentos a la reu." JP co-propone la iniciativa con Maria.', time: 'Mie 15 Jul 14:59', type: 'dm', actionable: true },
   { from: 'Elias Rivera → Group DM (Maria/Andres/FDiaz/JP)', text: 'DATA CONTRACTUALES COMPARTIDA (Mie 15 Jul 14:48): 4 entry issues contractuales = 76.70% del inflow de agentes. 933 contactos la semana pasada. Top issues: Bank account management (cambio, status, status con agente), Gestion mi tienda (cambio nombre empresa). Data en spreadsheet agent_tracker (BI).', time: 'Mie 15 Jul 14:48', type: 'dm', actionable: true },
   { from: 'Elias Rivera → Group DM (Maria/Andres/FDiaz/JP)', text: 'ANALISIS WORKFLOW CONTRACTUALES (Mie 15 Jul): Elias va a trabajar en analisis de temas contractuales — propone mapear workflow general e incluir impacto de bank account. Comprometio compartirlo hoy para que el equipo deje comentarios.', time: 'Mie 15 Jul', type: 'dm', actionable: true },
@@ -2087,7 +2088,8 @@ const SLACK_FEED = [
   { from: 'Group DM (Maria/Susana/Meiker/JP)', text: 'ASSEMBLED WF DATE FIX + HANDOFFS SOAT/LICENCIA (Mie 15 Jul 10:07-10:49): Meiker compartio fix de offset COT para WF fecha semanal en Assembled — Maria valido y funciono. Susana confirma: handoff SOAT expirado cerrado, licencia ok.', time: 'Mie 15 Jul 10:49', type: 'dm', actionable: false },
   { from: 'JP → Diego Mesa (DM)', text: 'SNOWFLAKE COMO SOLUCION AJUSTES PAYMENTS (Mie 15 Jul): JP propone usar integracion Snowflake para obtener datos de ajustes por orden cancelada — resuelve el bloqueo del endpoint faltante en MS partner-payment. Pendiente confirmar con Diego antes del Kick off Payments Vie 17 11:30.', time: 'Mie 15 Jul', type: 'dm', actionable: true },
   { from: 'Diego Mesa → JP (DM)', text: 'ENDPOINTS PAYMENTS BOT — BLOQUEO AJUSTES (Mar 14 18:06-19:11): Diego tiene endpoints metodo de pago + transacciones (ms partner-payment). BLOQUEO: no existe endpoint que retorne ajustes aplicados en orden cancelada. JP sugiere usar microservicio de Redash.', time: 'Mar 14 18:06', type: 'dm', actionable: true },
-  { from: 'Andres De Las Casas → JP (DM)', text: 'ALINEACION ROADMAP vs OPS (Mar 14 17:32-17:52): Andres pregunta por AI Agents Merchants. Esta semana: Cancelaciones + Payments + Orquestador. Andres y Maria aligned: NO comprometerse con flujos ops (legal_information + acceso portal) hasta cerrar el plan.', time: 'Mar 14 17:32', type: 'dm', actionable: false }
+  { from: 'Andres De Las Casas → JP (DM)', text: 'ALINEACION ROADMAP vs OPS (Mar 14 17:32-17:52): Andres pregunta por AI Agents Merchants. Esta semana: Cancelaciones + Payments + Orquestador. Andres y Maria aligned: NO comprometerse con flujos ops (legal_information + acceso portal) hasta cerrar el plan.', time: 'Mar 14 17:32', type: 'dm', actionable: false },
+  { from: 'JP → 1:1 Andres De Las Casas (EN CURSO)', text: '1:1 JP / ANDRES EN CURSO AHORA (Mie 15 Jul 17:00-17:30): Llevar avances bot Cancelaciones — scope transaccional, 6 endpoints, estado Figma, alineacion roadmap (Cancelaciones > Payments > Orquestador), no comprometer flujos ops adicionales. Confirmar prioridades Q3 y capacidad tech.', time: 'Mie 15 Jul 17:00', type: '1on1', actionable: true }
 ];
 
 const DEEP_WORK = [
