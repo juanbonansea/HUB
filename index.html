@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 16 Jul ~18:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 16 Jul ~22:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1498,6 +1498,20 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:90, title:'Revision flujos cancelaciones y orquestador — Resultados', date:'16 Jul',
+    summary:'Reunion Jue 16 Jul 15:45-16:30 COT con Elias Rivera, F.Diaz y Stephania Gonzalez. JP organizo. Gemini notes generadas (Google Docs adjunto en Calendar). Contexto: JP tenia dudas sobre reason_ids (crsan_sk_doesnt_want_delivery_order_with_product, codigo 161), Elias habia compartido info de triggers contractuales en la manana, y habia decision pendiente sobre flujo "acceso portal partners". Elias pre-reunion: "El de portal aun hace falta terminarlo pero si podemos pegar el entry issue principal estaria perfecto, para que despues solo sea habilitar la rama a ese flujo." POST-REUNION: JP le dijo a Camilo Esquivel en DM "Ya tengo los entry issues para el orquestador hago un doc y te lo mando" — entry issues DEFINIDOS, doc en preparacion. Bloqueante del deploy orquestador resuelto.',
+    sections:[
+      'Entry issues orquestador: DEFINIDOS en reunion — JP prepara doc para Camilo Esquivel para habilitar deploy',
+      'Flujo cancelaciones reason_ids: clarificacion logica codigos — Sheets lookup reason_id → descripcion acordado con Stephania',
+      'Triggers contractuales de Elias: revisados — decision sobre flujo portal partners (pegar entry issue ahora, habilitar rama despues)'
+    ],
+    actions:[
+      { text:'[P0 URGENTE] Enviar doc con entry issues del orquestador a Camilo Esquivel — prometido post-reunion (DM Jue 16 ~16:46). Camilo en espera para proceder con deploy.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'Confirmar con Stephania si Sheets lookup reason_ids fue creado — acordado en DM 11:32 y reforzado en la reunion 15:45.', owner:'Juan Pablo + Stephania Gonzalez', phase:'build', priority:'P1' },
+      { text:'Revisar Gemini notes de esta reunion (Google Docs adjunto en Calendar 16 Jul 15:45) — extraer acuerdos sobre portal partners y triggers contractuales.', owner:'Juan Pablo', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:89, title:'Cancelaciones: reason_ids + Prep Kick off Payments', date:'16 Jul',
     summary:'Jue 16 Jul tarde. JP tiene dos nuevas reuniones creadas: (1) Revision flujos cancelaciones y orquestador 15:45-16:30 con Elias Rivera, F.Diaz y Stephania Gonzalez; (2) Revision flujo payments 16:45-17:00 con Susana Paniagua. Contexto: JP trabajando en el flujo de cancelaciones y encontro que los reason_ids no le quedan claros (pregunto a Stephania por query para ver ordenes canceladas con cancellation_reason/support_reason_id). Ejemplo concreto: reason_id "crsan_sk_doesnt_want_delivery_order_with_product", codigo 161. Acordaron crear un Sheets lookup para que el bot traduzca los codigos. Stephania descargando data de casos con esa tipificacion. Ademas, JP leyo el flujo de payments y tiene dudas antes del Kick off Payments manana Vie 17 11:30 — coordino 15 min con Susana en la tarde. Elias comparte a las 8:21 info de triggers contractuales para que JP los resuma, y JP pregunta si incluyen el flujo "acceso portal partners".',
@@ -2063,7 +2077,8 @@ const DEFAULT_TASKS = [
   { id:'t5032', text:'[P1 HOY Jue 16] Revisar queue routing Merchants Integradas: Elias pide cambiar todos los casos de cola "Merchants - Integradas" a cola "Merchants Food Non Live" — Camilo Esquivel revisando (Mie 15 17:25-17:59). Confirmar si Camilo necesita autorizacion o contexto adicional de JP.', phase:'build', priority:'P1', source:'Group DM Elias/Camilo/FDiaz/Gregson/Manuel/Stephania Mie 15 Jul 17:25', day:'thu', completed:false },
   { id:'t5033', text:'[P1 HOY Jue 16 9:00] CX Design Review realizado (9:00-9:45): revisar si Andres De Las Casas compartio notas o action items post-reunion. 11 participantes incluyendo Angela Osuna, Maria Granada, Meiker Munera.', phase:'build', priority:'P1', source:'Calendar Jue 16 Jul 9:00', day:'thu', completed:false },
   { id:'t5021', text:'[P0] Revisar spreadsheet agent_tracker de Elias (Group DM Mie 15 14:48): 4 issues contractuales = 76.70% del inflow a agente, 933 contactos semana pasada. Coordinar Kick off "linea 13" para proxima semana — Maria + Elias ya alineados, JP co-propone la iniciativa.', phase:'metrics', priority:'P0', source:'Group DM Mie 15 Jul 14:48-14:59', day:'thu', completed:false },
-  { id:'t5019', text:'[P1 PENDIENTE] Orquestador Merchant — reunion con Juan Esquivel realizada (Mie 15 14:45-15:00). Camilo Esquivel confirmo que el deploy queda EN ESPERA mientras JP define issues objetivo. Hacer hilo con Maria Granada para confirmar issues a pegar antes de proceder.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Mie 15 16:46 + Calendar Mie 15 Jul 14:45', day:'thu', completed:false },
+  { id:'t5090', text:'[P0 URGENTE Jue 16 ~16:46] Enviar doc entry issues orquestador a Camilo Esquivel — prometido en DM post-reunion (15:45-16:30). Entry issues DEFINIDOS en la reunion con Elias/Stephania. Camilo en espera para proceder con deploy. No demorar.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Jue 16 Jul post-15:45', day:'thu', completed:false },
+  { id:'t5019', text:'[DESBLOQUEADO Jue 16] Orquestador Merchant — entry issues definidos en reunion 15:45-16:30 (Elias+FDiaz+Stephania). JP le dijo a Camilo "Ya tengo los entry issues hago un doc y te lo mando." Doc en preparacion. Tambien alinear con Maria Granada para confirmar issues definitivos.', phase:'build', priority:'P1', source:'DM Camilo Esquivel Jue 16 Jul ~16:46 + Calendar 15:45-16:30', day:'thu', completed:false },
   { id:'t5020', text:'[P1 SEMANA] Revisar analisis workflow contractuales de Elias Rivera (comprometido hoy en Group DM) — mapeo de temas contractuales e impacto bank account. Dejar comentarios en el doc cuando lo comparta.', phase:'build', priority:'P1', source:'Group DM Andres/Elias/Maria/FDiaz/JP Mie 15 Jul', day:'wed', completed:false },
   { id:'t5018', text:'[P0 HOY Mie 15] Payments endpoint ajustes: confirmar con Diego Mesa que integracion Snowflake obtiene datos de ajustes por orden cancelada (JP propuso esta ruta hoy). Validar antes del Kick off Vie 17 11:30 — cierra el bloqueo principal del bot Payments.', phase:'build', priority:'P0', source:'DM Diego Mesa Mie 15 Jul', day:'wed', completed:false },
   { id:'t5001', text:'[P0 JUE 16 12:00] 1:1 Maria Granada: llevar (1) estado bot Cancelaciones — endpoints listos para lanzar; (2) scope compensaciones; (3) riesgo capacidad tech (Diego+5 iniciativas); (4) agenda Kick off Payments Vie 17 11:30; (5) issues objetivo Orquestador Merchant (necesario para desbloquear deploy con Camilo).', phase:'build', priority:'P0', source:'Calendar Jue 16 Jul 12:00-12:30 (movida de Mar 14)', day:'thu', completed:false },
@@ -2118,6 +2133,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'JP → Camilo Esquivel (DM)', text: 'ENTRY ISSUES ORQUESTADOR DEFINIDOS (Jue 16 Jul post-15:45): JP: "Ya tengo los entry issues para el orquestador hago un doc y te lo mando." — Post-reunion Revision flujos cancelaciones (15:45-16:30). El orquestador estaba en espera desde el Mie 15; bloqueante resuelto. Camilo respondio confirmacion. Doc en preparacion.', time: 'Jue 16 Jul ~16:46', type: 'dm', actionable: true },
   { from: 'Susana Paniagua → JP (DM)', text: 'PREP KICK OFF PAYMENTS (Jue 16 Jul 12:18-12:43): JP: "estaba leyendo el flujo de payments y como manana es el kick off me surgen un par de dudas, sera que en la tarde te puedo robar 15 minuticos por meet?" Susana: "sip". Reunion creada: 16:45-17:00. Objetivo: resolver dudas del flujo antes del Kick off Payments Vie 17 11:30.', time: 'Jue 16 Jul 12:43', type: 'dm', actionable: false },
   { from: 'Stephania Gonzalez → JP (DM)', text: 'LOOKUP REASON_IDS CANCELACIONES (Jue 16 Jul 11:21-11:32): JP: "estoy haciendo el flujo de cancelaciones pero no me queda claro lo de las macros, tienes query para ver ordenes canceladas y ver como sale ese cancellation_reason?" JP ejemplo: reason_id "crsan_sk_doesnt_want_delivery_order_with_product" codigo 161. JP: "de una, porque si para que el bot de la informacion adecuada debemos crear un sheets con un look up claro." Stephania: "Dejame y descargo data de casos con esa tipificacion." ACCION: crear Sheets lookup.', time: 'Jue 16 Jul 11:32', type: 'dm', actionable: true },
   { from: 'Diego Mesa → JP (DM)', text: 'ENDPOINTS PAYMENTS EN ASSEMBLED — CONFIRMADO (Jue 16 Jul 9:14): Diego: "Buenos dias, Juan." / "Si, ya estan registrados en Assembled." / "Listo, nombre agregado." — BLOQUEANTE RESUELTO. Los endpoints de Payments YA ESTAN en Assembled. Desbloquea Kick off Payments Vie 17 11:30.', time: 'Jue 16 Jul 9:14', type: 'dm', actionable: false },
