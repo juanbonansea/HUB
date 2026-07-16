@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 16 Jul ~10:30 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 16 Jul ~15:50 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1496,6 +1496,19 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:88, title:'CX Design Review', date:'16 Jul',
+    summary:'CX Design Review semanal (Jue 16 Jul 9:00-9:45 COT). Organizador: Andres De Las Casas. 11 participantes incluyendo Angela Osuna, Daniel Trejos, Maria Granada, Meiker Munera y JP. Sin notas Gemini adjuntas en esta sesion. Contexto de la semana: scope transaccional Cancelaciones confirmado en kick off (Vie 10), 6 endpoints identificados — Figma pendiente. Dia clave: hoy a las 12:00 hay 1:1 con Maria Granada y manana (Vie 17 11:30) Kick off Payments — Diego Mesa confirmo esta manana (9:14) que los endpoints de Payments YA estan registrados en Assembled, desbloqueando el kick off.',
+    sections:[
+      'Revision iniciativas Q3 — estado disenos bots CX: Cancelaciones, Payments, Merchants',
+      'Post-kick off Cancelaciones (Vie 10): scope transaccional OK, 6 endpoints OK — Figma pendiente (bloqueante)',
+      'Plan Merchants Q3: rollout empieza proxima semana segun Gantt (30%-50%-70%-100%)'
+    ],
+    actions:[
+      { text:'Confirmar con Andres De Las Casas action items especificos de hoy (CX Design Review Jue 16 9:00) — pedir notas si las genero.', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'Confirmar con equipo CX estado Figma bot Cancelaciones — bloqueante para construccion (acordado en Kick off Vie 10).', owner:'Juan Pablo', phase:'build', priority:'P0' }
+    ]
+  },
   {
     id:87, title:'Analisis Entry Issues Contractuales — Temas con Mayor Inflow', date:'15 Jul',
     summary:'Elias Rivera compartio en Group DM (Mie 15 Jul 14:48) el analisis de los entry issues contractuales con mayor participacion en el inflow de agentes humanos. Datos de agent_tracker (BI): 4 issues de temas contractuales representan el 76.70% de toda la participacion de lo que llega a agente por temas contractuales — con 933 contactos la semana pasada. Los issues son: (1) Bank account management / How to change my bank account, (2) Gestion de mi tienda / Change my company name, (3) Bank account management / Status of a bank account change, (4) Bank account management / Status of a bank account change / With a support agent. Ademas, Maria Granada propuso en el mismo hilo adelantar la iniciativa contemplada en "linea 13" y hacer el kick off la proxima semana — Elias respondio "Me parece perfecto!". JP co-propuso con Maria la iniciativa.',
@@ -2024,8 +2037,8 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t5030', text:'[P0 HOY Jue 16 12:00] 1:1 Maria Granada: llevar (1) estado bot Cancelaciones — endpoints listos?; (2) scope compensaciones; (3) riesgo capacidad tech (Diego+5 iniciativas); (4) agenda Kick off Payments Vie 17 11:30; (5) issues a pegar al Orquestador Merchant.', phase:'build', priority:'P0', source:'Calendar Jue 16 Jul 12:00-12:30', day:'thu', completed:false },
-  { id:'t5040', text:'[P0 HOY Jue 16] Follow up Diego Mesa — endpoints Payments registrados en Assembled? JP pregunto hoy Jue 16 en DM: "esos endpoints que me mandaste ya estan registrados en Assembled??" Pendiente respuesta de Diego. Desbloquea Kick off Payments Vie 17 11:30.', phase:'build', priority:'P0', source:'DM Diego Mesa Jue 16 Jul', day:'thu', completed:false },
+  { id:'t5030', text:'[P0 HOY Jue 16 12:00] 1:1 Maria Granada: llevar (1) endpoints Payments YA en Assembled — Diego confirmo 9:14 (Kick off Vie 17 desbloqueado); (2) scope compensaciones; (3) riesgo capacidad tech (Diego+5 iniciativas); (4) confirmar agenda Kick off Payments Vie 17 11:30; (5) issues a pegar al Orquestador Merchant.', phase:'build', priority:'P0', source:'Calendar Jue 16 Jul 12:00-12:30', day:'thu', completed:false },
+  { id:'t5040', text:'[COMPLETADO Jue 16 9:14] Endpoints Payments en Assembled — CONFIRMADO por Diego Mesa: "Si, ya estan registrados en Assembled." Bloqueante resuelto. Kick off Payments Vie 17 11:30 desbloqueado.', phase:'build', priority:'P0', source:'DM Diego Mesa Jue 16 Jul 9:14', day:'thu', completed:true },
   { id:'t5041', text:'[P1 HOY Jue 16] Revisar info triggers contractuales que Elias compartio hoy — Elias: "te comparto la info para el trigger, creo que te tocaria resumirlo." JP: "De una y me mandas la url del flujo." Tambien alinear si se incluye flujo "acceso portal partners" en el scope de la semana.', phase:'build', priority:'P1', source:'DM Elias Rivera Jue 16 Jul', day:'thu', completed:false },
   { id:'t5031', text:'[P0 HOY Jue 16] Follow up Assembled — activar static egress IP routing: Monica (Assembled) dijo "estoy siguiendo con soporte" (Mie 15 17:30). Jorge Calvache espera confirmacion para lanzar testeo. Confirmar que static egress quedo activo y avisar a Jorge.', phase:'build', priority:'P0', source:'DM Jorge Calvache + #assembled-rappi Mie 15 Jul 17:30', day:'thu', completed:false },
   { id:'t5032', text:'[P1 HOY Jue 16] Revisar queue routing Merchants Integradas: Elias pide cambiar todos los casos de cola "Merchants - Integradas" a cola "Merchants Food Non Live" — Camilo Esquivel revisando (Mie 15 17:25-17:59). Confirmar si Camilo necesita autorizacion o contexto adicional de JP.', phase:'build', priority:'P1', source:'Group DM Elias/Camilo/FDiaz/Gregson/Manuel/Stephania Mie 15 Jul 17:25', day:'thu', completed:false },
@@ -2079,14 +2092,14 @@ const DEFAULT_DELEGATED = [
   { id:'d812', text:'Tabla compensaciones Snowflake para bot Cancelaciones: Elias esperando respuesta de Joyce con la query. Tablas globales y por pais ya identificadas (Jul 10). Joyce aun no confirmo.', owner:'Elias Rivera (esperando Joyce)', source:'DM Elias Rivera Jul 10 17:02', status:'pendiente' },
   { id:'d813', text:'Readout experimento CDO en Statsig: Nicolas pendiente analisis formal. Experimento al 50% todos los paises, 500 users, 2+ semanas activo. JP debe coordinar sesion.', owner:'Nicolas Bejarano', source:'DM Nicolas Bejarano Vie 19 Jun', status:'pendiente' },
   { id:'d814', text:'Acceso tablas Snowflake via usuario de servicio BIG-89124: Jorge Calvache respondio "Listo Juan" (Mar 14). JP creo ticket con listado de tablas. Verificar que acceso quedo activo.', owner:'Jorge Calvache (CSCORE)', source:'DM Jorge Calvache Mar 14', status:'en revision — verificar acceso' },
-  { id:'d815', text:'Kick off Payments <> Product-Tech (Vie 17 11:30): Susana Paniagua y Diego Mesa confirmados. JP organiza la sesion. Movido de Mie 15 a Vie 17 11:30.', owner:'Susana Paniagua / Diego Mesa', source:'Calendar Vie 17 Jul 11:30', status:'pendiente' },
+  { id:'d815', text:'Kick off Payments <> Product-Tech (Vie 17 11:30): NOVEDAD Jue 16 9:14 — Diego Mesa confirmo que los endpoints de Payments YA ESTAN registrados en Assembled ("Si, ya estan registrados en Assembled."). Bloqueante resuelto. Susana Paniagua y Diego Mesa confirmados. JP organiza la sesion.', owner:'Susana Paniagua / Diego Mesa', source:'Calendar Vie 17 Jul 11:30 + DM Diego Mesa Jue 16 9:14', status:'DESBLOQUEADO — endpoints confirmados en Assembled; proceder con prep agenda kick off' },
   { id:'d816', text:'Seguimiento endpoints Food Non Live Integration — coberturas bloqueado por otro equipo. Gregson haciendo push para desbloquear. Estado pendiente de actualizacion.', owner:'Gregson Murcia / Manuel Gruezo', source:'Group DM AI Flujos Jun', status:'en progreso' },
   { id:'d817', text:'Probar Bot de Triaje: pruebas exhaustivas en Connect para validar precision al clasificar las 6 categorias asignadas.', owner:'Jaime Gomez', source:'Entrega de pruebas bot de triage 3 Jun', status:'pendiente' }
 ];
 
 const SLACK_FEED = [
-  { from: 'Elias Rivera → JP (DM)', text: 'TRIGGERS CONTRACTUALES LISTOS (Jue 16 Jul): Elias: "Buen dia! te comparto la info para el trigger, creo que te tocaria resumirlo." JP: "Buen dia Eli, De una y me mandas la url del flujo." JP tambien pregunta: "y metemos de una vez el que me mostraste de acceso a portal partners??" — Elias comparte triggers de contractuales para que JP los revise y resuma. Decision pendiente sobre incluir flujo portal partners.', time: 'Jue 16 Jul', type: 'dm', actionable: true },
-  { from: 'JP → Diego Mesa (DM)', text: 'ENDPOINTS EN ASSEMBLED? (Jue 16 Jul): JP: "Hola Diego como vas??" / "una duda, esos endpoints que me mandaste ya estan registrados en Assembled??" — JP pregunta a Diego si los endpoints de Payments ya estan en Assembled. BLOQUEANTE para preparar Kick off Payments Vie 17 11:30. Pendiente respuesta de Diego.', time: 'Jue 16 Jul', type: 'dm', actionable: true },
+  { from: 'Diego Mesa → JP (DM)', text: 'ENDPOINTS PAYMENTS EN ASSEMBLED — CONFIRMADO (Jue 16 Jul 9:14): Diego: "Buenos dias, Juan." / "Si, ya estan registrados en Assembled." / "Listo, nombre agregado." — BLOQUEANTE RESUELTO. Los endpoints de Payments QUE Diego compartio YA ESTAN en Assembled. Desbloquea prep y ejecucion del Kick off Payments Vie 17 11:30.', time: 'Jue 16 Jul 9:14', type: 'dm', actionable: false },
+  { from: 'Elias Rivera → JP (DM)', text: 'TRIGGERS CONTRACTUALES LISTOS (Jue 16 Jul 8:21): Elias: "Buen dia! te comparto la info para el trigger, creo que te tocaria resumirlo." JP: "Buen dia Eli, De una y me mandas la url del flujo." JP tambien pregunta: "y metemos de una vez el que me mostraste de acceso a portal partners??" — Elias comparte triggers de contractuales para que JP los revise y resuma. Decision pendiente sobre incluir flujo portal partners en el scope.', time: 'Jue 16 Jul 8:21', type: 'dm', actionable: true },
   { from: 'Jorge Calvache → JP (DM)', text: 'ASSEMBLED STATIC IPS — SIGUE BLOQUEADO (Mie 15 Jul 18:00): Jorge confirmo que el usuario CSCORES_ASSEMBLED_AI_CS_CORE_DATA_USER NUNCA intento conectarse desde las 3 IPs estaticas. JP: Assembled no activo "static egress IP routing" aun. JP solicito a Monica activarlo. Monica (Assembled): "I am following up with our support team on this!" Jorge espera aviso de JP para lanzar testeo. BLOQUEANTE integracion Snowflake.', time: 'Mie 15 Jul 18:00', type: 'dm', actionable: true },
   { from: 'Elias Rivera → Group DM (Camilo/FDiaz/Gregson/Manuel/Stephania/JP)', text: 'QUEUE ROUTING MERCHANTS INTEGRADAS (Mie 15 Jul 17:25): Elias pide cambiar todos los motivos de contacto de "Merchants - Integradas" a cola "Merchants Food Non Live". Camilo Esquivel revisando. Elias (17:59): "Claro que si! estamos atentos." Pendiente confirmacion final de Camilo.', time: 'Mie 15 Jul 17:59', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel → JP (DM)', text: 'ORQUESTADOR EN ESPERA (Mie 15 Jul 16:46): Camilo: "Juan, entonces esto queda en espera mientras se define." JP: "sisi dejame definirlo con el equipo y te aviso." — Orquestador Merchant NO se deploya hasta que JP defina issues objetivo con Maria. Bloqueo activo.', time: 'Mie 15 Jul 16:46', type: 'dm', actionable: true },
