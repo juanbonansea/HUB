@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 17 Jul ~18:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 13-17 Julio 2026 · Actualizado 17 Jul ~22:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -2187,6 +2187,8 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'JP → Diego Mesa (DM)', text: 'ARBOL DE DECISION WA — PAYMENTS FLOW (Vie 17 Jul 15:14): JP envio a Diego Mesa el arbol de decision WhatsApp para el flujo de payments: "El arbol de Decision de Wa para el fujo de payments 3 -> 1" + imagenes del flujo mostrando opciones del bot → "Pagos y finanzas → Aclaración sobre pagos". Diego: "De una bro, muchas gracias!" — arbol de decision WA documentado y compartido con el equipo tech.', time: 'Vie 17 Jul 15:26', type: 'dm', actionable: false },
+  { from: 'Stephania Gonzalez ↔ JP (DM)', text: 'PANTALLAS NAVEGACION PAYMENTS — WA Y PORTALS (Vie 17 Jul 15:10-15:21): JP pidio pantallas que debe recorrer el aliado para llegar al flujo de payments en WhatsApp y portales. Stephania confirmo: opcion #3 del bot, despliega todas las opciones — mismas opciones en portals. Toda la info de navegacion confirmada. Stephania: "Se acabo la semana" — cierre de semana con info completa para el flujo de payments.', time: 'Vie 17 Jul 15:21', type: 'dm', actionable: false },
   { from: 'JP → #ai-automations (canal publico)', text: 'KICK OFF PAYMENTS — RESULTADOS COMPARTIDOS (Vie 17 Jul 14:48-14:53): JP publico hilo completo: "El dia de hoy tuvimos el Kick off con Diego Mesa para que nos ayudes con la habilitacion de los endpoints necesarios para la construccion del flujo." Compartio Figma AI Bot_Payments and finances (estructura del flujo y endpoints detallados), Google Doc con implicaciones del flujo y Assembled workflow PROD. Taggeo a Andres De Las Casas, Elias Rivera, F.Diaz, Maria Granada, Meiker Munera y Susana Paniagua. Kick off DOCUMENTADO y publicado.', time: 'Vie 17 Jul 14:53', type: 'channel', actionable: false },
   { from: 'Stephania Gonzalez → JP (DM)', text: 'ORDENES CARGO PARA TESTEO CANCELACIONES (Vie 17 Jul 13:20): Stephania envio 2 numeros de orden: "2481426907 co cargo" y "2481367672 co cargo". JP habia pedido ordenes Cargo, Marketplace y Pickup para testear flujo cancelaciones en ambiente real.', time: 'Vie 17 Jul 13:20', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel → Group DM (Elias/FDiaz/Gregson/Manuel/Stephania/JP)', text: 'MERCHANTS FOOD NON LIVE — KEY CONNECT PENDIENTE (Vie 17 Jul 12:42): Camilo a Elias: "Hola Elias, podemos pedirle a Meik que nos ayude a crear una key, por ejemplo: merchants_food_non_live en Connect para que se encargue de redireccionar a la cola de Merchants Food Non Live y con esa key debemos crear el handoff_type en Assembled y redireccionar el flujo a el." / "de mi parte ya tengo las recetas tanto de Whatsapp como de Portal, me hace falta el key de Connect." ACCION: pedir a Meik que cree la key merchants_food_non_live en Connect.', time: 'Vie 17 Jul 12:42', type: 'dm', actionable: true },
