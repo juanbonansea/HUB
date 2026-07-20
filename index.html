@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 20 Jul 13:08 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 20 Jul 18:31 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1502,7 +1502,7 @@ const EVENTS = {
 const NOTES = [
   {
     id:94, title:'Inicio Semana 20-24 Jul — Agenda, Prioridades y Pendientes', date:'20 Jul',
-    summary:'LUNES 20 JUL 13:08 COT — Cuarta actualizacion del dia. Gmail no disponible en esta sesion automatica (requiere reautorizacion) — no hay nuevas notas Gemini. Reuniones de hoy: Prioridades Semana Support Product (9:30, completada), Shadowing Merchant TU (10:00, opcional), Daily Automations (10:30, opcional), Lunch (13:00-14:00, ahora). Slack actividad reciente: DM con Stephania Gonzalez sobre flujos bot y ordenes de testeo — ella respondio "Quedo pendiente cualquier otra cosa" y "De nada"; DM con Diego Mesa sobre arbol de decision payments confirmado. Carry-forward: flujo cancelaciones AUN NO en PROD (Diego Vie 17), testeo ordenes Stephania pendiente, key merchants_food_non_live pendiente Meik, motivos contacto 3 plataformas pendiente respuesta Camilo. Esta semana clave: All Hands CX Mar 10:00, kick off linea 13 Mar 12:00, Assembled Sync Jue 14:00 (Snowflake bloqueante), Kick off bank account Vie 11:30.',
+    summary:'LUNES 20 JUL 18:31 COT — Quinta actualizacion del dia. Gmail no disponible en esta sesion automatica (requiere reautorizacion) — no hay nuevas notas Gemini. Reuniones de hoy COMPLETADAS: Prioridades Semana Support Product (9:30), Shadowing Merchant TU (10:00, opcional), Daily Automations (10:30, opcional), Lunch (13:00-14:00). Resto del lunes libre para trabajo profundo (14:00-18:00). Slack actividad reciente: DM con Stephania Gonzalez sobre flujos bot y ordenes de testeo — ella respondio "Quedo pendiente cualquier otra cosa"; DM con Diego Mesa sobre arbol de decision payments confirmado; Camilo Esquivel DM Jul 15 "Juan, entonces esto queda en espera mientras se define" (re: thread publico — decision pendiente). Carry-forward: flujo cancelaciones AUN NO en PROD (Diego Vie 17), testeo ordenes Stephania pendiente, key merchants_food_non_live pendiente Meik, motivos contacto 3 plataformas pendiente respuesta Camilo. Esta semana clave: All Hands CX Mar 10:00, kick off linea 13 Mar 12:00 con Elias, 1:1 Maria Mar 14:00, 1:1 Andres Mar 15:30, CX WBR Mie 11:00, CX Design Review Jue 9:00, Assembled Sync Jue 14:00 (Snowflake bloqueante), Kick off bank account Vie 11:30, Weekly QA AI Vie 14:00.',
     sections:[
       'Agenda clave: All Hands CX Mar 10:00, Kick off linea 13 Mar 12:00 (Elias), 1:1 Maria Mar 14:00, Assembled Sync Jue 14:00, Kick off bank account Vie 11:30, Weekly QA AI Vie 14:00',
       'Pendiente P0: Activar flujo cancelaciones al 30% PROD — testeo con ordenes Stephania (2481426907 / 2481367672). Diego confirmo Vie 17 que NO esta en PROD.',
@@ -2188,7 +2188,8 @@ const SLACK_FEED = [
   { from: 'Stephania Gonzalez → JP (DM)', text: 'ORDENES CARGO TESTEO CANCELACIONES (Vie 17 13:20): Stephania envio "2481426907 co cargo" y "2481367672 co cargo". JP habia pedido ordenes Cargo, Marketplace y Pickup. Testeo pendiente de completar.', time: 'Vie 17 Jul 13:20', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel → JP (DM)', text: 'MOTIVOS DE CONTACTO 3 PLATAFORMAS (Vie 17): Camilo: "Hola Juan, estos motivos de contacto aplican para las 3 plataformas: portal, whatsapp y aliados?" — Pendiente respuesta de JP.', time: 'Vie 17 Jul', type: 'dm', actionable: true },
   { from: 'JP → #assembled-rappi', text: 'SNOWFLAKE STATIC ROUTING ETA (Vie 17 tarde): JP pregunto a Monica cuando estara activo static egress routing. SecOps whitelist ticket en progreso en lado Rappi. Monica aun no respondio. Jorge Calvache espera confirmacion — ultima pieza bloqueante.', time: 'Vie 17 Jul tarde', type: 'channel', actionable: true },
-  { from: 'JP → Diego Mesa (DM)', text: 'ARBOL DE DECISION WA PAYMENTS (Vie 17 15:14): JP envio arbol de decision WhatsApp para flujo payments (3 -> 1) con imagenes: "Pagos y finanzas → Aclaracion sobre pagos". Diego: "De una bro, muchas gracias!" — documentado y confirmado.', time: 'Vie 17 Jul 15:26', type: 'dm', actionable: false }
+  { from: 'JP → Diego Mesa (DM)', text: 'ARBOL DE DECISION WA PAYMENTS (Vie 17 15:14): JP envio arbol de decision WhatsApp para flujo payments (3 -> 1) con imagenes: "Pagos y finanzas → Aclaracion sobre pagos". Diego: "De una bro, muchas gracias!" — documentado y confirmado.', time: 'Vie 17 Jul 15:26', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel → JP (DM)', text: 'DECISION EN ESPERA (Mar 15 16:46): Camilo: "Juan, entonces esto queda en espera mientras se define" — hace referencia a thread en #ai-automations. Algo que JP debia responder o definir quedo en pausa. Verificar con Camilo que decision se espera (puede estar relacionado con entry issues orquestador o motivos de contacto).', time: 'Mar 15 Jul 16:46', type: 'dm', actionable: true }
 ];
 
 const DEEP_WORK = [
