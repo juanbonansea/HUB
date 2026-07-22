@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 15:05 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 16:45 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1504,6 +1504,21 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:103, title:'Miercoles 22 Jul — Cierre 16:45 COT: Cancelaciones Merchant al Agente + AI Bot Benefits Expansion', date:'22 Jul',
+    summary:'MIE 22 JUL 16:45 COT — Actualizacion de cierre del dia. (1) NUEVO BLOCKER CANCELACIONES MERCHANT (JP en #cx-product 16:31): el flujo de cancelaciones en Merchant esta derivando a Agente porque la integracion Assembled-Snowflake esta en Hold. JP espera documento de Elias Rivera que reemplaza la ultima parte de "Aplica Ajuste" para ahorrar el paso a Handoff. Esto impacta directamente el meta del bot hasta que Snowflake este activo. (2) AI BOT BENEFITS EXPANSION (Group DM 16:25-16:30): Mafe noto que el bot AI Benefits and Policies esta al 30% en paises pequenos y pregunto si se puede expandir al 100% en paises grandes. Susana respondio "si podemos expandir! one moment ya lo hago" — rollout en proceso. (3) Recordatorio Mafe (DM 15:59): "no olvides porfa dejar los hilitos de canceladas y el orquestador para alinearnos en lo que debe salir esta semana." (4) Reuniones del dia COMPLETAS: CX WBR 11:00, 1:1 Maria 12:00, Consulta Procesos 15:45, 1:1 Andres 16:00.',
+    sections:[
+      'NUEVO BLOCKER CANCELACIONES MERCHANT (16:31 #cx-product): flujo deriva a agente por Assembled-Snowflake en Hold — Elias pendiente compartir documento que reemplaza "Aplica Ajuste"',
+      'AI BOT BENEFITS EXPANSION: bot Benefits/Policies al 30% pequenos → Susana expande a 100% grandes en curso (Mie 22 16:30)',
+      'Recordatorio Mafe (DM 15:59): dejar hilitos de canceladas y orquestador para alinear lo que debe salir esta semana',
+      'TODOS LOS MEETINGS DEL DIA COMPLETADOS: CX WBR 11:00, 1:1 Maria 12:00, Consulta Procesos 15:45, 1:1 Andres 16:00'
+    ],
+    actions:[
+      { text:'[P0 Jue 23 12:00] ASSEMBLED SYNC URGENTE: cancelaciones en Merchant derivan a agente hasta que Snowflake este activo. Confirmar con Monica static egress routing activo — ULTIMA pieza. Notificar a Jorge Calvache para testeo Snowflake inmediatamente.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'[P1 JUE 23] DOCUMENTO ELIAS — REEMPLAZA APLICA AJUSTE: JP pidio a Elias en #cx-product el documento que reemplaza la ultima parte de "Aplica Ajuste" para evitar el paso a Handoff en el flujo de cancelaciones Merchant. Hacer seguimiento con Elias antes del CX Design Review 9:00.', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'[P1 SEMANA] HILOS CANCELADAS + ORQUESTADOR: Mafe pide dejar los hilitos de canceladas y orquestador para alinearse. Publicar actualizacion de estado en Slack antes del dia de manana.', owner:'Juan Pablo', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:102, title:'Miercoles 22 Jul — Tarde 15:05 COT: Reuniones Proximas + Alerta Susana API Ciudades', date:'22 Jul',
     summary:'MIE 22 JUL 15:05 COT — Actualizacion de tarde. (1) PROXIMAS HOY: Consulta Procesos Manager 15:45-16:00 con Luciano Gaspar, Felipe Nava, Elias Rivera y F.Diaz — revisar si existe servicio en Portal Manager para consultar cambios contractuales. 1:1 Andres De Las Casas 16:00-16:30 — llevar cancelaciones 30%, orquestador en progreso, kick off linea 13 Vie 24. (2) ALERTA SUSANA 14:28: Susana Paniagua envio en group DM (Meiker, Maria, JP) que algo afecta los bots que tienen API que lee ciudades — linko thread en canal de ai-automations. Revisar impacto en bots activos. (3) CX WBR 11:00 y 1:1 Maria 12:00 YA REALIZADOS. (4) Gmail sigue sin autorizacion. Power BI BICSD-22472 aprobado por Andres, pendiente activacion.',
@@ -2310,16 +2325,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'JP → #cx-product', text: 'CANCELACIONES MERCHANT AL AGENTE (Mie 22 16:31): JP reporto que el flujo de cancelaciones en Merchant esta derivando a Agente porque la integracion Assembled-Snowflake esta en Hold. Elias Rivera tiene pendiente compartir documento que reemplaza la ultima parte de "Aplica Ajuste" para evitar el paso a Handoff. CC: Andres, Maria, F.Diaz, Elias, Eugenio.', time: 'Mie 22 Jul 16:31', type: 'channel', actionable: true },
+  { from: 'Susana Paniagua → Group DM (Meiker, Maria, JP)', text: 'AI BOT BENEFITS EXPANSION (Mie 22 16:30): Susana respondio "si podemos expandir! one moment ya lo hago" tras pregunta de Maria sobre expandir el bot AI Benefits and Policies del 30% en paises pequenos al 100% en paises grandes. Rollout en proceso.', time: 'Mie 22 Jul 16:30', type: 'dm', actionable: false },
+  { from: 'Maria Granada → Group DM (incl. JP)', text: 'AI BOT BENEFITS AL 30% (Mie 22 16:25): Mafe envio "AI Bot_ Benefits and policies_Benefits/ Benefits and policies_Policies and insurance" y pregunto si el bot al 30% en pequenos puede expandirse al 100% en grandes o si falta algo. Susana confirmo expansion.', time: 'Mie 22 Jul 16:25', type: 'dm', actionable: false },
+  { from: 'Maria Granada → JP (DM)', text: 'RECORDATORIO HILOS (Mie 22 15:59): Mafe dijo "Hola juan! no olvides porfa dejar los hilitos de canceladas y el orquestador para alinearnos en lo que debe salir esta semana." Pendiente publicar actualizaciones en Slack.', time: 'Mie 22 Jul 15:59', type: 'dm', actionable: true },
   { from: 'Susana Paniagua → Group DM (Meiker, Maria, JP)', text: 'ALERTA API CIUDADES (Mie 22 14:28): Susana menciono que algo afecta los bots que tienen API que lee ciudades — linko thread de #ai-automations. Revisar impacto en bots activos en produccion (Cancelaciones, Payments, Aliados).', time: 'Mie 22 Jul 14:28', type: 'dm', actionable: true },
-  { from: 'Meiker Munera → Group DM (incl. JP)', text: 'API CREDITOS USUARIO (Mie 22 12:33): Meiker pregunto "Hello chicos, saben si existe alguna API que saque los creditos que tiene un usuario cargados en su cuenta?" Maria respondio "si, en el de promos esta" y lo busco. JP no requiere accion directa.', time: 'Mie 22 Jul 12:33', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel → JP (Group DM)', text: 'RECETAS ASSEMBLED+CONNECT (Mie 22 11:11): Camilo pidio a Elias que Meik cree key en Connect para rutear cola Merchants Food Non Live y configuraciones en Assembled y Connect. Elias confirmo que pedira key de connect y la compartira.', time: 'Mie 22 Jul 11:11', type: 'dm', actionable: false },
-  { from: 'Andres De Las Casas → JP (DM)', text: 'APROBADO (Mie 22 11:02): Andres confirmo "Aprobado" en DM tras el CX WBR 11:00-12:00. Probablemente aprobacion de algo tratado en la reunion o del ticket Power BI BICSD-22472. 1:1 Andres hoy 16:00-16:30.', time: 'Mie 22 Jul 11:02', type: 'dm', actionable: false },
-  { from: 'JP → #dataops_on_schedule', text: 'TICKET POWER BI BICSD-22472 (Mie 22 10:41): JP abrio ticket de acceso a workspace Power BI despues de ser bloqueado por no tener licencia premium. Solicito en #secops_on_schedule y #dataops_on_schedule. Maria dijo "pon un ticket en secops". Andres ayudo con aprobacion.', time: 'Mie 22 Jul 10:41', type: 'channel', actionable: true },
-  { from: 'JP → Maria Granada (DM)', text: 'CANCELACIONES AL 30% CONFIRMADAS (Mie 22 09:37): JP confirmo a Mafe "ya salimos con cancelaciones en pequenos y medianos al 30%. Juan Esquivel esta trabajando en el orquestador en este momento con los entry issues que quedamos con Merchant." Status actualizado.', time: 'Mie 22 Jul 09:37', type: 'dm', actionable: false },
-  { from: 'Maria Granada → JP (DM)', text: 'DUDAS CANCELACIONES + ORQUESTADOR (Mie 22 09:35): Mafe pregunto: "1. Cuando salimos con cancelaciones? 2. en que quedamos del orquestador." JP respondio confirmando 30% (peq+med) y Juan Esquivel en orquestador con entry issues Merchant.', time: 'Mie 22 Jul 09:35', type: 'dm', actionable: false },
-  { from: 'Diego Mesa → JP (DM)', text: 'STOREID EN DEV (Mie 22 09:41): Diego pregunto "Bro, de casualidad no tienes un storeId en dev que tenga info?" — JP respondio "uff no yo creo que Juan Esquivel tiene algunas". Diego trabaja en algo relacionado al orquestador o cancelaciones en dev.', time: 'Mie 22 Jul 09:41', type: 'dm', actionable: false },
-  { from: 'Camilo Esquivel → JP (DM)', text: 'LINK ASSEMBLED ORQUESTADOR ROTO (Mar 21 18:34): Camilo dijo "me confirmas porfa el link de assembled del orquestador, el del hilo me dice que no existe" — resuelto en la manana del Mie 22 antes del Daily 10:30.', time: 'Mar 21 Jul 18:34', type: 'dm', actionable: false },
-  { from: 'Diego Mesa → JP (DM)', text: 'STATSIG CANCELACIONES LINK (Mar 21 15:45): Diego compartio console.statsig.com/.../ai_chatbot_cancellation_flow. JP confirmo trafico portal+whatsapp en un solo experimento. Llevado a CX WBR Mie 22 11:00 y 1:1 Maria 12:00.', time: 'Mar 21 Jul 15:45', type: 'dm', actionable: false }
+  { from: 'JP → #dataops_on_schedule', text: 'TICKET POWER BI BICSD-22472 (Mie 22 10:41): JP abrio ticket de acceso a workspace Power BI despues de ser bloqueado por no tener licencia premium. Andres De Las Casas ayudo con aprobacion en DM 11:02.', time: 'Mie 22 Jul 10:41', type: 'channel', actionable: true },
+  { from: 'JP → Maria Granada (DM)', text: 'CANCELACIONES AL 30% CONFIRMADAS (Mie 22 09:37): JP confirmo a Mafe "ya salimos con cancelaciones en pequenos y medianos al 30%. Juan Esquivel esta trabajando en el orquestador en este momento con los entry issues que quedamos con Merchant."', time: 'Mie 22 Jul 09:37', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
