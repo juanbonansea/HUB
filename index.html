@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 16:15 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 13:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1491,17 +1491,32 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'12:00-12:30', title:'Assembled Assist <> Rappi Weekly Sync', attendees:8, org:'monica@assembledhq.com', type:'external', note:'Sync semanal con Monica (Assembled) — PRIORIDAD MAXIMA: confirmar static egress routing activo. Una vez confirmado: avisar a Jorge Calvache para testeo Snowflake. ULTIMA pieza bloqueante. (12:00 COT = 10:00 PDT). Movido de 14:00 a 12:00 COT.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'14:30-15:30', title:'Soporte Pagos', attendees:10, type:'team', note:'Sesion de soporte de pagos — revision flujos y estado integraciones de pago con el equipo.' },
     { time:'15:00-16:00', title:'Capacitacion: Actuar en Emergencia (tarde)', attendees:0, org:'ext-s.duenas@rappi.com', type:'learning', note:'Sesion alternativa tarde de capacitacion SST. Elegir una de las dos sesiones del dia.' }
   ],
   fri: [
     { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'11:30-12:00', title:'Kick off — Iniciativa: How to Change My Bank Account', attendees:5, org:'juan.bonansea@rappi.com', type:'team', note:'Kick off equipo completo linea 13 — "how to change my bank account". JP organiza. Participantes: Elias Rivera, Diego Mesa, F.Diaz (opcional), Stephania Gonzalez (opcional). Entry issues ya definidos en sesion Mar 21 14:00 — llevar propuesta completa flujo y cronograma Q3.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'12:00-13:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'13:00-14:00', title:'Orquestador', attendees:6, type:'team', note:'Sesion de revision del orquestador con Camilo Esquivel — seguimiento deploy al 70%, routing Merchant, estado entry issues.' },
     { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal QA AI con Maria Granada — revision estado flujos automatizacion, metricas bot cancelaciones (en PROD o pendiente), resultado kick off linea 13, rollout merchants grandes, estado Snowflake.' }
   ]
 };
 
 const NOTES = [
+  {
+    id:101, title:'Miercoles 22 Jul — Mediodia 13:00 COT: Nuevas reuniones Jue/Vie + API Creditos', date:'22 Jul',
+    summary:'MIE 22 JUL 13:00 COT — Actualizacion de mediodia. (1) NUEVAS REUNIONES DETECTADAS: "Soporte Pagos" Jue 23 14:30-15:30 y "Orquestador" Vie 24 13:00-14:00 agregados al calendario esta semana. (2) MEIKER PREGUNTA API CREDITOS (12:33): en group DM Meiker pregunto por API de creditos de usuario — Maria respondio que esta en el de promos. No requiere accion de JP. (3) CAMILO+ELIAS RECETAS (11:11): Camilo pidio a Elias que Meik cree key en Connect para rutear cola Merchants Food Non Live y configuraciones en Assembled. Elias va a pedir y compartir la key. (4) Gmail sigue sin disponibilidad — requiere reautorizacion del conector.',
+    sections:[
+      'NUEVAS REUNIONES JUE 23 Y VIE 24: "Soporte Pagos" 14:30-15:30 Jue 23 y "Orquestador" 13:00-14:00 Vie 24 detectados en calendario',
+      'API CREDITOS (Mie 12:33): Meiker pregunto en group DM — Maria lo busca en el de promos; JP sin accion directa',
+      'RECETAS ASSEMBLED+CONNECT (Mie 11:11): Camilo pide a Elias/Meik crear key en Connect para cola Merchants Food Non Live; Elias solicitara key de connect'
+    ],
+    actions:[
+      { text:'[P1 Jue 23 14:30] SOPORTE PAGOS: nueva reunion detectada — preparar contexto de pagos si corresponde.', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'[P1 Vie 24 13:00] ORQUESTADOR: nueva sesion detectada — confirmar agenda y participantes con Camilo.', owner:'Juan Pablo', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:100, title:'Miercoles 22 Jul — Tarde: Cancelaciones 30%, Power BI y 1:1s Pendientes', date:'22 Jul',
     summary:'MIE 22 JUL TARDE 16:15 COT — Actualizacion de tarde. (1) CANCELACIONES CONFIRMADAS AL 30%: JP confirmo a Mafe (DM 09:37) "ya salimos con cancelaciones en pequenos y medianos al 30%". Juan Esquivel trabajando en orquestador con entry issues de Merchant. (2) POWER BI ACCESS BLOQUEADO: JP noto que acceso a Power BI fue bloqueado por no tener premium. Abrio ticket BICSD-22472 via #secops_on_schedule y #dataops_on_schedule (10:00-10:42). Maria dijo "pon un ticket en secops". Andres De Las Casas ayudo con el ticket (DM 10:42 "Aprobado"). (3) CX WBR (11:00-12:00) y 1:1 Maria Granada (12:00-12:30) YA REALIZADOS. (4) PENDIENTE 15:45: Consulta Procesos Manager con Luciano Gaspar y Felipe Nava. (5) PENDIENTE 16:00: 1:1 Andres De Las Casas. Gmail no disponible (requiere reautorizacion).',
@@ -2279,6 +2294,8 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Meiker Munera → Group DM (incl. JP)', text: 'API CREDITOS USUARIO (Mie 22 12:33): Meiker pregunto "Hello chicos, saben si existe alguna API que saque los creditos que tiene un usuario cargados en su cuenta?" Maria respondio "si, en el de promos esta" y lo busco. JP no requiere accion directa.', time: 'Mie 22 Jul 12:33', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel → JP (Group DM)', text: 'RECETAS ASSEMBLED+CONNECT (Mie 22 11:11): Camilo pidio a Elias que Meik cree key en Connect para rutear cola Merchants Food Non Live y configuraciones en Assembled y Connect. Elias confirmo que pedira key de connect y la compartira.', time: 'Mie 22 Jul 11:11', type: 'dm', actionable: false },
   { from: 'Andres De Las Casas → JP (DM)', text: 'APROBADO (Mie 22 11:02): Andres confirmo "Aprobado" en DM tras el CX WBR 11:00-12:00. Probablemente aprobacion de algo tratado en la reunion o del ticket Power BI BICSD-22472. 1:1 Andres hoy 16:00-16:30.', time: 'Mie 22 Jul 11:02', type: 'dm', actionable: false },
   { from: 'JP → #dataops_on_schedule', text: 'TICKET POWER BI BICSD-22472 (Mie 22 10:41): JP abrio ticket de acceso a workspace Power BI despues de ser bloqueado por no tener licencia premium. Solicito en #secops_on_schedule y #dataops_on_schedule. Maria dijo "pon un ticket en secops". Andres ayudo con aprobacion.', time: 'Mie 22 Jul 10:41', type: 'channel', actionable: true },
   { from: 'JP → Maria Granada (DM)', text: 'CANCELACIONES AL 30% CONFIRMADAS (Mie 22 09:37): JP confirmo a Mafe "ya salimos con cancelaciones en pequenos y medianos al 30%. Juan Esquivel esta trabajando en el orquestador en este momento con los entry issues que quedamos con Merchant." Status actualizado.', time: 'Mie 22 Jul 09:37', type: 'dm', actionable: false },
@@ -2292,8 +2309,8 @@ const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-10:00', '11:00-13:00', '15:30-18:00'] },
   { day: 'Mie', blocks: ['8:00-10:30', '14:00-15:45', '16:30-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-12:00', '14:00-15:00', '16:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-10:30', '12:00-13:00', '14:30-18:00'] }
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-12:00', '16:00-18:00'] },
+  { day: 'Vie', blocks: ['8:00-10:30', '14:30-18:00'] }
 ];
 
 const PHASES = ['discovery','design','build','qa','metrics'];
