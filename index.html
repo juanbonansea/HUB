@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 13:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 15:05 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1504,6 +1504,21 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:102, title:'Miercoles 22 Jul — Tarde 15:05 COT: Reuniones Proximas + Alerta Susana API Ciudades', date:'22 Jul',
+    summary:'MIE 22 JUL 15:05 COT — Actualizacion de tarde. (1) PROXIMAS HOY: Consulta Procesos Manager 15:45-16:00 con Luciano Gaspar, Felipe Nava, Elias Rivera y F.Diaz — revisar si existe servicio en Portal Manager para consultar cambios contractuales. 1:1 Andres De Las Casas 16:00-16:30 — llevar cancelaciones 30%, orquestador en progreso, kick off linea 13 Vie 24. (2) ALERTA SUSANA 14:28: Susana Paniagua envio en group DM (Meiker, Maria, JP) que algo afecta los bots que tienen API que lee ciudades — linko thread en canal de ai-automations. Revisar impacto en bots activos. (3) CX WBR 11:00 y 1:1 Maria 12:00 YA REALIZADOS. (4) Gmail sigue sin autorizacion. Power BI BICSD-22472 aprobado por Andres, pendiente activacion.',
+    sections:[
+      'PROXIMA 15:45: Consulta Procesos Manager — Luciano Gaspar organiza, Felipe Nava responde si hay servicio en Portal Manager para cambios contractuales y que campos necesita',
+      'PROXIMA 16:00: 1:1 Andres De Las Casas — llevar cancelaciones 30% confirmadas, orquestador Juan Esquivel en progreso, kick off linea 13 Vie 24 11:30',
+      'ALERTA SUSANA 14:28: API que lee ciudades afectando bots — revisar si impacta bot Cancelaciones, Payments u otro bot activo en produccion',
+      'REALIZADOS HOY: CX WBR 11:00-12:00 (55 personas), 1:1 Maria Granada 12:00-12:30, Daily 10:30'
+    ],
+    actions:[
+      { text:'[P0 HOY 15:45] CONSULTA PROCESOS MANAGER: preguntar a Felipe Nava si existe servicio en Portal Manager para ver procesos de cambios contractuales iniciados — y que campos se necesitan en cada proceso.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'[P0 HOY 16:00] 1:1 ANDRES DE LAS CASAS: llevar cancelaciones 30% pequenos+medianos confirmadas, orquestador (Juan Esquivel con entry issues Merchant), kick off linea 13 Vie 24 11:30, Power BI BICSD-22472 aprobado.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'[P1 HOY] VERIFICAR ALERTA SUSANA API CIUDADES: Susana menciono en group DM 14:28 que algo afecta los bots con API que lee ciudades. Revisar si impacta bot Cancelaciones, Payments o bot Aliados. Thread en #ai-automations.', owner:'Juan Pablo', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:101, title:'Miercoles 22 Jul — Mediodia 13:00 COT: Nuevas reuniones Jue/Vie + API Creditos', date:'22 Jul',
     summary:'MIE 22 JUL 13:00 COT — Actualizacion de mediodia. (1) NUEVAS REUNIONES DETECTADAS: "Soporte Pagos" Jue 23 14:30-15:30 y "Orquestador" Vie 24 13:00-14:00 agregados al calendario esta semana. (2) MEIKER PREGUNTA API CREDITOS (12:33): en group DM Meiker pregunto por API de creditos de usuario — Maria respondio que esta en el de promos. No requiere accion de JP. (3) CAMILO+ELIAS RECETAS (11:11): Camilo pidio a Elias que Meik cree key en Connect para rutear cola Merchants Food Non Live y configuraciones en Assembled. Elias va a pedir y compartir la key. (4) Gmail sigue sin disponibilidad — requiere reautorizacion del conector.',
@@ -2247,8 +2262,8 @@ const DEFAULT_TASKS = [
   { id:'t7001', text:'[P0 HOY] REVISAR GEMINI NOTES MEETING 14:00: Google Docs adjunto en Calendar "Elias Daniel / Juan Pablo - How to change my bank account" Mar 21 14:00 — extraer scope linea 13, errores bot Aliados (plan correccion), next steps. Abrir desde Google Calendar.', phase:'build', priority:'P0', source:'Calendar Mar 21 Jul 14:00 — Notas Gemini', day:'tue', completed:false },
   { id:'t7002', text:'[P1 SEMANA] CANCELACIONES 30% CONFIRMADAS EN PEQUENOS+MEDIANOS: JP confirmo a Mafe Mie 22 09:37 que ya salimos al 30% en pequenos y medianos. Verificar escalada a TODOS los paises (grandes) con Diego Mesa. Llevar avance a Weekly QA AI Vie 24 14:00.', phase:'build', priority:'P1', source:'DM Mafe + JP Mie 22 Jul 09:37', day:'fri', completed:false },
   { id:'t7003', text:'[P0 SEMANA] ORQUESTADOR AL 70%: Mafe pide meta esta semana. Camilo desplego recetas paises grandes Mar 21 11:52 ("ya quedo"). Verificar que el porcentaje total llegue al 70% — confirmar con Camilo estado actual del deploy.', phase:'build', priority:'P0', source:'Group DM Mafe Mar 21 + DM Camilo 11:52', day:'wed', completed:false },
-  { id:'t7004', text:'[P0 Mie 22 11:00] CX WEEKLY BUSINESS REVIEW: preparar actualizacion — estado bot Cancelaciones (10% PROD → escalar 30%), kick off linea 13 (entry issues bank account definidos Mar 21), orquestador 70%, assembled sync Jue 14:00 (Snowflake bloqueante).', phase:'metrics', priority:'P0', source:'Calendar Mie 22 Jul 11:00', day:'wed', completed:false },
-  { id:'t7005', text:'[P0 Mie 22 12:00] 1:1 MARIA GRANADA: llevar (1) cancelaciones 10% → 30% todos paises; (2) orquestador al 70%; (3) kick off linea 13 resultados; (4) CDO readout 95% Nico Bejarano; (5) scorecard iniciativas lanzadas.', phase:'build', priority:'P0', source:'Calendar Mie 22 Jul 12:00', day:'wed', completed:false },
+  { id:'t7004', text:'[REALIZADO Mie 22 11:00] CX WEEKLY BUSINESS REVIEW: completado con 55 personas. Temas: cancelaciones 30% pequenos+medianos, entry issues bank account, orquestador, assembled sync Jue 12:00 (Snowflake bloqueante).', phase:'metrics', priority:'P0', source:'Calendar Mie 22 Jul 11:00', day:'wed', completed:true },
+  { id:'t7005', text:'[REALIZADO Mie 22 12:00] 1:1 MARIA GRANADA: completado. Temas: cancelaciones 30%, orquestador 70%, kick off linea 13, CDO readout 95% Nico Bejarano, scorecard iniciativas.', phase:'build', priority:'P0', source:'Calendar Mie 22 Jul 12:00', day:'wed', completed:true },
   { id:'t7006', text:'[P0 Jue 23 9:00] CX DESIGN REVIEW: llevar avances bot Cancelaciones y Payments (Figma en #ai-automations), kick off linea 13 resultados (entry issues bank account), estado orquestador.', phase:'build', priority:'P0', source:'Calendar Jue 23 Jul 9:00', day:'thu', completed:false },
   { id:'t7007', text:'[P0 Jue 23 12:00] ASSEMBLED SYNC — PRIORIDAD MAXIMA: confirmar con Monica que static egress routing esta activo. Una vez confirmado: avisar a Jorge Calvache para lanzar testeo Snowflake — ULTIMA pieza bloqueante. (12:00 COT = 10:00 PDT). Reunion MOVIDA de 14:00 a 12:00 COT.', phase:'build', priority:'P0', source:'Calendar Jue 23 Jul 12:00 COT', day:'thu', completed:false },
   { id:'t7008', text:'[P0 Vie 24 11:30] KICK OFF EQUIPO COMPLETO LINEA 13: con Elias Rivera, Diego Mesa, F.Diaz, Stephania. Prep: flujo "how to change my bank account", endpoints requeridos, cronograma Q3, responsables. Entry issues ya definidos en sesion Mar 21 14:00 — llevar propuesta completa.', phase:'build', priority:'P0', source:'Calendar Vie 24 Jul 11:30', day:'fri', completed:false },
@@ -2262,7 +2277,8 @@ const DEFAULT_TASKS = [
   { id:'t7016', text:'[P0 SEMANA] REVISAR STATSIG CANCELACIONES: Diego Mesa (DM Mar 21 15:45) compartio console.statsig.com/ai_chatbot_cancellation_flow — trafico de Portal + WhatsApp confirmado en un solo experimento. Revisar metricas conversion y decidir si se escala al 30%. Llevar a CX WBR Mie 22 11:00 y 1:1 Maria 12:00.', phase:'metrics', priority:'P0', source:'DM Diego Mesa Mar 21 Jul 15:45', day:'wed', completed:false },
   { id:'t7017', text:'[P0 SEMANA] SEGUIMIENTO ROUTING ORQUESTADOR: Camilo va a mover "Suspensions and Technical Support_Consultations and access to Portal Partners" del bot Food Live al orquestador (decision Mar 21 15:08). Confirmar con Camilo cuando queda implementado — es parte del avance hacia 70%.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 21 Jul 15:08', day:'wed', completed:false },
   { id:'t7018', text:'[RESUELTO Mie 22] Link Assembled orquestador enviado a Camilo antes del Daily 10:30 — Camilo desbloqueado.', phase:'build', priority:'P2', source:'DM Camilo Esquivel Mar 21 Jul 18:34', day:'wed', completed:true },
-  { id:'t7019', text:'[P1 SEMANA] POWER BI ACCESS — TICKET BICSD-22472: abierto Mie 22 10:41 en #dataops y #secops. Hacer seguimiento para recuperar acceso al workspace PBI de metricas. Andres aprobando. Necesario para revisar metricas cancelaciones y experimentos Statsig.', phase:'metrics', priority:'P1', source:'#dataops_on_schedule Mie 22 Jul 10:41', day:'wed', completed:false }
+  { id:'t7019', text:'[P1 SEMANA] POWER BI ACCESS — TICKET BICSD-22472: abierto Mie 22 10:41. Andres De Las Casas aprobado (DM 11:02). Hacer seguimiento para activar la licencia y recuperar acceso al workspace PBI.', phase:'metrics', priority:'P1', source:'#dataops_on_schedule Mie 22 Jul 10:41', day:'wed', completed:false },
+  { id:'t7020', text:'[P1 HOY] ALERTA API CIUDADES (Susana 14:28): algo afecta los bots con API que lee ciudades — revisar en thread #ai-automations. Confirmar si impacta bot Cancelaciones, Payments o Aliados en produccion y coordinar con Meiker/Diego la solucion.', phase:'build', priority:'P1', source:'Group DM Susana Paniagua Mie 22 Jul 14:28', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -2294,6 +2310,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Susana Paniagua → Group DM (Meiker, Maria, JP)', text: 'ALERTA API CIUDADES (Mie 22 14:28): Susana menciono que algo afecta los bots que tienen API que lee ciudades — linko thread de #ai-automations. Revisar impacto en bots activos en produccion (Cancelaciones, Payments, Aliados).', time: 'Mie 22 Jul 14:28', type: 'dm', actionable: true },
   { from: 'Meiker Munera → Group DM (incl. JP)', text: 'API CREDITOS USUARIO (Mie 22 12:33): Meiker pregunto "Hello chicos, saben si existe alguna API que saque los creditos que tiene un usuario cargados en su cuenta?" Maria respondio "si, en el de promos esta" y lo busco. JP no requiere accion directa.', time: 'Mie 22 Jul 12:33', type: 'dm', actionable: false },
   { from: 'Camilo Esquivel → JP (Group DM)', text: 'RECETAS ASSEMBLED+CONNECT (Mie 22 11:11): Camilo pidio a Elias que Meik cree key en Connect para rutear cola Merchants Food Non Live y configuraciones en Assembled y Connect. Elias confirmo que pedira key de connect y la compartira.', time: 'Mie 22 Jul 11:11', type: 'dm', actionable: false },
   { from: 'Andres De Las Casas → JP (DM)', text: 'APROBADO (Mie 22 11:02): Andres confirmo "Aprobado" en DM tras el CX WBR 11:00-12:00. Probablemente aprobacion de algo tratado en la reunion o del ticket Power BI BICSD-22472. 1:1 Andres hoy 16:00-16:30.', time: 'Mie 22 Jul 11:02', type: 'dm', actionable: false },
