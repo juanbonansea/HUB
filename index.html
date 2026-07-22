@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 09:30 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 16:15 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1502,6 +1502,22 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:100, title:'Miercoles 22 Jul — Tarde: Cancelaciones 30%, Power BI y 1:1s Pendientes', date:'22 Jul',
+    summary:'MIE 22 JUL TARDE 16:15 COT — Actualizacion de tarde. (1) CANCELACIONES CONFIRMADAS AL 30%: JP confirmo a Mafe (DM 09:37) "ya salimos con cancelaciones en pequenos y medianos al 30%". Juan Esquivel trabajando en orquestador con entry issues de Merchant. (2) POWER BI ACCESS BLOQUEADO: JP noto que acceso a Power BI fue bloqueado por no tener premium. Abrio ticket BICSD-22472 via #secops_on_schedule y #dataops_on_schedule (10:00-10:42). Maria dijo "pon un ticket en secops". Andres De Las Casas ayudo con el ticket (DM 10:42 "Aprobado"). (3) CX WBR (11:00-12:00) y 1:1 Maria Granada (12:00-12:30) YA REALIZADOS. (4) PENDIENTE 15:45: Consulta Procesos Manager con Luciano Gaspar y Felipe Nava. (5) PENDIENTE 16:00: 1:1 Andres De Las Casas. Gmail no disponible (requiere reautorizacion).',
+    sections:[
+      'CANCELACIONES 30% CONFIRMADAS (pequenos+medianos): JP confirmo a Mafe DM 09:37 — Juan Esquivel trabaja en orquestador con entry issues Merchant',
+      'POWER BI BLOQUEADO: acceso eliminado por no ser premium — ticket BICSD-22472 abierto en #secops y #dataops (10:00-10:42); Andres ayudo con aprobacion (DM 11:02)',
+      'CX WBR 11:00-12:00 YA REALIZADO: 55 personas; Consulta Procesos Manager 15:45 PENDIENTE (Luciano Gaspar + Felipe Nava)',
+      '1:1 Maria Granada 12:00-12:30 YA REALIZADO — seguimiento cancelaciones 30%, orquestador 70%, linea 13, CDO readout Nico',
+      '1:1 Andres De Las Casas 16:00-16:30 PENDIENTE — llevar: cancelaciones 30%, orquestador Juan Esquivel, kick off linea 13 Vie 24 11:30'
+    ],
+    actions:[
+      { text:'[P0 15:45] CONSULTA PROCESOS MANAGER: revisar con Felipe Nava y Luciano Gaspar si existe servicio en Portal Manager para consultar cambios contractuales iniciados — y que campos necesitan en cada proceso.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'[P0 16:00] 1:1 ANDRES: llevar cancelaciones confirmadas al 30% (pequenos+medianos), orquestador 70% en progreso (Juan Esquivel con entry issues Merchant), kick off linea 13 Vie 24 11:30.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'[P1 SEMANA] POWER BI ACCESS: ticket BICSD-22472 abierto — seguimiento para recuperar acceso al workspace PBI de metricas. Andres De Las Casas ayuda.', owner:'Juan Pablo', phase:'metrics', priority:'P1' }
+    ]
+  },
   {
     id:99, title:'Miercoles 22 Jul — Agenda y Seguimiento', date:'22 Jul',
     summary:'MIE 22 JUL — Refresh matutino. Gmail no disponible (requiere reautorizacion). URGENTE: Camilo Esquivel (DM Mar 21 18:34) pide link correcto del orquestador en Assembled — enviar ANTES del Daily 10:30. HOY: Daily 10:30 (opc), CX WBR 11:00-12:00 (55 personas, llevar Statsig link cancelaciones + routing orquestador + 4 entry issues linea 13), 1:1 Maria Granada 12:00-12:30 (cancelaciones 10%→30%, orquestador 70%, CDO readout Nico, scorecard), Consulta Procesos Manager 15:45-16:00 (Luciano Gaspar — revisar si existe servicio Portal Manager para cambios contractuales con Felipe Nava), 1:1 Andres De Las Casas 16:00-16:30. Manana Jue 23: CX Design Review 9:00, Assembled Sync 12:00 COT (PRIORIDAD MAXIMA — confirmar static egress routing con Monica, desbloquea Snowflake). Estado iniciativas: cancelaciones 10% PROD (meta 30%), orquestador 70% meta (deploy paises grandes OK Mar 21 11:52), linea 13 kick off equipo completo Vie 24 11:30.',
@@ -2214,7 +2230,7 @@ const _NOTES_ARCHIVED = [
 
 const DEFAULT_TASKS = [
   { id:'t7001', text:'[P0 HOY] REVISAR GEMINI NOTES MEETING 14:00: Google Docs adjunto en Calendar "Elias Daniel / Juan Pablo - How to change my bank account" Mar 21 14:00 — extraer scope linea 13, errores bot Aliados (plan correccion), next steps. Abrir desde Google Calendar.', phase:'build', priority:'P0', source:'Calendar Mar 21 Jul 14:00 — Notas Gemini', day:'tue', completed:false },
-  { id:'t7002', text:'[P0 SEMANA] ESCALAR CANCELACIONES 30% TODOS LOS PAISES: JP confirmo Mar 21 que ya esta al 10% paises pequenos. Coordinar con Diego Mesa la escalada al 30% en todos los paises. Llevar avance a 1:1 Maria Mie 22 12:00 y Weekly QA AI Vie 24 14:00.', phase:'build', priority:'P0', source:'Group DM Mafe + DM Elias Mar 21 Jul', day:'wed', completed:false },
+  { id:'t7002', text:'[P1 SEMANA] CANCELACIONES 30% CONFIRMADAS EN PEQUENOS+MEDIANOS: JP confirmo a Mafe Mie 22 09:37 que ya salimos al 30% en pequenos y medianos. Verificar escalada a TODOS los paises (grandes) con Diego Mesa. Llevar avance a Weekly QA AI Vie 24 14:00.', phase:'build', priority:'P1', source:'DM Mafe + JP Mie 22 Jul 09:37', day:'fri', completed:false },
   { id:'t7003', text:'[P0 SEMANA] ORQUESTADOR AL 70%: Mafe pide meta esta semana. Camilo desplego recetas paises grandes Mar 21 11:52 ("ya quedo"). Verificar que el porcentaje total llegue al 70% — confirmar con Camilo estado actual del deploy.', phase:'build', priority:'P0', source:'Group DM Mafe Mar 21 + DM Camilo 11:52', day:'wed', completed:false },
   { id:'t7004', text:'[P0 Mie 22 11:00] CX WEEKLY BUSINESS REVIEW: preparar actualizacion — estado bot Cancelaciones (10% PROD → escalar 30%), kick off linea 13 (entry issues bank account definidos Mar 21), orquestador 70%, assembled sync Jue 14:00 (Snowflake bloqueante).', phase:'metrics', priority:'P0', source:'Calendar Mie 22 Jul 11:00', day:'wed', completed:false },
   { id:'t7005', text:'[P0 Mie 22 12:00] 1:1 MARIA GRANADA: llevar (1) cancelaciones 10% → 30% todos paises; (2) orquestador al 70%; (3) kick off linea 13 resultados; (4) CDO readout 95% Nico Bejarano; (5) scorecard iniciativas lanzadas.', phase:'build', priority:'P0', source:'Calendar Mie 22 Jul 12:00', day:'wed', completed:false },
@@ -2230,7 +2246,8 @@ const DEFAULT_TASKS = [
   { id:'t7015', text:'[P2 SEMANA] SHEETS LOOKUP REASON_IDS: crear tabla reason_id → descripcion legible para bot Cancelaciones. Acordado con Stephania Jue 16. Ejemplo: crsan_sk_doesnt_want_delivery_order_with_product (codigo 161).', phase:'build', priority:'P2', source:'DM Stephania Gonzalez Jue 16 Jul', day:'wed', completed:false },
   { id:'t7016', text:'[P0 SEMANA] REVISAR STATSIG CANCELACIONES: Diego Mesa (DM Mar 21 15:45) compartio console.statsig.com/ai_chatbot_cancellation_flow — trafico de Portal + WhatsApp confirmado en un solo experimento. Revisar metricas conversion y decidir si se escala al 30%. Llevar a CX WBR Mie 22 11:00 y 1:1 Maria 12:00.', phase:'metrics', priority:'P0', source:'DM Diego Mesa Mar 21 Jul 15:45', day:'wed', completed:false },
   { id:'t7017', text:'[P0 SEMANA] SEGUIMIENTO ROUTING ORQUESTADOR: Camilo va a mover "Suspensions and Technical Support_Consultations and access to Portal Partners" del bot Food Live al orquestador (decision Mar 21 15:08). Confirmar con Camilo cuando queda implementado — es parte del avance hacia 70%.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 21 Jul 15:08', day:'wed', completed:false },
-  { id:'t7018', text:'[P0 HOY Mie 22] RESPONDER A CAMILO — LINK ASSEMBLED ORQUESTADOR: Camilo envio DM Mar 21 18:34 diciendo que el link del orquestador en el hilo no existe. Confirmarle el link correcto del flujo en Assembled ANTES de la reunion Daily Mie 22 10:30 para que no quede bloqueado.', phase:'build', priority:'P0', source:'DM Camilo Esquivel Mar 21 Jul 18:34', day:'wed', completed:false }
+  { id:'t7018', text:'[RESUELTO Mie 22] Link Assembled orquestador enviado a Camilo antes del Daily 10:30 — Camilo desbloqueado.', phase:'build', priority:'P2', source:'DM Camilo Esquivel Mar 21 Jul 18:34', day:'wed', completed:true },
+  { id:'t7019', text:'[P1 SEMANA] POWER BI ACCESS — TICKET BICSD-22472: abierto Mie 22 10:41 en #dataops y #secops. Hacer seguimiento para recuperar acceso al workspace PBI de metricas. Andres aprobando. Necesario para revisar metricas cancelaciones y experimentos Statsig.', phase:'metrics', priority:'P1', source:'#dataops_on_schedule Mie 22 Jul 10:41', day:'wed', completed:false }
 ];
 
 const DEFAULT_BOTS = [
@@ -2262,13 +2279,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Bot Hub → JP (DM)', text: 'REFRESH MIE 22 JUL 07:08 COT: Hub actualizado. URGENTE sin responder: Camilo Esquivel pide link correcto del orquestador en Assembled (DM 18:34 Mar 21). HOY: Daily 10:30, CX WBR 11:00 (55p — llevar Statsig + routing + linea 13), 1:1 Maria 12:00, Consulta Procesos Manager 15:45 (nueva), 1:1 Andres 16:00. Manana PRIORIDAD: Assembled Sync 12:00 COT (Snowflake bloqueante).', time: 'Mie 22 Jul 07:08', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel → JP (DM)', text: 'LINK ASSEMBLED ORQUESTADOR ROTO (Mar 21 18:34): Camilo dice "me confirmas porfa el link de assembled del orquestador, el del hilo me dice que no existe" — PENDIENTE respuesta JP. Enviar link correcto del flujo en Assembled antes del Daily 10:30.', time: 'Mar 21 Jul 18:34', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel → JP (DM)', text: 'CONFIRMACION CASOS ORQUESTADOR (Mar 21 16:52): Camilo confirmo "gracias Juan" tras recibir los casos de produccion de 6 entry issues (Suspensions Portal Partners, bank account status x2, gestao loja x2, how to change bank account) — puede avanzar en identificacion de arboles y deploy orquestador 70%.', time: 'Mar 21 Jul 16:52', type: 'dm', actionable: false },
-  { from: 'Esbeydi Reynoso → JP (DM)', text: 'DATA ENTRY ISSUES ORQUESTADOR (Mar 21 16:43): Esbeydi envio 3+ casos AWS Connect por entry issue: Suspensions Portal Partners, bank account/Status, gestao integrar tienda, change company name, how to change bank account, status with support agent. Datos listos para kick off Vie 24 11:30.', time: 'Mar 21 Jul 16:43', type: 'dm', actionable: false },
-  { from: 'Diego Mesa → JP (DM)', text: 'STATSIG CANCELACIONES LINK (Mar 21 15:45): Diego compartio link console.statsig.com/.../ai_chatbot_cancellation_flow. JP confirmo: "y ahi llega el trafico de portal y wha si?" — Diego: "si sr". UN SOLO experimento para Portal + WhatsApp. Llevar a CX WBR Mie 22 y 1:1 Maria.', time: 'Mar 21 Jul 15:45', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel → JP (DM)', text: 'ROUTING ORQUESTADOR DECISION (Mar 21 15:08): Camilo: "Suspensions and Technical Support_Consultations and access to Portal Partners ya esta llegando al bot food live, lo quito de alli y lo envio al Orquestador?" — JP confirmo: "si al orquestador". Decision tomada. Camilo implementa el cambio de routing.', time: 'Mar 21 Jul 15:08', type: 'dm', actionable: true },
-  { from: 'Elias Rivera → JP (DM)', text: '4 ENTRY ISSUES LINEA 13 (Mar 21 14:23): Elias envio post-reunion los entry issues = 76.70% inflow contractual, 933 contactos: (1) Bank account mgmt/How to change, (2) Gestao/Change company name, (3) Bank account/Status of change, (4) Status with support agent. Kick off equipo completo Vie 24 11:30.', time: 'Mar 21 Jul 14:23', type: 'dm', actionable: false }
+  { from: 'Andres De Las Casas → JP (DM)', text: 'APROBADO (Mie 22 11:02): Andres confirmo "Aprobado" en DM tras el CX WBR 11:00-12:00. Probablemente aprobacion de algo tratado en la reunion o del ticket Power BI BICSD-22472. 1:1 Andres hoy 16:00-16:30.', time: 'Mie 22 Jul 11:02', type: 'dm', actionable: false },
+  { from: 'JP → #dataops_on_schedule', text: 'TICKET POWER BI BICSD-22472 (Mie 22 10:41): JP abrio ticket de acceso a workspace Power BI despues de ser bloqueado por no tener licencia premium. Solicito en #secops_on_schedule y #dataops_on_schedule. Maria dijo "pon un ticket en secops". Andres ayudo con aprobacion.', time: 'Mie 22 Jul 10:41', type: 'channel', actionable: true },
+  { from: 'JP → Maria Granada (DM)', text: 'CANCELACIONES AL 30% CONFIRMADAS (Mie 22 09:37): JP confirmo a Mafe "ya salimos con cancelaciones en pequenos y medianos al 30%. Juan Esquivel esta trabajando en el orquestador en este momento con los entry issues que quedamos con Merchant." Status actualizado.', time: 'Mie 22 Jul 09:37', type: 'dm', actionable: false },
+  { from: 'Maria Granada → JP (DM)', text: 'DUDAS CANCELACIONES + ORQUESTADOR (Mie 22 09:35): Mafe pregunto: "1. Cuando salimos con cancelaciones? 2. en que quedamos del orquestador." JP respondio confirmando 30% (peq+med) y Juan Esquivel en orquestador con entry issues Merchant.', time: 'Mie 22 Jul 09:35', type: 'dm', actionable: false },
+  { from: 'Diego Mesa → JP (DM)', text: 'STOREID EN DEV (Mie 22 09:41): Diego pregunto "Bro, de casualidad no tienes un storeId en dev que tenga info?" — JP respondio "uff no yo creo que Juan Esquivel tiene algunas". Diego trabaja en algo relacionado al orquestador o cancelaciones en dev.', time: 'Mie 22 Jul 09:41', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel → JP (DM)', text: 'LINK ASSEMBLED ORQUESTADOR ROTO (Mar 21 18:34): Camilo dijo "me confirmas porfa el link de assembled del orquestador, el del hilo me dice que no existe" — resuelto en la manana del Mie 22 antes del Daily 10:30.', time: 'Mar 21 Jul 18:34', type: 'dm', actionable: false },
+  { from: 'Diego Mesa → JP (DM)', text: 'STATSIG CANCELACIONES LINK (Mar 21 15:45): Diego compartio console.statsig.com/.../ai_chatbot_cancellation_flow. JP confirmo trafico portal+whatsapp en un solo experimento. Llevado a CX WBR Mie 22 11:00 y 1:1 Maria 12:00.', time: 'Mar 21 Jul 15:45', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
