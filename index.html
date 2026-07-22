@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 09:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 22 Jul 09:30 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1502,6 +1502,22 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:99, title:'Miercoles 22 Jul — Agenda y Seguimiento', date:'22 Jul',
+    summary:'MIE 22 JUL — Refresh matutino. Gmail no disponible (requiere reautorizacion). URGENTE: Camilo Esquivel (DM Mar 21 18:34) pide link correcto del orquestador en Assembled — enviar ANTES del Daily 10:30. HOY: Daily 10:30 (opc), CX WBR 11:00-12:00 (55 personas, llevar Statsig link cancelaciones + routing orquestador + 4 entry issues linea 13), 1:1 Maria Granada 12:00-12:30 (cancelaciones 10%→30%, orquestador 70%, CDO readout Nico, scorecard), Consulta Procesos Manager 15:45-16:00 (Luciano Gaspar — revisar si existe servicio Portal Manager para cambios contractuales con Felipe Nava), 1:1 Andres De Las Casas 16:00-16:30. Manana Jue 23: CX Design Review 9:00, Assembled Sync 12:00 COT (PRIORIDAD MAXIMA — confirmar static egress routing con Monica, desbloquea Snowflake). Estado iniciativas: cancelaciones 10% PROD (meta 30%), orquestador 70% meta (deploy paises grandes OK Mar 21 11:52), linea 13 kick off equipo completo Vie 24 11:30.',
+    sections:[
+      'HOY Mie 22: Daily 10:30 (opc), CX WBR 11:00 (55 personas), 1:1 Maria 12:00, Consulta Procesos Manager 15:45 (nueva Jul 21), 1:1 Andres 16:00',
+      'URGENTE: Camilo Esquivel pide link Assembled orquestador (DM Mar 21 18:34) — enviar antes del Daily 10:30 para desbloquear su trabajo',
+      'CX WBR 11:00: llevar Statsig cancelaciones (console.statsig.com/ai_chatbot_cancellation_flow, Portal+WhatsApp un experimento), routing orquestador Suspensions/Portal Partners (Camilo implementando), 4 entry issues linea 13 (76.70% inflow, 933 contactos)',
+      '1:1 Maria 12:00: (1) cancelaciones 10%→30% todos paises, (2) orquestador 70%, (3) kick off linea 13, (4) CDO readout 95% Nico Bejarano, (5) scorecard iniciativas',
+      'Nueva reunion 15:45: Consulta Procesos Manager con Luciano Gaspar, Felipe Nava — revisar si existe servicio en Portal Manager para consultar cambios contractuales iniciados'
+    ],
+    actions:[
+      { text:'[P0 ANTES 10:30] ENVIAR LINK ASSEMBLED ORQUESTADOR A CAMILO: Camilo (DM Mar 21 18:34) dice que el link del hilo no existe. Enviar link correcto del flujo en Assembled para desbloquearlo.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'[P0 11:00] CX WBR: llevar Statsig link cancelaciones (Diego Mar 21 15:45), routing orquestador Camilo en progreso, 4 entry issues linea 13 definidos Mar 21 14:23.', owner:'Juan Pablo', phase:'metrics', priority:'P0' },
+      { text:'[P0 12:00] 1:1 MARIA GRANADA: cancelaciones 10%→30%, orquestador 70%, kick off linea 13, CDO readout 95% Nico Bejarano, scorecard iniciativas.', owner:'Juan Pablo', phase:'metrics', priority:'P0' }
+    ]
+  },
   {
     id:98, title:'Coordinacion Tarde Mar 21 — Routing Orquestador, Statsig Cancelaciones y Datos Tech', date:'21 Jul',
     summary:'MAR 21 JUL 15:00-17:00 COT — Coordinacion post-reunion linea 13. (1) Camilo Esquivel (DM 15:08): "Suspensions and Technical Support_Consultations and access to Portal Partners ya esta llegando al bot food live, lo quito y lo envio al Orquestador?" — JP confirmo: "si al orquestador". Decision tomada de mover ese entry issue. (2) Diego Mesa (DM 15:45): compartio Statsig link del flujo de cancelaciones: console.statsig.com/.../ai_chatbot_cancellation_flow. JP confirmo: "y ahi llega el trafico de portal y wha si?" — Diego: "si sr". Un solo experimento para portal + WhatsApp. (3) JP pidio a Esbeydi 5+ casos de produccion por entry issue para presentar a tech. Esbeydi (DM 16:43) envio data completa: 6 entry issues x 3 casos AWS Connect cada uno (Suspensions Portal Partners, bank account status x2, gestao loja x2, how to change bank account). (4) JP envio los casos a Camilo (DM ~16:50) — Camilo confirmo "gracias Juan". Datos listos para identificar arboles de decision y avanzar orquestador al 70%.',
@@ -2246,14 +2262,13 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel → JP (DM)', text: 'LINK ASSEMBLED ORQUESTADOR ROTO (Mar 21 18:34): Camilo dice "me confirmas porfa el link de assembled del orquestador, el del hilo me dice que no existe" — PENDIENTE respuesta JP. Enviar link correcto del flujo en Assembled antes de Mie 22 Daily.', time: 'Mar 21 Jul 18:34', type: 'dm', actionable: true },
+  { from: 'Bot Hub → JP (DM)', text: 'REFRESH MIE 22 JUL 07:08 COT: Hub actualizado. URGENTE sin responder: Camilo Esquivel pide link correcto del orquestador en Assembled (DM 18:34 Mar 21). HOY: Daily 10:30, CX WBR 11:00 (55p — llevar Statsig + routing + linea 13), 1:1 Maria 12:00, Consulta Procesos Manager 15:45 (nueva), 1:1 Andres 16:00. Manana PRIORIDAD: Assembled Sync 12:00 COT (Snowflake bloqueante).', time: 'Mie 22 Jul 07:08', type: 'dm', actionable: true },
+  { from: 'Camilo Esquivel → JP (DM)', text: 'LINK ASSEMBLED ORQUESTADOR ROTO (Mar 21 18:34): Camilo dice "me confirmas porfa el link de assembled del orquestador, el del hilo me dice que no existe" — PENDIENTE respuesta JP. Enviar link correcto del flujo en Assembled antes del Daily 10:30.', time: 'Mar 21 Jul 18:34', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel → JP (DM)', text: 'CONFIRMACION CASOS ORQUESTADOR (Mar 21 16:52): Camilo confirmo "gracias Juan" tras recibir los casos de produccion de 6 entry issues (Suspensions Portal Partners, bank account status x2, gestao loja x2, how to change bank account) — puede avanzar en identificacion de arboles y deploy orquestador 70%.', time: 'Mar 21 Jul 16:52', type: 'dm', actionable: false },
-  { from: 'Esbeydi Reynoso → JP (DM)', text: 'DATA ENTRY ISSUES ORQUESTADOR (Mar 21 16:43): Esbeydi envio 3+ casos AWS Connect por entry issue: Suspensions Portal Partners, bank account/Status, gestao integrar tienda, change company name, how to change bank account, status with support agent. Datos listos para presentacion a tech en kick off Vie 24 11:30.', time: 'Mar 21 Jul 16:43', type: 'dm', actionable: false },
-  { from: 'Diego Mesa → JP (DM)', text: 'STATSIG CANCELACIONES LINK (Mar 21 15:45): Diego compartio link console.statsig.com/.../ai_chatbot_cancellation_flow. JP: "y ahi llega el trafico de portal y wha si?" — Diego: "si sr". UN SOLO experimento para Portal + WhatsApp. Clave para validar escala al 30% — llevar a CX WBR Mie 22 y 1:1 Maria.', time: 'Mar 21 Jul 15:45', type: 'dm', actionable: true },
+  { from: 'Esbeydi Reynoso → JP (DM)', text: 'DATA ENTRY ISSUES ORQUESTADOR (Mar 21 16:43): Esbeydi envio 3+ casos AWS Connect por entry issue: Suspensions Portal Partners, bank account/Status, gestao integrar tienda, change company name, how to change bank account, status with support agent. Datos listos para kick off Vie 24 11:30.', time: 'Mar 21 Jul 16:43', type: 'dm', actionable: false },
+  { from: 'Diego Mesa → JP (DM)', text: 'STATSIG CANCELACIONES LINK (Mar 21 15:45): Diego compartio link console.statsig.com/.../ai_chatbot_cancellation_flow. JP confirmo: "y ahi llega el trafico de portal y wha si?" — Diego: "si sr". UN SOLO experimento para Portal + WhatsApp. Llevar a CX WBR Mie 22 y 1:1 Maria.', time: 'Mar 21 Jul 15:45', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel → JP (DM)', text: 'ROUTING ORQUESTADOR DECISION (Mar 21 15:08): Camilo: "Suspensions and Technical Support_Consultations and access to Portal Partners ya esta llegando al bot food live, lo quito de alli y lo envio al Orquestador?" — JP confirmo: "si al orquestador". Decision tomada. Camilo implementa el cambio de routing.', time: 'Mar 21 Jul 15:08', type: 'dm', actionable: true },
-  { from: 'Elias Rivera → JP (DM)', text: '4 ENTRY ISSUES LINEA 13 (Mar 21 14:23): Elias envio post-reunion los entry issues definidos = 76.70% inflow contractual, 933 contactos: (1) Bank account mgmt/How to change, (2) Gestao/Change company name, (3) Bank account/Status of change, (4) Bank account/Status with support agent. Kick off equipo completo Vie 24 11:30.', time: 'Mar 21 Jul 14:23', type: 'dm', actionable: false },
-  { from: 'JP → #ai-automations (canal)', text: 'CAMBIO ORDEN PRIORIDADES (Mar 21 13:33): JP informo al canal que "How to change my bank account" (linea 13) REEMPLAZA a Suspensions/Portal Partners en el orden de prioridades. Kick off iniciado hoy Mar 21 — equipo completo Vie 24.', time: 'Mar 21 Jul 13:33', type: 'channel', actionable: false },
-  { from: 'Mafe Granada → Group DM (Mafe/Susana/Meiker/JP)', text: 'PRIORIDADES SEMANA W21/07 (Mar 21 08:43): (1) Cancelaciones al 30% todos los paises, (2) Bank account kick off esta semana, (3) Orquestador al 70%, (4) CDO al 95% con Nico Bejarano. Scorecard de lo lanzado pendiente.', time: 'Mar 21 Jul 08:43', type: 'dm', actionable: true }
+  { from: 'Elias Rivera → JP (DM)', text: '4 ENTRY ISSUES LINEA 13 (Mar 21 14:23): Elias envio post-reunion los entry issues = 76.70% inflow contractual, 933 contactos: (1) Bank account mgmt/How to change, (2) Gestao/Change company name, (3) Bank account/Status of change, (4) Status with support agent. Kick off equipo completo Vie 24 11:30.', time: 'Mar 21 Jul 14:23', type: 'dm', actionable: false }
 ];
 
 const DEEP_WORK = [
