@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 24 Jul 11:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 20-24 Julio 2026 · Actualizado 24 Jul 13:05 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1496,32 +1496,31 @@ const EVENTS = {
     { time:'15:00-16:00', title:'Capacitacion Emergencia (tarde)', attendees:0, org:'ext-s.duenas@rappi.com', type:'learning', note:'Sesion alternativa tarde de capacitacion SST Colombia.' }
   ],
   fri: [
-    { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
-    { time:'11:00-11:30', title:'Follow up - merchants', attendees:6, org:'f.diaz@rappi.com', type:'team', note:'Reunion creada Jue 23 por F.Diaz para dar seguimiento a lo hablado en el CX WBR. Participantes: Elias, JP, Andres, Eugenio, F.Diaz, M.Granada.' },
-    { time:'11:30-12:00', title:'Kick off — Iniciativa: How to Change My Bank Account', attendees:5, org:'juan.bonansea@rappi.com', type:'team', note:'Kick off equipo completo linea 13. JP organiza. Elias Rivera, Diego Mesa, F.Diaz (opc), Stephania (opc).' },
+    { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional. REALIZADO.' },
+    { time:'11:00-11:30', title:'Follow up - merchants', attendees:6, org:'f.diaz@rappi.com', type:'team', note:'Reunion creada Jue 23 por F.Diaz para dar seguimiento a lo hablado en el CX WBR. Participantes: Elias, JP, Andres, Eugenio, F.Diaz, M.Granada. REALIZADO.' },
+    { time:'11:30-12:00', title:'Kick off — Iniciativa: How to Change My Bank Account', attendees:5, org:'juan.bonansea@rappi.com', type:'team', note:'Kick off equipo completo linea 13. JP organiza. Elias Rivera, Diego Mesa, F.Diaz (opc), Stephania (opc). REALIZADO. Post-kick off (11:57): Elias compartio IDs de casos cancellations a Diego via JP.' },
     { time:'12:00-13:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'13:00-14:00', title:'Orquestador', attendees:4, org:'maria.dorantes@rappi.com', type:'team', note:'Revision del orquestador con equipo — integracion con Mozart para portal unificado. Maria Dorantes organiza.' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal QA AI con Maria Granada — metricas bot cancelaciones, orquestador, rollout merchants grandes.' }
+    { time:'13:00-14:00', title:'Orquestador', attendees:4, org:'maria.dorantes@rappi.com', type:'team', note:'Revision del orquestador con equipo — integracion con Mozart para portal unificado. Maria Dorantes organiza. EN CURSO.' },
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal QA AI con Maria Granada — llevar: resultados kick off bank account, estado bot cancelaciones (entry issue en fix), experimento pausado, rollout merchants grandes.' }
   ]
 };
 
 const NOTES = [
   {
-    id:110, title:'Viernes 24 Jul — 11:00 COT: Susana Finalizada + Bot Cancelaciones en Fix', date:'24 Jul',
-    summary:'VIE 24 JUL 11:00 COT — NOVEDADES DE LA MANANA. (1) SUSANA PANIAGUA FINALIZADA (DM 10:57): Susana aviso a JP que fue finalizada — "me finalizaron" porque "cx esta reducciendo, ya solo faltan 5 bot q puede hacer mei solo, yo era de PMO esa area ya no existe asi q mi apoyo a producto termino y no me pueden reubicar". Le queda 1 semana trabajando con el equipo. Agradecio a JP: "eres muy pro!". Pidio formato de hoja de vida ATS: "si tienes un formato de hoja de vida ATS?" (10:59). (2) BOT CANCELACIONES EN FIX ACTIVO: Diego Mesa + Juan Esquivel trabajando en agregar el entry issue faltante (DM 08:13). Aun no logra que el caso caiga en el bot. JP informo al equipo en Group DM a las 08:41. (3) REUNIONES COMPLETADAS HOY: Daily Automations 10:30. AGENDA PENDIENTE HOY: Kick off bank account 11:30 (JP organiza, 5 personas), Lunch 12:00-13:00, Orquestador 13:00 (Maria Dorantes, integracion Mozart), Weekly QA AI tarde (M.Granada). Gmail no disponible (requiere reautorizacion del conector).',
+    id:110, title:'Viernes 24 Jul — 13:05 COT: Kick off REALIZADO + Casos Cancelaciones a Diego + Orquestador EN CURSO', date:'24 Jul',
+    summary:'VIE 24 JUL 13:05 COT — UPDATE TARDE. MANANA COMPLETADA: (1) Daily Automations REALIZADO 10:30. (2) Follow up merchants REALIZADO 11:00. (3) KICK OFF BANK ACCOUNT REALIZADO 11:30 — flujo linea 13, 4 entry issues 76.70% inflow, endpoints Diego. (4) POST KICK OFF 11:57: Elias mando a JP casos de cancelaciones por "Active and delivered orders_Disagreement with canceled and compensated orders_Cancelled order" con 3 case IDs y 3 chat IDs para pasar a Diego. Diego confirmo (11:59: "De una, muchas gracias!"). (5) BOT CANCELACIONES EN FIX: Diego Mesa + Juan Esquivel siguen trabajando — Elias tambien mando Cancellation cases IDs para que Diego integre al bot. (6) SUSANA PANIAGUA FINALIZADA — le queda 1 semana, pide ATS. (7) ORQUESTADOR 13:00 EN CURSO: Maria Dorantes — integracion Mozart portal unificado. PENDIENTE: Weekly QA AI 14:00 — llevar estado bot cancelaciones, kick off, orquestador. Gmail no disponible (requiere reautorizacion del conector).',
     sections:[
-      'SUSANA PANIAGUA FINALIZADA (DM 10:57): fue desvinculada porque PMO de CX ya no existe, area reducida a 5 bots que maneja Meiker solo. Le queda 1 semana. Pide formato ATS a JP (10:59).',
-      'BOT CANCELACIONES EN FIX: Diego Mesa + Juan Esquivel trabajando en agregar el entry issue faltante — aun no logra que el caso caiga en el bot. JP informo equipo a las 08:41.',
-      'KICK OFF BANK ACCOUNT 11:30: JP organiza con Elias Rivera, Diego Mesa, F.Diaz (opc), Stephania (opc). 4 entry issues = 76.70% inflow, 933 contactos. Curl Nava (rs-commercial-support) para tech.',
-      'ORQUESTADOR 13:00: Maria Dorantes — integracion con Mozart para portal unificado. Elias y F.Diaz.',
-      'PENDIENTE: confirmar ETA fix bot cancelaciones con tech y avisar a Jessica Torres cuando desplieguen.'
+      'KICK OFF BANK ACCOUNT REALIZADO (11:30): flujo linea 13 completado. Elias compartio post-kick off (11:57) casos de cancelaciones: 3 case IDs + 3 chat IDs para Diego. Diego confirmo (11:59).',
+      'BOT CANCELACIONES EN FIX: Elias compartio IDs de casos cancellations a JP a las 11:57 para pasar a Diego. Diego + Juan Esquivel siguen trabajando en entry issue faltante.',
+      'SUSANA PANIAGUA FINALIZADA (DM 10:57): PMO CX ya no existe, area reducida a 5 bots que maneja Meiker solo. Le queda 1 semana. Pide formato ATS a JP (10:59).',
+      'ORQUESTADOR 13:00 EN CURSO: Maria Dorantes — integracion con Mozart para portal unificado. Elias y F.Diaz.',
+      'PENDIENTE TARDE: Weekly QA AI 14:00 con M.Granada — llevar resultados kick off, estado bot cancelaciones (entry issue en fix), experimento pausado Diego/Esquivel, plan escalada merchants grandes.'
     ],
     actions:[
-      { text:'[ACCION PERSONAL HOY] Enviar a Susana Paniagua formato de hoja de vida ATS — lo pidio en DM 10:59.', owner:'Juan Pablo', phase:'build', priority:'P1' },
-      { text:'[P0 HOY 11:30] KICK OFF BANK ACCOUNT: flujo completo linea 13, endpoints Diego, cronograma Q3. JP organiza. Curl Nava para tech en el kick off.', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'[P0 HOY 13:00] ORQUESTADOR: integracion Mozart portal unificado. Maria Dorantes, Elias, F.Diaz.', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'[P0 PENDIENTE] BOT CANCELACIONES: confirmar ETA fix con Diego/tech. Avisar a Jessica Torres cuando quede listo el deploy.', owner:'Juan Pablo', phase:'build', priority:'P0' },
-      { text:'[P0 HOY TARDE] WEEKLY QA AI: llevar resultados kick off, estado bot cancelaciones, experimento pausado, escalada paises grandes.', owner:'Juan Pablo', phase:'metrics', priority:'P0' }
+      { text:'[P0 HOY TARDE] WEEKLY QA AI 14:00: llevar (1) resultado kick off bank account, (2) estado bot cancelaciones (entry issue en fix, Elias mando casos a Diego 11:57), (3) experimento pausado Diego/Esquivel, (4) orquestador 30% plan escalada, (5) rollout merchants grandes.', owner:'Juan Pablo', phase:'metrics', priority:'P0' },
+      { text:'[P0 PENDIENTE] BOT CANCELACIONES: confirmar que Diego integro los IDs de casos que mando Elias (11:57). Avisar a Jessica Torres cuando desplieguen el inflow.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'[P1] ENVIAR ATS A SUSANA: Susana Paniagua fue finalizada, le queda 1 semana, pidio formato ATS en DM 10:59.', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'[P0 EN CURSO 13:00] ORQUESTADOR: integracion Mozart portal unificado. Maria Dorantes, Elias, F.Diaz.', owner:'Juan Pablo', phase:'build', priority:'P0' }
     ]
   },
   {
@@ -2397,6 +2396,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t8029', text:'[P0 HOY] CONFIRMAR QUE DIEGO INTEGRO CASOS ELIAS: Elias mando a JP (11:57) 3 case IDs y 3 chat IDs de casos de cancelaciones ("Active and delivered orders_Disagreement with canceled and compensated orders_Cancelled order"). Diego confirmo recibidos (11:59). Confirmar que Diego los integra al bot y que el entry issue queda funcionando. Llevar estado a Weekly QA AI 14:00.', phase:'build', priority:'P0', source:'DM Elias Rivera Vie 24 Jul 11:57', day:'fri', completed:false },
   { id:'t8028', text:'[P1 HOY] ENVIAR FORMATO ATS A SUSANA: Susana Paniagua fue finalizada (CX reduccion, PMO cerrado, le queda 1 semana). Pidio formato de hoja de vida ATS en DM 10:59.', phase:'build', priority:'P1', source:'DM Susana Paniagua Vie 24 Jul 10:59', day:'fri', completed:false },
   { id:'t8027', text:'[P0 CRITICO HOY] BOT CANCELACIONES COMPLETAMENTE DETENIDO (Vie 24 08:41): JP escalo a tech con prioridad — errores en entry issues detuvo TODO el inflow. Diego Mesa + Juan Esquivel trabajando en fix del entry issue (DM 08:13). Confirmar ETA del fix con tech. Avisar a Jessica Torres cuando desplieguen. Llevar estado a QA AI 14:00. Mientras tanto: la operacion recibe esos casos manualmente.', phase:'build', priority:'P0', source:'JP → Group DM Vie 24 Jul 08:41', day:'fri', completed:false },
   { id:'t8025', text:'[P1 HOY] CONFIRMAR EXPERIMENTO PAUSADO: Diego Mesa apago el experimento a las 17:02 para hacer ajustes con Juan Esquivel. Confirmar hoy cual experimento fue apagado, cuando se vuelve a encender y que ajustes se hicieron. Mencionar en Follow up merchants 11:00.', phase:'build', priority:'P1', source:'DM Diego Mesa Jue 23 Jul 17:02', day:'fri', completed:false },
@@ -2452,6 +2452,7 @@ const DEFAULT_DELEGATED = [
 ];
 
 const SLACK_FEED = [
+  { from: 'Elias Rivera → JP (DM)', text: 'CASOS CANCELACIONES PARA DIEGO (Vie 24 11:57): "Te comparto los casos de cancellations que entraron por Active and delivered orders_Disagreement with canceled and compensated orders_Cancelled order" — Elias mando 3 case IDs y 3 chat IDs para pasar a Diego. JP los paso. Diego confirmo (11:59): "De una, muchas gracias!". Confirmar que Diego los integra en el fix del bot.', time: 'Vie 24 Jul 11:57', type: 'dm', actionable: true },
   { from: 'Susana Paniagua → JP (DM)', text: 'FINALIZADA (Vie 24 10:57): Susana aviso que fue desvinculada — "me finalizaron" porque "cx esta reducciendo, ya solo faltan 5 bot q puede hacer mei solo, yo era de PMO esa area ya no existe asi q mi apoyo a producto termino y no me pueden reubicar". Le queda 1 semana trabajando. "eres muy pro!", "asi que queria agradecerte por todo". Pidio formato ATS (10:59): "si tienes un formato de hoja de vida ATS?". JP: "como asi Susi por que 😔".', time: 'Vie 24 Jul 10:57', type: 'dm', actionable: true },
   { from: 'JP → Group DM (Elias + Andres)', text: 'BOT CANCELACIONES DETENIDO (Vie 24 08:41): "Hola Team les doy un pequeno update del bot de cancelaciones: todo el inflow de el bot de cancelaciones esta detenido, me di cuenta que inusualmente estaban llegando muy pocos casos y ya se escalo el error a tech y se esta trabajando en ello con prioridad tenian un par de errores en los entry issues, les notifico apenas lo arreglen!" — CRITICO para kick off bank account 11:30 y QA AI 14:00.', time: 'Vie 24 Jul 08:41', type: 'channel', actionable: true },
   { from: 'Diego Mesa → JP (DM)', text: 'ENTRY ISSUE EN FIX (Vie 24 08:13): "Buenas Juan, como estas? No se si en su momento vi mal o no lo habia agregado pero no tenia dentro del mapa ese entry issue. Estoy trabajando para agregarlo, solo que aun no logro que caiga en el bot, hoy lo estare revisando con juan.esquivel." — Fix activo hoy con Juan Esquivel.', time: 'Vie 24 Jul 08:13', type: 'dm', actionable: true },
