@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 27-31 Julio 2026 · Actualizado 27 Jul 13:06 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27-31 Julio 2026 · Actualizado 27 Jul 14:50 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1496,6 +1496,20 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:116, title:'Lunes 27 Jul — Tarde: Diego Mesa Kick Off Bank Account + Orquestador Statsig (14:10)', date:'27 Jul',
+    summary:'LUN 27 JUL 14:10-14:39 COT — DIEGO MESA DM: Diego pregunto por el entry issue de la iniciativa "How to change my bank account" (DM 13:34). JP confirmo que "esta iniciativa debe caer al orquestador" (14:09). JP invito a Meet (14:17). JP compartio 4 entry issues (DM 14:24): (1) Payments and finances_Bank account management_How to change my bank account, (2) Gestao da minha loja_Change my company name, (3) Payments and finances_Bank account management_Status of a bank account change, (4) mismo con agente. JP compartio 3 links Statsig: experimentos orquestador WA, Portal y Aliados (DM 14:22-14:23). Assembled QA review link compartido (DM 14:39). MEIKER #ai-automations (13:53): solicito nuevo endpoint para consultar ajustes de RT por order_id — el actual (dispersion_calculator_adjustment) devuelve array completo y el AI alucina.',
+    sections:[
+      'DIEGO MESA — KICK OFF BANK ACCOUNT (DM 13:34): Diego busca el entry issue de la iniciativa How to change my bank account. JP confirma que debe caer al orquestador y ofrece Meet.',
+      'JP → DIEGO (DM 14:22-14:24): JP compartio 4 entry issues al orquestador y 3 links Statsig (WA: setup, Portal: results, Aliados: results) para que Diego vea metricas y contexto.',
+      'ASSEMBLED QA REVIEW (DM 14:39): JP compartio link de QA review con Diego para que revise el flujo del orquestador en Assembled.',
+      'MEIKER → #ai-automations (13:53): solicito endpoint nuevo filtrado por order_id para ajustes de RT — el actual devuelve array completo y el AI alucina. Pide ayuda a Cristian Parada team.'
+    ],
+    actions:[
+      { text:'[P1 HOY] ALINEAR CON DIEGO MESA — BANK ACCOUNT EN ORQUESTADOR: Diego quiere entender el kick off. JP ya compartio entry issues y Statsig. Confirmar proximos pasos del Meet realizado.', owner:'Juan Pablo / Diego Mesa', phase:'build', priority:'P1' },
+      { text:'[P2 SEMANA] ENDPOINT AJUSTES RT PARA MEIKER: Meiker solicita endpoint filtrado por order_id para ajustes de RT. Evaluar con Cristian Parada si tech puede construirlo esta semana.', owner:'Juan Pablo / Meiker Munera / Cristian Parada', phase:'build', priority:'P2' }
+    ]
+  },
   {
     id:115, title:'Lunes 27 Jul — 13:06 COT: Mafe frena escalada Orquestador + Nico cuestiona Completely Different', date:'27 Jul',
     summary:'LUN 27 JUL 13:06 COT — ACTUALIZACIONES TARDE. (1) MAFE FRENA ORQUESTADOR (DM 11:26): "juan revisemos lo del orquestador porque veo que el inflow fue mayor en esos issues que me pasaste entonces si hay que pulir algo antes de escalar" — CAMBIO: ya no escalar directo al 100%, primero revisar los issues. JP responde (DM 12:16): "Listo Maf si estoy terminando payments y sigo a revisar orquestador antes de escalar". (2) NICOLAS BEJARANO — COMPLETELY DIFFERENT VOLUMEN BAJO (DM 12:29): "sabes el impacto? es que es mes y medio solo hemos tenido 500 casos, esta bien ese trafico?" — Nico cuestiona viabilidad de escalar a 95% con solo 500 casos en mes y medio. JP habia pedido readout (12:17). (3) STEPH GONZALEZ CONFIRMA VALIDACIONES (DM 12:21): "Ya hare las validaciones". Nueva pregunta (DM 12:54): "esa orden que vimos de live que entro por flujos de non live de casualidad era de order status?" — posible bug en routing del orquestador. Gmail no disponible (requiere reautorizacion del conector).',
@@ -2470,6 +2484,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t9011', text:'[P1 HOY] KICK OFF HOW TO CHANGE BANK ACCOUNT CON DIEGO MESA: Diego DM 14:10 pregunto por entry issues de la iniciativa. JP confirmo que debe caer al orquestador y compartio 4 entry issues + Statsig links (WA, Portal, Aliados). JP invito a Meet (14:17). Confirmar proximos pasos del alignment.', phase:'build', priority:'P1', source:'DM Diego Mesa Lun 27 Jul 14:10', day:'mon', completed:false },
   { id:'t9001', text:'[P0 HOY] REVISAR ORQUESTADOR ANTES DE ESCALAR AL 100%: Mafe DM 11:26 "veo que el inflow fue mayor en esos issues, hay que pulir algo antes de escalar". JP confirma que revisara despues de terminar Payments. Coordinar con Mafe, alinear con equipo Andy.', phase:'metrics', priority:'P0', source:'DM Maria Granada Lun 27 Jul 11:26', day:'mon', completed:false },
   { id:'t9002', text:'[P0 SEMANA] CANCELADAS + LOGICA ELIAS AL 100%: agregar la lógica de Elias al bot de Canceladas y escalar al 100% de todos los países. Bot activo al 50% pqs+meds desde Vie 24. Coordinar con Elias Rivera.', phase:'build', priority:'P0', source:'DM Maria Granada Lun 27 Jul 8:49', day:'mon', completed:false },
   { id:'t9003', text:'[P0 HOY] PAYMENTS BOT AL 50% TODOS LOS PAISES: JP DM 12:16 "estoy terminando payments". Lanzar al 50% todos los paises (Mafe actualizo target de 30% pqs+meds). Prioridad: terminar hoy.', phase:'build', priority:'P0', source:'DM Maria Granada Lun 27 Jul 8:49 + JP DM 12:16', day:'mon', completed:false },
@@ -2507,16 +2522,16 @@ const DEFAULT_DELEGATED = [
   { id:'d908', text:'Bot Rappi Aliados errores: Esbeydi Reynoso reporto errores Lun 21 Jul. Diego Mesa responsable del fix. Pendiente plan de correccion con fecha compromiso.', owner:'Diego Mesa / Esbeydi Reynoso', source:'DM Esbeydi Reynoso Lun 21 Jul', status:'PENDIENTE — plan correccion formal con fecha' }
 ];
 const SLACK_FEED = [
-  { from: 'Steph Gonzalez → JP (DM)', text: 'CONSULTA LIVE ORDER (Lun 27 12:54): "Juan una consulta, esa orden que vimos de live que entro por flujos de non live de casualidad era de order status?" — Posible bug de routing en el orquestador. Pendiente respuesta JP.', time: 'Lun 27 Jul 12:54', type: 'dm', actionable: true },
-  { from: 'Nicolas Bejarano → JP (DM)', text: 'COMPLETELY DIFFERENT — VOLUMEN BAJO (Lun 27 12:29): "sabes el impacto? es que es mes y medio solo hemos tenido 500 casos, esta bien ese trafico?" — Nico cuestiona el volumen antes de comprometerse al readout para escalar al 95%.', time: 'Lun 27 Jul 12:29', type: 'dm', actionable: true },
-  { from: 'JP → Maria Granada (DM)', text: 'UPDATE PAYMENTS (Lun 27 12:16): "Listo Maf si estoy terminando payments y sigo a revisar orquestador antes de escalar" — JP en modo ejecucion: termina Payments, luego revisa Orquestador.', time: 'Lun 27 Jul 12:16', type: 'dm', actionable: false },
-  { from: 'Maria Granada → JP (DM)', text: 'ORQUESTADOR — REVISAR ANTES DE ESCALAR (Lun 27 11:26): "juan revisemos lo del orquestador porque veo que el inflow fue mayor en esos issues que me pasaste entonces si hay que pulir algo antes de escalar" — IMPORTANTE: Mafe frena escalada directa al 100%.', time: 'Lun 27 Jul 11:26', type: 'dm', actionable: true },
-  { from: 'Elias Rivera → Grupo DM (JP, Andres Diaz)', text: 'ENDPOINT PARTNER PAYMENTS (Lun 27 10:11): "Ya el equipo owner del endpoint esta en linea con esto" — API lista para montar ajuste en Assembled. Valor calculado en transacciones, jamas supera total de la orden.', time: 'Lun 27 Jul 10:11', type: 'dm', actionable: true },
-  { from: 'JP → Grupo DM (Elias, Andres)', text: 'DECISION CANCELACIONES (Lun 27 10:58): esta semana salir con copy actual para bot Cancelaciones; proxima semana pedir endpoint partner payments a tech en kick off.', time: 'Lun 27 Jul 10:58', type: 'dm', actionable: false },
+  { from: 'Diego Mesa → JP (DM)', text: 'KICK OFF BANK ACCOUNT (Lun 27 13:34-14:17): Diego pregunta por entry issue de la iniciativa "How to change my bank account". JP confirma que debe caer al orquestador, comparte 4 entry issues + 3 Statsig links (WA, Portal, Aliados). JP invita a Meet (14:17) para explicar contexto.', time: 'Lun 27 Jul 14:17', type: 'dm', actionable: true },
+  { from: 'JP → Diego Mesa (DM)', text: 'STATSIG + ASSEMBLED (Lun 27 14:22-14:39): JP comparte links de 3 experimentos Statsig del orquestador (WA, Portal, Aliados) y link de QA review en Assembled para que Diego tenga contexto del flujo.', time: 'Lun 27 Jul 14:39', type: 'dm', actionable: false },
+  { from: 'Meiker Munera → #ai-automations', text: 'ENDPOINT RT AJUSTES (Lun 27 13:53): Meiker solicita nuevo endpoint filtrado por order_id para ajustes de RT — el actual (dispersion_calculator_adjustment) devuelve array completo y el AI alucina. Pide ayuda a Cristian Parada team.', time: 'Lun 27 Jul 13:53', type: 'channel', actionable: true },
+  { from: 'Steph Gonzalez → JP (DM)', text: 'CONSULTA LIVE ORDER (Lun 27 12:54): "esa orden que vimos de live que entro por flujos de non live de casualidad era de order status?" — Posible bug de routing en el orquestador. Pendiente respuesta JP.', time: 'Lun 27 Jul 12:54', type: 'dm', actionable: true },
+  { from: 'Nicolas Bejarano → JP (DM)', text: 'COMPLETELY DIFFERENT — VOLUMEN BAJO (Lun 27 12:29): "es que es mes y medio solo hemos tenido 500 casos, esta bien ese trafico?" — Nico cuestiona el volumen antes del readout para escalar al 95%.', time: 'Lun 27 Jul 12:29', type: 'dm', actionable: true },
+  { from: 'Maria Granada → JP (DM)', text: 'ORQUESTADOR — REVISAR ANTES DE ESCALAR (Lun 27 11:26): "veo que el inflow fue mayor en esos issues, si hay que pulir algo antes de escalar" — IMPORTANTE: Mafe frena escalada directa al 100%.', time: 'Lun 27 Jul 11:26', type: 'dm', actionable: true },
   { from: 'Maria Granada → JP (DM)', text: 'PRIORIDADES SEMANA (Lun 27 8:49): (1) Orquestador 100% + equipo Andy. (2) Canceladas logica Elias + 100%. (3) Payments 50% todos los paises. (4) Completely different 95% con Nico.', time: 'Lun 27 Jul 8:49', type: 'dm', actionable: true }
 ];
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-15:00', '15:30-16:30'] },
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-15:00', '15:30-16:30', '17:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-10:30', '11:00-13:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-18:00'] },
