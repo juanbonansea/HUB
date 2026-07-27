@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 27-31 Julio 2026 · Actualizado 27 Jul 09:30 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27-31 Julio 2026 · Actualizado 27 Jul 15:55 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1466,8 +1466,8 @@ const EVENTS = {
   mon: [
     { time:'9:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:12, org:'andres.delascasas@rappi.com', type:'team', note:'Revision semanal de prioridades con equipo Support Product. Organiza Andres De Las Casas. Recurrente Lunes.' },
     { time:'10:00-11:00', title:'Shadowing Merchant (TU)', attendees:15, org:'carla.capristan@rappi.com', type:'external', note:'Sesion de shadowing con equipo TaskUs — agente en real time, top offender o top performance. JP es opcional.' },
-    { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones con equipo Cristian Parada. JP es opcional. Recurrente Lun-Vie.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'15:00-15:30', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. Movido a las 3pm para hoy (original 10:30). JP es opcional.' },
     { time:'16:30-17:00', title:'Cargar impactos en Atlas', attendees:3, org:'m.granada@rappi.com', type:'team', note:'Cargar impactos en Atlas con Maria Granada y Meiker Munera. Evento creado esta manana por Mafe.' }
   ],
   tue: [
@@ -1480,7 +1480,8 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Daily Automations', attendees:13, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'11:00-12:00', title:'Training: Atlas 🚀', attendees:1, org:'gabriela.fontana@rappi.com', type:'learning', note:'Training interno sobre Atlas. Organiza Gabriela Fontana.' },
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:55, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal con todo el equipo CX. Organiza Eugenio La Rosa. ~55 personas.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'16:00-17:00', title:'[Atlas] Alineacion tech <> prod', attendees:7, org:'m.granada@rappi.com', type:'team', note:'Alineacion tech y producto para Atlas. Organiza Maria Granada. Creada hoy Lun 27 Jul. Asistentes: Andres De Las Casas, Maria Granada, Juan Pablo, Sirley Rojas, Angela Osuna, Meiker Munera.' }
   ],
   thu: [
     { time:'9:00-9:45', title:'CX Design Review', attendees:11, org:'andres.delascasas@rappi.com', type:'team', note:'Review semanal de disenos CX — iniciativas Q3, bots en curso. Organiza Andres De Las Casas.' },
@@ -1495,6 +1496,20 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:114, title:'Lunes 27 Jul — Tarde: Endpoint Ajuste Cancelaciones + QA Orquestador con Steph', date:'27 Jul',
+    summary:'LUN 27 JUL 10:58 COT — GROUP DM ELIAS RIVERA + ANDRES DIAZ (9:28-10:58): JP alino prioridades de semana. Discusion sobre flujo de Cancelaciones: cuando aplica ajuste, JP quiere informar al aliado. Andres sugiere pegar directamente al servicio de partner payments. Elias confirma: "Si, lo tenemos, tocaría pedirle a tech que lo monten en assembled". El valor se calcula en base a transacciones y jamas supera el total de la orden. JP compartio macro IA para el mensaje de ajuste. DECISION: esta semana salir con copy actual, proxima semana (kick off con tech) coordinar para montar el endpoint en Assembled. JP tambien compartio casos del flujo que van a legal information pero pasan directo a agente (link QA review f5c6b845). STEPH GONZALEZ (9:54): JP compartio Assembled QA review link para nodo del orquestador workflow 4fb9297b (link 509bdf37) y casos que pasan a agente sin resolver. Gmail no disponible (requiere reautorizacion del conector).',
+    sections:[
+      'ENDPOINT PARTNER PAYMENTS (Elias Rivera, Grupo DM 10:11): equipo owner del endpoint ya esta en linea. Valor calculado en base a transacciones, jamas supera total de la orden. Montar en Assembled proxima semana.',
+      'DECISION JP (10:58): salir esta semana con copy actual para bot Cancelaciones. Kick off con tech la proxima semana para pedir que monten el endpoint de partner payments en Assembled.',
+      'JP → STEPH (9:54): compartio 2 Assembled QA review links para auditoria del orquestador — casos que van al flujo de legal information pero pasan directo a agente sin resolver.',
+      'MACRO AJUSTE CANCELACIONES (JP 9:36): JP compartio macro generada por IA para informar al aliado sobre el ajuste aprobado. Solicito macro estandar del equipo.'
+    ],
+    actions:[
+      { text:'[P1 PROX SEMANA] ENDPOINT PARTNER PAYMENTS EN ASSEMBLED: Elias confirmo que tienen el endpoint listo. Coordinar en kick off de proxima semana con tech para montarlo en Assembled. Valor calculado en transacciones, nunca supera el total de la orden.', owner:'Juan Pablo / Elias Rivera / Tech', phase:'build', priority:'P1' },
+      { text:'[P1 HOY] AUDITORIA ORQUESTADOR CON STEPH: JP compartio QA review links (509bdf37 y f5c6b845). Identificar nodo guia faltante para casos que van a handoff con preguntas simples — ahorrar pasos a agente.', owner:'Juan Pablo / Steph Gonzalez', phase:'metrics', priority:'P1' }
+    ]
+  },
   {
     id:113, title:'Lunes 27 Jul — Prioridades Semana + Auditoria Orquestador (via Slack)', date:'27 Jul',
     summary:'LUN 27 JUL 09:30 COT — PRIORIDADES SEMANA (DM Maria Granada 8:49): (1) Orquestador → escalar al 100% de todos los países; pedir al equipo de Andy que revisen casos activos. (2) Canceladas → agregar la lógica de Elias y escalar al 100% de todos los países. (3) AI Bot Payments → lanzar al 50% de todos los países. (4) Completely different → ya viste esto con Nico? podemos ya escalar al 95%? AUDITORIA ORQUESTADOR (DM Steph González 8:49-9:04): Steph quiere validar cómo va el orquestador. JP confirmó que está en todos los países al 30%, necesita auditoría — hay gente que entra y se va a handoff con preguntas simples. JP ofreció sesión de 10 min para mostrar cómo probar; Steph aceptó, JP envió Meet link. JESSICA TORRES (DM 8:55): monitorea casitos del AI bot. JP confirmó que ya lo prendió — tech había dejado solo activo WA, no portales. NUEVO EVENTO: Cargar impactos en Atlas hoy 16:30-17:00 creado por Mafe. Gmail no disponible (requiere reautorización del conector — datos extraídos de Slack).',
@@ -2476,15 +2491,15 @@ const DEFAULT_DELEGATED = [
   { id:'d908', text:'Bot Rappi Aliados errores: Esbeydi Reynoso reporto errores Lun 21 Jul. Diego Mesa responsable del fix. Pendiente plan de correccion con fecha compromiso.', owner:'Diego Mesa / Esbeydi Reynoso', source:'DM Esbeydi Reynoso Lun 21 Jul', status:'PENDIENTE — plan correccion formal con fecha' }
 ];
 const SLACK_FEED = [
-  { from: 'Maria Granada → JP (DM)', text: 'PRIORIDADES SEMANA (Lun 27 8:49): (1) Orquestador → escalar al 100% todos los paises; pedir al equipo de Andy que revisen casos. (2) Canceladas → agregar logica de Elias + escalar al 100% todos los paises. (3) AI Bot Payments → lanzar al 50% todos los paises. (4) Completely different → ya viste esto con Nico? podemos ya escalar al 95%?', time: 'Lun 27 Jul 8:49', type: 'dm', actionable: true },
-  { from: 'Steph Gonzalez → JP (DM)', text: 'AUDITORIA ORQUESTADOR (Lun 27 8:49): "Juan queremos validar como va el tema del orquestador??" — JP confirma que esta en todos los paises al 30%, necesita auditoria. Hay gente que entra y va a handoff con preguntas simples. JP ofrecio sesion de 10 min.', time: 'Lun 27 Jul 8:49', type: 'dm', actionable: true },
-  { from: 'JP → Steph (DM)', text: 'DEMO ORQUESTADOR (Lun 27 9:02): "si claro si quieres te muestro en 10 minuticos como probar". JP envio Meet link y link al workflow en Assembled (4fb9297b) para auditoria de casos.', time: 'Lun 27 Jul 9:02', type: 'dm', actionable: false },
+  { from: 'Elias Rivera → Grupo DM (JP, Andres Diaz)', text: 'ENDPOINT PARTNER PAYMENTS (Lun 27 10:11): "Podemos hacerlo de esta forma? Ya el equipo owner del endpoint esta en linea con esto" — API lista para montar ajuste en Assembled. Valor calculado en transacciones, jamas supera total de la orden.', time: 'Lun 27 Jul 10:11', type: 'dm', actionable: true },
+  { from: 'JP → Grupo DM (Elias, Andres)', text: 'DECISION CANCELACIONES (Lun 27 10:58): "de una me parece pues por ahora esta semana salimos con el copy que les voy a pasar y la otra semana que tenemos el kick off con tech aprovechamos para pedir este endpoint"', time: 'Lun 27 Jul 10:58', type: 'dm', actionable: true },
+  { from: 'Maria Granada → JP (DM)', text: 'PRIORIDADES SEMANA (Lun 27 8:49): (1) Orquestador → escalar al 100% todos los paises. (2) Canceladas → logica Elias + 100% todos los paises. (3) Payments → 50% todos los paises. (4) Completely different → escalar al 95% con Nico.', time: 'Lun 27 Jul 8:49', type: 'dm', actionable: true },
+  { from: 'Steph Gonzalez → JP (DM)', text: 'AUDITORIA ORQUESTADOR (Lun 27 8:49): quiere validar como va el orquestador — JP: al 30% en todos los paises, hay gente que va a handoff con preguntas simples. JP ofrecio sesion de 10 min + envio Meet link.', time: 'Lun 27 Jul 8:49', type: 'dm', actionable: true },
   { from: 'Jessica Torres → JP (DM)', text: 'JESSICA MONITOREANDO (Lun 27 8:55): "Dale jaja te voy informando a ver si veo que si llegan casitos". JP confirmo que ya prendio el bot. Tech habia dejado solo activo WA, no portales.', time: 'Lun 27 Jul 8:55', type: 'dm', actionable: false },
-  { from: 'JP → Mafe (DM)', text: 'INTENTS BANK ACCOUNT (Lun 27 8:47): JP compartio lista de intents relacionados con bank account management — Suspensions Portal Partners, Bank account status, How to change my bank account, With support agent. Para mapeo del bot Payments.', time: 'Lun 27 Jul 8:47', type: 'dm', actionable: true },
-  { from: 'Nuevo evento — Maria Granada', text: 'CARGAR IMPACTOS EN ATLAS (hoy 16:30-17:00): Mafe creo un nuevo evento para cargar impactos en Atlas esta tarde. Con Juan Pablo, Maria Granada y Meiker Munera. Traer datos de bots lanzados esta semana.', time: 'Lun 27 Jul (creado 13:13)', type: 'dm', actionable: true }
+  { from: 'Nuevo evento — Maria Granada', text: 'CARGAR IMPACTOS EN ATLAS (hoy 16:30-17:00): Mafe creo nuevo evento hoy 13:13. Con Juan Pablo, Maria Granada y Meiker Munera. Traer datos de bots lanzados esta semana.', time: 'Lun 27 Jul 13:13', type: 'dm', actionable: true }
 ];
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-16:30', '17:00-18:00'] },
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-15:00', '15:30-16:30'] },
   { day: 'Mar', blocks: ['8:00-10:30', '11:00-13:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-18:00'] },
