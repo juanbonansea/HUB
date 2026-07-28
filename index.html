@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 28 Jul 06:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 28 Jul 14:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1470,7 +1470,7 @@ const EVENTS = {
     { time:'15:00-15:30', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones — movido a las 15:00 el Lun 27 Jul. JP es opcional. Organiza Cristian Parada.' }
   ],
   tue: [
-    { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional. Organiza Cristian Parada.' },
+    { time:'12:30-13:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones — movido a 12:30 Mar 28 (solapado con Orquestador; JP es opcional). Organiza Cristian Parada.' },
     { time:'12:00-13:00', title:'Analisis Orquestador con Steph', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'JP cito a Steph Gonzalez y Jessica Torres para revisar el orquestador a profundidad: inflow por entry issue, routing bugs, auditorias pendientes. Creada Lun 27 Jul por JP.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria (1:1)', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances, seguimiento iniciativas. Organiza Mafe.' },
@@ -2534,17 +2534,17 @@ const DEFAULT_DELEGATED = [
   { id:'d1107', text:'MISMATCH ANALYSIS OLA 1 — ELIAS + F.DIAZ: 5 eventos sin match en catalogo (crsan_didnt_cancel_by_automation, crsan_sk_doesnt_answer, crsan_sk_innapropiate_conduct, crsan_sk_couldnt_complete_order, crsan_client_doesnt_answer). Analisis pendiente.', owner:'Elias Rivera / F.Diaz', source:'DM Elias Rivera Vie 24 Jul 17:55', status:'PENDIENTE — analisis de 5 eventos sin match en catalogo' }
 ];
 const SLACK_FEED = [
+  { from: 'JP → Diego Mesa (DM)', text: 'ECUADOR/PERU RULESET CONFIRMADO (Mar 28 08:59): "En ecuador y Peru sigue eso de la ruleset que me detriene pero no llega al bot" — JP confirma que el problema es global: portal roto en todos los paises + ruleset WA bloquea en EC/PE. Debug urgente con chatIds.', time: 'Mar 28 Jul 08:59', type: 'dm', actionable: true },
+  { from: 'JP → Diego Mesa (DM)', text: 'CHATIDS PROMETIDOS HOY (Mar 28 08:32): "Ok te consigo hoy varios chat id para arreglarlo" — JP se compromete a pasar varios chatIds a Diego para debuggear portal y la ruleset de EC/PE.', time: 'Mar 28 Jul 08:32', type: 'dm', actionable: true },
   { from: 'Diego Mesa → JP (DM)', text: 'PORTAL DEBUG (Lun 27 20:20): "el tema de portal no se como hacerle debug, necesito un chatId para ver por donde es que se va" — Portal confirmado roto. Diego necesita chatId de JP para identificar el flujo. Bug reportado a tech.', time: 'Lun 27 Jul 20:20', type: 'dm', actionable: true },
   { from: 'Diego Mesa → JP (DM)', text: 'PORTAL WA CONFIRMADO (Lun 27 20:20): "Listo, acabo de hacer una pruebita y ya se va por el bot" — WA funciona. Portal sigue roto. Diego confirma que son canales diferentes.', time: 'Lun 27 Jul 20:20', type: 'dm', actionable: false },
-  { from: 'Diego Mesa → JP (DM)', text: 'INFLOW POR PAIS (Lun 27 17:50): "pero el inflow es en todos los paises?" — Diego pregunta si el problema de portal es global. JP y Steph ya probaron AR, PE, CO — ninguno cae al bot desde portal.', time: 'Lun 27 Jul 17:50', type: 'dm', actionable: true },
   { from: 'Steph Gonzalez → JP (DM)', text: 'REUNION ORQUESTADOR (Lun 27 17:43): "Sii de una" + "Puedes meter a Jessica Torres tambien?" — Steph acepta reunion Orquestador Mar 28 12:00 y pide incluir a Jessica Torres.', time: 'Lun 27 Jul 17:43', type: 'dm', actionable: true },
   { from: 'Steph Gonzalez → JP (DM)', text: 'AUDITORIA ENTRY ISSUES (Lun 27 15:27): "Juan descargue data de entry issues que estan automatizados y hay casos que pasan al bot — La mayoria son de live" — Steph descargo data de auditoría del dia anterior.', time: 'Lun 27 Jul 15:27', type: 'dm', actionable: true },
-  { from: 'Meiker Munera → #ai-automations', text: 'ENDPOINT RT AJUSTES (Lun 27 13:53): solicita nuevo endpoint filtrado por order_id para ajustes de RT — el actual (dispersion_calculator_adjustment) devuelve array completo y el AI alucina. Pide ayuda a Cristian Parada team.', time: 'Lun 27 Jul 13:53', type: 'channel', actionable: true },
   { from: 'Maria Granada → JP (DM)', text: 'PRIORIDADES SEMANA 27-31 Jul (Lun 27 8:49): (1) Orquestador 100% + equipo Andy. (2) Canceladas logica Elias + 100%. (3) Payments 50% todos paises. (4) Completely different 95% con Nico.', time: 'Lun 27 Jul 8:49', type: 'dm', actionable: true }
 ];
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-15:00', '15:30-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:30', '11:00-12:00', '14:30-15:30', '16:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-12:00', '14:30-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-16:00', '17:30-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '9:45-10:30', '11:00-13:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-10:30', '11:00-13:00', '14:30-18:00'] }
