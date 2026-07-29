@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 29 Jul 17:30 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 29 Jul 20:30 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1496,6 +1496,19 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:125, title:'Miercoles 29 Jul — Noche: Bug Flujo Disputas (Andres Diaz) + Endpoint Disputas Validado', date:'29 Jul',
+    summary:'MIE 29 JUL ~15:00 COT — TARDE/NOCHE. (1) BUG FLUJO DISPUTAS (Andres Diaz #flujo_disputas 12:18): Andres Diaz reporta que el flujo de disputas "le informa al merchants pero no ejecuta la accion" — el bot notifica pero no completa la accion esperada. JP y Elias Rivera fueron etiquetados. Requiere investigacion urgente. (2) VALIDACION ENDPOINT DISPUTAS CON DIEGO + ELIAS (DMs 14:43-15:04): JP coordino con Elias Rivera para definir filtros del endpoint del microservicio de disputas. Elias confirma: para Assembled, country + order_id es suficiente; full filtros son brand_id, store_id, order_id, fecha, pais, estado. Diego Mesa trae payload de respuesta de prueba (DENIED, AR, store_id 119830, order_id 460295480 y 460228915). Diego confirma que va a integrar el endpoint. Gmail no disponible (requiere reautorizacion del conector).',
+    sections:[
+      'BUG FLUJO DISPUTAS (Andres Diaz #flujo_disputas Mie 29 12:18): "chicos veo que le informa al merchants pero no ejecuta la accion" — el bot informa pero no actua. JP y Elias Rivera etiquetados. Pendiente investigacion del flujo y correccion del comportamiento.',
+      'ENDPOINT DISPUTAS — FILTROS CONFIRMADOS (DM Elias Rivera 14:43-14:54): JP pregunta por tipo de filtro conveniente. Elias responde: filtros completos = brand_id, store_id, order_id, fecha, pais, estado. Para Assembled: con country + order_id es suficiente.',
+      'ENDPOINT DISPUTAS — PAYLOAD VALIDADO (DM Diego Mesa 14:57-15:04): Diego trae respuesta del endpoint con datos reales: DENIED, AR, store_id 119830, orders 460295480 y 460228915. Diego confirma que va a intentar integrar este endpoint a Assembled.'
+    ],
+    actions:[
+      { text:'[P0 JUE] BUG FLUJO DISPUTAS — INVESTIGAR CON ELIAS: Andres Diaz (#flujo_disputas Mie 29 12:18) reporta que el flujo informa al merchant pero no ejecuta la accion. Coordinar con Elias Rivera para identificar donde falla la ejecucion y corregir.', owner:'Juan Pablo / Elias Rivera', phase:'build', priority:'P0' },
+      { text:'[P1 JUE] ENDPOINT DISPUTAS — VALIDAR INTEGRACION ASSEMBLED: Diego Mesa (DM 15:04) confirma que va a integrar el endpoint. Validar que la integracion fue exitosa con filtros country + order_id.', owner:'Juan Pablo / Diego Mesa', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:124, title:'Miercoles 29 Jul — Tarde: Canceladas LIVE + Payments Lanzado + Disputas Excel (Diego)', date:'29 Jul',
     summary:'MIE 29 JUL ~12:50 COT — AVANCES TARDE. (1) CANCELADAS BOT LIVE (Jessica Torres DM 12:20): "Juan, hola! Ya estan entrando casos de Cancelaciones" — confirmacion de que el bot de Canceladas esta activo y recibiendo casos reales. JP responde que testeo 3 horas ayer para encontrar el error. HITO CLAVE. (2) PAYMENTS LANZADO EN GRANDES (DM Mafe 11:37): JP confirma "voy a lanzar payments en grandes" — Payments bot lanzado en mercados grandes. Mafe (DM 11:29-11:31) habia pedido: "intentemos dejar canceladas y el orquestador hoy" y "si subamosle el %" al orquestador. (3) BRASIL BUG — SIN REPLICAR (Diego DM 12:32): Diego responde a JP: "pero ayer en las ultimas pruebas no se replico" — el bug de Brasil no se replico en las ultimas pruebas, posiblemente resuelto. (4) DISPUTAS EXCEL (Diego DM 12:46-12:47): Diego pregunta por la iniciativa de disputas y pide el excel donde Juan Esquivel habia agregado esos entry issues al orquestador. Gmail no disponible (requiere reautorizacion del conector).',
@@ -2598,6 +2611,8 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t1218', text:'[P0 JUE] BUG FLUJO DISPUTAS — INVESTIGAR CON ELIAS: Andres Diaz (#flujo_disputas Mie 29 12:18) reporta que el flujo de disputas informa al merchant pero no ejecuta la accion. JP y Elias Rivera etiquetados. Coordinar con Elias para identificar el bug y corregir el comportamiento del flujo.', phase:'build', priority:'P0', source:'#flujo_disputas Andres Diaz Mie 29 Jul 12:18', day:'thu', completed:false },
+  { id:'t1219', text:'[P1 JUE] ENDPOINT DISPUTAS — VALIDAR INTEGRACION ASSEMBLED: Diego Mesa (DM 15:04) confirma que va a integrar el endpoint del microservicio de disputas a Assembled. Validar que la integracion fue exitosa con filtros country + order_id. Elias Rivera confirmo payload correcto (DENIED, AR, store_id 119830).', phase:'build', priority:'P1', source:'DM Diego Mesa Mie 29 Jul 15:04', day:'thu', completed:false },
   { id:'t1217', text:'[P0 HOY] COMPARTIR EXCEL DISPUTAS A DIEGO MESA: Diego Mesa (DM 12:47) pide el excel donde Juan Esquivel agrego entry issues de la iniciativa de disputas al orquestador. Buscar y compartir con Diego lo antes posible.', phase:'build', priority:'P0', source:'DM Diego Mesa Mie 29 Jul 12:47', day:'wed', completed:false },
   { id:'t1201', text:'[P1 PENDIENTE] COLOMBIA PORTAL BUG: JP confirma (DM Diego 15:04) que portal no funciona en Colombia. Diego confirmo fix deployado en paises grandes (Chile, Ecuador, Argentina, Uruguay — Bien) pero Colombia sigue roto. Coordinar con Diego para incluir Colombia.', phase:'build', priority:'P1', source:'DM Diego Mesa Lun 28 Jul 15:04', day:'mon', completed:false },
   { id:'t1202', text:'[P1 PENDIENTE] LEGAL INFORMATION FLOW BUG: Steph pide (DM 15:04) caso donde el bot toma mal el flujo de legal information. Buscar el caso que mostro Jessica y compartir con Steph para investigar el bug del orquestador.', phase:'build', priority:'P1', source:'DM Steph Gonzalez Lun 28 Jul 15:04', day:'mon', completed:false },
@@ -2643,12 +2658,12 @@ const DEFAULT_DELEGATED = [
   { id:'d1209', text:'DSAT TRIAGE FOOD LIVE — JAIME GOMEZ: Jaime reporta (#ai-automations Mie 29 09:32) DSAT del 68%, +5pp WoW en semana 20/07 para el entry issue conectado a WF AI - Triage_Food_Live. Principal causa: Mismatch de flujo (45%) — aliados rechazados por soporte para temas no atendidos. JP debe revisar y definir accion.', owner:'Jaime Gomez / Juan Pablo', source:'#ai-automations Jaime Gomez Mie 29 Jul 09:32', status:'ALERTA — DSAT 68% +5pp; pendiente accion de JP en #ai-automations' }
 ];
 const SLACK_FEED = [
-  { from: 'Diego Mesa → JP (DM)', text: 'DISPUTAS EXCEL (Mie 29 12:47): "en un excel me mostrabas que juan.esquivel ya habia agregado esos entry issue al orquestador, me podrias por favor compartir ese excel" — Diego retoma la iniciativa de disputas y pide el excel con entry issues. ACCION REQUERIDA.', time: 'Mie 29 12:47', type: 'dm', actionable: true },
-  { from: 'Jessica Torres → JP (DM)', text: 'CANCELADAS LIVE (Mie 29 12:20): "Juan, hola! Ya estan entrando casos de Cancelaciones" — confirmacion: el bot de Canceladas esta operativo y recibiendo casos reales. HITO LOGRADO.', time: 'Mie 29 12:20', type: 'dm', actionable: false },
-  { from: 'Diego Mesa → JP (DM)', text: 'BRASIL BUG (Mie 29 12:32): "pero ayer en las ultimas pruebas no se replico" — el bug de cancelaciones en Brasil no se reproduced en las ultimas pruebas de Diego. Posiblemente resuelto, pendiente confirmacion.', time: 'Mie 29 12:32', type: 'dm', actionable: true },
-  { from: 'Maria Granada → JP (DM)', text: 'SUBIR % ORQUESTADOR + CANCELADAS HOY (Mie 29 11:29-11:31): "intentemos dejar canceladas y el orquestador hoy" + "si subamosle el %" — Mafe confirma go para escalar ambos bots hoy.', time: 'Mie 29 11:31', type: 'dm', actionable: true },
+  { from: 'Andres Diaz → #flujo_disputas', text: 'BUG FLUJO DISPUTAS (Mie 29 12:18): "@juan.bonansea @elias.rivera chicos veo que le informa al merchants pero no ejecuta la accion" — el flujo notifica pero no ejecuta. ACCION REQUERIDA.', time: 'Mie 29 12:18', type: 'channel', actionable: true },
+  { from: 'Diego Mesa → JP (DM)', text: 'ENDPOINT DISPUTAS (Mie 29 15:04): "Genial, entonces voy a tratar de integrar este" — Diego confirma integracion del endpoint a Assembled tras validar payload con JP (DENIED, AR, store_id 119830).', time: 'Mie 29 15:04', type: 'dm', actionable: false },
+  { from: 'Diego Mesa → JP (DM)', text: 'DISPUTAS EXCEL (Mie 29 12:47): "en un excel me mostrabas que juan.esquivel ya habia agregado esos entry issue al orquestador, me podrias por favor compartir ese excel" — ACCION REQUERIDA.', time: 'Mie 29 12:47', type: 'dm', actionable: true },
+  { from: 'Jessica Torres → JP (DM)', text: 'CANCELADAS LIVE (Mie 29 12:20): "Juan, hola! Ya estan entrando casos de Cancelaciones" — HITO: el bot de Canceladas esta operativo y recibiendo casos reales.', time: 'Mie 29 12:20', type: 'dm', actionable: false },
+  { from: 'Maria Granada → JP (DM)', text: 'SUBIR % ORQUESTADOR + CANCELADAS HOY (Mie 29 11:29-11:31): "intentemos dejar canceladas y el orquestador hoy" + "si subamosle el %" — Mafe confirma go para escalar ambos bots.', time: 'Mie 29 11:31', type: 'dm', actionable: true },
   { from: 'Jaime Gomez → team (#ai-automations)', text: 'DSAT ALERT TRIAGE FOOD LIVE (Mie 29 09:32): DSAT del 68%, +5pp WoW en semana 20/07 para WF AI-Triage_Food_Live. Mismatch de flujo (45%) — aliados rechazados sistematicamente. Requiere accion urgente.', time: 'Mie 29 09:32', type: 'channel', actionable: true },
-  { from: 'Juan Pablo → #flujo_disputas', text: 'DISPUTAS DEBUG (Mie 29 12:19): "Uff que raro, tienen por ahi el chat id para revisarlo" — JP revisando issue reportado en canal de flujo_disputas.', time: 'Mie 29 12:19', type: 'channel', actionable: false },
   { from: 'Steph Gonzalez → team (#ai-automations)', text: 'FRASES COMUNES ORQUESTADOR (Mie 29 09:06): Steph comparte documento con las frases mas comunes de entrada de aliados al soporte. Insumo clave para afinar routing del orquestador.', time: 'Mie 29 09:06', type: 'channel', actionable: true }
 ];
 const DEEP_WORK = [
