@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 28 Jul 17:05 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 29 Jul 10:20 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1496,6 +1496,21 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:121, title:'Miercoles 29 Jul — Hoy: Daily 10:30 + CX WBR 11:00 + Atlas Alineacion 16:00 + Cargar Impactos 17:00', date:'29 Jul',
+    summary:'MIE 29 JUL 10:20 COT — AGENDA DEL DIA. (1) DAILY AUTOMATIONS (10:30-11:00): standup diario con equipo automatizaciones. JP aceptado — repasar estado de Colombia portal y Brasil cancelaciones antes del WBR. (2) CX WEEKLY BUSINESS REVIEW (11:00-12:00): reunion semanal CX con ~55 personas, organiza Eugenio La Rosa. JP debe llevar update de Orquestador (30%, Colombia roto, Brasil en revision), Canceladas (logica Elias pendiente, portal Colombia/Brasil) y Payments (50% lanzamiento pendiente). (3) [ATLAS] ALINEACION TECH <> PROD (16:00-17:00): reunion organizada por Mafe Granada con Cristian Parada, Andres De Las Casas, Sirley Rojas, Angela Osuna, Meiker Munera. Llevar impactos calculados y scorecard de iniciativas completado ANTES de esta reunion. (4) CARGAR IMPACTOS EN ATLAS (17:00-17:30): con Mafe y Meiker. Seguimiento inmediato de la alineacion. ESTADO PENDIENTES DE AYER: Colombia portal aun roto (chatId 76582794 provisto por Diego); Steph revisando Brasil cancelaciones con tienda asignada; Assembled workflow issue — JP dice "ya quedo" (DM Elias 17:34) posiblemente resuelto. Gmail no disponible (requiere reautorizacion del conector).',
+    sections:[
+      'DAILY AUTOMATIONS (10:30-11:00): JP aceptado. Antes del WBR — repasar estado de Colombia portal (chatId 76582794 debug pendiente con Diego) y Brasil cancelaciones (Steph revisando con tienda asignada).',
+      'CX WBR (11:00-12:00, ~55 personas): llevar update de Orquestador (30% + Colombia roto + Brasil en revision), Canceladas (logica Elias, portal Colombia/Brasil) y Payments (50% lanzamiento). Organiza Eugenio La Rosa.',
+      '[ATLAS] ALINEACION TECH <> PROD (16:00-17:00): con Cristian Parada, Andres De Las Casas, Sirley Rojas, Angela Osuna, Meiker Munera. Scorecard de iniciativas debe estar completo ANTES de entrar. Organiza Mafe Granada.',
+      'CARGAR IMPACTOS EN ATLAS (17:00-17:30): inmediatamente despues de la alineacion. Con Mafe y Meiker. Finaliza la jornada con los impactos de la semana registrados en Atlas.'
+    ],
+    actions:[
+      { text:'[P0 HOY 11:00] CX WBR PREP — LLEVAR UPDATE COMPLETO: estado Orquestador (30%, Colombia roto, Brasil revision), Canceladas (logica Elias pendiente, Colombia/Brasil portal), Payments (50% lanzamiento). ~55 personas en reunion.', owner:'Juan Pablo', phase:'metrics', priority:'P0' },
+      { text:'[P1 HOY PRE-16:00] SCORECARD INICIATIVAS — COMPLETAR ANTES ATLAS: Mafe pide scorecard completo antes de la reunion de carga en Atlas (17:00). Completar en la tarde antes de las 16:00.', owner:'Juan Pablo', phase:'metrics', priority:'P1' },
+      { text:'[P1 HOY 16:00] ATLAS ALINEACION TECH <> PROD — LLEVAR IMPACTOS: con Cristian Parada, Andres, Sirley, Angela, Meiker. Scorecard de iniciativas debe estar completo ANTES de entrar a la reunion.', owner:'Juan Pablo / Mafe Granada', phase:'build', priority:'P1' }
+    ]
+  },
   {
     id:120, title:'Martes 28 Jul — Noche: ChatId Portal + Steph/Elias Brasil + Scorecard Atlas', date:'28 Jul',
     summary:'MAR 28 JUL 17:05 COT — ACTUALIZACIONES TARDE (sesion automatizada 3). (1) CHATID PORTAL DEBUG (Diego Mesa DM 16:53): Diego comparte "76,582,794" — este es el chatId que JP necesitaba para debuggear el portal de cancelaciones. Con este dato Diego puede identificar por donde se va el flujo desde portal y confirmar si Colombia sigue roto. (2) STEPH TIENDA ASIGNADA BRASIL (Elias Rivera DM 16:44): "Steph ya tiene una tienda asignada, le pedi que revise y te cuente" — Elias confirma que Steph esta auditando el flujo de cancelaciones en Brasil con una tienda especifica. JP pregunto a Elias (16:15) si tenia portal de Brasil para revisar el flujo. (3) SCORECARD INICIATIVAS (Mafe grupo DM 16:51 y 15:36): "porfa ayudenme cada semana a llenar siempre el scorecard de las iniciativas que van lanzando, manana les cite un espacio para que sepan cargarlo a Atlas" — Mafe pide llenar el scorecard y cita reunion manana mie 29 para aprender a cargar impactos en Atlas. (4) ASSEMBLED WORKFLOW ERROR (Diego DM 15:41-15:42): "porque cuando intento pegarle a ese workflow me dice arroja un error?" — Diego no puede acceder al workflow 7781cdbe en Assembled. JP compartio el link (16:31). Gmail no disponible (requiere reautorizacion del conector).',
@@ -2538,8 +2553,8 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t1201', text:'[P1 HOY] COLOMBIA PORTAL BUG: JP confirma (DM Diego 15:04) que portal no funciona en Colombia. Diego confirmo fix deployado en paises grandes (Chile, Ecuador, Argentina, Uruguay — Bien) pero Colombia sigue roto. Coordinar con Diego para incluir Colombia.', phase:'build', priority:'P1', source:'DM Diego Mesa Lun 28 Jul 15:04', day:'mon', completed:false },
-  { id:'t1202', text:'[P1 HOY] LEGAL INFORMATION FLOW BUG: Steph pide (DM 15:04) caso donde el bot toma mal el flujo de legal information. Buscar el caso que mostro Jessica y compartir con Steph para investigar el bug del orquestador.', phase:'build', priority:'P1', source:'DM Steph Gonzalez Lun 28 Jul 15:04', day:'mon', completed:false },
+  { id:'t1201', text:'[P1 PENDIENTE] COLOMBIA PORTAL BUG: JP confirma (DM Diego 15:04) que portal no funciona en Colombia. Diego confirmo fix deployado en paises grandes (Chile, Ecuador, Argentina, Uruguay — Bien) pero Colombia sigue roto. Coordinar con Diego para incluir Colombia.', phase:'build', priority:'P1', source:'DM Diego Mesa Lun 28 Jul 15:04', day:'mon', completed:false },
+  { id:'t1202', text:'[P1 PENDIENTE] LEGAL INFORMATION FLOW BUG: Steph pide (DM 15:04) caso donde el bot toma mal el flujo de legal information. Buscar el caso que mostro Jessica y compartir con Steph para investigar el bug del orquestador.', phase:'build', priority:'P1', source:'DM Steph Gonzalez Lun 28 Jul 15:04', day:'mon', completed:false },
   { id:'t1203', text:'[P0 SEMANA] ORQUESTADOR AL 100% TODOS LOS PAISES: escalar de 30% a 100%. Pedir al equipo de Andy (andres.delascasas) que revisen casos activos. Mafe freno escalada — primero pulir issues de inflow elevado.', phase:'build', priority:'P0', source:'DM Maria Granada Lun 28 Jul 8:49 + 11:26', day:'mon', completed:false },
   { id:'t1204', text:'[P0 SEMANA] CANCELADAS + LOGICA ELIAS AL 100%: coordinar con Elias Rivera para agregar su logica al bot de Canceladas y escalar al 100% de todos los paises. Portal Colombia bug pendiente (fix en grandes).', phase:'build', priority:'P0', source:'DM Maria Granada Lun 28 Jul 8:49', day:'tue', completed:false },
   { id:'t1205', text:'[P0 SEMANA] PAYMENTS BOT AL 50% TODOS LOS PAISES: lanzar AI Bot Payments al 50% de todos los paises. Prioridad #3 de Mafe. Flujo casi terminado.', phase:'build', priority:'P0', source:'DM Maria Granada Lun 28 Jul 8:49', day:'tue', completed:false },
@@ -2548,7 +2563,7 @@ const DEFAULT_TASKS = [
   { id:'t1208', text:'[P1 MIE 29] CX WBR 11:00 — PREPARAR UPDATE: llevar estado de Orquestador (% escalada), Canceladas (Colombia/Brasil bug + logica Elias) y Payments (lanzamiento) para el CX Weekly Business Review.', phase:'metrics', priority:'P1', source:'Calendario Mie 29 Jul 11:00', day:'wed', completed:false },
   { id:'t1209', text:'[P1 VIE 31] WEEKLY QA AI (14:00-14:30): llevar metricas de bots lanzados esta semana — orquestador, canceladas, payments. Estado del portal bug Colombia/Brasil y fix. Update completo para Mafe.', phase:'metrics', priority:'P1', source:'Calendario Vie 31 Jul 14:00', day:'fri', completed:false },
   { id:'t1210', text:'[P2 SEMANA] ENDPOINT RT FILTRADO PARA MEIKER: Meiker solicita endpoint filtrado por order_id para ajustes de RT. Evaluar con Cristian Parada team si tech puede construirlo esta semana.', phase:'build', priority:'P2', source:'#ai-automations Meiker Munera Lun 27 Jul 13:53', day:'wed', completed:false },
-  { id:'t1211', text:'[P1 HOY] PORTAL COLOMBIA DEBUG CON CHATID 76582794: Diego Mesa provee chatId 76,582,794 (DM 16:53). Confirmar con Diego si Colombia portal ya funciona o si con este chatId pueden identificar el problema y deployar fix.', phase:'build', priority:'P1', source:'DM Diego Mesa Mar 28 Jul 16:53', day:'tue', completed:false },
+  { id:'t1211', text:'[P1 SEMANA] PORTAL COLOMBIA DEBUG CON CHATID 76582794: Diego Mesa provee chatId 76,582,794 (DM 16:53). Confirmar con Diego si Colombia portal ya funciona o si con este chatId pueden identificar el problema y deployar fix.', phase:'build', priority:'P1', source:'DM Diego Mesa Mar 28 Jul 16:53', day:'wed', completed:false },
   { id:'t1212', text:'[P1 MIE 29] SCORECARD INICIATIVAS — LLENAR ANTES REUNION: Mafe pide (grupo DM 15:36 + 16:51) llenar el scorecard de iniciativas cada semana. Cita reunion mie 29 para aprender a cargar en Atlas. Llenar el scorecard ANTES de la reunion.', phase:'metrics', priority:'P1', source:'DM Maria Granada Mar 28 Jul 15:36', day:'wed', completed:false },
   { id:'t1213', text:'[P2 MIE 29] BRASIL CANCELACIONES — CONFIRMAR CON STEPH/ELIAS: Elias confirma (DM 16:44) que Steph tiene tienda asignada para revisar flujo cancelaciones Brasil. Hacer seguimiento y confirmar si Brasil portal tiene el mismo bug que Colombia.', phase:'metrics', priority:'P2', source:'DM Elias Rivera Mar 28 Jul 16:44', day:'wed', completed:false }
 ];
@@ -2583,7 +2598,7 @@ const SLACK_FEED = [
   { from: 'Elias Rivera → JP (DM)', text: 'STEPH TIENDA BRASIL (Mar 28 16:44): "Steph ya tiene una tienda asignada, le pedi que revise y te cuente" — Steph revisando flujo cancelaciones Brasil con tienda especifica.', time: 'Mar 28 16:44', type: 'dm', actionable: false },
   { from: 'JP → Elias Rivera (DM)', text: 'BRASIL PORTAL (Mar 28 16:15): "Hola Eli tienes portal de Brasil para revisar si esta funcionando el flujo de cancelaciones en Brasil??" — JP investiga si portal Brasil tiene el mismo bug que Colombia.', time: 'Mar 28 16:15', type: 'dm', actionable: false },
   { from: 'Diego Mesa → JP (DM)', text: 'ASSEMBLED WORKFLOW ERROR (Mar 28 15:41): "porque cuando intento pegarle a ese workflow me dice arroja un error?" — Diego no puede acceder al workflow 7781cdbe en Assembled. JP compartio el link a las 16:31.', time: 'Mar 28 15:41', type: 'dm', actionable: true },
-  { from: 'Steph Gonzalez → JP (DM)', text: 'RESPUESTA RECETA (Mar 28 16:18): Steph comparte template de respuesta para ajuste de OID a aliados — texto para cancelaciones con radicado. JP uso el meet para revisar juntos.', time: 'Mar 28 16:18', type: 'dm', actionable: false }
+  { from: 'Elias Rivera → JP (DM)', text: 'ASSEMBLED WORKFLOW RESUELTO (Mar 28 17:30-17:34): "Pudiste revisarlo?" → JP: "ya quedo" — workflow 7781cdbe en Assembled confirmado funcionando. Elias queda pendiente y lo confirma: "Dale, estoy pendiente!"', time: 'Mar 28 17:34', type: 'dm', actionable: false }
 ];
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '16:00-18:00'] },
