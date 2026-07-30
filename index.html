@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 30 Jul 13:07 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 30 Jul 15:30 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1496,6 +1496,21 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:130, title:'Jueves 30 Jul — Tarde 2: Orquestador + Canceladas AL 100% + Payments 75% + Bot Bug Assembled (Diego)', date:'30 Jul',
+    summary:'JUE 30 JUL 13:59-14:31 COT — GRANDES ANUNCIOS DE LA TARDE. (1) 100% ORQUESTADOR + CANCELADAS HOY (JP #cx-product 13:59): "Si estoy terminando unos ajustes que mando QA y hoy los dejo al 100% en todos los paises orquestador y canceladas, payments lo aumento al 75%" — JP anuncia lanzamiento completo de los dos bots principales esta tarde, mas escalada de Payments a 75%. Hito de la semana. (2) REUNION SERVICIO DE INTEGRADAS 14:30-15:30 (completada): Steph Gonzalez organizo sesion con Andy (f.diaz), Elias Rivera y JP para validar conexion de flujos integradas con el orquestador. Resultado pendiente de confirmacion. (3) BUG BOT ASSEMBLED — PROMPT LARGO (Diego Mesa DM 14:06-14:31): Diego informa que el bot de una tienda no aparece en la app. JP diagnostica en #cx-prod-eng-leads (14:22): "es un error en Assembled del bot de mi tienda no aparece en la app... normalmente es porque el prompt es muy largo o tiene caracteres incorrectos". JP comparte evidencia con Elias Rivera para revision. Diego provee chat_id 6a60cac8fe1b0100095cea11 para debug. Diego agradece (14:31: "Gracias inge!").',
+    sections:[
+      '100% ORQUESTADOR + CANCELADAS (JP #cx-product 13:59): JP confirma que esta terminando ajustes, los manda a QA y los deja al 100% en todos los paises hoy jueves. Payments sube al 75%. Objetivo semana cumplido.',
+      'PAYMENTS AL 75% (JP #cx-product 13:59): Payments escala de 50% a 75% todos los paises. Siguiente paso: 100% pendiente de metricas en Weekly QA AI Vie 31.',
+      'REUNION INTEGRADAS 14:30-15:30 (completada): Steph, Andy (f.diaz), Elias Rivera y JP revisaron conexion de flujos integradas con el orquestador. Steph aclaro que es el level_2 de entry issue. Resultado: pendiente update de Steph.',
+      'BOT NO APARECE EN APP — ASSEMBLED (DM Diego + #cx-prod-eng-leads 14:06-14:22): Diego reporta bot de tienda (chat_id 6a60cac8fe1b0100095cea11) que no aparece en la app. JP identifica causa: prompt muy largo o caracteres incorrectos. JP taggea a Elias Rivera para revision en Assembled.'
+    ],
+    actions:[
+      { text:'[P0 JUE HOY] LANZAR ORQUESTADOR + CANCELADAS AL 100%: JP anuncia (#cx-product 13:59) que hoy deja ambos bots al 100% en todos los paises tras ajustes y QA. Confirmar que el rollout quedo completo antes de cerrar la jornada.', owner:'Juan Pablo', phase:'build', priority:'P0' },
+      { text:'[P1 JUE HOY] PAYMENTS AL 75% — CONFIRMAR CON ANDY: JP anuncia subida de Payments de 50% a 75% (#cx-product 13:59). Confirmar con Diego Mesa (Andy team) que el rollout quedo activo en todos los paises.', owner:'Juan Pablo / Diego Mesa', phase:'build', priority:'P1' },
+      { text:'[P2 JUE] BOT ASSEMBLED SIN APARECER EN APP — ELIAS: Diego provee chat_id 6a60cac8fe1b0100095cea11. JP taggeo a Elias Rivera (#cx-prod-eng-leads 14:22) para revisar el prompt del bot. Confirmar con Elias que quedo resuelto.', owner:'Juan Pablo / Elias Rivera', phase:'build', priority:'P2' }
+    ]
+  },
   {
     id:129, title:'Jueves 30 Jul — Tarde: Bug Canceladas CORREGIDO + 4 Nuevas Oportunidades QA (Jess) + Self Assessment Aug 3', date:'30 Jul',
     summary:'JUE 30 JUL 11:25-12:41 COT — ACTUALIZACIONES TARDE. (1) BUG CANCELADAS CORREGIDO (JP → Jessica DM 11:25): JP confirma "corregido ese bug de cancelaciones" — el nodo "Explain cancellation reason" que enviaba multiples mensajes fue corregido. Jessica responde (11:40): "Bueno jajajjaa perfect! Ya te tengo unas 4 oportunidades mas, ya estoy haciendo el hilito" — Jessica encontro 4 nuevas oportunidades de mejora para el bot y las esta documentando en un hilo. (2) STEPH — ENTRY ISSUE LEVEL_2 (DM 11:49): Steph responde en la conversacion de integradas: "Pero eso es entry issue hablo es del level_2" — aclara que el flujo de integradas que estaban revisando corresponde al level_2, no al entry issue general. Steph muestra como sale la tipificacion (11:49). (3) SELF ASSESSMENT PERFORMANCE REVIEW — DEADLINE 3 AGO (Rappi Talent bot DM 12:41): recordatorio oficial de Light Performance Review 2026. JP debe completar su Self Assessment en Workday antes del 3 de agosto (4 dias). El Self Assessment + Leader Assessment deben estar completos para el Compensation Review. Acceso via Workday.',
@@ -2668,6 +2683,8 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t1231', text:'[P0 JUE HOY] CONFIRMAR ROLLOUT 100% ORQUESTADOR + CANCELADAS: JP anuncia (#cx-product 13:59) "hoy los dejo al 100% en todos los paises orquestador y canceladas". Validar que el rollout quedo completo en Statsig/Assembled antes de cerrar la jornada.', phase:'build', priority:'P0', source:'#cx-product JP Jue 30 Jul 13:59', day:'thu', completed:false },
+  { id:'t1232', text:'[P1 JUE HOY] CONFIRMAR PAYMENTS AL 75% TODOS PAISES: JP anuncia (#cx-product 13:59) que sube Payments de 50% a 75%. Confirmar con Diego Mesa que el rollout esta activo en todos los paises. Monitorear en Weekly QA AI Vie 31.', phase:'build', priority:'P1', source:'#cx-product JP Jue 30 Jul 13:59', day:'thu', completed:false },
   { id:'t1230', text:'[P0 ANTES 3 AGO] SELF ASSESSMENT PERFORMANCE REVIEW: Rappi Talent bot (DM 12:41) notifica plazo hasta el lunes 3 de agosto para el Light Performance Review 2026. Completar el Self Assessment en Workday. Sin completarlo no se considera en el Compensation Review.', phase:'metrics', priority:'P0', source:'Rappi Talent bot DM Jue 30 Jul 12:41', day:'thu', completed:false },
   { id:'t1229', text:'[P1 JUE HOY] REVISAR 4 NUEVAS OPORTUNIDADES QA — JESSICA TORRES: Jessica (DM 11:40) "Ya te tengo unas 4 oportunidades mas, ya estoy haciendo el hilito". Revisar el hilo cuando lo comparta Jessica y priorizar mejoras para el bot de Canceladas antes del lanzamiento al 100% manana viernes.', phase:'build', priority:'P1', source:'DM Jessica Torres Jue 30 Jul 11:40', day:'thu', completed:false },
   { id:'t1228', text:'[P0 JUE HOY] MEJORAR CANCELADAS SEGUN JESSICA QA: JP confirma (DM Mafe 10:47) que Jess reporto una mejora para el bot de Canceladas similar a la del orquestador. Implementar la mejora hoy para poder lanzar Canceladas al 100% manana viernes 31.', phase:'build', priority:'P0', source:'DM Maria Granada Jue 30 Jul 10:47', day:'thu', completed:false },
@@ -2724,6 +2741,8 @@ const DEFAULT_DELEGATED = [
   { id:'d1209', text:'DSAT TRIAGE FOOD LIVE — JAIME GOMEZ: Jaime reporta (#ai-automations Mie 29 09:32) DSAT del 68%, +5pp WoW en semana 20/07 para el entry issue conectado a WF AI - Triage_Food_Live. Principal causa: Mismatch de flujo (45%) — aliados rechazados por soporte para temas no atendidos. JP debe revisar y definir accion.', owner:'Jaime Gomez / Juan Pablo', source:'#ai-automations Jaime Gomez Mie 29 Jul 09:32', status:'ALERTA — DSAT 68% +5pp; pendiente accion de JP en #ai-automations' }
 ];
 const SLACK_FEED = [
+  { from: 'JP → #cx-product', text: '100% ORQUESTADOR + CANCELADAS HOY + PAYMENTS 75% (Jue 30 13:59): "Si estoy terminando unos ajustes que mando QA y hoy los dejo al 100% en todos los paises orquestador y canceladas, payments lo aumento al 75%" — HITO DE LA SEMANA.', time: 'Jue 30 13:59', type: 'channel', actionable: false },
+  { from: 'Diego Mesa → JP (DM)', text: 'BOT NO APARECE EN APP (Jue 30 14:06): Diego reporta bot de tienda (chat_id 6a60cac8fe1b0100095cea11) que no aparece en la app. JP responde en #cx-prod-eng-leads (14:22): prompt muy largo o caracteres incorrectos. Taggea a Elias Rivera.', time: 'Jue 30 14:06', type: 'dm', actionable: true },
   { from: 'Rappi Talent Bot → JP (DM)', text: 'PERFORMANCE REVIEW DEADLINE (Jue 30 12:41): Light Performance Review 2026 activo. Plazo Self Assessment: lunes 3 de agosto en Workday. Sin completarlo no hay Compensation Review. P0 ADMIN.', time: 'Jue 30 12:41', type: 'dm', actionable: true },
   { from: 'Jessica Torres → JP (DM)', text: '4 NUEVAS OPORTUNIDADES QA (Jue 30 11:40): "Bueno jajajjaa perfect! Ya te tengo unas 4 oportunidades mas, ya estoy haciendo el hilito" — Jessica encontro 4 nuevas mejoras para el bot de Canceladas. Esperar el hilo de Jess.', time: 'Jue 30 11:40', type: 'dm', actionable: true },
   { from: 'JP → Jessica Torres (DM)', text: 'BUG CANCELADAS CORREGIDO (Jue 30 11:25): "corregido ese bug de cancelaciones" — nodo "Explain cancellation reason" ya no envia multiples mensajes en un turno. RESUELTO.', time: 'Jue 30 11:25', type: 'dm', actionable: false },
