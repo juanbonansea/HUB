@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 29 Jul 17:05 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 30 Jul 07:08 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1495,6 +1495,20 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:127, title:'Miercoles 29 Jul — Noche: Orquestador Merchant Gate Live + Payments 50% + Canceled Order Flow Nuevos', date:'29 Jul',
+    summary:'MIE 29 JUL 18:39-18:49 COT — BIG UPDATE ORQUESTADOR MERCHANT (#ai-automations JP). Juan Pablo posta actualizacion completa del Orquestador Merchant. (1) GATE LIVE (live_order): nueva categoria de maxima prioridad — detecta orden activa (RT no llega, cancelar orden viva, doble RT) y hace Redirect a Triage_Food_Live. Guardrail: disputas post-orden van a compensation, no a Live. (2) DOS FLUJOS NUEVOS conectados — rescatan ~404 tickets/semana, ~17% que caian a `other`: `payments` (~329/sem) → Redirect al bot de Payments; `canceled_order` (~75/sem) → nuevo flujo. (3) PAYMENTS CONFIRMADO AL 50% TODOS LOS PAISES (18:49): JP confirma "Andy payments al 50% todos los paises" — antes estaba al 30%. (4) RAPPIPEDIA EN ASSEMBLED (DM Steph 17:12): JP pide a Steph que le mande articulos de Rappipedia que considere utiles para dejar ese conocimiento en el orquestador. Steph no entendio (17:18) — pendiente call/aclaracion. Gmail no disponible (requiere reautorizacion del conector).',
+    sections:[
+      'GATE LIVE — ORQUESTADOR MERCHANT (#ai-automations 18:39): nueva categoria maxima prioridad `live_order`. Detecta: RT no llega, cancelar orden viva, doble RT. Redirect a Triage_Food_Live. Guardrail: disputas post-orden van a compensation, no a Live gate.',
+      'DOS FLUJOS NUEVOS CONECTADOS (~404 tkts/sem, ~17% de `other`): `payments` (~329 tkts/sem) → Redirect al bot de Payments; `canceled_order` (~75 tkts/sem) → flujo propio. Rescatan casos que antes caian a la categoria generica `other`.',
+      'PAYMENTS AL 50% TODOS LOS PAISES (18:49): "Andy payments al 50% todos los paises" — escalado desde 30% (pequenos+medianos grandes). Todos los paises confirman activo. Hito de lanzamiento completo de Payments bot.',
+      'RAPPIPEDIA EN ASSEMBLED (DM Steph 17:12): JP pide a Steph articulos de Rappipedia utiles para enriquecer el conocimiento del orquestador. Steph responde "No entendi JAJAJJA" (17:18). Pendiente aclaracion y envio de articulos por Steph.'
+    ],
+    actions:[
+      { text:'[P1 JUE] ACLARAR CON STEPH — RAPPIPEDIA EN ASSEMBLED: JP pidio (DM Mie 29 17:12) que Steph mandara articulos de Rappipedia utiles para el orquestador. Steph no entendio (17:18). Hacer call rapido con Steph para aclarar y recibir los articulos. Cargarlos en el orquestador en Assembled.', owner:'Juan Pablo / Steph Gonzalez', phase:'build', priority:'P1' },
+      { text:'[INFO] PAYMENTS AL 50% TODOS PAISES — CONFIRMADO (Mie 29 18:49): Payments bot activo al 50% en todos los paises. Monitorear metricas esta semana. Proxima accion: subir al 100% o evaluar calidad en reunion Weekly QA AI Vie 31.', owner:'Juan Pablo', phase:'metrics', priority:'P2' }
+    ]
+  },
   {
     id:126, title:'Miercoles 29 Jul — Tarde: Bug Bot Canceladas (Jessica Torres) — Multiple Mensajes en un Turno', date:'29 Jul',
     summary:'MIE 29 JUL 17:00-17:02 COT — BUG CRITICO BOT CANCELADAS (Jessica Torres DM). Jessica reporta que el bot esta enviando varias cosas en un mismo mensaje. "Estoy viendo par de casos y te paso algo que me parece grave y he visto en varios casos por si le puedes ir dando una ojeada, esta enviando varias cosas en un mismo mensaje." Deja dos ejemplos en Assembled (QA reviews 0927081d y 09beecd4). Causa raiz identificada por Jessica: "Creo que el problema es de reply Explain cancellation reason — No espera respuesta y continua con las validaciones." El nodo de reply "Explain cancellation reason" no esta configurado para esperar respuesta del aliado antes de continuar con las siguientes validaciones del flujo. Este bug afecta los casos reales que ya estan entrando al bot de Canceladas (confirmado LIVE a las 12:20 hoy). Gmail no disponible (requiere reautorizacion del conector).',
@@ -2630,7 +2644,8 @@ const DEFAULT_TASKS = [
   { id:'t1202', text:'[P1 PENDIENTE] LEGAL INFORMATION FLOW BUG: Steph pide (DM 15:04) caso donde el bot toma mal el flujo de legal information. Buscar el caso que mostro Jessica y compartir con Steph para investigar el bug del orquestador.', phase:'build', priority:'P1', source:'DM Steph Gonzalez Lun 28 Jul 15:04', day:'mon', completed:false },
   { id:'t1203', text:'[P0 SEMANA] ORQUESTADOR AL 100% TODOS LOS PAISES: escalar de 30% a 100%. Pedir al equipo de Andy (andres.delascasas) que revisen casos activos. Mafe freno escalada — primero pulir issues de inflow elevado.', phase:'build', priority:'P0', source:'DM Maria Granada Lun 28 Jul 8:49 + 11:26', day:'mon', completed:false },
   { id:'t1204', text:'[P0 SEMANA] CANCELADAS + LOGICA ELIAS AL 100%: coordinar con Elias Rivera para agregar su logica al bot de Canceladas y escalar al 100% de todos los paises. Portal Colombia bug pendiente (fix en grandes).', phase:'build', priority:'P0', source:'DM Maria Granada Lun 28 Jul 8:49', day:'tue', completed:false },
-  { id:'t1205', text:'[LANZADO HOY] PAYMENTS BOT EN GRANDES: JP confirma "voy a lanzar payments en grandes" (DM Mafe 11:37 Mie 29). Lanzado en mercados grandes. Pendiente extender al 50% en todos los paises.', phase:'build', priority:'P1', source:'DM Maria Granada Mie 29 Jul 11:37', day:'tue', completed:true },
+  { id:'t1221', text:'[P1 JUE] RAPPIPEDIA EN ASSEMBLED — ACLARAR CON STEPH: JP pidio (DM Mie 29 17:12) que Steph enviara articulos de Rappipedia utiles para el orquestador. Steph no entendio (17:18). Hacer call rapido para aclarar y recibir lista de articulos. Objetivo: enriquecer el conocimiento del orquestador en Assembled.', phase:'build', priority:'P1', source:'DM Steph Gonzalez Mie 29 Jul 17:12', day:'thu', completed:false },
+  { id:'t1205', text:'[LANZADO MIE 29] PAYMENTS BOT AL 50% TODOS LOS PAISES: JP confirma (Slack #ai-automations 18:49) "Andy payments al 50% todos los paises". Pagado desde 30% pequenos+medianos a 50% todos los paises. MONITOREAR en Weekly QA AI Vie 31.', phase:'build', priority:'P2', source:'#ai-automations JP Mie 29 Jul 18:49', day:'fri', completed:true },
   { id:'t1206', text:'[P1 SEMANA] COMPLETELY DIFFERENT AL 95% CON NICO: confirmar con Nicolas Bejarano si se puede escalar. Solo 500 casos en mes y medio segun Nico — revisar si el trafico es correcto antes de escalar al 95%.', phase:'metrics', priority:'P1', source:'DM Nicolas Bejarano Lun 28 Jul 12:29', day:'tue', completed:false },
   { id:'t1207', text:'[REALIZADO MIE 29] CARGAR IMPACTOS EN ATLAS (15:30-17:00): reunion con Mafe, Meiker, Cristian Parada, Andres De Las Casas, Sirley Rojas, Angela Osuna. Cargar impactos + alineacion tech/prod Atlas completada.', phase:'build', priority:'P0', source:'Calendario Mie 29 Jul 15:30 + 16:00', day:'wed', completed:true },
   { id:'t1208', text:'[REALIZADO MIE 29] CX WBR 11:00 — update llevado a las ~55 personas del equipo CX. Organizo Eugenio La Rosa.', phase:'metrics', priority:'P2', source:'Calendario Mie 29 Jul 11:00', day:'wed', completed:true },
@@ -2670,20 +2685,19 @@ const DEFAULT_DELEGATED = [
   { id:'d1209', text:'DSAT TRIAGE FOOD LIVE — JAIME GOMEZ: Jaime reporta (#ai-automations Mie 29 09:32) DSAT del 68%, +5pp WoW en semana 20/07 para el entry issue conectado a WF AI - Triage_Food_Live. Principal causa: Mismatch de flujo (45%) — aliados rechazados por soporte para temas no atendidos. JP debe revisar y definir accion.', owner:'Jaime Gomez / Juan Pablo', source:'#ai-automations Jaime Gomez Mie 29 Jul 09:32', status:'ALERTA — DSAT 68% +5pp; pendiente accion de JP en #ai-automations' }
 ];
 const SLACK_FEED = [
-  { from: 'Jessica Torres → JP (DM)', text: 'BUG BOT CANCELADAS (Mie 29 17:00-17:02): "esta enviando varias cosas en un mismo mensaje" — nodo "Explain cancellation reason" no espera respuesta del aliado antes de continuar validaciones. Casos en Assembled: 0927081d y 09beecd4. ACCION REQUERIDA.', time: 'Mie 29 17:02', type: 'dm', actionable: true },
+  { from: 'Juan Pablo → #ai-automations', text: 'ORQUESTADOR MERCHANT UPDATE (Mie 29 18:43): Gate Live activado (live_order = max prioridad). Dos flujos nuevos: payments (~329 tkts/sem) y canceled_order (~75/sem) — rescatan ~404 tkts/sem del bucket `other`. Payments confirmado al 50% en TODOS los paises (18:49).', time: 'Mie 29 18:49', type: 'channel', actionable: false },
+  { from: 'Jessica Torres → JP (DM)', text: 'BUG BOT CANCELADAS (Mie 29 17:00-17:02): "esta enviando varias cosas en un mismo mensaje" — nodo "Explain cancellation reason" no espera respuesta del aliado antes de continuar validaciones. Casos en Assembled: 0927081d y 09beecd4. ACCION REQUERIDA HOY.', time: 'Mie 29 17:02', type: 'dm', actionable: true },
+  { from: 'Steph Gonzalez → JP (DM)', text: 'RAPPIPEDIA EN ASSEMBLED (Mie 29 17:12): JP pide a Steph articulos de Rappipedia utiles para el orquestador. Steph responde "No entendi JAJAJJA" (17:18) — pendiente aclaracion de JP.', time: 'Mie 29 17:18', type: 'dm', actionable: true },
   { from: 'Andres Diaz → #flujo_disputas', text: 'BUG FLUJO DISPUTAS (Mie 29 12:18): "@juan.bonansea @elias.rivera chicos veo que le informa al merchants pero no ejecuta la accion" — el flujo notifica pero no ejecuta. ACCION REQUERIDA.', time: 'Mie 29 12:18', type: 'channel', actionable: true },
-  { from: 'Diego Mesa → JP (DM)', text: 'ENDPOINT DISPUTAS (Mie 29 15:04): "Genial, entonces voy a tratar de integrar este" — Diego confirma integracion del endpoint a Assembled tras validar payload con JP (DENIED, AR, store_id 119830).', time: 'Mie 29 15:04', type: 'dm', actionable: false },
-  { from: 'Diego Mesa → JP (DM)', text: 'DISPUTAS EXCEL (Mie 29 12:47): "en un excel me mostrabas que juan.esquivel ya habia agregado esos entry issue al orquestador, me podrias por favor compartir ese excel" — ACCION REQUERIDA.', time: 'Mie 29 12:47', type: 'dm', actionable: true },
-  { from: 'Jessica Torres → JP (DM)', text: 'CANCELADAS LIVE (Mie 29 12:20): "Juan, hola! Ya estan entrando casos de Cancelaciones" — HITO: el bot de Canceladas esta operativo y recibiendo casos reales.', time: 'Mie 29 12:20', type: 'dm', actionable: false },
-  { from: 'Maria Granada → JP (DM)', text: 'SUBIR % ORQUESTADOR + CANCELADAS HOY (Mie 29 11:29-11:31): "intentemos dejar canceladas y el orquestador hoy" + "si subamosle el %" — Mafe confirma go para escalar ambos bots.', time: 'Mie 29 11:31', type: 'dm', actionable: true },
-  { from: 'Jaime Gomez → team (#ai-automations)', text: 'DSAT ALERT TRIAGE FOOD LIVE (Mie 29 09:32): DSAT del 68%, +5pp WoW en semana 20/07 para WF AI-Triage_Food_Live. Mismatch de flujo (45%) — aliados rechazados sistematicamente. Requiere accion urgente.', time: 'Mie 29 09:32', type: 'channel', actionable: true },
-  { from: 'Steph Gonzalez → team (#ai-automations)', text: 'FRASES COMUNES ORQUESTADOR (Mie 29 09:06): Steph comparte documento con las frases mas comunes de entrada de aliados al soporte. Insumo clave para afinar routing del orquestador.', time: 'Mie 29 09:06', type: 'channel', actionable: true }
+  { from: 'Diego Mesa → JP (DM)', text: 'ENDPOINT DISPUTAS CONFIRMADO (Mie 29 15:04): "Genial, entonces voy a tratar de integrar este" — Diego confirma integracion del endpoint de disputas a Assembled (payload DENIED, AR, store_id 119830). Pendiente validar.', time: 'Mie 29 15:04', type: 'dm', actionable: false },
+  { from: 'Diego Mesa → JP (DM)', text: 'DISPUTAS EXCEL (Mie 29 12:47): "en un excel me mostrabas que juan.esquivel ya habia agregado esos entry issue al orquestador, me podrias compartir ese excel" — ACCION REQUERIDA.', time: 'Mie 29 12:47', type: 'dm', actionable: true },
+  { from: 'Jessica Torres → JP (DM)', text: 'CANCELADAS LIVE CONFIRMADO (Mie 29 12:20): "Juan, hola! Ya estan entrando casos de Cancelaciones" — HITO: bot de Canceladas operativo y recibiendo casos reales en produccion.', time: 'Mie 29 12:20', type: 'dm', actionable: false }
 ];
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '16:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-12:00', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '14:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:30-13:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-10:30', '12:00-13:00', '14:30-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
