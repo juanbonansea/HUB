@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 31 Jul 18:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 31 Jul 21:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1489,13 +1489,25 @@ const EVENTS = {
     { time:'15:30-16:30', title:'Validacion Flujos', attendees:2, org:'stephania.gonzalez@rappi.com', type:'1on1', note:'Reunion JP + Steph Gonzalez para validar flujos del orquestador. Foco: guias para rollout al 100%.' }
   ],
   fri: [
-    { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional. Ultimo de la semana.' },
-    { time:'11:00-12:00', title:'[Atlas] Alineacion tech <> prod', attendees:7, org:'m.granada@rappi.com', type:'team', note:'Alineacion tech y producto para Atlas. Con Cristian Parada, Andres De Las Casas, Sirley Rojas, Angela Osuna, Meiker Munera. Organiza Mafe Granada.' },
+    { time:'10:30-11:00', title:'[OFFLINE] Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup automatizaciones en formato offline. JP es opcional. Ultimo de la semana. Confirmado rollout Orquestador y Canceladas al 100%.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ]
 };
 
 const NOTES = [
+  {
+    id:134, title:'Viernes 31 Jul — Tarde: Consulta Assembled Multi-Doc + Aliados Calendar + Flujos Validados (Steph)', date:'31 Jul',
+    summary:'VIE 31 JUL 14:30-15:04 COT — ACTIVIDAD TARDE. (1) JP CONSULTA A MAFE — ASSEMBLED MULTI-DOC (DM 15:04): JP pregunta a Mafe Granada "Maf tienes algun flujo que hayas creado en Assembled donde recibamosmucos docs y la ia lo analice? para tener algo e guia" — buscando flujo de referencia en Assembled para analizar multiples documentos con IA. Sugiere explorar esta capacidad como guia para un nuevo desarrollo de validacion documental. (2) ALIADOS CALENDAR INTEGRATION — GROUP DM (12:46-14:26): Daniel Moros (12:46): "el deber ser es que se agenden en el calendario y ahi los gestionamos" + link Google Calendar para agendamiento de aliados. Andres Diaz taggea a JP (14:26): "Juancho, podemos agregar ese link cuando el aliado se quiera integrar, con esto resolveriamos cuando el quiera integrar una tienda en rappi". JP responde (14:34): "listo e una". (3) STEPH FLUJOS VALIDADOS (DM 13:25-13:28): Steph confirma "Ya valido" tras la sesion. Redash rs-commercial validado. Flujos integradas-orquestador en estado confirmado. Gmail no disponible (requiere reautorizacion del conector).',
+    sections:[
+      'JP CONSULTA MAFE — ASSEMBLED MULTI-DOC (DM 15:04): "Maf tienes algun flujo que hayas creado en Assembled donde recibamosmucos docs y la ia lo analice? para tener algo e guia" — JP busca flujo de referencia para analizar multiples docs con IA en Assembled. Posible nuevo flujo de validacion documental para aliados.',
+      'ALIADOS CALENDAR INTEGRATION (Group DM 12:46-14:26): Daniel Moros (12:46) comparte link Google Calendar y dice "el deber ser es que se agenden en el calendario". Andres Diaz taggea a JP (14:26) propone agregar el link cuando aliado quiere integrarse a Rappi. JP confirma: "listo e una".',
+      'STEPH FLUJOS VALIDADOS (DM 13:25-13:28): Steph confirma "Ya valido" y "La de rs-commercial si me sale la otra no". Redash acceso confirmado para rs-commercial. Flujos integradas con el orquestador validados post sesion Jueves.'
+    ],
+    actions:[
+      { text:'[P2] ASSEMBLED MULTI-DOC — ESPERAR RESPUESTA MAFE: JP busca flujo guia en Assembled para analizar multiples documentos con IA. Confirmar con Mafe si tiene un flujo existente de referencia.', owner:'Juan Pablo / Mafe Granada', phase:'discovery', priority:'P2' },
+      { text:'[INFO] ALIADOS CALENDAR LINK — CONFIRMAR FLUJO DE INTEGRACION: Andres Diaz propone agregar link Google Calendar cuando aliado quiere integrarse. Evaluar si este agendamiento es el proceso oficial para nuevas integraciones de aliados.', owner:'Juan Pablo / Andres Diaz', phase:'discovery', priority:'P2' }
+    ]
+  },
   {
     id:133, title:'Viernes 31 Jul — QA Audit Payments + Endpoint Cuenta Bancaria + Atlas Alineacion', date:'31 Jul',
     summary:'VIE 31 JUL — ULTIMO DIA DE LA SEMANA. (1) QA AUDIT PAYMENTS (JP #qa-producto 09:01): JP lanza auditoria del flujo de Payments en Assembled que salio esta semana al 75% en todos los paises. Solicita a Jorge Calvache y equipo hallazgos y oportunidades. Jorge Calvache realiza testing. (2) ENDPOINT CUENTA BANCARIA CON FELIPE NAVA (DM 08:25-08:47): JP contacta a Felipe Nava (dueno del proceso - Portal Manager para KAMs, referido por Luciano Gaspar). Felipe pregunta contexto del endpoint: "el endpoint que necesitas es para iniciar el proceso de cambio de cuenta bancaria?". JP confirma y da contexto detallado del flujo. Felipe pregunta si JP ya hablo con Luciano Gaspar - JP confirma. Felipe tambien menciona que ya revisaron con Luciano. (3) DIEGO MESA — BANCO PENDIENTE (DM 09:03): JP sigue pendiente del endpoint de Bank Account para el status de solicitudes con reference ID. (4) REUNIONES HOY: Daily Automations 10:30-11:00 + [Atlas] Alineacion tech 11:00-12:00. (5) SELF ASSESSMENT: 3 dias para deadline lunes 4 agosto en Workday.',
@@ -2773,6 +2785,8 @@ const DEFAULT_DELEGATED = [
   { id:'d1207', text:'ENDPOINT DISPUTAS — DIEGO MESA: Diego (DM 15:04 Mie 29) confirma que va a integrar el endpoint del microservicio de disputas a Assembled. Elias confirmo filtros: country + order_id suficiente.', owner:'Diego Mesa / Elias Rivera', source:'DM Diego Mesa Mie 29 Jul 15:04', status:'EN PROGRESO — Diego integrando endpoint a Assembled' }
 ];
 const SLACK_FEED = [
+  { from: 'JP → Mafe Granada (DM)', text: 'ASSEMBLED MULTI-DOC (Vie 31 15:04): "Maf tienes algun flujo que hayas creado en Assembled donde recibamos muchos docs y la ia lo analice? para tener algo e guia" — JP busca flujo de referencia en Assembled para analizar multiples documentos con IA. Nuevo desarrollo de validacion documental en exploracion.', time: 'Vie 31 15:04', type: 'dm', actionable: true },
+  { from: 'Andres Diaz → JP (Group DM)', text: 'ALIADOS CALENDAR LINK (Vie 31 14:26): "@juan.bonansea Juancho, podemos agregar ese link cuando el aliado se quiera integrar, con esto resolveriamos cuando el quiera integrar una tienda en rappi" — propone Google Calendar link para agendamiento de integraciones de aliados. JP confirmo: "listo e una".', time: 'Vie 31 14:26', type: 'dm', actionable: false },
   { from: 'Rappi Talent → JP (DM)', text: 'SELF ASSESSMENT P0 (Vie 31 12:39): "Ya puedes completar tu Self Assessment: este es tu espacio para reflejar los resultados, aprendizajes y aportes del semestre. Tienes plazo hasta el 3 de agosto." — Ultimo recordatorio oficial. Acceder via Workday antes del lunes 4 ago.', time: 'Vie 31 12:39', type: 'dm', actionable: true },
   { from: 'Mafe Granada → JP (DM)', text: 'IMPACTOS ATLAS — REVISAR Y AGREGAR (Vie 31 12:02): "hola juan podemos porfa revisar [post en canal] y vayamos poniendo los impactos como les mostre en el grupo con meik" + "si tienes dudas me avisas". JP responde "va ya lo actualizo". Tambien: Mafe pide data weekly entry issue semana del 20.', time: 'Vie 31 12:02', type: 'dm', actionable: true },
   { from: 'Steph Gonzalez ↔ JP (DM)', text: 'REDASH + FLUJOS (Vie 31 12:27): Steph confirma acceso a Redash cuando JP pregunta ("tu tienes acceso a redash??" → "Siii"). Conversacion previa sobre flujos integradas, guias pendientes y coordinacion post-validacion flujos jueves.', time: 'Vie 31 12:27', type: 'dm', actionable: false },
@@ -2786,7 +2800,7 @@ const DEEP_WORK = [
   { day: 'Mar', blocks: ['8:00-12:00', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-11:00', '13:00-18:00'] },
   { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '16:30-18:00'] },
-  { day: 'Vie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-18:00'] }
+  { day: 'Vie', blocks: ['8:00-10:30', '11:00-13:00', '14:00-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
 const PHASE_LABELS = { discovery:'Discovery', design:'Design', build:'Build', qa:'QA', metrics:'Metrics' };
