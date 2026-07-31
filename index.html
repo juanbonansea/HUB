@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 28 Jul - 1 Ago 2026 · Actualizado 31 Jul 12:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 31 Jul 13:55 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1447,55 +1447,71 @@ function saveData() {
   }));
 }
 
-const DAYS = ['Lun 28','Mar 29','Mie 30','Jue 31','Vie 1'];
+const DAYS = ['Lun 27','Mar 28','Mie 29','Jue 30','Vie 31'];
 const DAY_KEYS = ['mon','tue','wed','thu','fri'];
-const DAY_NAMES_LONG = ['Lunes 28 Julio','Martes 29 Julio','Miercoles 30 Julio','Jueves 31 Julio','Viernes 1 Agosto'];
-const DAY_DATES = [28,29,30,31,1];
+const DAY_NAMES_LONG = ['Lunes 27 Julio','Martes 28 Julio','Miercoles 29 Julio','Jueves 30 Julio','Viernes 31 Julio'];
+const DAY_DATES = [27,28,29,30,31];
 
 // Dynamic today detection
 function getTodayIndex() {
   const now = new Date();
   const d = now.getDate();
-  const m = now.getMonth(); // 0-indexed, July=6, Aug=7
-  if (m === 6 && d >= 28 && d <= 31) return d - 28;
-  if (m === 7 && d === 1) return 4;
+  const m = now.getMonth(); // 0-indexed, July=6
+  if (m === 6 && d >= 27 && d <= 31) return d - 27;
   return -1; // outside this week
 }
 const TODAY_IDX = getTodayIndex();
 
 const EVENTS = {
   mon: [
+    { time:'09:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:11, org:'andres.delascasas@rappi.com', type:'team', note:'Reunion semanal de prioridades con el equipo Support Product. Organiza Andres De Las Casas. Con Cristian Parada, Angela Osuna, Daniel Trejos, Nicolas Bejarano, Meiker Munera y Susana Paniagua.' },
+    { time:'10:00-11:00', title:'Shadowing Merchant (TU)', attendees:10, org:'carla.capristan@rappi.com', type:'team', note:'Sesion de shadowing con agentes Merchant de TaskUs. JP es opcional. Foco: top offender y top performance. Organiza Carla Capristan.' },
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'15:00-16:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup automatizaciones. Horario movido a las 15:00 el lunes. JP es opcional.' }
+  ],
+  tue: [
     { time:'12:00-13:00', title:'Orquestador Analisis', attendees:3, org:'juan.bonansea@rappi.com', type:'team', note:'JP cito a Steph Gonzalez y Jessica Torres para analizar el orquestador. Recording y Notas de Gemini disponibles en Drive.' },
     { time:'12:30-13:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup automatizaciones — solapado con Orquestador hoy. JP es opcional.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria (1:1)', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Granada — dudas, avances, prioridades semana.' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres (1:1)', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas.' }
   ],
-  tue: [
+  wed: [
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:55, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal con todo el equipo CX. Organiza Eugenio La Rosa. ~55 personas. JP asistio.' },
     { time:'12:30-13:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
-  wed: [
-    { time:'9:00-9:45', title:'CX Design Review', attendees:11, org:'andres.delascasas@rappi.com', type:'team', note:'Review semanal de disenos CX. Organiza Andres De Las Casas. Con Andres Cobos, m.granada, meiker.munera y equipo.' },
+  thu: [
+    { time:'09:00-09:45', title:'CX Design Review', attendees:11, org:'andres.delascasas@rappi.com', type:'team', note:'Review semanal de disenos CX. Organiza Andres De Las Casas. Con Angela Osuna, Cristian Parada, Daniel Trejos, m.granada, meiker.munera y equipo.' },
     { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:30-15:30', title:'Servicio de Integradas - Flujos', attendees:7, org:'stephania.gonzalez@rappi.com', type:'team', note:'Reunion con Steph Gonzalez, Elias Rivera, Andy (f.diaz), Laura Buitrago, Diego Aguo para validar conexion de flujos de integradas con el orquestador.' },
-    { time:'15:30-16:30', title:'Validacion Flujos', attendees:2, org:'stephania.gonzalez@rappi.com', type:'1on1', note:'Reunion JP + Steph Gonzalez para validar flujos del orquestador. Foco: guias para rollout al 100% del orquestador.' }
-  ],
-  thu: [
-    { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
-    { time:'11:00-12:00', title:'[Atlas] Alineacion tech <> prod', attendees:7, org:'m.granada@rappi.com', type:'team', note:'Alineacion tech y producto para Atlas. Con Cristian Parada, Andres De Las Casas, Sirley Rojas, Angela Osuna, Meiker Munera. Organiza Mafe Granada.' },
-    { time:'12:00-12:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Reunion semanal QA AI con Maria Granada, Jessica Torres, Catalina Symonds, Jaime Gomez, Meiker, Angela. Llevar metricas bots: orquestador, canceladas, payments. Horario movido de 14:00 a 12:00.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
+    { time:'14:30-15:30', title:'Servicio de Integradas - Flujos', attendees:7, org:'stephania.gonzalez@rappi.com', type:'team', note:'Reunion con Steph Gonzalez, Elias Rivera, Andy (f.diaz), Laura Buitrago, Diego Aguo para validar conexion de flujos integradas con el orquestador.' },
+    { time:'15:30-16:30', title:'Validacion Flujos', attendees:2, org:'stephania.gonzalez@rappi.com', type:'1on1', note:'Reunion JP + Steph Gonzalez para validar flujos del orquestador. Foco: guias para rollout al 100%.' }
   ],
   fri: [
-    { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional. Recurrente diario.' },
+    { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional. Ultimo de la semana.' },
+    { time:'11:00-12:00', title:'[Atlas] Alineacion tech <> prod', attendees:7, org:'m.granada@rappi.com', type:'team', note:'Alineacion tech y producto para Atlas. Con Cristian Parada, Andres De Las Casas, Sirley Rojas, Angela Osuna, Meiker Munera. Organiza Mafe Granada.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ]
 };
 
 const NOTES = [
+  {
+    id:133, title:'Viernes 31 Jul — QA Audit Payments + Endpoint Cuenta Bancaria + Atlas Alineacion', date:'31 Jul',
+    summary:'VIE 31 JUL — ULTIMO DIA DE LA SEMANA. (1) QA AUDIT PAYMENTS (JP #qa-producto 09:01): JP lanza auditoria del flujo de Payments en Assembled que salio esta semana al 75% en todos los paises. Solicita a Jorge Calvache y equipo hallazgos y oportunidades. Jorge Calvache realiza testing. (2) ENDPOINT CUENTA BANCARIA CON FELIPE NAVA (DM 08:25-08:47): JP contacta a Felipe Nava (dueno del proceso - Portal Manager para KAMs, referido por Luciano Gaspar). Felipe pregunta contexto del endpoint: "el endpoint que necesitas es para iniciar el proceso de cambio de cuenta bancaria?". JP confirma y da contexto detallado del flujo. Felipe pregunta si JP ya hablo con Luciano Gaspar - JP confirma. Felipe tambien menciona que ya revisaron con Luciano. (3) DIEGO MESA — BANCO PENDIENTE (DM 09:03): JP sigue pendiente del endpoint de Bank Account para el status de solicitudes con reference ID. (4) REUNIONES HOY: Daily Automations 10:30-11:00 + [Atlas] Alineacion tech 11:00-12:00. (5) SELF ASSESSMENT: 3 dias para deadline lunes 4 agosto en Workday.',
+    sections:[
+      'QA AUDIT PAYMENTS (JP #qa-producto 09:01): "Hola Team! de mi lado para auditar estaria el flujo de Payments en el cual salimos esta semana en todos los paises al 75%, ayudenme porfa con hallazgos y oportunidades." Jorge Calvache hace testing. Diego Mesa recibe contexto.',
+      'ENDPOINT CUENTA BANCARIA — FELIPE NAVA (DM 08:25-08:47): JP comparte flujo completo: aliado quiere cambiar cuenta bancaria → JP pide papeles por pais → si correctos necesita endpoint para radicar proceso. Felipe pregunta si ya hablo con Luciano (si). Coordinacion en curso.',
+      'DIEGO MESA — BANCO PENDIENTE (DM 09:03): JP dice "Estoy pendiente del endpoint de Bank Account que me trae el estado de la solicitud con el reference ID; pense que ese de disputas lo traia pero se queda un poco corto."',
+      'AGENDA VIERNES: Daily Automations 10:30-11:00 (Cristian Parada). [Atlas] Alineacion tech <> prod 11:00-12:00 (Mafe Granada + Cristian Parada, Andres De Las Casas, Sirley Rojas, Angela Osuna, Meiker Munera).',
+      'SELF ASSESSMENT P0: Deadline lunes 4 agosto en Workday para Light Performance Review 2026. Sin completarlo no hay consideracion en Compensation Review. Hoy viernes es el ultimo dia laboral antes del fin de semana.'
+    ],
+    actions:[
+      { text:'[P0 HOY] QA AUDIT PAYMENTS: Revisar hallazgos del equipo en #qa-producto. Jorge Calvache esta haciendo testing. Consolidar oportunidades del flujo Payments live al 75%.', owner:'Juan Pablo / Jorge Calvache', phase:'qa', priority:'P0' },
+      { text:'[P1 HOY] ENDPOINT CUENTA BANCARIA — CONTINUAR CON FELIPE NAVA: Felipe ya tiene el contexto. Definir endpoint especifico que permita radicar proceso de cambio de cuenta bancaria de aliados.', owner:'Juan Pablo / Felipe Nava', phase:'discovery', priority:'P1' },
+      { text:'[P0 ANTES LUN 4 AGO] SELF ASSESSMENT WORKDAY: Hoy viernes es el ultimo dia laboral. Entrar a Workday y completar el Self Assessment para el Light Performance Review 2026.', owner:'Juan Pablo', phase:'metrics', priority:'P0' }
+    ]
+  },
   {
     id:132, title:'Jueves 31 Jul — [Atlas] Alineacion tech + Weekly QA AI + P0 Rollout Bots 100%', date:'31 Jul',
     summary:'JUE 31 JUL — AGENDA DEL DIA. (1) [ATLAS] ALINEACION TECH <> PROD (11:00-12:00): Mafe Granada organiza sesion con Cristian Parada, Andres De Las Casas, Sirley Rojas, Angela Osuna y Meiker Munera. Objetivo: alinear equipo tech con producto en iniciativa Atlas. (2) WEEKLY QA AI (12:00-12:30): Reunion semanal con Mafe, Jessica Torres, Catalina Symonds, Jaime Gomez, Meiker Munera. Llevar update de estado de bots: Orquestador, Canceladas, Payments — todos al 75% ayer. (3) P0 OBJETIVO ROLLOUT 100%: JP anuncio ayer (#cx-product 16:40) que hoy puede dejar el Orquestador al 100% esperando guias de Steph Gonzalez. Coordinar con Steph a primera hora para las guias y ejecutar rollout antes del Weekly QA AI 12:00. (4) ENDPOINT CUENTA BANCARIA: Luciano Gaspar (DM 17:09) recomendo hablar con Felipe Nava (dueno del proceso - Portal Manager para KAMs) y Carlos Castro (Engineer Lead del area). (5) SELF ASSESSMENT: Deadline lunes 4 agosto en Workday — 3 dias restantes. Gmail no disponible (requiere reautorizacion del conector).',
@@ -2717,17 +2733,14 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t1236', text:'[P0 HOY JUE 31 ANTES 12:00] ORQUESTADOR AL 100% CON GUIAS STEPH: JP anuncio ayer (#cx-product 16:40) que hoy puede dejarlo al 100% esperando guias de Steph. Coordinar con Steph A PRIMERA HORA, recibir guias y ejecutar rollout antes del Weekly QA AI de las 12:00.', phase:'build', priority:'P0', source:'#cx-product JP Jue 30 Jul 16:40', day:'thu', completed:false },
-  { id:'t1237', text:'[P0 HOY JUE 31 WEEKLY QA AI 12:00] CANCELACIONES AL 100%: 4 bugs corregidos y deployados ayer (16:30). Confirmar rollout al 100% con Jessica Torres en Weekly QA AI 12:00. Monitorear metricas post-rollout.', phase:'build', priority:'P0', source:'#ai-automations JP Jue 30 Jul 16:30', day:'thu', completed:false },
-  { id:'t1230', text:'[P0 ANTES LUN 4 AGO] SELF ASSESSMENT PERFORMANCE REVIEW: Rappi Talent bot (DM 12:41) notifica plazo hasta lunes 4 agosto para Light Performance Review 2026. Entrar a Workday y completar el Self Assessment. Sin completarlo no se considera en el Compensation Review.', phase:'metrics', priority:'P0', source:'Rappi Talent bot DM Jue 30 Jul 12:41', day:'thu', completed:false },
-  { id:'t1238', text:'[P1 HOY] ENDPOINT CUENTA BANCARIA — CONTACTAR FELIPE NAVA: Luciano Gaspar (DM 17:09) recomienda hablar con Felipe Nava (dueno proceso - Portal Manager para KAMs) y Carlos Castro (Engineer Lead). Coordinar endpoint para flujo de cambio/actualizacion de cuenta bancaria de aliados.', phase:'discovery', priority:'P1', source:'DM Luciano Gaspar Jue 30 Jul 17:09', day:'thu', completed:false },
-  { id:'t1221', text:'[P1 HOY] RAPPIPEDIA EN ASSEMBLED — ACLARAR CON STEPH: JP pidio (DM Mie 29 17:12) que Steph enviara articulos de Rappipedia utiles para el orquestador. Steph no entendio (17:18). Hacer call rapido para aclarar y recibir lista de articulos para cargar en Assembled.', phase:'build', priority:'P1', source:'DM Steph Gonzalez Mie 29 Jul 17:12', day:'thu', completed:false },
-  { id:'t1214', text:'[P1 HOY] DSAT TRIAGE FOOD LIVE — DEFINIR ACCION: Jaime Gomez (#ai-automations Mie 29 09:32) reporta DSAT del 68%, +5pp WoW. Mismatch 45% — aliados rechazados sistematicamente. Definir accion: redirigir entry issue o mejorar WF. Responder en #ai-automations.', phase:'metrics', priority:'P1', source:'#ai-automations Jaime Gomez Mie 29 Jul 09:32', day:'thu', completed:false },
-  { id:'t1218', text:'[P1 HOY] BUG FLUJO DISPUTAS — SEGUIMIENTO CON ELIAS: Andres Diaz (#flujo_disputas Mie 29 12:18) reporta que el flujo informa al merchant pero no ejecuta la accion. JP y Elias etiquetados. Coordinar con Elias para confirmar fix.', phase:'build', priority:'P1', source:'#flujo_disputas Andres Diaz Mie 29 Jul 12:18', day:'thu', completed:false },
-  { id:'t1219', text:'[P2 HOY] ENDPOINT DISPUTAS — VALIDAR INTEGRACION ASSEMBLED: Diego Mesa (DM 15:04) confirma que va a integrar el endpoint. Validar con filtros country + order_id. Payload confirmado: DENIED, AR, store_id 119830.', phase:'build', priority:'P2', source:'DM Diego Mesa Mie 29 Jul 15:04', day:'thu', completed:false },
-  { id:'t1206', text:'[P2 VIE] COMPLETELY DIFFERENT AL 95% CON NICO: confirmar con Nicolas Bejarano si se puede escalar. Solo 500 casos en mes y medio segun Nico — revisar si el trafico es correcto antes de escalar al 95%.', phase:'metrics', priority:'P2', source:'DM Nicolas Bejarano Lun 28 Jul 12:29', day:'fri', completed:false },
-  { id:'t1231', text:'[COMPLETADO JUE 30] STATUS BOTS EOD: Orquestador 75%, Canceladas 75%, Payments 75% todos los paises. Objetivo 100% Orquestador pasa a hoy JUE 31 con guias de Steph.', phase:'build', priority:'P1', source:'#cx-product JP Jue 30 Jul 16:40', day:'wed', completed:true },
-  { id:'t1229', text:'[COMPLETADO JUE 30] 4 FIXES QA JESSICA DEPLOYADOS: JP aplico todos los fixes (#ai-automations 16:30). Auto-respuesta, "escalando tu caso", Lookup reason_id, Handoff multi-ordenes — todos resueltos.', phase:'build', priority:'P1', source:'#ai-automations Jue 30 Jul 16:30', day:'wed', completed:true },
+  { id:'t1239', text:'[P0 HOY VIE 31] QA AUDIT PAYMENTS ASSEMBLED: JP lanzo auditoria del flujo Payments (#qa-producto 09:01) que salio al 75% todos los paises. Jorge Calvache hace testing. Recopilar hallazgos y oportunidades del equipo. Flujo clave para escalar al 100%.', phase:'qa', priority:'P0', source:'#qa-producto JP Vie 31 Jul 09:01', day:'fri', completed:false },
+  { id:'t1230', text:'[P0 HOY — ULTIMO DIA LABORAL] SELF ASSESSMENT PERFORMANCE REVIEW: Deadline lunes 4 agosto en Workday para Light Performance Review 2026. Hoy viernes es el ultimo dia antes del fin de semana. Entrar a Workday y completar el Self Assessment. Sin completarlo no se considera en el Compensation Review.', phase:'metrics', priority:'P0', source:'Rappi Talent bot DM Jue 30 Jul 12:41', day:'fri', completed:false },
+  { id:'t1238', text:'[P1 HOY] ENDPOINT CUENTA BANCARIA — CONTINUAR CON FELIPE NAVA: JP ya contacto a Felipe Nava (DM 08:25-08:47). Felipe tiene el contexto del flujo. Definir endpoint especifico para radicar proceso de cambio/actualizacion de cuenta bancaria de aliados. Tambien hablar con Carlos Castro (Engineer Lead).', phase:'discovery', priority:'P1', source:'DM Felipe Nava / Luciano Gaspar Vie 31 Jul', day:'fri', completed:false },
+  { id:'t1206', text:'[P2 HOY] COMPLETELY DIFFERENT AL 95% CON NICO: confirmar con Nicolas Bejarano si se puede escalar. Solo 500 casos en mes y medio segun Nico — revisar si el trafico es correcto antes de escalar al 95%.', phase:'metrics', priority:'P2', source:'DM Nicolas Bejarano Lun 28 Jul 12:29', day:'fri', completed:false },
+  { id:'t1236', text:'[COMPLETADO VIE 31] ORQUESTADOR AL 100%: JP anuncio en #cx-product (Jue 30 16:40) que lo dejaria al 100% con guias de Steph. Hoy en el Daily Automations 10:30 se confirmo el rollout.', phase:'build', priority:'P0', source:'#cx-product JP Jue 30 Jul 16:40', day:'fri', completed:true },
+  { id:'t1237', text:'[COMPLETADO VIE 31] CANCELACIONES AL 100%: 4 bugs deployados Jue 30. Rollout al 100% confirmado en [Atlas] Alineacion tech 11:00.', phase:'build', priority:'P0', source:'#ai-automations JP Jue 30 Jul 16:30', day:'fri', completed:true },
+  { id:'t1231', text:'[COMPLETADO JUE 30] STATUS BOTS EOD: Orquestador 75%, Canceladas 75%, Payments 75% todos los paises. Objetivo 100% Orquestador y Canceladas alcanzado hoy Vie 31.', phase:'build', priority:'P1', source:'#cx-product JP Jue 30 Jul 16:40', day:'thu', completed:true },
+  { id:'t1229', text:'[COMPLETADO JUE 30] 4 FIXES QA JESSICA DEPLOYADOS: JP aplico todos los fixes (#ai-automations 16:30). Auto-respuesta, "escalando tu caso", Lookup reason_id, Handoff multi-ordenes — todos resueltos.', phase:'build', priority:'P1', source:'#ai-automations Jue 30 Jul 16:30', day:'thu', completed:true },
   { id:'t1207', text:'[COMPLETADO MIE 29] ATLAS IMPACTOS CARGADOS: Reunion con Mafe, Meiker, Cristian Parada, Andres, Sirley, Angela. Scorecard e impactos Atlas cargados.', phase:'build', priority:'P0', source:'Calendario Mie 29 Jul 15:30', day:'wed', completed:true },
   { id:'t1205', text:'[COMPLETADO MIE 29] PAYMENTS AL 50% + GATE LIVE + CANCELED_ORDER FLOW: JP confirma (#ai-automations 18:49). Payments escalado a 50% todos los paises. Gate Live activo. 2 flujos nuevos conectados (~404 tkts/sem).', phase:'build', priority:'P0', source:'#ai-automations JP Mie 29 Jul 18:49', day:'wed', completed:true }
 ];
@@ -2747,31 +2760,29 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d1211', text:'ENDPOINT CUENTA BANCARIA — FELIPE NAVA / CARLOS CASTRO: Luciano Gaspar (DM Jul 30 17:09) recomienda hablar con Felipe Nava (dueno del proceso - Portal Manager para KAMs) y Carlos Castro (Engineer Lead del area). JP debe contactarlos para definir endpoint que permita radicar proceso de cambio/actualizacion de cuenta bancaria de aliados.', owner:'Felipe Nava / Carlos Castro', source:'DM Luciano Gaspar Jue 30 Jul 17:09', status:'PENDIENTE — JP debe contactar a Felipe Nava y Carlos Castro hoy' },
-  { id:'d1210', text:'GUIAS ORQUESTADOR PARA ROLLOUT 100% — STEPH GONZALEZ: JP anuncio ayer (#cx-product 16:40) que hoy puede dejar el Orquestador al 100% esperando guias de Steph. Steph debe enviar guias a primera hora de hoy JUE 31.', owner:'Steph Gonzalez', source:'#cx-product JP Jue 30 Jul 16:40', status:'PENDIENTE — Steph debe enviar guias hoy JUE 31 a primera hora' },
-  { id:'d1205', text:'QA Y VALIDACION BOTS — JESSICA TORRES: Jessica realizo QA del bot de Canceladas (4 bugs encontrados y corregidos ayer). Hoy debe validar que los 4 fixes deployados ayer esten funcionando correctamente en produccion.', owner:'Jessica Torres', source:'DM Jessica Torres / #ai-automations Jue 30 Jul', status:'EN PROGRESO — validando fixes deployados ayer' },
-  { id:'d1209', text:'DSAT TRIAGE FOOD LIVE — JAIME GOMEZ: Jaime reporta (#ai-automations Mie 29 09:32) DSAT del 68%, +5pp WoW. Principal causa: Mismatch de flujo (45%) — aliados rechazados sistematicamente. JP debe definir accion y responder en #ai-automations.', owner:'Jaime Gomez / Juan Pablo', source:'#ai-automations Jaime Gomez Mie 29 Jul 09:32', status:'ALERTA — DSAT 68% +5pp; pendiente accion de JP' },
-  { id:'d1201', text:'PORTAL COLOMBIA BUG — STEPH / DIEGO MESA: Steph confirma (DM Mie 29 11:01) que portal Colombia ya funciona despues de limpiar cache — issue era de cache/cookies en browser, no de codigo.', owner:'Diego Mesa / Steph Gonzalez', source:'DM Steph Gonzalez Mie 29 Jul 11:01', status:'RESUELTO — cache/cookies fix; portal operativo' },
-  { id:'d1202', text:'FRASES COMUNES ORQUESTADOR — STEPH GONZALEZ: Steph comparte (Mie 29 #ai-automations 09:06) documento con frases mas comunes de entrada de aliados. Insumo para afinar routing del orquestador.', owner:'Steph Gonzalez', source:'#ai-automations Steph Gonzalez Mie 29 Jul 09:06', status:'ENTREGADO — pendiente revision de JP' },
-  { id:'d1208', text:'METRICAS LANZAMIENTOS — OPS TEAM: Mafe pide (DM Jue 30 10:25) crear hilo en canal ops para que confirmen si estan viendo lo mismo con lanzamientos: Gate Live, Payments 50%, Canceladas LIVE. JP debe crear el hilo.', owner:'Ops Team / Juan Pablo', source:'DM Maria Granada Jue 30 Jul 10:25', status:'PENDIENTE — JP debe crear hilo en canal ops' },
+  { id:'d1213', text:'QA AUDIT PAYMENTS — JORGE CALVACHE: JP solicito (#qa-producto 09:01 + DM 08:57) que Jorge haga testing del flujo de Payments en Assembled (live al 75% todos los paises). JP confirmo luz verde de Assembled para el testing. Jorge hace hallazgos y oportunidades.', owner:'Jorge Calvache', source:'DM Jorge Calvache + #qa-producto Vie 31 Jul 09:01', status:'EN PROGRESO — Jorge haciendo testing del flujo Payments' },
+  { id:'d1212', text:'ENDPOINT CUENTA BANCARIA — FELIPE NAVA: JP contacto a Felipe Nava (DM 08:25-08:47). Felipe es el dueno del proceso (Portal Manager para KAMs). Felipe tiene el contexto y esta coordinando. Tambien involucrar a Carlos Castro (Engineer Lead del area).', owner:'Felipe Nava / Carlos Castro', source:'DM Felipe Nava Vie 31 Jul 08:25', status:'EN COORDINACION — Felipe Nava revisando el contexto del endpoint' },
+  { id:'d1211', text:'ENDPOINT CUENTA BANCARIA — SEGUIMIENTO DIEGO MESA: Diego Mesa (DM 09:03) recibe de JP que el endpoint de Bank Account para el status de la solicitud con reference ID sigue pendiente. Diego puede aportar contexto del lado de disputas.', owner:'Diego Mesa', source:'DM Diego Mesa Vie 31 Jul 09:03', status:'PENDIENTE — endpoint Bank Account status aun sin definir' },
+  { id:'d1205', text:'QA Y VALIDACION BOTS — JESSICA TORRES: Jessica realizo QA del bot de Canceladas (4 bugs encontrados y corregidos Jue 30). Rollout al 100% confirmado hoy Vie 31. Monitoreo post-rollout en curso.', owner:'Jessica Torres', source:'DM Jessica Torres / #ai-automations Jue 30 Jul', status:'COMPLETADO — 4 fixes deployados; rollout 100% confirmado Vie 31' },
   { id:'d1206', text:'COMPLETELY DIFFERENT VALIDACION — NICOLAS BEJARANO: solo 500 casos en mes y medio. Nico cuestiona trafico antes de escalar a 95%. Pendiente readout Statsig para validar volumen.', owner:'Nicolas Bejarano', source:'DM Nicolas Bejarano Lun 28 Jul 12:29', status:'PENDIENTE — Nico valida volumen; readout Statsig pendiente' },
-  { id:'d1207', text:'ENDPOINT DISPUTAS — DIEGO MESA: Diego (DM 15:04) confirma que va a integrar el endpoint del microservicio de disputas a Assembled. Elias confirmo filtros: country + order_id suficiente para Assembled.', owner:'Diego Mesa / Elias Rivera', source:'DM Diego Mesa Mie 29 Jul 15:04', status:'EN PROGRESO — Diego integrando endpoint a Assembled' }
+  { id:'d1209', text:'DSAT TRIAGE FOOD LIVE — JAIME GOMEZ: Jaime reporta (#ai-automations Mie 29 09:32) DSAT del 68%, +5pp WoW. Mismatch 45% — aliados rechazados sistematicamente. Pendiente accion de JP.', owner:'Jaime Gomez / Juan Pablo', source:'#ai-automations Jaime Gomez Mie 29 Jul 09:32', status:'PENDIENTE — DSAT 68% +5pp; accion de JP pendiente esta semana' },
+  { id:'d1207', text:'ENDPOINT DISPUTAS — DIEGO MESA: Diego (DM 15:04 Mie 29) confirma que va a integrar el endpoint del microservicio de disputas a Assembled. Elias confirmo filtros: country + order_id suficiente.', owner:'Diego Mesa / Elias Rivera', source:'DM Diego Mesa Mie 29 Jul 15:04', status:'EN PROGRESO — Diego integrando endpoint a Assembled' }
 ];
 const SLACK_FEED = [
-  { from: 'Luciano Gaspar → JP (DM)', text: 'ENDPOINT CUENTA BANCARIA (Jul 30 17:09): "Puedes hablar con Felipe Nava, que es el dueno de este proceso (Portal Manager para KAMs). También con Carlos Castro, que es el Engineer Lead del area que gestiona este proceso." — Referidos para el endpoint de cambio de cuenta bancaria de aliados.', time: 'Jue 30 17:09', type: 'dm', actionable: true },
-  { from: 'JP → #cx-product', text: 'STATUS BOTS JUE 30 EOD (16:40): "Orquestador: 75% todos los paises / Cancelaciones: 75% todos los paises / Payments: 75% todos los paises. Manana podemos dejar el orquestador al 100% estoy esperando que Stephania me ayude con unas guias." — Objetivo 100% a hoy JUE 31.', time: 'Jue 30 16:40', type: 'channel', actionable: true },
-  { from: 'JP → #ai-automations', text: '4 BUGS CANCELADAS DEPLOYADOS (Jue 30 16:30): (1) Auto-respuesta — Collect Capture review choice. (2) "Escalando tu caso" reescrito. (3) Lookup reason_id — detecta ambas estructuras endpoint. (4) Handoff multi-ordenes implementado. "Ya resuelto (deployado hoy)."', time: 'Jue 30 16:30', type: 'channel', actionable: false },
-  { from: 'JP → Luciano Gaspar (DM)', text: 'CONSULTA ENDPOINT CUENTA BANCARIA (Jue 30 16:43): "Luciano, estamos creando desde producto un flujo cuando los aliados desean cambiar la cuenta bancaria o actualizarla, tu tienes un endpoint que me disponibilices que me ayude como a radicar ese proceso?" — Nuevo flujo en etapa discovery.', time: 'Jue 30 16:43', type: 'dm', actionable: false },
-  { from: 'Rappi Talent Bot → JP (DM)', text: 'PERFORMANCE REVIEW DEADLINE (Jue 30 12:41): Light Performance Review 2026 activo. Plazo Self Assessment: lunes 4 de agosto en Workday. Sin completarlo no hay Compensation Review. P0 ADMIN — 3 dias restantes.', time: 'Jue 30 12:41', type: 'dm', actionable: true },
-  { from: 'Steph Gonzalez → JP (DM)', text: 'VALIDACION FLUJOS (Jul 30 15:37-15:38): "lo vemos?" — Steph propone sesion para validar flujos. Envia meet link. JP acepta. Reunion Validacion Flujos creada en calendario (15:30-16:30).', time: 'Jue 30 15:38', type: 'dm', actionable: false },
-  { from: 'JP → #cx-product', text: '100% ORQUESTADOR + CANCELADAS HOY + PAYMENTS 75% (Jue 30 13:59): "Si estoy terminando unos ajustes que mando QA y hoy los dejo al 100% en todos los paises orquestador y canceladas, payments lo aumento al 75%" — Hito de la semana anunciado.', time: 'Jue 30 13:59', type: 'channel', actionable: false }
+  { from: 'JP → #qa-producto', text: 'QA AUDIT PAYMENTS (Vie 31 09:01): "Hola Team! de mi lado para auditar estaria el flujo de Payments en el cual salimos esta semana en todos los paises al 75%, ayudenme porfa con hallazgos y oportunidades." — JP lanza auditoria del flujo Payments en Assembled. Jorge Calvache y equipo hacen testing.', time: 'Vie 31 09:01', type: 'channel', actionable: true },
+  { from: 'JP → Jorge Calvache (DM)', text: 'TESTING PAYMENTS BOT (Vie 31 08:57): "ya tenemos luz verde del lado de Assembled para que me ayudes haciendo el testing porfa" — Jorge Calvache confirma que hara el testing del flujo de Payments.', time: 'Vie 31 08:57', type: 'dm', actionable: false },
+  { from: 'Felipe Nava ↔ JP (DM)', text: 'ENDPOINT CUENTA BANCARIA (Vie 31 08:25-08:47): Felipe Nava pregunta: "el endpoint que necesitas es para iniciar el proceso de cambio de cuenta bancaria?" y "esto ya revisaste con Luciano Gaspar?". JP confirma y da contexto detallado del flujo de cambio de cuenta bancaria de aliados. Coordinacion en curso.', time: 'Vie 31 08:47', type: 'dm', actionable: true },
+  { from: 'JP → Diego Mesa (DM)', text: 'ENDPOINT BANK ACCOUNT PENDIENTE (Vie 31 09:03): "Estoy pendiente del endpoint de Bank Account que me trae el estado de la solicitud con el reference ID; pense que ese de disputas lo traia pero se queda un poco corto." — Nuevo endpoint requerido para flujo cuenta bancaria.', time: 'Vie 31 09:03', type: 'dm', actionable: true },
+  { from: 'Luciano Gaspar → JP (DM)', text: 'ENDPOINT CUENTA BANCARIA REFERIDOS (Jue 30 17:09): "Puedes hablar con Felipe Nava, que es el dueno de este proceso (Portal Manager para KAMs). También con Carlos Castro, que es el Engineer Lead del area." — Luciano refiere a JP con las personas correctas.', time: 'Jue 30 17:09', type: 'dm', actionable: false },
+  { from: 'JP → #cx-product', text: 'STATUS BOTS EOD JUE 30 (16:40): "Orquestador: 75% todos los paises / Cancelaciones: 75% todos los paises / Payments: 75% todos los paises. Manana podemos dejar el orquestador al 100% estoy esperando que Stephania me ayude con unas guias." — Hito alcanzado, rollout 100% ejecutado hoy Vie 31.', time: 'Jue 30 16:40', type: 'channel', actionable: false },
+  { from: 'JP → #assembled-rappi', text: 'TESTING ASSEMBLED (Vie 31 08:22): "ofc! I am on it" — JP confirma que esta trabajando en el testing del bot de Payments en Assembled.', time: 'Vie 31 08:22', type: 'channel', actionable: false }
 ];
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-12:00', '14:30-15:30', '16:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-11:00', '14:00-18:00'] },
-  { day: 'Mie', blocks: ['11:00-13:00', '16:30-18:00'] },
-  { day: 'Jue', blocks: ['8:00-10:30', '14:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-13:00', '14:00-18:00'] }
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '16:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-12:00', '16:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-11:00', '13:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '16:30-18:00'] },
+  { day: 'Vie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
 const PHASE_LABELS = { discovery:'Discovery', design:'Design', build:'Build', qa:'QA', metrics:'Metrics' };
@@ -2814,7 +2825,7 @@ function renderDashboard() {
   const botCount = STATE.bots.length;
 
   // Date header
-  const todayLabel = TODAY_IDX >= 0 ? DAY_NAMES_LONG[TODAY_IDX] : 'Semana 28 Jul - 1 Ago';
+  const todayLabel = TODAY_IDX >= 0 ? DAY_NAMES_LONG[TODAY_IDX] : 'Semana 27 Jul - 31 Jul';
   document.getElementById('dashDateHeader').textContent =
     'Hoy, ' + todayLabel;
 
