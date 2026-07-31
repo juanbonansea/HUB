@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 31 Jul 21:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 27 Jul - 31 Jul 2026 · Actualizado 31 Jul 21:40 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -2745,6 +2745,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t1243', text:'[P2 HOY] PROCESO CAMBIO CUENTA BANCARIA — VALIDAR CORREO SUPERADMIN: JP pregunto a Steph (DM 15:26) como validar que el correo coincida con superadmin en el proceso de cambio de cuenta bancaria (helpjuice). Steph dijo "Ya reviso". Mafe confirmo que Assembled no maneja flujos multi-doc pero si imagenes. Pendiente: (1) respuesta Steph sobre el superadmin, (2) definir con Felipe Nava el endpoint para radicar el proceso.', phase:'discovery', priority:'P2', source:'DM Steph Gonzalez + DM Mafe Granada Vie 31 Jul 15:06-15:26', day:'fri', completed:false },
   { id:'t1242', text:'[P1 HOY] IMPACTOS ATLAS — MAFE PIDE REVISAR Y AGREGAR: Mafe Granada (DM 12:02) pide a JP revisar post en canal y poner los impactos como les mostro en el grupo con Meiker. JP respondio "va ya lo actualizo". Confirmar que quedaron actualizados los impactos en el tracker Atlas.', phase:'build', priority:'P1', source:'DM Mafe Granada Vie 31 Jul 12:02', day:'fri', completed:false },
   { id:'t1241', text:'[P1 HOY] SPREADSHEET MERCHANT FOOD ORQUESTADOR: Mafe Granada pide (DM 09:45) llenar spreadsheet con todos los issue types de merchants food y las fechas en que se lanzo el orquestador por issue type. Usar el mismo formato que RTS.', phase:'metrics', priority:'P1', source:'DM Mafe Granada Vie 31 Jul 09:45', day:'fri', completed:false },
   { id:'t1240', text:'[P1 HOY] ASSEMBLED SNOWFLAKE IP WHITELIST: JP reporto en #assembled-rappi y #secops_on_schedule (09:37-09:45) que las IPs de Assembled son dinamicas (rangos AWS us-east-1 EC2/NAT Gateway), no las 3 IPs fijas originales. Esperando que Monica Rangel (Assembled) confirme las IPs estaticas o CIDR range correcto. Blocker para integracion Assembled → Snowflake (Q3 bots).', phase:'build', priority:'P1', source:'#assembled-rappi + #secops_on_schedule Vie 31 Jul 09:37', day:'fri', completed:false },
@@ -2785,6 +2786,9 @@ const DEFAULT_DELEGATED = [
   { id:'d1207', text:'ENDPOINT DISPUTAS — DIEGO MESA: Diego (DM 15:04 Mie 29) confirma que va a integrar el endpoint del microservicio de disputas a Assembled. Elias confirmo filtros: country + order_id suficiente.', owner:'Diego Mesa / Elias Rivera', source:'DM Diego Mesa Mie 29 Jul 15:04', status:'EN PROGRESO — Diego integrando endpoint a Assembled' }
 ];
 const SLACK_FEED = [
+  { from: 'JP → Steph Gonzalez (DM)', text: 'VALIDAR CORREO SUPERADMIN — CUENTA BANCARIA (Vie 31 15:26): JP pregunta a Steph: "como valido eso de que el correo coincida con superadmin osea de donde lo saco no entiend bien esa parte del proceso" — referenciando el helpjuice de cambio de cuenta bancaria. Parte del flujo nuevo de cambio de cuenta bancaria de aliados en desarrollo.', time: 'Vie 31 15:26', type: 'dm', actionable: true },
+  { from: 'Steph Gonzalez → JP (DM)', text: 'RESPUESTA CUENTA BANCARIA (Vie 31 15:26): Steph responde "Ya reviso Juan" — confirma que revisara el proceso de validacion del correo superadmin para el flujo de cambio de cuenta bancaria.', time: 'Vie 31 15:26', type: 'dm', actionable: false },
+  { from: 'Mafe Granada → JP (DM)', text: 'ASSEMBLED MULTI-DOC RESPUESTA (Vie 31 15:06): Mafe responde "Docs no / Imagenes" — clarifica que Assembled no maneja flujos con multiples documentos pero si con imagenes. Insumo para el desarrollo del flujo de validacion documental de aliados.', time: 'Vie 31 15:06', type: 'dm', actionable: true },
   { from: 'JP → Mafe Granada (DM)', text: 'ASSEMBLED MULTI-DOC (Vie 31 15:04): "Maf tienes algun flujo que hayas creado en Assembled donde recibamos muchos docs y la ia lo analice? para tener algo e guia" — JP busca flujo de referencia en Assembled para analizar multiples documentos con IA. Nuevo desarrollo de validacion documental en exploracion.', time: 'Vie 31 15:04', type: 'dm', actionable: true },
   { from: 'Andres Diaz → JP (Group DM)', text: 'ALIADOS CALENDAR LINK (Vie 31 14:26): "@juan.bonansea Juancho, podemos agregar ese link cuando el aliado se quiera integrar, con esto resolveriamos cuando el quiera integrar una tienda en rappi" — propone Google Calendar link para agendamiento de integraciones de aliados. JP confirmo: "listo e una".', time: 'Vie 31 14:26', type: 'dm', actionable: false },
   { from: 'Rappi Talent → JP (DM)', text: 'SELF ASSESSMENT P0 (Vie 31 12:39): "Ya puedes completar tu Self Assessment: este es tu espacio para reflejar los resultados, aprendizajes y aportes del semestre. Tienes plazo hasta el 3 de agosto." — Ultimo recordatorio oficial. Acceder via Workday antes del lunes 4 ago.', time: 'Vie 31 12:39', type: 'dm', actionable: true },
