@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 3 Ago - 7 Ago 2026 · Actualizado 3 Ago 14:30 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 3 Ago - 7 Ago 2026 · Actualizado 3 Ago 15:35 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1475,6 +1475,7 @@ const EVENTS = {
   tue: [
     { time:'10:00-10:30', title:'¡Horas Deal! 🚀', attendees:1, org:'internalcommunications@rappi.com', type:'team', note:'Espacio quincenal de Horas Deal (Drop Everything and Learn). Formacion formal — explorar Udemy Business. Acceder a rappi.udemy.com.' },
     { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
+    { time:'12:15-12:45', title:'Discovery Consultations and access to Portal Partners', attendees:3, org:'juan.bonansea@rappi.com', type:'1on1', note:'Discovery de Consultations and access to Portal Partners. JP organiza con Elias Rivera y Stephania Gonzalez. Creado Lun 3 Ago 14:19 COT.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria (1:1)', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Fernanda Granada — dudas, avances, prioridades de la semana.' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres (1:1)', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas.' },
@@ -1491,6 +1492,7 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'11:00-12:00', title:'GBC: Legal, PR & Policy', attendees:1, org:'internalcommunications@rappi.com', type:'team', note:'Global Business Connect mensual: deep dive en Estrategia Legal, PR & Policy de Rappi 2026. Traduccion simultanea disponible.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'14:15-15:00', title:'Kick off Consultations and access to Portal Partners', attendees:4, org:'juan.bonansea@rappi.com', type:'1on1', note:'Kick off de Consultations and access to Portal Partners. JP organiza con Elias Rivera, Stephania Gonzalez y Gregson Murcia. Creado Lun 3 Ago 14:18 COT.' },
     { time:'15:00-16:00', title:'Construyendo Bienestar (tarde)', attendees:1, org:'SST Colombia', type:'team', note:'Capacitacion SST virtual: Factores Intra y Extralaborales — Manejo del Estres. Turno tarde 15:00-16:00.' }
   ],
   fri: [
@@ -1501,6 +1503,23 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:137, title:'Lunes 3 Ago — Tarde: Portal Partners + Order Totally Different + Aliados Calendar', date:'3 Ago',
+    summary:'LUN 3 AGO 10:00-15:35 COT — ACTUALIZACIONES TARDE. (1) NUEVAS REUNIONES CREADAS POR JP (14:18-14:19 COT): JP crea dos reuniones nuevas esta semana — "Discovery Consultations and access to Portal Partners" (Mar 12:15-12:45 con Elias Rivera y Steph) y "Kick off Consultations and access to Portal Partners" (Jue 14:15-15:00 con Elias Rivera, Steph y Gregson Murcia). Nuevo proyecto activo: acceso y consultas al Portal Partners. (2) MAFE DM (10:36): "Hola Juan! que falta para poder escalar order totally different que llevamos varias semanas con eso" — Mafe pregunta sobre el estado de escalada de "order totally different". JP debe responder con el estado actual y el plan de escalada. (3) STEPH DM (10:11-10:57): Steph comparte link del Google Calendar donde el agente manualmente ingresa fecha y hora para integracion de aliados (flujo Consultations). Tambien agrega documentos a carpeta Merchants Food procesos. (4) JORGE CALVACHE GROUP DM (10:49-10:50): Jorge comparte tabla de intentos del 3 de agosto 9:50-10:10 con IPs y errores de conexion — datos de prueba de la integracion. (5) FELIPE VILLAMARIN #pods-office-hours (Vie 31 11:55): Felipe pregunta sobre Merchant Flows en Atlas — "pueden actualizar que esta pasando con Merchant Flows y si hay blocker? esta delayed en spec sin promised_spec_date (ebitda 33.2K@80%) — toca fecha + razon. y tambien: no hay product spec cargado en atlas, solo el idea brief — subanlo pls". Blocker critico en Atlas.',
+    sections:[
+      'NUEVAS REUNIONES PORTAL PARTNERS (creadas hoy 14:18-14:19): JP organiza (1) Discovery Consultations and access to Portal Partners — Mar 4 Ago 12:15-12:45 con Elias Rivera y Stephania Gonzalez. (2) Kick off Consultations and access to Portal Partners — Jue 6 Ago 14:15-15:00 con Elias Rivera, Stephania Gonzalez y Gregson Murcia. Nuevo proyecto activo esta semana.',
+      'MAFE DM (10:36): "Hola Juan! que falta para poder escalar order totally different que llevamos varias semanas con eso" — Order Totally Different (feature CX) lleva varias semanas sin escalar. Mafe pide actualizacion urgente. JP debe responder con el estado del blocker y fecha estimada de escalada.',
+      'STEPH DM (10:11-10:57): Steph comparte Google Calendar link para agendamiento de aliados en el flujo de integracion (Consultations). Tambien agrega documentos a carpeta Merchants Food procesos: https://docs.google.com/document/d/1bH2PzaLydatYpLYJBlNcyqAHKNZXou7XiSEG5MI9Jtw — insumo para Discovery session del martes.',
+      'JORGE CALVACHE GROUP DM IP TESTING (10:49-10:50): Jorge comparte tabla detallada de intentos 3 Ago 9:50-10:10 hora Colombia con IPs y errores de conexion. Datos de testing de integracion en curso. JP debe revisar y confirmar siguiente paso.',
+      'FELIPE VILLAMARIN #pods-office-hours (Vie 31 11:55): Merchant Flows en Atlas esta delayed en spec sin promised_spec_date (ebitda 33.2K@80%). Felipe pide: (1) actualizar fecha + razon del delay, (2) subir product spec a Atlas (solo hay idea brief). Accion critica pendiente.'
+    ],
+    actions:[
+      { text:'[P1 HOY] ORDER TOTALLY DIFFERENT — RESPONDER MAFE: Mafe pregunta (DM 10:36) que falta para escalar order totally different. Llevan varias semanas. Responder con el estado del blocker y la fecha estimada de escalada.', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'[P1 HOY] MERCHANT FLOWS ATLAS — SUBIR SPEC + FECHA: Felipe Villamarin pide (#pods-office-hours Vie 31) actualizar Atlas con product spec (solo hay idea brief) y agregar promised_spec_date. Ebitda 33.2K@80% delayed.', owner:'Juan Pablo', phase:'build', priority:'P1' },
+      { text:'[P1 MAR] DISCOVERY PORTAL PARTNERS (12:15): Preparar discovery de Consultations and access to Portal Partners con Elias Rivera y Steph. Revisar doc Merchants Food de Steph como insumo.', owner:'Juan Pablo / Elias Rivera / Steph Gonzalez', phase:'discovery', priority:'P1' },
+      { text:'[P2] JORGE CALVACHE IP TESTING — REVISAR RESULTADOS: Jorge comparte tabla de intentos con errores de conexion (Group DM 10:49). Revisar y confirmar si es un blocker o si el testing continua.', owner:'Juan Pablo / Jorge Calvache', phase:'build', priority:'P2' }
+    ]
+  },
   {
     id:136, title:'Lunes 3 Ago — Tarde: Nuevas Reuniones + Mafe Pide Trello + Scorecard Atlas', date:'3 Ago',
     summary:'LUN 3 AGO 08:00-13:57 COT — ACTUALIZACIONES DEL DIA. (1) MAFE DM (08:16): "Dos cositas: 1. Porfa llenemos el trello con las prioridades de la semana 2. En el doc del orquestador veo algo raro: esos son todos los issue types de merchants food? deberían estar todos y el plan de cómo vamos a ir desplegado cada semana. También la idea es tener el inflow de agente no el automated de esa semana porfa ayudame a corregirlo." JP responde (08:24): "listo yalas hago". (2) CHECKPOINT IMPACTOS AI (14:30-15:00) — NUEVA REUNION SEMANAL: Mafe separa espacio semanal (Group DM 08:08) para revisar impactos de los bots lanzados en cada audiencia y cargarlos en Atlas. Con JP y Meiker. Llevar scorecard llenado. (3) ORQUESTADOR RTs & MERCHANTS (Martes 17:00-17:30) — NUEVA REUNION SEMANAL: Mafe crea espacio recurrente para ver impactos por audiencia (RTs y Merchants) y cargar en Atlas. Tambien con JP y Meiker. (4) Gmail no disponible (requiere reautorizacion del conector en claude.ai).',
@@ -2784,6 +2803,9 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t1262', text:'[P1 HOY] ORDER TOTALLY DIFFERENT — RESPONDER MAFE: Mafe pregunta (DM Lun 3 10:36) que falta para escalar order totally different — llevan varias semanas. Responder con el estado del blocker y la fecha estimada de escalada.', phase:'build', priority:'P1', source:'DM Mafe Granada Lun 3 Ago 10:36', day:'mon', completed:false },
+  { id:'t1263', text:'[P1 HOY] MERCHANT FLOWS ATLAS — SUBIR SPEC + FECHA: Felipe Villamarin pide (#pods-office-hours Vie 31 11:55) actualizar Atlas con product spec (solo hay idea brief) y agregar promised_spec_date. Ebitda 33.2K@80% delayed. Accion critica.', phase:'build', priority:'P1', source:'#pods-office-hours Felipe Villamarin Vie 31 Jul 11:55', day:'mon', completed:false },
+  { id:'t1264', text:'[P1 MAR 12:15] PREPARAR DISCOVERY PORTAL PARTNERS: Reunirse con Elias Rivera y Steph Gonzalez para Discovery de Consultations and access to Portal Partners. Revisar doc Merchants Food procesos que Steph envio (DM 10:57) como insumo.', phase:'discovery', priority:'P1', source:'Calendario JP creado Lun 3 Ago 14:19', day:'tue', completed:false },
   { id:'t1259', text:'[P0 HOY ANTES 14:30] SCORECARD — LLENAR ANTES CHECKPOINT: Mafe (Group DM 08:08) pide tener el scorecard llenado antes de la sesion CheckPoint - Impactos AI (14:30). Completar el scorecard de iniciativas AI antes de la reunion con Mafe y Meiker.', phase:'metrics', priority:'P0', source:'Group DM Mafe Granada Lun 3 Ago 08:08', day:'mon', completed:false },
   { id:'t1260', text:'[P1 HOY] TRELLO PRIORIDADES SEMANA: Mafe pide (DM Lun 3 Ago 08:16) llenar el Trello con las prioridades de la semana. JP acepto (08:24).', phase:'metrics', priority:'P1', source:'DM Mafe Granada Lun 3 Ago 08:16', day:'mon', completed:false },
   { id:'t1261', text:'[P1 HOY] SPREADSHEET ORQUESTADOR — CORREGIR INFLOW AGENTE + ISSUE TYPES: Mafe ve (DM 08:16) que faltan issue types de merchants food en el doc del orquestador y que muestra inflow automated en vez de inflow de agente. Corregir ambos puntos hoy.', phase:'metrics', priority:'P1', source:'DM Mafe Granada Lun 3 Ago 08:16', day:'mon', completed:false },
@@ -2815,6 +2837,7 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
+  { id:'d1227', text:'JORGE CALVACHE IP TESTING — RESULTADOS: Jorge comparte (Group DM Lun 3 10:49) tabla de intentos 9:50-10:10 col con IPs y errores de conexion. Datos de prueba de integracion en curso. JP debe revisar y confirmar si hay blocker o si el testing continua.', owner:'Jorge Calvache / Jeyson Acero', source:'Group DM Lun 3 Ago 10:49', status:'EN TESTING — Jorge compartio resultados; JP debe revisar y confirmar' },
   { id:'d1220', text:'ASSEMBLED IP WHITELIST — MONICA RANGEL: JP solicito en #assembled-rappi (Vie 31 09:37) que Monica Rangel confirme IPs o CIDR range fijo para whitelistear en Snowflake. IPs actuales son dinamicas (rangos AWS us-east-1). Necesario para integracion Assembled → Snowflake (bots Q3). Dar seguimiento esta semana.', owner:'Monica Rangel (Assembled)', source:'#assembled-rappi Vie 31 Jul 09:37', status:'PENDIENTE — Monica debe confirmar IPs/CIDR estatico de Assembled' },
   { id:'d1221', text:'ENDPOINT CUENTA BANCARIA — FELIPE NAVA: JP contacto a Felipe Nava (DM Vie 31 08:25). Felipe es owner del proceso (Portal Manager para KAMs). Tiene contexto del flujo. Tambien involucrar a Carlos Castro (Engineer Lead).', owner:'Felipe Nava / Carlos Castro', source:'DM Felipe Nava Vie 31 Jul 08:25', status:'EN COORDINACION — Felipe Nava revisando el contexto del endpoint' },
   { id:'d1222', text:'SUPERADMIN VALIDACION CUENTA BANCARIA — STEPH GONZALEZ: JP pregunto (DM Vie 31 15:26) a Steph como validar que el correo coincida con el superadmin en el flujo de cambio de cuenta bancaria. Steph dijo "Ya reviso". Pendiente respuesta definitiva.', owner:'Stephania Gonzalez', source:'DM Steph Gonzalez Vie 31 Jul 15:26', status:'PENDIENTE — Steph revisando proceso de validacion superadmin' },
@@ -2824,20 +2847,20 @@ const DEFAULT_DELEGATED = [
   { id:'d1226', text:'ENDPOINT DISPUTAS BANCO — DIEGO MESA: Diego integrando endpoint del microservicio de disputas a Assembled. Elias confirmo filtros: country + order_id. Parte del flujo de cambio cuenta bancaria.', owner:'Diego Mesa / Elias Rivera', source:'DM Diego Mesa Mie 29 Jul 15:04', status:'EN PROGRESO — Diego integrando endpoint a Assembled' }
 ];
 const SLACK_FEED = [
+  { from: 'Steph Gonzalez → JP (DM)', text: 'MERCHANTS FOOD DOCS (Lun 3 10:57): "Juan agregue otros documentos" + link a carpeta Merchants Food procesos. Insumo clave para Discovery Portal Partners del martes 12:15.', time: 'Lun 3 10:57', type: 'dm', actionable: true },
+  { from: 'Mafe Granada → JP (DM)', text: 'ORDER TOTALLY DIFFERENT (Lun 3 10:36): "Hola Juan! que falta para poder escalar order totally different que llevamos varias semanas con eso" — Llevan varias semanas sin escalar. Responder con estado del blocker y fecha estimada.', time: 'Lun 3 10:36', type: 'dm', actionable: true },
+  { from: 'Jorge Calvache → Group DM (JP, Jeyson)', text: 'IP TESTING RESULTS (Lun 3 10:49): Jorge comparte tabla detallada de intentos 9:50-10:10 col con IPs y errores de conexion. Datos de prueba de integracion. Revisar y confirmar siguiente paso.', time: 'Lun 3 10:49', type: 'dm', actionable: true },
+  { from: 'Steph Gonzalez → JP (DM)', text: 'ALIADOS CALENDAR INTEGRATION (Lun 3 10:11): "Juan por otro lado mira este es el calendario en donde el agente manualmente ingresa la fecha y hora para hacer la integracion de los aliados" + Google Calendar link para agendamiento de aliados.', time: 'Lun 3 10:11', type: 'dm', actionable: true },
   { from: 'Mafe Granada → JP (DM)', text: 'TRELLO + ORQUESTADOR (Lun 3 08:16): "Dos cositas: 1. Porfa llenemos el trello con las prioridades de la semana 2. En el doc del orquestador veo algo raro: esos son todos los issue types de merchants food? deberían estar todos y el plan de como vamos a ir desplegando cada semana. También la idea es tener el inflow de agente no el automated." JP acepto: "listo yalas hago".', time: 'Lun 3 08:16', type: 'dm', actionable: true },
-  { from: 'Mafe Granada → Group DM (JP, Meiker)', text: 'CHECKPOINT IMPACTOS AI (Lun 3 08:08): "team les separe un espacio mas tarde, que es semanal para ver los impactos que tuvieron los bots que estan lanzando en cada audiencia para revisarlos y cargarlos en Atlas. Porfa para la sesion tengamos el scorecard llenado." — REUNION HOY 14:30-15:00.', time: 'Lun 3 08:08', type: 'dm', actionable: true },
-  { from: 'Rappi Talent → JP (DM)', text: 'SELF ASSESSMENT P0 — DEADLINE HOY (Vie 31 12:39): "Ya puedes completar tu Self Assessment. Tienes plazo hasta el 3 de agosto." — HOY lunes 3 agosto es el deadline oficial. Acceder via Workday ahora.', time: 'Vie 31 12:39', type: 'dm', actionable: true },
-  { from: 'Steph Gonzalez → JP (DM)', text: 'CUENTA BANCARIA SUPERADMIN (Vie 31 15:26): Steph responde "Ya reviso Juan" sobre como validar que el correo coincida con el superadmin en el flujo de cambio de cuenta bancaria de aliados. Pendiente respuesta definitiva.', time: 'Vie 31 15:26', type: 'dm', actionable: false },
-  { from: 'Mafe Granada → JP (DM)', text: 'ASSEMBLED MULTI-DOC (Vie 31 15:06): Mafe responde "Docs no / Imagenes" — Assembled no maneja flujos con multiples documentos pero si con imagenes. Insumo para el flujo de validacion documental de aliados.', time: 'Vie 31 15:06', type: 'dm', actionable: true },
-  { from: 'Mafe Granada → JP (DM)', text: 'IMPACTOS ATLAS (Vie 31 12:02): "hola juan podemos porfa revisar [post en canal] y vayamos poniendo los impactos como les mostre en el grupo con meik". JP respondio "va ya lo actualizo" — PENDIENTE cerrar hoy lunes.', time: 'Vie 31 12:02', type: 'dm', actionable: true },
-  { from: 'Mafe Granada → JP (DM)', text: 'SPREADSHEET MERCHANTS FOOD (Vie 31 09:45): "me ayudas llenando aqui todos los issue types de merchants food y en cuales hemos lanzado el orquestador y en que fechas (usa el mismo formato de rts)" — pendiente del viernes.', time: 'Vie 31 09:45', type: 'dm', actionable: true }
+  { from: 'Felipe Villamarin → #pods-office-hours', text: 'MERCHANT FLOWS ATLAS (Vie 31 11:55): "pueden actualizar que esta pasando con Merchant Flows y si hay blocker? esta delayed en spec sin promised_spec_date (ebitda 33.2K@80%) — toca fecha + razon. y tambien: no hay product spec cargado en atlas, solo el idea brief — subanlo pls". Accion critica pendiente.', time: 'Vie 31 11:55', type: 'channel', actionable: true },
+  { from: 'Mafe Granada → JP (DM)', text: 'IMPACTOS ATLAS (Vie 31 12:02): "hola juan podemos porfa revisar [post en canal] y vayamos poniendo los impactos como les mostre en el grupo con meik". JP respondio "va ya lo actualizo" — PENDIENTE cerrar hoy lunes.', time: 'Vie 31 12:02', type: 'dm', actionable: true }
 ];
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '15:00-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:00', '11:00-13:00', '16:00-17:00'] },
+  { day: 'Mar', blocks: ['8:00-10:00', '11:00-12:15', '16:00-17:00'] },
   { day: 'Mie', blocks: ['8:00-10:30', '14:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '14:00-15:00', '16:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-10:30', '14:30-18:00'] }
+  { day: 'Jue', blocks: ['8:00-9:00', '12:00-13:00', '16:00-18:00'] },
+  { day: 'Vie', blocks: ['8:00-10:30', '11:00-13:00', '14:30-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
 const PHASE_LABELS = { discovery:'Discovery', design:'Design', build:'Build', qa:'QA', metrics:'Metrics' };
