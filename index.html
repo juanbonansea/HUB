@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 3 Ago - 7 Ago 2026 · Actualizado 4 Ago 09:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 3 Ago - 7 Ago 2026 · Actualizado 4 Ago 09:45 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1478,7 +1478,7 @@ const EVENTS = {
     { time:'12:15-12:45', title:'Discovery Consultations and access to Portal Partners', attendees:3, org:'juan.bonansea@rappi.com', type:'1on1', note:'Discovery de Consultations and access to Portal Partners. JP organiza con Elias Rivera y Stephania Gonzalez. Creado Lun 3 Ago 14:19 COT.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Juan Pablo / Maria (1:1)', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Maria Fernanda Granada — dudas, avances, prioridades de la semana.' },
-    { time:'14:30-15:00', title:'CheckPoint - Impactos AI', attendees:2, org:'m.granada@rappi.com', type:'team', note:'Espacio semanal con Mafe Granada y Meiker para revisar impactos de las iniciativas AI y cargarlos en Atlas. Movido de Lunes a Martes (actualizado 14:18 COT). Traer scorecard llenado.' },
+    { time:'14:30-15:00', title:'CheckPoint - Impactos AI & Orquestador', attendees:3, org:'m.granada@rappi.com', type:'team', note:'Espacio semanal con Mafe Granada y Meiker Munera para revisar impactos de las iniciativas AI y el Orquestador, y cargarlos en Atlas. Movido de Lunes a Martes. Traer scorecard llenado.' },
     { time:'15:30-16:00', title:'Juan Pablo / Andres (1:1)', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas.' },
     { time:'15:30-16:00', title:'Validacion del Integrador', attendees:6, org:'stephania.gonzalez@rappi.com', type:'team', note:'Validacion del Integrador con Steph Gonzalez, Federico Weinstein, F. Diaz, Laura Buitrago y Carlos Natera. Creado Lun 3 Ago 13:10 COT por Steph.' },
     { time:'17:00-17:30', title:'Orquestador: RTs & Merchants', attendees:3, org:'m.granada@rappi.com', type:'team', note:'Espacio semanal para revisar impactos de los bots lanzados en cada audiencia (RTs y Merchants) y cargarlos en Atlas. Traer scorecard llenado. Con Mafe Granada y Meiker Munera.' }
@@ -2916,6 +2916,7 @@ const DEFAULT_DELEGATED = [
   { id:'d1226', text:'ENDPOINT DISPUTAS BANCO — DIEGO MESA: Diego integrando endpoint del microservicio de disputas a Assembled. Elias confirmo filtros: country + order_id. Parte del flujo de cambio cuenta bancaria.', owner:'Diego Mesa / Elias Rivera', source:'DM Diego Mesa Mie 29 Jul 15:04', status:'EN PROGRESO — Diego integrando endpoint a Assembled' }
 ];
 const SLACK_FEED = [
+  { from: 'Andrejs Zaicevs → JP (DM)', text: 'ASSEMBLED UPDATE (Mar 4 08:49): "dame un chance y te paso todo" — Andrejs listo para pasar informacion sobre la integracion Snowflake. Seguimiento critico al blocker IP whitelist (Monica Rangel OOO hasta 8/10). Confirmar que info envio.', time: 'Mar 4 08:49', type: 'dm', actionable: true },
   { from: 'Eugenio La Rosa → #cx-product', text: 'DEPURAR PROMPTS RT EARNINGS (Lun 3 11:28): "Esta respuesta es muy grave, se mal interpreta" — eliminar de prompts cualquier info que sugiera al merchant aumentar la ganancia del RT. Tambien: caso Peru Brand ID 5490, Store ID 511 — resolver de raiz. P0 PENDIENTE.', time: 'Lun 3 11:28', type: 'channel', actionable: true },
   { from: 'Jaime Gomez → #ai-automations', text: 'PORTAL PARTNERS ENTRY ISSUE (Lun 3 11:25): "El entry issue es Suspensions and Technical Support_Consultations and access to Portal Partners. Al buscar en Assembled los casos por chat Id, todos llevan a PROD_AI Bot_Phase workflow." Insumo para Discovery HOY 12:15.', time: 'Lun 3 11:25', type: 'channel', actionable: true },
   { from: 'Elias Rivera → Group DM', text: 'STEPH REVISANDO ARQUITECTURA (Lun 3 16:12): "Ya Steph esta revisando si de esa manera nos conviene, te cuento que encuentra." Resultado de la revision define la arquitectura del flujo Portal Partners — pendiente para el Discovery de hoy 12:15.', time: 'Lun 3 16:12', type: 'dm', actionable: true },
