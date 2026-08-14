@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 10 Ago - 14 Ago 2026 · Actualizado 14 Ago COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 10 Ago - 14 Ago 2026 · Actualizado 14 Ago 18:10 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1507,9 +1507,10 @@ const NOTES = [
     ],
     actions:[
       'Documentar PRD y arquitectura AI Bot Non Food Live (post kick off Vie 14)',
+      'Bank Account bot al orquestador HOY — QA revisara desde mie 19 Ago (mensaje #qa-producto 12:56)',
       'Dar seguimiento a suspensiones merchants food — definir acciones con F. Diaz',
       'Seguir con Esbeydi: tablas Snowflake prometidas hoy viernes por data team',
-      'Completar flujo Bank Account hoy — hubspotobject_id mapeado como opcional',
+      'Confirmar con Monica Rangel node Google Sheets en Assembled (contexto enviado en #assembled-rappi 10:31)',
       'Lunes: Portal Partners al 100%. Martes: fixes Payments para quedar al 100%',
       'Hacer hilo con Gregson + Manuel Gruezo sobre endpoint fallando en tienda de Steph (CC Cristian Parada)'
     ]
@@ -2982,6 +2983,7 @@ const _NOTES_ARCHIVED = [
 
 const DEFAULT_TASKS = [
   { id:'t1328', text:'[P0 HOY VIE] DOCUMENTAR PRD AI BOT NON FOOD LIVE: Kick Off realizado hoy (11:00-11:30) con Steph, Juan Esquivel y Esbeydi. Documentar PRD borrador, arquitectura del bot y decision de routing. Proximo paso critico para iniciar desarrollo.', phase:'discovery', priority:'P0', source:'Reunion Vie 14 Ago 11:00', day:'fri', completed:false },
+  { id:'t1330', text:'[P0 HOY VIE] BANK ACCOUNT BOT AL ORQUESTADOR: JP anuncio en #qa-producto (12:56) que esta anadiendo el bot de Bank Account al orquestador hoy. QA revisara desde el miercoles 19 Ago. Completar flujo y deployment antes de cerrar el dia.', phase:'build', priority:'P0', source:'#qa-producto Vie 14 Ago 12:56', day:'fri', completed:false },
   { id:'t1329', text:'[P0 LUN] PORTAL PARTNERS AL 100%: JP comprometio con Steph que lunes termina Portal Partners. Coordinar con Elias Rivera y equipo tech para rollout.', phase:'build', priority:'P0', source:'DM JP a Steph Vie 14 Ago', day:'mon', completed:false },
   { id:'t1330', text:'[P0 MAR] PAYMENTS AL 100% — FIXES MARTES: JP comprometio fixes de Payments para el martes y rollout al 100%. Orquestador y Canceladas ya en 100%. Coordinar con Jessica Torres.', phase:'build', priority:'P0', source:'DM JP a Steph Vie 14 Ago', day:'tue', completed:false },
   { id:'t1331', text:'[P1 HOY VIE] ENDPOINT FALLANDO TIENDA STEPH — HILO CON GREGSON + MANUEL: Steph reporto endpoint fallando en su tienda (no aparece en app). JP recomienda hilo con Gregson Murcia y Manuel Gruezo CC Cristian Parada y JP.', phase:'build', priority:'P1', source:'DM Steph Gonzalez Vie 14 Ago 08:58', day:'fri', completed:false },
@@ -3019,13 +3021,13 @@ const DEFAULT_DELEGATED = [
   { id:'d1235', text:'FECHA INICIATIVA MERCHANT PARA ATLAS — ANDRES DE LAS CASAS: JP pregunto en #cx-prod-eng-leads (Lun 10 17:42) por la fecha para Atlas. Andres debe responder.', owner:'Andres De Las Casas', source:'#cx-prod-eng-leads Lun 10 Ago 17:42', status:'PENDIENTE RESPUESTA — JP espera fecha de Andres para Atlas' }
 ];
 const SLACK_FEED = [
+  { from: 'JP → #qa-producto', text: 'BANK ACCOUNT BOT AL ORQUESTADOR HOY (Vie 14 12:56): JP anuncia que esta anadiendo el bot de Bank Account al orquestador hoy viernes. Pide al QA team que lo revisen a partir del miercoles para tener buena data. Accion: QA debe revisar Bank Account bot desde mie 19 Ago.', time: 'Vie 14 12:56', type: 'channel', actionable: true },
+  { from: 'Andres Diaz → JP (DM)', text: 'ARCHIVO SUSPENSIONES MERCHANTS (Vie 14 11:29-11:32): Andres Diaz busca archivo de suspensiones de merchants para una revision. "Juancho tu tienes el archivo de dan cierto / Para revisar las suspensiones / te sumas?" JP confirma que lo tiene y lo busca.', time: 'Vie 14 11:32', type: 'dm', actionable: false },
+  { from: 'JP → Monica Rangel (#assembled-rappi)', text: 'GOOGLE SHEETS ASSEMBLED — CONTEXTO COMPLETO (Vie 14 10:31): JP comparte con Monica Rangel el detalle del flujo Assembled para integracion Google Sheets: bot captura pais, accion, razon social, store_id y los append a un sheet para que un analista revise horas despues. Necesitan nodo dedicado para write/append en cualquier punto del flujo.', time: 'Vie 14 10:31', type: 'channel', actionable: true },
   { from: 'Esbeydi Reynoso → JP (DM)', text: 'MACRO DEUDA RT FOOD LIVE (Vie 14 10:47): Esbe comparte copy para responder a aliados sobre deuda generada cuando RT libera pedido ya recogido. "Como resultado de esta accion el sistema genero automaticamente una deuda por [Valor] la cual no es posible ajustar. Para evitar que esto vuelva a ocurrir recomendamos no liberar un pedido despues de haber recogido los productos."', time: 'Vie 14 10:47', type: 'dm', actionable: true },
   { from: 'Esbeydi Reynoso → JP (DM)', text: 'TABLAS SNOWFLAKE AUN PENDIENTES (Vie 14 10:06): "Sigo en pelea por esas tablas, quedaron de darmelas hoy." Data team prometio entregar tablas Snowflake para hoy viernes — Esbeydi sigue gestionando.', time: 'Vie 14 10:06', type: 'dm', actionable: true },
   { from: 'Camilo Esquivel → JP (DM)', text: 'HUBSPOTOBJECT_ID OPCIONAL (Vie 14 09:45): JP consulto sobre campo faltante en flujo Assembled. Camilo confirma: hubspotobject_id es OPCIONAL segun doc de endpoints. JP reporta haber mapeado todas las variables — listo para avanzar en flujo Bank Account.', time: 'Vie 14 09:45', type: 'dm', actionable: false },
-  { from: 'Stephania Gonzalez → JP (DM)', text: 'ENDPOINT FALLANDO EN TIENDA (Vie 14 08:58): Steph reporta endpoint fallando en automatizacion de su tienda (no aparece en app). JP recomienda hilo con Gregson Murcia y Manuel Gruezo, CC Cristian Parada y JP. Steph confirma y hace el hilo.', time: 'Vie 14 08:58', type: 'dm', actionable: true },
-  { from: 'Stephania Gonzalez → JP (DM)', text: 'PAYMENTS AL 100% — MARTES (Vie 14 08:51): Steph pregunta cuando payment pendiente queda al 100%. JP: "el martes por ahi porque hoy termino bank account, el lunes portal partners y el martes que haga los fixes de payments ahi mismo lo dejo al 100%."', time: 'Vie 14 08:51', type: 'dm', actionable: false },
-  { from: 'Andrejs Zaicevs + Camilo → JP (Grupo DM)', text: 'BUSINESS_ID RESOLUCION (Mie 12 12:49): Andrejs explica que business y cuenta bancaria son dominios distintos — usar business->identification (no account->identification). Camilo identifica endpoint DEV_restaurant_statement. Blocker Bank Account en resolucion.', time: 'Mie 12 12:49', type: 'dm', actionable: true },
-  { from: 'Jessica Torres → #ai-automations (cc JP)', text: 'DSAT AUDIT PAYMENTS/COMPENSACIONES (Mar 11 17:28): 53% DSAT con oportunidad AI. Gaps: bundle wrong product (bot rechaza cuando debe devolver al RT), evidencia proactiva ignorada, mal empacado, loop infinito. Maria Granada pidio involucrar a JP.', time: 'Mar 11 17:28', type: 'channel', actionable: true }
+  { from: 'Andrejs Zaicevs + Camilo → JP (Grupo DM)', text: 'BUSINESS_ID RESOLUCION (Mie 12 12:49): Andrejs explica que business y cuenta bancaria son dominios distintos — usar business->identification (no account->identification). Camilo identifica endpoint DEV_restaurant_statement. Blocker Bank Account en resolucion.', time: 'Mie 12 12:49', type: 'dm', actionable: true }
 ];
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:45', '11:00-13:00', '14:00-18:00'] },
