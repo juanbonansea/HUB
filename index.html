@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 24 Ago - 28 Ago 2026 · Actualizado 25 Ago COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 24 Ago - 28 Ago 2026 · Actualizado 26 Ago COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1482,10 +1482,11 @@ const EVENTS = {
     { time:'16:30-17:00', title:'Gregson / Juan Pablo', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'JP organiza 1:1 con Gregson Murcia. Seguimiento endpoints deploying. Contexto Slack: deploy en CL,CR,EC,UY ya activo; AR,BR,MX,CO pendiente 10pm.' }
   ],
   wed: [
+    { time:'09:00-09:30', title:'[URG] Alineacion Flujo Deuda RTs', attendees:12, org:'daniela.montenegro@rappi.com', type:'team', note:'Reunion urgente organizada por Daniela Montenegro. Con Daniel Barreneche, Karen Toca, Indira Esquivel, Esbeydi Reynoso, Danghely Cardenas, Elias Rivera y Diego Aguo. Alineacion del flujo de deuda para RTs.' },
     { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:50, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal. Organiza Eugenio La Rosa. Reunion grande de toda el area CX.' },
     { time:'12:00-12:30', title:'Status orquestador RTs+ Merchants', attendees:3, org:'m.granada@rappi.com', type:'team', note:'Status del orquestador con Mafe Granada y Meiker Munera. Reunion creada el 24 Ago.' },
-    { time:'12:00-13:00', title:'Dayli Nuevo arbol de soporte', attendees:10, org:'maria.dorantes@rappi.com', type:'team', note:'Daily nuevo arbol de soporte. Organiza Maria Dorantes. Con Cristian Parada, Carlos Natera, Nicolas Cabrera y JP.' },
+    { time:'12:00-12:30', title:'Dayli Nuevo arbol de soporte', attendees:10, org:'maria.dorantes@rappi.com', type:'team', note:'Daily nuevo arbol de soporte. Organiza Maria Dorantes. Con Cristian Parada, Carlos Natera, Nicolas Cabrera y JP.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:30-15:00', title:'Juan Pablo / Maria (1:1)', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Mafe Granada (manager). Organiza Mafe. Traer: update Non Food bot PRD, status endpoints en produccion, agenda semana.' }
   ],
@@ -1493,7 +1494,7 @@ const EVENTS = {
     { time:'09:00-09:45', title:'CX Design Review', attendees:9, org:'andres.delascasas@rappi.com', type:'team', note:'CX Design Review semanal. Organiza Andres De Las Casas. Con Angela Osuna, Daniel Trejos, Anna Habermann, Meiker Munera, m.granada y JP.' },
     { time:'09:30-10:00', title:'Dayli Nuevo arbol de soporte', attendees:10, org:'maria.dorantes@rappi.com', type:'team', note:'Daily nuevo arbol de soporte. Organiza Maria Dorantes. Con Cristian Parada, Carlos Natera y JP.' },
     { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
-    { time:'12:00-12:30', title:'Diagnostico JTBD: AI Agents Merchants', attendees:4, org:'jessica.torres@rappi.com', type:'team', note:'Reunion con Jessica Torres, Guadalupe Martinez y F. Diaz. Diagnostico JTBD para AI Agents en Merchants.' },
+    { time:'12:30-13:00', title:'Diagnostico JTBD: AI Agents Merchants', attendees:4, org:'jessica.torres@rappi.com', type:'team', note:'Reunion con Jessica Torres, Guadalupe Martinez, Karen Marin y F. Diaz. Diagnostico JTBD para AI Agents en Merchants.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   fri: [
@@ -1501,11 +1502,32 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Daily Automations', attendees:16, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
     { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly de QA AI con Mafe Granada, Catalina Symonds, Jessica Torres, Meiker Munera, Angela Osuna, Susana Paniagua y Guadalupe Martinez.' },
-    { time:'14:30-15:30', title:'Como usar la herramienta de Evals', attendees:3, org:'m.granada@rappi.com', type:'learning', note:'Sesion con Mafe Granada y Meiker Munera. Capacitacion sobre herramienta de Evals.' }
+    { time:'14:30-15:30', title:'Como usar la herramienta de Evals', attendees:3, org:'m.granada@rappi.com', type:'learning', note:'Sesion con Mafe Granada y Meiker Munera. Capacitacion sobre herramienta de Evals.' },
+    { time:'15:30-16:30', title:'MasterClass- Assembled', attendees:11, org:'m.granada@rappi.com', type:'learning', note:'MasterClass sobre Assembled organizada por Mafe Granada. Con Karen Marin, Elias Rivera, Eugenio La Rosa (opcional), Guadalupe Martinez, Indira Esquivel, Natalia Intencipa, Apatarroyo, Jessica Torres. JP y Meiker opcionales.' }
   ]
 };
 
 const NOTES = [
+  {
+    id:152, title:'Miercoles 26 Ago — Fix Food Live Bug + CX WBR + Status Orquestador + 1:1 Mafe', date:'26 Ago',
+    summary:'MIE 26 AGO — ACTUALIZACIONES. (1) [URG] ALINEACION FLUJO DEUDA RTS (09:00-09:30): Reunion urgente con Daniela Montenegro, Daniel Barreneche, Karen Toca, Indira Esquivel, Esbeydi Reynoso, Danghely Cardenas, Elias Rivera y Diego Aguo. Tema: alineacion del flujo de deuda para RTs. (2) DAILY AUTOMATIONS (10:30-11:00): Con Cristian Parada y equipo. (3) CX WEEKLY BUSINESS REVIEW (11:00-12:00): WBR semanal con Eugenio La Rosa y todo el area CX (~50 asistentes). (4) STATUS ORQUESTADOR RTS + MERCHANTS (12:00-12:30): Con Mafe Granada y Meiker Munera. Seguimiento del orquestador. (5) BUG FOOD LIVE CORREGIDO — SLACK #cx-product (10:59-11:09): JP reporta que el flujo de Food Live NO estaba fallando; el bug estaba en el orquestador — al implementar el fix de RT con deuda, el redirect al flujo Food Live quedo mal mapeado y pasaba casos a Handoff. JP ya lo corrigio. Esbeydi confirma que el bot que estaban viendo no los impacta. (6) ASSEMBLED LISTO — SLACK DM CAMILO ESQUIVEL (11:05): Camilo confirma "ya lo puedes usar" — Assembled disponible para JP. JP pregunto si faltaba algo y Camilo confirmo que esta listo. (7) 1:1 MAFE GRANADA (14:30-15:00): Seguimiento semanal con manager. (8) Gmail no disponible — sin notas Gemini. Reautorizar en claude.ai Settings → Connectors.',
+    sections:[
+      '[URG] ALINEACION FLUJO DEUDA RTS (Mie 26 09:00-09:30): Reunion urgente organizada por Daniela Montenegro. Con Daniel Barreneche, Karen Toca, Indira Esquivel, Esbeydi Reynoso, Danghely Cardenas, Elias Rivera y Diego Aguo. Tema central: alineacion del flujo de deuda para RTs en el orquestador.',
+      'CX WEEKLY BUSINESS REVIEW (Mie 26 11:00-12:00): WBR semanal con Eugenio La Rosa. Reunion grande con toda el area CX (~50 personas). Metricas y actualizaciones semanales del negocio.',
+      'STATUS ORQUESTADOR RTS + MERCHANTS (Mie 26 12:00-12:30): Con Mafe Granada y Meiker Munera. Status del orquestador de RTs y Merchants.',
+      'BUG FOOD LIVE CORREGIDO — SLACK #cx-product (Mie 26 10:59): JP explica en el canal que el flujo Food Live no fallaba — el problema estaba en el orquestador: al implementar el fix de RT con deuda, el redirect al flujo Food Live quedo mal mapeado y los casos pasaban a agente/Handoff. JP ya lo corrigio. Esbeydi pregunta "el bot que esta viendo no nos impacta cierto?" — JP: "nop, ya corregido".',
+      'ASSEMBLED DISPONIBLE — SLACK DM CAMILO ESQUIVEL (Mie 26 11:05): JP pregunta si puede usar Assembled o falta algo. Camilo confirma "ya lo puedes usar". Assembled listo para integracion y pruebas del bot Non Food.',
+      '1:1 MAFE GRANADA (Mie 26 14:30-15:00): Seguimiento semanal con manager Mafe Granada. Llevar: status Non Food bot PRD, endpoints en produccion, agenda semana.',
+      'GMAIL NO DISPONIBLE: Sin notas Gemini de reuniones. Para reautorizar: claude.ai → Settings → Connectors → Gmail.'
+    ],
+    actions:[
+      'JP: Preparar update para 1:1 Mafe hoy (14:30): status Non Food bot, endpoints, agenda semana',
+      'JP: Probar Assembled ya disponible — confirmar funcionamiento (DM Camilo Mie 26)',
+      'JP: Seguimiento [URG] Alineacion Flujo Deuda RTs — revisar acciones post-reunion',
+      'JP: Preparar diagnostico JTBD AI Agents Merchants para reunion Jue 27 12:30',
+      'JP: Confirmar deploys endpoints AR/BR/MX/CO (Gregson pendiente desde Mar 25 10pm)'
+    ]
+  },
   {
     id:151, title:'Semana 24-28 Ago — Inicio Semana: NON FOOD DISCOVERY + Kick Off Non Food + Deploy Endpoints (Slack)', date:'25 Ago',
     summary:'LUN 24 - MAR 25 AGO — INICIO SEMANA 24-28 AGO. (1) PRIORIDADES SEMANA - SUPPORT PRODUCT (Lun 24 09:30-10:30): Reunion con Andres DLC, Cristian Parada, Daniel Trejos, Meiker, Susana, m.granada y Nicolas Bejarano. Agenda: updates equipos, feedback posible gantt Q4, gantt diseno. (2) DAYLI NUEVO ARBOL DE SOPORTE (Lun 24 11:30-12:00): Con Maria Dorantes, Cristian Parada, Andres DLC, Carlos Natera y JP. (3) NON FOOD DISCOVERY (Lun 24 15:00-16:00): JP organiza con Esbeydi Reynoso. Sesion de discovery para bot Non Food Live. (4) WEEKLY EVALS (Lun 24 16:00-16:30): Con Mafe, Daniel Rios, Andres DLC, Joan Bermudez, Guadalupe, Jessica y JP. (5) DEPLOY ENDPOINTS SLACK (Mar 25 12:17-12:30 — Gregson Murcia DM): Gregson reporta "Buenas y malas noticias" — ya deployado en 4 paises: CL, CR, EC, UY (UY PROD funcionando). Pendiente AR, BR, MX, CO a las 10pm. JP: "te saco 20 mins en la tarde y los probamos". JP y Gregson agendaron reunion 16:30-17:00 para probar. (6) ENDPOINTS NON FOOD — MANUEL GRUEZO (Mar 25 11:57-12:00 DM): JP pregunta si endpoint de horario permite solo consultar o tambien cambiar horarios. Manuel confirma que si, puede cambiar. JP: "si porfa de hecho es mas importante poder cambiarlos". Manuel: "Hoy solo voy a camellar en esto". (7) ENDPOINT CMS — ESBEYDI (Mar 25 12:03 DM): JP confirmo "ya pedi el endpoint de CMS". (8) Gmail no disponible — sin notas Gemini de reuniones. Reautorizar en claude.ai Settings → Connectors.',
@@ -3059,14 +3081,18 @@ const _NOTES_ARCHIVED = [
 
 const DEFAULT_TASKS = [
   { id:'t1370', text:'[P0 SEMANA] DOCUMENTAR PRD AI BOT NON FOOD LIVE: Carryover critico. Kick Off realizado Lun 24 + Mar 25. Discovery con Esbe en curso. Documentar PRD completo con routing, casos de uso y diferencias Turbo vs Turbo X esta semana.', phase:'discovery', priority:'P0', source:'NON FOOD DISCOVERY Lun 24 + Kick Off Mar 25', day:'fri', completed:false },
-  { id:'t1371', text:'[P0 HOY MAR] KICK OFF NON FOOD (14:30-15:00): JP organiza con Steph Gonzalez, Juan Esquivel, Esbeydi Reynoso y Elias Rivera. Definir alcance y roadmap del bot.', phase:'discovery', priority:'P0', source:'Calendario Mar 25 14:30', day:'tue', completed:false },
-  { id:'t1372', text:'[P1 HOY MAR] PROBAR ENDPOINTS CON GREGSON (16:30-17:00): Reunion agendada para probar deploys. Endpoints activos en CL,CR,EC,UY. Validar funcionamiento antes de deploy en AR,BR,MX,CO (10pm).', phase:'build', priority:'P1', source:'Slack DM Gregson Mar 25 12:30', day:'tue', completed:false },
-  { id:'t1373', text:'[P1 HOY MAR] 1:1 ANDRES DE LAS CASAS (15:30-16:00): Llevar update Non Food bot PRD, status endpoints en produccion, agenda semana.', phase:'build', priority:'P1', source:'Calendario Mar 25 15:30', day:'tue', completed:false },
-  { id:'t1374', text:'[P1 MIE] 1:1 MAFE GRANADA (14:30-15:00): Llevar update Non Food bot PRD, status endpoints, agenda semana.', phase:'build', priority:'P1', source:'Calendario Mie 26 14:30', day:'wed', completed:false },
-  { id:'t1375', text:'[P1 JUE] DIAGNOSTICO JTBD: AI AGENTS MERCHANTS (12:00-12:30): Reunion con Jessica Torres, Guadalupe Martinez y F. Diaz. Preparar diagnostico JTBD para AI Agents Merchants.', phase:'discovery', priority:'P1', source:'Calendario Jue 27 12:00', day:'thu', completed:false },
+  { id:'t1374', text:'[P1 HOY MIE] 1:1 MAFE GRANADA (14:30-15:00): Llevar update Non Food bot PRD, status endpoints, agenda semana. Contexto: bug food live corregido hoy, Assembled ya disponible.', phase:'build', priority:'P1', source:'Calendario Mie 26 14:30', day:'wed', completed:false },
+  { id:'t1379', text:'[P1 HOY MIE] PROBAR ASSEMBLED: Camilo confirmo hoy (Mie 26 11:05) que Assembled ya esta disponible. Hacer pruebas de integracion con el bot Non Food.', phase:'build', priority:'P1', source:'Slack DM Camilo Mie 26 11:05', day:'wed', completed:false },
+  { id:'t1380', text:'[P1 HOY MIE] SEGUIMIENTO [URG] DEUDA RTS: Reunion de alineacion realizada hoy 09:00-09:30. Revisar acciones post-reunion y documentar decisiones sobre flujo de deuda para RTs en orquestador.', phase:'build', priority:'P1', source:'Calendario Mie 26 09:00', day:'wed', completed:false },
+  { id:'t1375', text:'[P1 JUE] DIAGNOSTICO JTBD: AI AGENTS MERCHANTS (12:30-13:00): Reunion con Jessica Torres, Guadalupe Martinez, Karen Marin y F. Diaz. Preparar diagnostico JTBD para AI Agents Merchants.', phase:'discovery', priority:'P1', source:'Calendario Jue 27 12:30', day:'thu', completed:false },
   { id:'t1376', text:'[P1 VIE] WEEKLY QA AI (14:00-14:30): Review semanal con Mafe, Catalina, Jessica, Meiker, Angela, Susana y Guadalupe. Llevar status Bank Account bot QA y gaps DSAT pendientes.', phase:'qa', priority:'P1', source:'Calendario Vie 28 14:00', day:'fri', completed:false },
   { id:'t1377', text:'[P1 VIE] COMO USAR HERRAMIENTA DE EVALS (14:30-15:30): Sesion con Mafe y Meiker. Aprender herramienta Evals para medir performance de bots.', phase:'qa', priority:'P1', source:'Calendario Vie 28 14:30', day:'fri', completed:false },
-  { id:'t1378', text:'[P2 SEMANA] SEGUIMIENTO ENDPOINT CMS: JP ya pidio endpoint CMS (Mar 25 12:03 DM Esbe). Confirmar recibo e integracion con bot Non Food.', phase:'build', priority:'P2', source:'Slack DM Esbeydi Mar 25', day:'wed', completed:false },
+  { id:'t1381', text:'[P1 VIE] MASTERCLASS ASSEMBLED (15:30-16:30): Sesion con Mafe, Karen Marin, Elias Rivera, Guadalupe, Indira, Jessica Torres y equipo. JP y Meiker opcionales.', phase:'learning', priority:'P1', source:'Calendario Vie 28 15:30', day:'fri', completed:false },
+  { id:'t1378', text:'[P2 SEMANA] CONFIRMAR DEPLOY AR/BR/MX/CO: Endpoints deploydos en CL,CR,EC,UY (Mar 25). Deploy en AR,BR,MX,CO pendiente desde 10pm Mar 25. Confirmar status con Gregson.', phase:'build', priority:'P2', source:'Slack DM Gregson Mar 25', day:'wed', completed:false },
+  { id:'t1371', text:'[COMPLETADO MAR] KICK OFF NON FOOD (14:30-15:00): Completado Mar 25. JP organizo con Steph Gonzalez, Juan Esquivel, Esbeydi Reynoso y Elias Rivera.', phase:'discovery', priority:'P0', source:'Calendario Mar 25 14:30', day:'tue', completed:true },
+  { id:'t1372', text:'[COMPLETADO MAR] PROBAR ENDPOINTS CON GREGSON (16:30-17:00): Completado Mar 25. Endpoints activos en CL,CR,EC,UY validados.', phase:'build', priority:'P1', source:'Slack DM Gregson Mar 25 12:30', day:'tue', completed:true },
+  { id:'t1373', text:'[COMPLETADO MAR] 1:1 ANDRES DE LAS CASAS (15:30-16:00): Completado Mar 25.', phase:'build', priority:'P1', source:'Calendario Mar 25 15:30', day:'tue', completed:true },
+  { id:'t1382', text:'[COMPLETADO MIE] FIX BUG FOOD LIVE ORQUESTADOR: JP corrigio el bug en el orquestador — al implementar fix RT con deuda, el redirect a Food Live quedo mal mapeado y pasaba a Handoff. Ya corregido (Mie 26 11:09).', phase:'build', priority:'P0', source:'Slack #cx-product Mie 26', day:'wed', completed:true },
   { id:'t1361', text:'[COMPLETADO LUN] NON FOOD DISCOVERY (15:00-16:00): Sesion con Esbeydi completada Lun 24. Discovery inicial del bot Non Food Live.', phase:'discovery', priority:'P0', source:'Calendario Lun 24 15:00', day:'mon', completed:true },
   { id:'t1368', text:'[COMPLETADO LUN] PRIORIDADES SEMANA SUPPORT PRODUCT (09:30-10:30): Reunion completada Lun 24 con Andres DLC, Cristian Parada, Meiker, m.granada y equipo.', phase:'build', priority:'P1', source:'Calendario Lun 24 09:30', day:'mon', completed:true }
 ];
@@ -3086,26 +3112,27 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d1270', text:'DEPLOY ENDPOINTS PAISES RESTANTES — GREGSON MURCIA: Endpoints deploydos en CL, CR, EC, UY (UY PROD funcionando). Pendiente deploy en AR, BR, MX, CO a las 10pm del Mar 25. JP agendo prueba a las 16:30.', owner:'Gregson Murcia', source:'Slack DM Gregson Mar 25 Ago 12:17', status:'EN PROGRESO — Deploy AR/BR/MX/CO pendiente 10pm Mar 25' },
-  { id:'d1271', text:'IMPLEMENTAR ENDPOINTS NON FOOD — MANUEL GRUEZO: Endpoint horario debe permitir consultar Y cambiar horarios (confirmado por JP). Manuel trabajando en esto todo el dia Mar 25. Pendientes: horario, CMS y otros endpoints del bot.', owner:'Manuel Gruezo', source:'Slack DM Manuel Gruezo Mar 25 11:57', status:'EN PROGRESO — Manuel dedicado full day Mar 25' },
-  { id:'d1272', text:'ENDPOINT CMS — ESBEYDI REYNOSO: JP ya pedio el endpoint de CMS (Mar 25 12:03 DM). Esbeydi debe proveer endpoint para integracion con bot Non Food.', owner:'Esbeydi Reynoso', source:'Slack DM Esbeydi Mar 25 12:03', status:'PENDIENTE ENTREGA — JP confirmo pedido' },
+  { id:'d1273', text:'[URG] ALINEACION FLUJO DEUDA RTS — DANIELA MONTENEGRO / EQUIPO: Reunion urgente realizada Mie 26 09:00-09:30. Daniela Montenegro lidera con Daniel Barreneche, Karen Toca, Indira Esquivel, Esbeydi Reynoso, Danghely Cardenas, Elias Rivera y Diego Aguo. Seguimiento de acciones post-reunion.', owner:'Daniela Montenegro / Equipo', source:'Calendario Mie 26 09:00', status:'POST-REUNION — Pendiente seguimiento acciones Mie 26' },
+  { id:'d1270', text:'DEPLOY ENDPOINTS PAISES RESTANTES — GREGSON MURCIA: Endpoints deploydos en CL, CR, EC, UY (UY PROD funcionando). Deploy en AR, BR, MX, CO pendiente desde 10pm Mar 25. Confirmar status.', owner:'Gregson Murcia', source:'Slack DM Gregson Mar 25 Ago 12:17', status:'PENDIENTE CONFIRMACION — Deploy AR/BR/MX/CO desde Mar 25 10pm' },
+  { id:'d1271', text:'IMPLEMENTAR ENDPOINTS NON FOOD — MANUEL GRUEZO: Endpoint horario debe permitir consultar Y cambiar horarios. Manuel trabajaba en esto full day Mar 25. Pendientes: horario, CMS y otros endpoints del bot.', owner:'Manuel Gruezo', source:'Slack DM Manuel Gruezo Mar 25 11:57', status:'EN PROGRESO — Confirmar entrega con Manuel' },
+  { id:'d1272', text:'ENDPOINT CMS — ESBEYDI REYNOSO: JP pedio el endpoint de CMS (Mar 25 12:03 DM). Esbeydi debe proveer endpoint para integracion con bot Non Food.', owner:'Esbeydi Reynoso', source:'Slack DM Esbeydi Mar 25 12:03', status:'PENDIENTE ENTREGA — JP confirmo pedido' },
   { id:'d1261', text:'QA BANK ACCOUNT BOT EN ORQUESTADOR — JESSICA TORRES / QA TEAM: Bot Bank Account integrado al orquestador. QA en progreso. Resultados esperados en Weekly QA AI del Vie 28.', owner:'Jessica Torres / QA Team', source:'#qa-producto Ago', status:'EN PROGRESO — Resultados esperados Vie 28 QA AI Weekly' },
   { id:'d1262', text:'GAPS DSAT BOT PAYMENTS/COMPENSACIONES — JESSICA TORRES: 53% DSAT con oportunidad AI: bundle wrong product, evidencia proactiva ignorada, mal empacado, loop infinito. Priorizar fixes en Weekly QA AI Vie 28.', owner:'Jessica Torres / Guadalupe Martinez', source:'#ai-automations Jessica Torres', status:'PENDIENTE — Revisar y priorizar fixes en Weekly QA AI Vie 28' },
   { id:'d1265', text:'PRD NON FOOD LIVE BOT — STEPH GONZALEZ / JUAN ESQUIVEL / ESBEYDI REYNOSO: Kick Off Mar 25 completado. Discovery Lun 24 con Esbe. JP debe documentar PRD con routing, casos de uso y diferencias Turbo vs Turbo X.', owner:'Steph Gonzalez / Juan Esquivel / Esbeydi Reynoso', source:'NON FOOD DISCOVERY Lun 24 + Kick Off Mar 25', status:'EN PROGRESO — JP documentando PRD esta semana' }
 ];
 const SLACK_FEED = [
+  { from: 'JP → #cx-product (canal)', text: 'FIX BUG FOOD LIVE ORQUESTADOR (Mie 26 10:59): JP reporta que el flujo Food Live NO estaba fallando — el bug era en el orquestador. Al implementar el fix de RT con deuda, el redirect al flujo Food Live quedo mal mapeado y los casos pasaban a Handoff. JP ya lo corrigio. Gracias por la alerta al equipo.', time: 'Mie 26 10:59', type: 'channel', actionable: false },
+  { from: 'Esbeydi Reynoso → JP (DM)', text: 'CONFIRMACION BUG CORREGIDO (Mie 26 11:03-11:09): Esbeydi pregunta sobre tickets que llegaban al otro bot. JP confirma el fix. Esbeydi: "Okey, entonces ese bot que esta viendo no nos impacta cierto?" — JP: "nop, ya corregido". Esbeydi: "Graciaaaas".', time: 'Mie 26 11:09', type: 'dm', actionable: false },
+  { from: 'Camilo Esquivel → JP (DM)', text: 'ASSEMBLED DISPONIBLE (Mie 26 11:05): JP: "ya lo puedo usar entonces o falta algo en Assembled??" — Camilo: "ya lo puedes usar". Assembled listo para integrar y probar el bot Non Food.', time: 'Mie 26 11:05', type: 'dm', actionable: true },
   { from: 'Gregson Murcia → JP (DM)', text: 'DEPLOY ENDPOINTS — BUENAS Y MALAS NOTICIAS (Mar 25 12:17-12:30): Deploy completado en CL, CR, EC, UY — "ya al menos en uy PROD sirve". Pendiente: AR, BR, MX, CO a las 10pm. JP: "te saco 20 mins en la tarde y los probamos" — reunion agendada 16:30.', time: 'Mar 25 12:30', type: 'dm', actionable: true },
-  { from: 'JP → Manuel Gruezo (DM)', text: 'ENDPOINT HORARIO — NECESITO CAMBIAR ADEMAS DE CONSULTAR (Mar 25 11:57-12:00): JP: "el de horario me va a dejar consultar los horarios o tambien cambiarlos??" — Manuel confirma que si. JP: "si porfa de hecho es mas importante poder cambiarlos". Manuel: "Hoy solo voy a camellar en esto".', time: 'Mar 25 12:00', type: 'dm', actionable: true },
-  { from: 'JP → Esbeydi Reynoso (DM)', text: 'ENDPOINT CMS PEDIDO (Mar 25 12:03): JP confirma "ya pedi el endpoint de CMS" a Esbeydi. Necesario para integracion del bot Non Food.', time: 'Mar 25 12:03', type: 'dm', actionable: true },
-  { from: 'Gregson Murcia → JP (DM)', text: 'DEPLOY PAISES RESTANTES A LAS 10PM (Mar 25 12:18): Gregson: "Los otros paises como ar, br, mx y co — Es a las 10pm k puedo desplegarlos". Confirmado por JP para deploy nocturno.', time: 'Mar 25 12:18', type: 'dm', actionable: false },
-  { from: 'Manuel Gruezo → JP (DM)', text: 'CONFIRMACION TRABAJO ENDPOINTS (Mar 25 11:59): Manuel: "Got it — Hoy solo voy a camellar en esto. Cualquier cosa te pregunto". Manuel dedicado full day a implementar endpoints Non Food.', time: 'Mar 25 11:59', type: 'dm', actionable: false }
+  { from: 'JP → Manuel Gruezo (DM)', text: 'ENDPOINT HORARIO — NECESITO CAMBIAR ADEMAS DE CONSULTAR (Mar 25 11:57-12:00): JP: "el de horario me va a dejar consultar los horarios o tambien cambiarlos??" — Manuel confirma que si. JP: "si porfa de hecho es mas importante poder cambiarlos". Manuel: "Hoy solo voy a camellar en esto".', time: 'Mar 25 12:00', type: 'dm', actionable: true }
 ];
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '12:00-13:00', '14:00-15:00', '16:30-18:00'] },
   { day: 'Mar', blocks: ['8:00-9:30', '11:00-13:00', '17:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-10:30', '15:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-12:00', '14:00-18:00'] },
-  { day: 'Vie', blocks: ['8:00-9:30', '11:00-13:00', '15:30-18:00'] }
+  { day: 'Mie', blocks: ['8:00-9:00', '9:30-10:30', '15:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-12:30', '14:00-18:00'] },
+  { day: 'Vie', blocks: ['8:00-9:30', '11:00-13:00', '16:30-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
 const PHASE_LABELS = { discovery:'Discovery', design:'Design', build:'Build', qa:'QA', metrics:'Metrics' };
