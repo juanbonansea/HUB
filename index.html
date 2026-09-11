@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 7-11 Sep 2026 · Actualizado 9 Sep 09:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 7-11 Sep 2026 · Actualizado 11 Sep 16:15 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1498,18 +1498,57 @@ const EVENTS = {
     { time:'10:00-10:30', title:'Assembled Assist <> Rappi Weekly Sync', attendees:10, org:'monica@assembledhq.com', type:'team', note:'Sync semanal con Assembled (Monica). Con m.granada, Angela Osuna, Jonathan Munoz y JP. Documentos: Implementation Plan y Notes doc en Drive. Zoom call.' },
     { time:'10:30-11:00', title:'Daily Automations', attendees:18, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
+    { time:'14:15-16:45', title:'AI (Focus Time)', attendees:0, type:'learning', note:'Bloque de Focus Time dedicado a AI. Creado hoy Jue 10 Sep.' },
+    { time:'14:30-15:00', title:'Juan Pablo / Stephania', attendees:2, org:'stephania.gonzalez@rappi.com', type:'1on1', note:'1:1 con Stephania Gonzalez. Creada 10 Sep 18:41. Seguimiento flujos Merchants y testing activo.' },
     { time:'17:00-18:00', title:'Weekly Merchants - Automatizaciones/Procesos', attendees:10, org:'esbeydi.reynoso@rappi.com', type:'team', note:'Weekly Merchants de automatizaciones y procesos. Organiza Esbeydi Reynoso. Con Maria Dorantes, Mariapia Lindley, Elias Rivera, Diego Sanchez, Lina Santos, Diego Aguo y Steph Gonzalez.' }
   ],
   fri: [
-    { time:'09:00-09:30', title:'Dayli Nuevo arbol de soporte', attendees:10, org:'maria.dorantes@rappi.com', type:'team', note:'Daily nuevo arbol de soporte. Organiza Maria Dorantes. Con Andres DLC declino, Cristian Parada y equipo.' },
-    { time:'10:30-11:00', title:'Daily Automations', attendees:18, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
+    { time:'09:00-09:30', title:'Dayli Nuevo arbol de soporte', attendees:10, org:'maria.dorantes@rappi.com', type:'team', note:'Daily nuevo arbol de soporte. Organiza Maria Dorantes. Andres DLC acepto, Cristian Parada declino.' },
+    { time:'09:30-10:00', title:'Flujo cancelaciones aliados producto no disponible', attendees:4, org:'daniel.gallo@rappi.com', type:'team', note:'Reunion sobre flujo cancelaciones aliados producto no disponible. Organiza Daniel Gallo. Con JP, jdelgado y ymartinez (declino OOO). Creada 10 Sep.' },
+    { time:'10:30-11:00', title:'OFFLINE - Daily Automations', attendees:20, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones PRESENCIAL. JP es opcional. Con Angie Panadero, Gregson Murcia, Joan Bermudez, David Leon, Juan Esquivel, Jonathan Munoz, Manuel Gruezo y equipo.' },
+    { time:'11:00-12:00', title:'Promts Food Live', attendees:3, org:'stephania.gonzalez@rappi.com', type:'team', note:'Sesion de prompts Food Live con Stephania Gonzalez y Diego Aguo. Creada 10 Sep.' },
     { time:'12:30-13:00', title:'Diagnostico JTBD: AI Agents Merchants', attendees:6, org:'jessica.torres@rappi.com', type:'team', note:'Sesion de diagnostico JTBD sobre AI Agents para Merchants. Organiza Jessica Torres. Con Elias Rivera, JP, Guadalupe Martinez, Stephania Gonzalez y Esbeydi Reynoso. Creada 2 Sep.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly de QA AI con Mafe Granada, Catalina Symonds, Jessica Torres, Meiker Munera, Angela Osuna, Susana Paniagua y Guadalupe Martinez.' }
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:8, org:'m.granada@rappi.com', type:'team', note:'Weekly de QA AI con Mafe Granada, Catalina Symonds, Jessica Torres, Meiker Munera, Angela Osuna, Susana Paniagua y Guadalupe Martinez.' },
+    { time:'15:00-15:45', title:'Meiker Alexander / Juan Pablo', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'1:1 JP organiza con Meiker Munera. Creado hoy Vie 11 Sep.' }
   ]
 };
 
 const NOTES = [
+  {
+    id:163, title:'Viernes 11 Sep — Cancelaciones Aliados + Promts Food Live + JTBD + QA AI + 1:1 Meiker',
+    date:'11 Sep',
+    summary:'VIE 11 SEP — DIA ACTIVO (HOY). (1) DAYLI NUEVO ARBOL SOPORTE (09:00-09:30): Daily con Maria Dorantes y equipo. Andres DLC acepto, Cristian Parada declino. (2) FLUJO CANCELACIONES ALIADOS (09:30-10:00): Reunion con Daniel Gallo, jdelgado y JP sobre flujo de cancelaciones aliados producto no disponible. ymartinez declino (OOO). (3) OFFLINE DAILY AUTOMATIONS (10:30-11:00): Daily presencial de automatizaciones con Cristian Parada y equipo. (4) PROMTS FOOD LIVE (11:00-12:00): Sesion con Stephania Gonzalez y Diego Aguo sobre prompts Food Live. (5) DIAGNOSTICO JTBD AI AGENTS MERCHANTS (12:30-13:00): Sesion de diagnostico Jobs To Be Done para AI Agents Merchants con Jessica Torres, Elias Rivera, Guadalupe Martinez, Steph Gonzalez y Esbeydi Reynoso. (6) WEEKLY QA AI (14:00-14:30): QA AI semanal con Mafe Granada, Catalina Symonds, Jessica Torres, Meiker, Angela Osuna, Susana Paniagua y Guadalupe. (7) 1:1 MEIKER (15:00-15:45): 1:1 JP organiza con Meiker Munera. (8) SLACK ACTIVO: JP publicando en #cx-prod-eng-leads specs completas para integracion Assembled — objeto API, copies ES/PT, manejo de errores, abandono, salidas automatizadas/handoff. Steph reporta casos que no aparecen en Assembled.',
+    sections: [
+      'Flujo cancelaciones aliados (09:30-10:00): Daniel Gallo — specs flujo producto no disponible',
+      'Promts Food Live (11:00-12:00): Steph + Diego Aguo — prompts produccion Food',
+      'JTBD Diagnostico AI Agents Merchants (12:30-13:00): Jessica Torres + equipo CX',
+      'Slack #cx-prod-eng-leads (10:26-10:41): JP define specs Assembled — store_id, country, language, surface, 7 categorias estructuradas, copies ES/PT, manejo errores/abandono'
+    ],
+    actions: [
+      { text: 'Validar specs Assembled enviadas en #cx-prod-eng-leads con Cristian Zapata — confirmar implementacion', owner: 'JP', due: 'Vie 11' },
+      { text: 'Revisar casos reportados por Steph que no aparecen en Assembled (IDs: 6aa2d8d3, 6aa2bff1, 6aa35951, 6aa2cb91, 6aa316a1, 6aa32fcd)', owner: 'JP+Steph', due: 'Hoy' },
+      { text: 'Cerrar JTBD Diagnostico AI Agents con Jessica Torres y documentar hallazgos', owner: 'JP+Jessica', due: 'Vie 11' },
+      { text: 'Revisar notas y outputs QA AI semanal con Mafe', owner: 'JP', due: 'Vie 11' }
+    ]
+  },
+  {
+    id:161, title:'Jueves 10 Sep — CX Design Review + Assembled Sync + AI Focus + Weekly Merchants',
+    date:'10 Sep',
+    summary:'JUE 10 SEP — DIA CARGADO DE REUNIONES. (1) DAYLI NUEVO ARBOL SOPORTE (09:00-09:30): Daily con Maria Dorantes y equipo. (2) CX DESIGN REVIEW (09:00-09:45): Review semanal de diseno CX con Andres DLC, Angela Osuna, Cristian Parada, Daniel Trejos, Anna Habermann y Mafe Granada. Notas Gemini y grabacion adjuntas en Drive. (3) ASSEMBLED ASSIST <> RAPPI WEEKLY SYNC (10:00-10:30): Sync semanal con Assembled (Monica). Con m.granada, Meiker, JP, Adney y Indira Esquivel. Agenda: Implementation Plan y Notes doc. Win de Assembled declino (OOO). Zoom call. (4) DAILY AUTOMATIONS (10:30-11:00): Standup automatizaciones. m.granada declino. (5) AI FOCUS TIME (14:15-16:45): Bloque de trabajo profundo AI. (6) 1:1 STEPHANIA (14:30-15:00): 1:1 con Steph creada hoy 10 Sep. (7) WEEKLY MERCHANTS AUTOMATIZACIONES/PROCESOS (17:00-18:00): Reunion semanal con Esbeydi, Maria Dorantes, Elias Rivera, Diego Sanchez, Diego Aguo, Steph Gonzalez. Calendario de flujos de revision.',
+    sections: [
+      'CX Design Review (09:00-09:45): Andres DLC lidera — diseño CX, grabacion y Gemini en Drive',
+      'Assembled Sync (10:00-10:30): Monica + Adney — Implementation Plan y progreso integracion',
+      'AI Focus Time (14:15-16:45): Trabajo profundo en proyectos AI',
+      'Weekly Merchants (17:00-18:00): Esbeydi — revision flujos automatizacion segun calendario'
+    ],
+    actions: [
+      { text: 'Revisar notas Gemini CX Design Review en Drive y hacer seguimiento action items', owner: 'JP', due: 'Jue 10' },
+      { text: 'Actualizar Implementation Plan Assembled con output del sync semanal', owner: 'JP', due: 'Jue 10' },
+      { text: 'Documentar outputs AI Focus Time y definir proximos pasos', owner: 'JP', due: 'Vie 11' },
+      { text: 'Confirmar flujos revisados en Weekly Merchants con Esbeydi', owner: 'JP+Esbeydi', due: 'Vie 11' }
+    ]
+  },
   {
     id:159, title:'Miercoles 9 Sep — CX WBR + AI Non Food Focus + 1:1 Steph + Placeholders City',
     date:'9 Sep',
@@ -3193,6 +3232,11 @@ const DEFAULT_TASKS = [
   { id:'t1420', text:'[P0 HOY MIE] RESOLVER PLACEHOLDERS CITY_ID/CITY EN FLUJO AI: Diego Mesa identifico missing placeholders city_id y city. Endpoint PROD_retrieve_information_city encontrado. Coordinar con Diego implementacion y validacion. Prioridad bloqueante para flujo AI Non Food.', phase:'build', priority:'P0', source:'Slack DM Diego Mesa Mie 9 Sep 15:46-16:45', day:'wed', completed:false },
   { id:'t1412', text:'[P0 JUE] CX DESIGN REVIEW (09:00-09:45): Revision semanal de diseno CX con Andres DLC y equipo. Preparar materiales. Notas Gemini adjuntas. Con Angela Osuna, Daniel Trejos, Anna Habermann y Mafe Granada.', phase:'design', priority:'P0', source:'Calendario Jue 10 Sep 09:00', day:'thu', completed:false },
   { id:'t1413', text:'[P0 JUE] ASSEMBLED ASSIST WEEKLY SYNC (10:00-10:30): Sync con Monica de Assembled. Traer status Implementation Plan, avance endpoint horarios y next steps.', phase:'build', priority:'P0', source:'Calendario Jue 10 Sep 10:00', day:'thu', completed:false },
+  { id:'t1421', text:'[P0 HOY VIE] CONFIRMAR SPECS ASSEMBLED CON CRISTIAN ZAPATA: JP envio specs completas en #cx-prod-eng-leads (10:41). Confirmar recepcion con Cris, acordar cronograma implementacion y resolver dudas sobre objeto API, categorias, copies y manejo de errores.', phase:'build', priority:'P0', source:'Slack #cx-prod-eng-leads Vie 11 Sep 10:41', day:'fri', completed:false },
+  { id:'t1422', text:'[P0 HOY VIE] INVESTIGAR CASOS ASSEMBLED QUE NO APARECEN (STEPH): Steph reporto 6 casos no visibles: 6aa2d8d3, 6aa2bff1, 6aa35951, 6aa2cb91, 6aa316a1, 6aa32fcd. Identificar causa raiz y dar respuesta a Steph hoy.', phase:'build', priority:'P0', source:'Slack DM Steph Vie 11 Sep 09:52-09:54', day:'fri', completed:false },
+  { id:'t1423', text:'[P1 HOY VIE] FLUJO CANCELACIONES ALIADOS (09:30-10:00): Reunion con Daniel Gallo sobre flujo producto no disponible — 6 casos identificados. Definir alcance y siguiente paso.', phase:'build', priority:'P1', source:'Calendario Vie 11 Sep 09:30', day:'fri', completed:false },
+  { id:'t1424', text:'[P1 HOY VIE] PROMTS FOOD LIVE (11:00-12:00): Sesion con Steph y Diego Aguo sobre prompts Food Live en produccion. Validar y refinar prompts para fase live.', phase:'build', priority:'P1', source:'Calendario Vie 11 Sep 11:00', day:'fri', completed:false },
+  { id:'t1425', text:'[P2 HOY VIE] 1:1 MEIKER MUNERA (15:00-15:45): 1:1 organizado por JP con Meiker. Revisar status proyectos, QA bots y coordinacion equipos.', phase:'build', priority:'P2', source:'Calendario Vie 11 Sep 15:00', day:'fri', completed:false },
   { id:'t1414', text:'[P0 VIE] DIAGNOSTICO JTBD: AI AGENTS MERCHANTS (12:30-13:00): Sesion organizada por Jessica Torres. Preparar contexto sobre AI Agents para Merchants. Con Elias Rivera, Guadalupe Martinez, Steph y Esbeydi.', phase:'discovery', priority:'P0', source:'Calendario Vie 11 Sep 12:30', day:'fri', completed:false },
   { id:'t1415', text:'[P0 VIE] WEEKLY QA AI (14:00-14:30): Review semanal con Mafe, Catalina, Jessica, Meiker, Susana y Guadalupe. Llevar status bots esta semana.', phase:'qa', priority:'P0', source:'Calendario Vie 11 Sep 14:00', day:'fri', completed:false },
   { id:'t1416', text:'[P1 JUE] WEEKLY MERCHANTS - AUTOMATIZACIONES/PROCESOS (17:00-18:00): Revision semanal de flujos de automatizacion con Esbeydi. Con Maria Dorantes, Mariapia Lindley, Elias Rivera, Steph y equipo. Llevar avance semana.', phase:'build', priority:'P1', source:'Calendario Jue 10 Sep 17:00', day:'thu', completed:false },
@@ -3221,29 +3265,27 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d1290', text:'IMPLEMENTACION CANCELATION_REASON — CAMILO ESQUIVEL: Camilo trabajando en cambios a endpoint cancelaciones — support_reasons_ids, rappisFault, y construccion de objeto. JP coordina decision final de arquitectura. DM activo hoy Mar 8 Sep.', owner:'Camilo Esquivel', source:'Slack DM Camilo Esquivel Mar 8 Sep 16:43', status:'EN PROGRESO — DM activo, decision pendiente hoy' },
-  { id:'d1291', text:'TESTING FLUJOS MI TIENDA + CANCELACIONES — STEPH GONZALEZ: Steph probo cambio de horario desde flujo Mi Tienda — quedo check (Mar 8 16:44). Pendiente: testing cancelaciones y deuda debt. JP activo en DM con Steph para coordinar.', owner:'Stephania Gonzalez', source:'Slack DM Steph Mar 8 Sep 16:44-16:54', status:'EN PROGRESO — Horario OK, pendiente cancelaciones y deuda debt' },
-  { id:'d1281', text:'PROYECTOS FLUJOS MX — ESBEYDI REYNOSO: Proyectos priorizados con Esbeydi. Reunion Data Food Mar 8 17:00 para avanzar. Orden de prioridad: 1) Food Live Phase 2, 2) Order Status, 3) Legal, 4) Payments Non Food, 5) Registration/Store issues.', owner:'Esbeydi Reynoso', source:'Proyectos Esbeydi + Calendario Mar 8 Data Food', status:'EN PROGRESO — Data Food hoy Mar 8 17:00, avanzar orden prioridades' },
-  { id:'d1282', text:'ENDPOINT HORARIO ASSEMBLED (1 CALL POR DIA) — MANUEL GRUEZO: Arquitectura confirmada — store_schedules_custom acepta 1 dia por peticion. Para semana completa: N llamadas encadenadas (~100ms c/u) o batch endpoint a core-services. JP decide antes del sync Assembled Jue 10.', owner:'Manuel Gruezo', source:'Slack DM Manuel Gruezo Lun 31 19:08', status:'ACLARACION RECIBIDA — Decidir arquitectura antes de Assembled Jue 10' },
-  { id:'d1261', text:'QA BOTS — JESSICA TORRES / QA TEAM: QA de bots en progreso. Gaps DSAT pendientes: Payments/Compensaciones (bundle wrong product, evidencia proactiva ignorada, loop infinito) y My Store Does Not Appear (routing mismatch). Resultado esperado en Weekly QA AI Vie 11 Sep.', owner:'Jessica Torres / QA Team', source:'#ai-automations + Weekly QA AI Vie 11 Sep', status:'EN PROGRESO — Resultados esperados en Weekly QA AI Vie 11 Sep' },
-  { id:'d1293', text:'ENDPOINT CITY_ID/CITY — DIEGO MESA: Diego investigando endpoint PROD_retrieve_information_city para resolver missing placeholders city_id y city en flujo AI Non Food. Encontro curl city-addresses/by-ids. JP pendiente de confirmar integracion en flujo.', owner:'Diego Mesa', source:'Slack DM Diego Mesa Mie 9 Sep 15:46-16:45', status:'EN PROGRESO — Diego investigando, JP pendiente de integrar endpoint en flujo AI' },
-  { id:'d1292', text:'ASSEMBLED IMPLEMENTATION PLAN — MONICA ASSEMBLED: Sync semanal Jue 10 10:00. Traer status avance endpoint horarios y next steps. Monica y Adney de Assembled coordinan. Documento compartido en Drive.', owner:'Monica (Assembled)', source:'Calendario Jue 10 Sep Assembled Sync', status:'PENDIENTE SYNC JUE 10 — Preparar status Implementation Plan' },
-  { id:'d1285', text:'VISIBILIDAD ACCESS PORTAL PARTNERS — JESSICA TORRES: JP prometio coordinar visibilidad de ~3000 casos "access to portal partners" que no aparecen en PBI/Snowflake. Jessica fue taggeada en #incident-management-process. Pendiente confirmar que tiene acceso y datos.', owner:'Jessica Torres / Stephania Gonzalez', source:'Slack DM Jessica Torres Jue 3 Sep 17:00', status:'PENDIENTE CONFIRMACION — Verificar que Jessica tiene visibilidad en datos' }
+  { id:'d1295', text:'IMPLEMENTACION SPECS ASSEMBLED — CRISTIAN ZAPATA: JP envio specs completas en #cx-prod-eng-leads Vie 11 10:41: objeto API (store_id, country, language, surface, 7 categorias), copies ES/PT, manejo errores/abandono, max_turns, automated_empty. Cristian Zapata debe implementar. JP pendiente de confirmar recepcion y cronograma.', owner:'Cristian Zapata', source:'Slack #cx-prod-eng-leads Vie 11 Sep 10:41', status:'PENDIENTE IMPLEMENTACION — Specs enviadas hoy, confirmar con Cris cronograma' },
+  { id:'d1296', text:'CASOS ASSEMBLED QUE NO APARECEN — STEPH GONZALEZ: Steph reporta 6 casos que no se muestran en Assembled (IDs: 6aa2d8d3, 6aa2bff1, 6aa35951, 6aa2cb91, 6aa316a1, 6aa32fcd). Caso adicional: orden no aparece en app (mi tienda y shopper). JP pendiente de investigar origen del bug.', owner:'Stephania Gonzalez', source:'Slack DM Steph Vie 11 Sep 09:10-09:54', status:'BLOQUEANTE — Investigar por que casos no aparecen en Assembled' },
+  { id:'d1290', text:'IMPLEMENTACION CANCELATION_REASON — CAMILO ESQUIVEL: Arquitectura acordada (Mar 8): support_reasons_ids, rappisFault, construccion de objeto. Camilo implementando. Pendiente confirmar deploy y testing.', owner:'Camilo Esquivel', source:'Slack DM Camilo Esquivel Mar 8 Sep 16:43', status:'EN PROGRESO — Arquitectura acordada, pendiente confirmar deploy' },
+  { id:'d1281', text:'PROYECTOS FLUJOS — ESBEYDI REYNOSO: Prioridades: 1) Food Live Phase 2 (Promts Food Live Vie 11 11:00), 2) Order Status, 3) Legal, 4) Payments Non Food, 5) Registration/Store issues. Weekly Merchants Automatizaciones revisado Jue 10.', owner:'Esbeydi Reynoso', source:'Proyectos Esbeydi + Weekly Merchants Jue 10', status:'EN PROGRESO — Promts Food Live hoy Vie 11, avanzar Food Live Phase 2' },
+  { id:'d1261', text:'QA BOTS — JESSICA TORRES / QA TEAM: QA de bots con resultados en Weekly QA AI hoy Vie 11 14:00. Gaps DSAT: Payments/Compensaciones y My Store Does Not Appear. Diagnostico JTBD AI Agents Merchants tambien hoy 12:30.', owner:'Jessica Torres / QA Team', source:'Weekly QA AI + JTBD Vie 11 Sep', status:'REUNION HOY 14:00 — Weekly QA AI Vie 11, traer resultados' },
+  { id:'d1293', text:'ENDPOINT CITY_ID/CITY — DIEGO MESA: Diego investigo PROD_retrieve_information_city. JP pendiente de confirmar integracion en flujo AI Non Food.', owner:'Diego Mesa', source:'Slack DM Diego Mesa Mie 9 Sep 15:46-16:45', status:'EN PROGRESO — Confirmar integracion endpoint en flujo AI' }
 ];
 const SLACK_FEED = [
-  { from: 'Diego Mesa → JP (DM)', text: 'MISSING PLACEHOLDERS CITY_ID/CITY EN FLUJO AI (Mie 9 15:46-16:45): Diego reporta placeholders faltantes: city_id, city. JP confirma que buscar por nombre es problematico. Diego encuentra endpoint PROD_retrieve_information_city y curl: POST internal-microservices.dev.rappi.com/api/ms/city-addresses/by-ids con city_ids. Conversacion activa para resolver bloqueo AI Non Food.', time: 'Mie 9 15:46-16:45', type: 'dm', actionable: true },
-  { from: 'JP → Camilo Esquivel (DM)', text: 'COORDINACION ENDPOINT CANCELACION (Mie 9 / Mar 8 16:43-16:53): JP y Camilo coordinando cambios en cancelation_reason, support_reasons_ids y rappisFault. Camilo implementando objeto con firma de endpoint. JP: "si ese se ve bien". Conversacion cerrada con acuerdo de arquitectura.', time: 'Mar 8 16:43-16:53', type: 'dm', actionable: false },
-  { from: 'Stephania → JP (DM)', text: 'TESTING HORARIO MI TIENDA OK (Mar 8 16:44): Steph: "probe lo de cambiar el horario desde el flujo de mi tienda y si quedo check". Reporta issue posterior en vistas live. JP coordina fix cancelaciones y deuda debt. Steph activa en testing flujos Merchants AI.', time: 'Mar 8 16:44-16:54', type: 'dm', actionable: true },
-  { from: 'Camilo Esquivel → JP (DM)', text: 'DECISION ARQUITECTURA CANCELACION (Mar 8 16:51): Camilo: "tambien support_reasons_ids y en si construir un objeto parecido a la firma de arriba" + "si, ese es uno y rappisFault". Arquitectura endpoint cancelaciones coordinada.', time: 'Mar 8 16:51-16:53', type: 'dm', actionable: false },
-  { from: 'Jessica Torres → JP (DM)', text: 'VISIBILIDAD ACCESS PORTAL PARTNERS (Jue 3 Sep 17:00): ~3000 casos "access to portal partners" con workflow propio no visibles en PBI/Snowflake. JP prometio coordinar visibilidad y FYI en #incident-management-process. Pendiente confirmar acceso de Jessica.', time: 'Jue 3 Sep 17:00', type: 'dm', actionable: true },
-  { from: 'Manuel Gruezo → JP (DM)', text: 'ARQUITECTURA ENDPOINT HORARIOS (Lun 31 19:08): store_schedules_custom acepta UN dia por peticion. Para semana completa: N llamadas encadenadas (~100ms c/u). En festivos acepta array. Backend rechaza solapamiento (400 error). Batch alternativa via core-services.', time: 'Lun 31 19:08', type: 'dm', actionable: true }
+  { from: 'JP → #cx-prod-eng-leads', text: 'SPECS ASSEMBLED INTEGRACION (Vie 11 10:41): JP publica specs completas para bot Assembled. Objeto API: store_id, country, language, surface + 7 categorias estructuradas (rt_sin_asignar, consulta_estado_orden, producto_no_disponible, pedido_no_aparece, solicitud_reprogramar, aliado_solicita_cancelar, unrelated_topic). Copies ES/PT para todos los estados. Salidas: automated (sin CSAT por incidente agosto), handoff directo a agente con transcript, errores→legacy sin copy. Abandono: cierre explicitamente en Assembled.', time: 'Vie 11 10:41', type: 'channel', actionable: true },
+  { from: 'Stephania → JP (DM)', text: 'CASOS NO APARECEN EN ASSEMBLED (Vie 11 09:10-09:54): Steph reporta casos que no se muestran: 6aa2d8d3, 6aa2bff1, 6aa35951, 6aa2cb91, 6aa316a1, 6aa32fcd. Ademas casos de orden no aparece en app (mi tienda y shopper). Pregunta si necesita TODAS las de producto no disponible.', time: 'Vie 11 09:10-09:54', type: 'dm', actionable: true },
+  { from: 'Andres DLC → JP (GroupDM)', text: 'MUCHAS GRACIAS JUAN (Vie 11 09:10): Andres De Las Casas agradece a JP en GroupDM con Meiker Munera. Contexto: posible seguimiento de trabajo de semana o resultado de CX Design Review Jue.', time: 'Vie 11 09:10', type: 'dm', actionable: false },
+  { from: 'JP → #cx-prod-eng-leads', text: 'FLUJOS ASSEMBLED DEV+PROD (Vie 11 10:28): JP comparte links a workflows Assembled: DEV (24e8fcef-84ad-4f3c-9bac-65ccbd85c8c0) y PROD (038db1ac-aec7-4b17-92d7-8f25c06c3be5). Para revision de Cristian Zapata antes de implementar cambios de specs.', time: 'Vie 11 10:28', type: 'channel', actionable: false },
+  { from: 'Diego Mesa → JP (DM)', text: 'MISSING PLACEHOLDERS CITY_ID/CITY EN FLUJO AI (Mie 9 15:46-16:45): Diego encuentra endpoint PROD_retrieve_information_city y curl city-addresses/by-ids. JP confirma busqueda por nombre poco confiable, prefiere variable directa del sistema. Issue bloqueante AI Non Food pendiente de integracion.', time: 'Mie 9 15:46-16:45', type: 'dm', actionable: true },
+  { from: 'JP → Daniel Gallo (DM)', text: 'FLUJO CANCELACIONES ALIADOS — 6 CASOS (Vie 11 10:13): JP responde a Daniel Gallo confirmando "serian esas 6" — coordinando alcance del flujo de cancelaciones aliados producto no disponible. Reunion hoy 09:30.', time: 'Vie 11 10:13', type: 'dm', actionable: false }
 ];
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:00', '11:00-13:00', '14:00-16:00', '17:00-18:00'] },
   { day: 'Mar', blocks: ['8:00-9:00', '9:30-10:30', '11:00-13:00', '16:00-17:00'] },
   { day: 'Mie', blocks: ['8:00-9:00', '9:30-10:30', '12:00-13:00', '14:00-14:30', '15:30-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-17:00'] },
-  { day: 'Vie', blocks: ['8:00-9:00', '9:30-10:30', '11:00-12:30', '14:30-18:00'] }
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:15-14:30', '15:00-17:00'] },
+  { day: 'Vie', blocks: ['8:00-9:00', '10:00-10:30', '13:00-14:00', '14:30-15:00', '15:45-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
 const PHASE_LABELS = { discovery:'Discovery', design:'Design', build:'Build', qa:'QA', metrics:'Metrics' };
