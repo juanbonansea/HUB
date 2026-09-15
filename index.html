@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 14-18 Sep 2026 · Actualizado 15 Sep 14:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 14-18 Sep 2026 · Actualizado 15 Sep 17:15 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1495,7 +1495,7 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Daily Automations', attendees:18, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'12:30-13:00', title:'Diagnostico JTBD: AI Agents Merchants', attendees:6, org:'jessica.torres@rappi.com', type:'team', note:'Sesion de diagnostico JTBD sobre AI Agents para Merchants. Organiza Jessica Torres. Con Elias Rivera, Guadalupe Martinez y Stephania Gonzalez.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'08:00-08:50', title:'Workshop Bot Soporte', attendees:12, org:'jdelgado@rappi.com', type:'team', note:'Workshop sobre sincronizacion bot-negocio. Organiza Juan Delgado. Agenda: flujos bot-negocio bidireccionales (negocio hacia bot y bot hacia negocio con feedback), input metrics para alertar comportamiento incorrecto del bot. Con Andres DLC, Daniela Marquez, Sergio Cruz, Meiker Munera y equipo.' },
+    { time:'15:00-15:50', title:'Workshop Bot Soporte', attendees:12, org:'jdelgado@rappi.com', type:'team', note:'Workshop sobre sincronizacion bot-negocio. Organiza Juan Delgado. Agenda: flujos bot-negocio bidireccionales (negocio hacia bot y bot hacia negocio con feedback), input metrics para alertar comportamiento incorrecto del bot. Con Andres DLC, Daniela Marquez, Sergio Cruz, Meiker Munera y equipo.' },
     { time:'17:00-18:00', title:'Weekly Merchants - Automatizaciones/Procesos', attendees:10, org:'esbeydi.reynoso@rappi.com', type:'team', note:'Weekly Merchants de automatizaciones y procesos. Organiza Esbeydi Reynoso. Con Maria Dorantes, Mariapia Lindley, Elias Rivera, Diego Sanchez, Lina Santos, Diego Aguo y Steph Gonzalez.' }
   ],
   fri: [
@@ -1508,6 +1508,24 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:166, title:'Martes 15 Sep — Portal EC + Quality Pod Fix + Workshop Jue 15:00 + JTBD Mozzart (Segunda sesion)',
+    date:'15 Sep',
+    summary:'MAR 15 SEP 2026 — SEGUNDA SESION 17:15 COT. Gmail no disponible (reautorizar en claude.ai conectores). ACTIVIDAD MANANA: JP valida portal EC en #temp-portal-unificado-dts-handoff-mozart — Suspensiones OK, Integraciones OK, Acceso Portal OK. PROBLEMA DETECTADO: Automatizacion "Mi tienda no aparece" en portal EC no enruta correctamente al bot — JP propone ir directo a Assembled. QUALITY POD: Andres DLC pide ayuda con casos en sheets #quality_pod. JP responde que esta finalizando todos los fixes hoy — empezaron desde ayer 4pm. Daniel Gallo pregunta por casos pendientes (incluyendo uno que no sabe de donde viene). STEPH: Comparte ordenes UY 6574613 para revision via lupe.rappi.com + confirma forms listo (12:52). WORKSHOP BOT SOPORTE CORREGIDO: Es JUE 15:00-15:50 COT con Juan Delgado. PROXIMAS REUNIONES HOY: 1:1 Mafe Granada 14:00, 1:1 Andres DLC 15:30, Alineemos JTBD Merchants Mozzart 16:30 con Jessica Torres.',
+    sections: [
+      'Portal EC: Automatizacion "Mi tienda no aparece" no enruta al bot — propuesta ir directo a Assembled (coordinar con tech)',
+      'Quality Pod fix: JP cerrando todos los casos del sheets hoy — fixes desde ayer 4pm segun Juan Delgado',
+      'Workshop Bot Soporte JUE 15:00-15:50 COT con Juan Delgado — preparar flujos bidireccionales e input metrics',
+      'JTBD Merchants Mozzart HOY 16:30 con Jessica Torres, Elias Rivera y Guadalupe Martinez'
+    ],
+    actions: [
+      { text: 'Escalar bug "Mi tienda no aparece" Portal EC: routing directo a Assembled — coordinar con tech', owner: 'JP', due: 'Mar 15' },
+      { text: 'JTBD Merchants Mozzart sesion 16:30 — preparar contexto y Jobs To Be Done', owner: 'JP', due: 'Mar 15' },
+      { text: '1:1 Mafe Granada 14:00 — llevar status semana y avances bots', owner: 'JP', due: 'Mar 15' },
+      { text: '1:1 Andres DLC 15:30 — status bots, next steps Workshop, quality pod update', owner: 'JP', due: 'Mar 15' },
+      { text: 'Preparar Workshop Bot Soporte JUE 15:00 COT — flujos bidireccionales e input metrics con Juan Delgado', owner: 'JP', due: 'Jue 17' }
+    ]
+  },
   {
     id:165, title:'Semana 14-18 Sep — Workshop Bot Soporte + JTBD Merchants + Evals Tool + Eagle Eye',
     date:'15 Sep',
@@ -3241,6 +3259,7 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
+  { id:'t1513', text:'[P0 HOY MAR] PORTAL EC "MI TIENDA NO APARECE": Automatizacion en portal EC no enruta correctamente al bot cuando merchant busca su tienda. JP detecto en #temp-portal-unificado-dts-handoff-mozart. Propuesta: ir directo a Assembled en lugar de automatizacion actual. Coordinar fix con equipo tech o Assembled.', phase:'build', priority:'P0', source:'Slack #temp-portal-unificado-dts-handoff-mozart Mar 15 10:53', day:'tue', completed:false },
   { id:'t1501', text:'[P0 HOY MAR] ALINEAR JTBD MERCHANTS MOZZART (16:30-17:00): Sesion con Jessica Torres, Elias Rivera y Guadalupe Martinez. Definir Jobs To Be Done para Merchants en plataforma Mozzart. Preparar contexto sobre flujos actuales.', phase:'discovery', priority:'P0', source:'Calendario Mar 15 Sep 16:30', day:'tue', completed:false },
   { id:'t1502', text:'[P0 HOY MAR] 1:1 MAFE GRANADA (14:00-14:30): 1:1 semanal. Llevar status flujos Merchants, avances semana anterior y prioridades. Preguntar por Workshop Bot Soporte Jue.', phase:'build', priority:'P0', source:'Calendario Mar 15 Sep 14:00', day:'tue', completed:false },
   { id:'t1503', text:'[P0 HOY MAR] 1:1 ANDRES DE LAS CASAS (15:30-16:00): 1:1 con Andres DLC. Traer: status bots semana, proyectos activos, next steps Workshop Bot Soporte Jue.', phase:'build', priority:'P0', source:'Calendario Mar 15 Sep 15:30', day:'tue', completed:false },
@@ -3276,21 +3295,24 @@ const DEFAULT_DELEGATED = [
   { id:'d1303', text:'ENDPOINT ASSEMBLED — DIEGO MESA: Diego Mesa agrego endpoint PROD_assign_rt en Assembled luego de confirmacion. Verificar que endpoints esten correctamente integrados en flujos activos.', owner:'Diego Mesa', source:'Slack DM Diego Mesa Lun 14 Sep 16:01-17:58', status:'COMPLETADO — Verificar integracion en flujos activos' },
   { id:'d1304', text:'FLUJO RE ASIGNAR RT — STEPHANIA GONZALEZ: Reunion Lun 14 con Juan Guzman y Elias Rivera completada. Stephania lidera implementacion del flujo de re-asignacion de RT. Pendiente documentacion e implementacion.', owner:'Stephania Gonzalez', source:'Calendario Lun 14 Sep 16:00', status:'EN PROGRESO — Reunion completada, pendiente implementacion' },
   { id:'d1305', text:'JTBD MERCHANTS MOZZART — JESSICA TORRES: Jessica Torres organizo sesion JTBD Merchants Mozzart hoy Mar 15 16:30. Con Elias Rivera y Guadalupe Martinez. Definir Jobs To Be Done para flujos Merchants.', owner:'Jessica Torres', source:'Calendario Mar 15 Sep 16:30', status:'REUNION HOY 16:30 — Definir JTBD Merchants con Jessica Torres' },
-  { id:'d1306', text:'WORKSHOP BOT SOPORTE — JUAN DELGADO: Juan Delgado organiza Workshop Bot Soporte Jue 17 08:00 COT. Agenda: sincronizacion bidireccional bot-negocio e input metrics. JP debe preparar contenido y ejemplos.', owner:'Juan Delgado', source:'Calendario Jue 17 Sep 08:00 COT', status:'REUNION JUE 08:00 COT — Preparar flujos bidireccionales e input metrics' }
+  { id:'d1306', text:'WORKSHOP BOT SOPORTE — JUAN DELGADO: Juan Delgado organiza Workshop Bot Soporte Jue 17 15:00-15:50 COT. Agenda: sincronizacion bidireccional bot-negocio e input metrics. JP debe preparar contenido y ejemplos.', owner:'Juan Delgado', source:'Calendario Jue 17 Sep 15:00 COT', status:'REUNION JUE 15:00 COT — Preparar flujos bidireccionales e input metrics' },
+  { id:'d1307', text:'PORTAL EC BUG "MI TIENDA NO APARECE" — EQUIPO TECH/ASSEMBLED: JP detecto que la automatizacion del portal EC no enruta al bot correctamente cuando el merchant busca "Mi tienda no aparece". Propuesta de JP: ir directo a Assembled. Requiere coordinacion con equipo tech para fix del routing.', owner:'Equipo Tech / Assembled', source:'Slack #temp-portal-unificado-dts-handoff-mozart Mar 15 10:53', status:'DETECTADO HOY MAR 15 — Coordinar fix routing con tech o Assembled' },
+  { id:'d1308', text:'CASOS QUALITY POD — DANIEL GALLO: Daniel Gallo pregunta por casos pendientes del sheets en quality pod, incluyendo uno donde no identifica el origen. JP esta cerrando todos hoy — fixes desde ayer 4pm segun reporte en #quality_pod.', owner:'Daniel Gallo', source:'Slack DM Daniel Gallo Mar 15 11:01-11:12', status:'EN PROGRESO — JP cerrando todos los casos hoy' }
 ];
 const SLACK_FEED = [
-  { from: 'Camilo Esquivel a JP (DM)', text: 'ENDPOINTS PAYMENT LISTOS (Lun 14 16:46): DEV_partner_payment_adjustment_order (requiere order_id) y DEV_partner_payment_transaction (requiere model_id, flow_name). Pendiente deploy prod. Pregunta si agregar filtro reference_id.', time: 'Lun 14 16:46', type: 'dm', actionable: true },
-  { from: 'Valeria Dorantes a JP (DM)', text: 'NUMEROS CONTACTO POR PAIS (Lun 14 17:02): Comparte numeros para pruebas Merchant: Argentina, Colombia, Peru, Mexico, Uruguay, Chile, Ecuador, Costa Rica. No tiene tiendas. JP confirma solo UY y EC disponibles.', time: 'Lun 14 17:02-17:22', type: 'dm', actionable: true },
-  { from: 'Diego Mesa a JP (DM)', text: 'ENDPOINT PROD_assign_rt AGREGADO EN ASSEMBLED (Lun 14 16:01-17:58): Diego confirma que no habia creado el endpoint en Assembled, lo agrega. JP habia pedido endpoint para cambiar horario de orden.', time: 'Lun 14 16:01', type: 'dm', actionable: false },
-  { from: 'Stephania Gonzalez a JP (DM)', text: 'ERRORES FLUJO CNS MERCHANTS (Lun 14 15:22-16:22): Steph identifica errores en flujo: Menu check, Horarios, Precios — todo de CNS. Detecta error especifico. JP: "todo es de CNS". Tema adicional: Jesus Cantillo — disciplina fraude.', time: 'Lun 14 15:22', type: 'dm', actionable: true },
-  { from: 'Diego Mesa a JP (DM)', text: 'ENDPOINTS AGREGADOS CONFIRMADO (Lun 14 17:58): Diego confirma "Listo inge, ya agregue los endpoints." — integracion de endpoints en Assembled completada.', time: 'Lun 14 17:58', type: 'dm', actionable: false },
-  { from: 'Sistema Hub', text: 'Hub actualizado Mar 15 Sep 14:00 COT. Workshop Bot Soporte corregido a 08:00-08:50 COT. Gmail requiere reautorizacion.', time: 'Mar 15 14:00', type: 'dm', actionable: false }
+  { from: 'Andres De Las Casas a JP (DM)', text: 'ME AYUDAS AQUI (Mar 15 11:36-12:34): Andres pide ayuda con thread en #quality_pod sobre casos en sheets. JP responde que esta revisando y finalizando todos los fixes hoy (empezaron ayer 4pm). Andres confirma: "Gracias!"', time: 'Mar 15 11:36', type: 'dm', actionable: false },
+  { from: 'Daniel Gallo a JP (DM)', text: 'CASOS PENDIENTES BOT (Mar 15 11:01-11:12): Daniel confirma "Listo!!!" pero pregunta "y los otros casos?" — incluyendo uno del que no sabe el origen. JP esta resolviendo en #quality_pod.', time: 'Mar 15 11:01', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez a JP (DM)', text: 'ORDENES + FORMS LISTO (Mar 15 10:44-12:52): Steph comparte orden UY 6574613 para revision via lupe.rappi.com. Luego confirma que el forms quedo listo y envia link de Google Forms.', time: 'Mar 15 10:44', type: 'dm', actionable: true },
+  { from: 'JP en #temp-portal-unificado-dts-handoff-mozart', text: 'VALIDACION PORTAL EC (Mar 15 10:53-11:03): JP valida — Suspensiones OK, Integraciones OK, Acceso Portal OK, ordenes UY separadas. Detecta: "Mi tienda no aparece" no enruta al bot correctamente. Propone ir directo a Assembled.', time: 'Mar 15 10:53', type: 'channel', actionable: true },
+  { from: 'JP en #quality_pod', text: 'FIX CASOS SHEETS (Mar 15 12:04): JP informa a jdelgado que reviso varios casos del sheets y los esta terminando de corregir — hoy quedan todos finalizados, fixes empezaron desde ayer 4pm.', time: 'Mar 15 12:04', type: 'channel', actionable: false },
+  { from: 'Camilo Esquivel a JP (DM)', text: 'ENDPOINTS PAYMENT LISTOS (Lun 14 16:46): DEV_partner_payment_adjustment_order y DEV_partner_payment_transaction. Pendiente deploy prod. Pregunta si agregar filtro reference_id.', time: 'Lun 14 16:46', type: 'dm', actionable: true },
+  { from: 'Sistema Hub', text: 'Hub actualizado Mar 15 Sep 17:15 COT. Workshop Bot Soporte corregido a 15:00-15:50 COT. Gmail requiere reautorizacion.', time: 'Mar 15 17:15', type: 'dm', actionable: false }
 ];
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:30-13:00', '14:00-16:00'] },
   { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-15:30', '17:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-15:00'] },
-  { day: 'Jue', blocks: ['11:00-12:30', '14:00-17:00'] },
+  { day: 'Mie', blocks: ['8:00-10:00', '12:00-13:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-12:30', '14:00-15:00', '15:50-17:00'] },
   { day: 'Vie', blocks: ['8:00-10:30', '11:00-13:00', '16:30-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
