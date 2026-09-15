@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 14-18 Sep 2026 · Actualizado 15 Sep 09:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 14-18 Sep 2026 · Actualizado 15 Sep 14:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1495,7 +1495,7 @@ const EVENTS = {
     { time:'10:30-11:00', title:'Daily Automations', attendees:18, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
     { time:'12:30-13:00', title:'Diagnostico JTBD: AI Agents Merchants', attendees:6, org:'jessica.torres@rappi.com', type:'team', note:'Sesion de diagnostico JTBD sobre AI Agents para Merchants. Organiza Jessica Torres. Con Elias Rivera, Guadalupe Martinez y Stephania Gonzalez.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:00-15:50', title:'Workshop Bot Soporte', attendees:12, org:'jdelgado@rappi.com', type:'team', note:'Workshop sobre sincronizacion bot-negocio. Organiza Juan Delgado. Agenda: flujos bot-negocio bidireccionales (negocio hacia bot y bot hacia negocio con feedback), input metrics para alertar comportamiento incorrecto del bot. Con Andres DLC, Daniela Marquez, Sergio Cruz, Meiker Munera y equipo.' },
+    { time:'08:00-08:50', title:'Workshop Bot Soporte', attendees:12, org:'jdelgado@rappi.com', type:'team', note:'Workshop sobre sincronizacion bot-negocio. Organiza Juan Delgado. Agenda: flujos bot-negocio bidireccionales (negocio hacia bot y bot hacia negocio con feedback), input metrics para alertar comportamiento incorrecto del bot. Con Andres DLC, Daniela Marquez, Sergio Cruz, Meiker Munera y equipo.' },
     { time:'17:00-18:00', title:'Weekly Merchants - Automatizaciones/Procesos', attendees:10, org:'esbeydi.reynoso@rappi.com', type:'team', note:'Weekly Merchants de automatizaciones y procesos. Organiza Esbeydi Reynoso. Con Maria Dorantes, Mariapia Lindley, Elias Rivera, Diego Sanchez, Lina Santos, Diego Aguo y Steph Gonzalez.' }
   ],
   fri: [
@@ -3246,7 +3246,7 @@ const DEFAULT_TASKS = [
   { id:'t1503', text:'[P0 HOY MAR] 1:1 ANDRES DE LAS CASAS (15:30-16:00): 1:1 con Andres DLC. Traer: status bots semana, proyectos activos, next steps Workshop Bot Soporte Jue.', phase:'build', priority:'P0', source:'Calendario Mar 15 Sep 15:30', day:'tue', completed:false },
   { id:'t1504', text:'[P0 HOY MAR] RESPONDER CAMILO ESQUIVEL: Endpoints DEV_partner_payment_adjustment_order y DEV_partner_payment_transaction listos pero pendientes deploy prod. Confirmar si agregar filtro reference_id. Coordinar fecha deploy.', phase:'build', priority:'P0', source:'Slack DM Camilo Esquivel Lun 14 Sep 16:46', day:'tue', completed:false },
   { id:'t1505', text:'[P0 MIE] LLEVAR STATUS A CX WBR (11:00-12:00): CX Weekly Business Review con Eugenio La Rosa y 53 personas. Llevar estado semana, metricas bots activos y avances AI Merchants.', phase:'build', priority:'P0', source:'Calendario Mie 16 Sep 11:00', day:'wed', completed:false },
-  { id:'t1506', text:'[P0 JUE] PREPARAR WORKSHOP BOT SOPORTE (15:00-15:50): Workshop con Juan Delgado y equipo. Preparar: 1) flujos bot sincronizados con negocio bidireccional (negocio hacia bot y bot da feedback a negocio), 2) input metrics para alertar cuando bot hace algo incorrecto. Llevar ejemplos concretos.', phase:'build', priority:'P0', source:'Calendario Jue 17 Sep 15:00 — Juan Delgado organiza', day:'thu', completed:false },
+  { id:'t1506', text:'[P0 JUE] PREPARAR WORKSHOP BOT SOPORTE (08:00-08:50 COT): Workshop con Juan Delgado y equipo. Preparar: 1) flujos bot sincronizados con negocio bidireccional (negocio hacia bot y bot da feedback a negocio), 2) input metrics para alertar cuando bot hace algo incorrecto. Llevar ejemplos concretos.', phase:'build', priority:'P0', source:'Calendario Jue 17 Sep 08:00 COT — Juan Delgado organiza', day:'thu', completed:false },
   { id:'t1507', text:'[P0 JUE] CX DESIGN REVIEW (09:00-09:45): Revision semanal de diseno CX con Andres DLC. Con Angela Osuna, Cristian Parada, Daniel Trejos, Anna Habermann, Mafe Granada. Preparar materiales.', phase:'design', priority:'P0', source:'Calendario Jue 17 Sep 09:00', day:'thu', completed:false },
   { id:'t1508', text:'[P0 JUE] DIAGNOSTICO JTBD AI AGENTS MERCHANTS (12:30-13:00): Sesion con Jessica Torres. Con Elias Rivera y Guadalupe Martinez. Preparar contexto sobre estado actual AI Agents Merchants y gaps identificados.', phase:'discovery', priority:'P0', source:'Calendario Jue 17 Sep 12:30', day:'thu', completed:false },
   { id:'t1509', text:'[P1 JUE] WEEKLY MERCHANTS AUTOMATIZACIONES (17:00-18:00): Reunion semanal con Esbeydi Reynoso. Con Maria Dorantes, Mariapia Lindley, Elias Rivera, Diego Sanchez, Diego Aguo y Steph Gonzalez. Llevar avance semana.', phase:'build', priority:'P1', source:'Calendario Jue 17 Sep 17:00', day:'thu', completed:false },
@@ -3276,20 +3276,21 @@ const DEFAULT_DELEGATED = [
   { id:'d1303', text:'ENDPOINT ASSEMBLED — DIEGO MESA: Diego Mesa agrego endpoint PROD_assign_rt en Assembled luego de confirmacion. Verificar que endpoints esten correctamente integrados en flujos activos.', owner:'Diego Mesa', source:'Slack DM Diego Mesa Lun 14 Sep 16:01-17:58', status:'COMPLETADO — Verificar integracion en flujos activos' },
   { id:'d1304', text:'FLUJO RE ASIGNAR RT — STEPHANIA GONZALEZ: Reunion Lun 14 con Juan Guzman y Elias Rivera completada. Stephania lidera implementacion del flujo de re-asignacion de RT. Pendiente documentacion e implementacion.', owner:'Stephania Gonzalez', source:'Calendario Lun 14 Sep 16:00', status:'EN PROGRESO — Reunion completada, pendiente implementacion' },
   { id:'d1305', text:'JTBD MERCHANTS MOZZART — JESSICA TORRES: Jessica Torres organizo sesion JTBD Merchants Mozzart hoy Mar 15 16:30. Con Elias Rivera y Guadalupe Martinez. Definir Jobs To Be Done para flujos Merchants.', owner:'Jessica Torres', source:'Calendario Mar 15 Sep 16:30', status:'REUNION HOY 16:30 — Definir JTBD Merchants con Jessica Torres' },
-  { id:'d1306', text:'WORKSHOP BOT SOPORTE — JUAN DELGADO: Juan Delgado organiza Workshop Bot Soporte Jue 17 15:00. Agenda: sincronizacion bidireccional bot-negocio e input metrics. JP debe preparar contenido y ejemplos.', owner:'Juan Delgado', source:'Calendario Jue 17 Sep 15:00', status:'REUNION JUE 15:00 — Preparar flujos bidireccionales e input metrics' }
+  { id:'d1306', text:'WORKSHOP BOT SOPORTE — JUAN DELGADO: Juan Delgado organiza Workshop Bot Soporte Jue 17 08:00 COT. Agenda: sincronizacion bidireccional bot-negocio e input metrics. JP debe preparar contenido y ejemplos.', owner:'Juan Delgado', source:'Calendario Jue 17 Sep 08:00 COT', status:'REUNION JUE 08:00 COT — Preparar flujos bidireccionales e input metrics' }
 ];
 const SLACK_FEED = [
   { from: 'Camilo Esquivel a JP (DM)', text: 'ENDPOINTS PAYMENT LISTOS (Lun 14 16:46): DEV_partner_payment_adjustment_order (requiere order_id) y DEV_partner_payment_transaction (requiere model_id, flow_name). Pendiente deploy prod. Pregunta si agregar filtro reference_id.', time: 'Lun 14 16:46', type: 'dm', actionable: true },
   { from: 'Valeria Dorantes a JP (DM)', text: 'NUMEROS CONTACTO POR PAIS (Lun 14 17:02): Comparte numeros para pruebas Merchant: Argentina, Colombia, Peru, Mexico, Uruguay, Chile, Ecuador, Costa Rica. No tiene tiendas. JP confirma solo UY y EC disponibles.', time: 'Lun 14 17:02-17:22', type: 'dm', actionable: true },
   { from: 'Diego Mesa a JP (DM)', text: 'ENDPOINT PROD_assign_rt AGREGADO EN ASSEMBLED (Lun 14 16:01-17:58): Diego confirma que no habia creado el endpoint en Assembled, lo agrega. JP habia pedido endpoint para cambiar horario de orden.', time: 'Lun 14 16:01', type: 'dm', actionable: false },
   { from: 'Stephania Gonzalez a JP (DM)', text: 'ERRORES FLUJO CNS MERCHANTS (Lun 14 15:22-16:22): Steph identifica errores en flujo: Menu check, Horarios, Precios — todo de CNS. Detecta error especifico. JP: "todo es de CNS". Tema adicional: Jesus Cantillo — disciplina fraude.', time: 'Lun 14 15:22', type: 'dm', actionable: true },
-  { from: 'JP a self (DM)', text: 'HUB ACTUALIZADO AYER (Lun 14 17:13): Sesion anterior actualizo Hub con agenda semana 14-18 Sep y action items. Nota tecnica: push bloqueado por proxy (repo no en sources autorizados de la sesion).', time: 'Lun 14 17:13', type: 'dm', actionable: false }
+  { from: 'Diego Mesa a JP (DM)', text: 'ENDPOINTS AGREGADOS CONFIRMADO (Lun 14 17:58): Diego confirma "Listo inge, ya agregue los endpoints." — integracion de endpoints en Assembled completada.', time: 'Lun 14 17:58', type: 'dm', actionable: false },
+  { from: 'Sistema Hub', text: 'Hub actualizado Mar 15 Sep 14:00 COT. Workshop Bot Soporte corregido a 08:00-08:50 COT. Gmail requiere reautorizacion.', time: 'Mar 15 14:00', type: 'dm', actionable: false }
 ];
 const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:30-13:00', '14:00-16:00'] },
   { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '14:30-15:30', '17:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00', '14:00-15:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-12:30', '14:00-15:00', '15:50-17:00'] },
+  { day: 'Jue', blocks: ['11:00-12:30', '14:00-17:00'] },
   { day: 'Vie', blocks: ['8:00-10:30', '11:00-13:00', '16:30-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
