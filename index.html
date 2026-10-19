@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 14-18 Sep 2026 · Actualizado 17 Sep 15:45 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 19-23 Oct 2026 · Actualizado 19 Oct 15:00 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1447,74 +1447,77 @@ function saveData() {
   }));
 }
 
-const DAYS = ['Lun 14','Mar 15','Mie 16','Jue 17','Vie 18'];
+const DAYS = ['Lun 19','Mar 20','Mie 21','Jue 22','Vie 23'];
 const DAY_KEYS = ['mon','tue','wed','thu','fri'];
-const DAY_NAMES_LONG = ['Lunes 14 Septiembre','Martes 15 Septiembre','Miercoles 16 Septiembre','Jueves 17 Septiembre','Viernes 18 Septiembre'];
-const DAY_DATES = [14,15,16,17,18];
+const DAY_NAMES_LONG = ['Lunes 19 Octubre','Martes 20 Octubre','Miercoles 21 Octubre','Jueves 22 Octubre','Viernes 23 Octubre'];
+const DAY_DATES = [19,20,21,22,23];
 
 // Dynamic today detection
 function getTodayIndex() {
   const now = new Date();
   const d = now.getDate();
-  const m = now.getMonth(); // 0-indexed, September=8
-  if (m === 8 && d === 14) return 0; // Lun 14 Sep
-  if (m === 8 && d === 15) return 1; // Mar 15 Sep
-  if (m === 8 && d === 16) return 2; // Mie 16 Sep
-  if (m === 8 && d === 17) return 3; // Jue 17 Sep
-  if (m === 8 && d === 18) return 4; // Vie 18 Sep
+  const m = now.getMonth(); // 0-indexed, October=9
+  if (m === 9 && d === 19) return 0; // Lun 19 Oct
+  if (m === 9 && d === 20) return 1; // Mar 20 Oct
+  if (m === 9 && d === 21) return 2; // Mie 21 Oct
+  if (m === 9 && d === 22) return 3; // Jue 22 Oct
+  if (m === 9 && d === 23) return 4; // Vie 23 Oct
   return -1; // outside this week
 }
 const TODAY_IDX = getTodayIndex();
 
 const EVENTS = {
   mon: [
-    { time:'09:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:12, org:'andres.delascasas@rappi.com', type:'team', note:'Reunion semanal de prioridades. Organiza Andres De Las Casas. Con Angela Osuna, Daniel Trejos, Meiker Munera, Nicolas Bejarano, Susana Paniagua y equipo. Agenda: updates equipos, Gantt Q4, diseno.' },
-    { time:'10:00-11:00', title:'Shadowing Merchant (TU)', attendees:15, org:'andres.delascasas@rappi.com', type:'team', note:'Sesion de shadowing para Merchant en turno de usuario. Con equipo CX Merchants.' },
-    { time:'10:30-10:30', title:'Daily Automations', attendees:20, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional. Con Angie Panadero, Gregson Murcia, Joan Bermudez, David Leon, Juan Esquivel y equipo.' },
-    { time:'11:00-11:30', title:'Juan Pablo / Stephania', attendees:2, org:'stephania.gonzalez@rappi.com', type:'1on1', note:'1:1 con Stephania Gonzalez. Seguimiento flujos Merchants AI.' },
-    { time:'13:00-13:30', title:'Assembled Assist <> Rappi Weekly Sync', attendees:11, org:'assembled.com', type:'team', note:'Sync semanal con equipo Assembled. Con Mafe Granada, Meiker, JP, Adney e Indira Esquivel. Agenda: Implementation Plan y notas.' },
+    { time:'09:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:9, org:'andres.delascasas@rappi.com', type:'team', note:'Reunion semanal de prioridades. Organiza Andres De Las Casas. Con Cristian Parada, Daniel Trejos, Mafe Granada, Meiker Munera, Nicolas Bejarano y equipo. Agenda: updates equipos, Gantt Q4 feedback, Gantt Diseno.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-16:00', title:'AI (Focus Time)', attendees:0, type:'learning', note:'Bloque de Focus Time dedicado a AI. Sin reuniones externas.' },
-    { time:'14:30-15:00', title:'Juan Pablo / Stephania', attendees:2, org:'stephania.gonzalez@rappi.com', type:'1on1', note:'Segunda 1:1 con Stephania Gonzalez. Seguimiento flujos Merchants.' },
-    { time:'16:00-16:30', title:'Flujo Re Asignar un RT', attendees:4, org:'stephania.gonzalez@rappi.com', type:'team', note:'Reunion sobre flujo de re-asignacion de RT. Con Juan Guzman, Elias Rivera y Stephania Gonzalez.' }
+    { time:'13:30-14:00', title:'URG - Envio comunicado ordenes afectadas', attendees:16, org:'daniel.gallo@rappi.com', type:'team', note:'Reunion urgente organizada por Daniel Gallo. Envio de comunicado con detalle de ordenes afectadas. Con Andrea Arenas, Liseth Salamanca, Pablo Olivares, Diego Aguo, Angie Hernandez, Elias Rivera, Ingrid Ojeda y equipo.' },
+    { time:'17:00-18:00', title:'Weekly Product + Ops RTs', attendees:9, org:'karen.marin@rappi.com', type:'team', note:'Weekly de producto y operaciones RTs. Organiza Karen Marin. Con Indira Esquivel, Stephania Gonzalez y equipo. Link planilla adjunto.' }
   ],
   tue: [
-    { time:'10:00-10:15', title:'No entiendo la deuda - Cancelado/Liberado - Merchants', attendees:3, org:'jessica.torres@rappi.com', type:'team', note:'Reunion con Jessica Torres y Michell Alvarez sobre deuda, cancelaciones y liberaciones Merchants.' },
-    { time:'10:30-11:00', title:'Daily Automations', attendees:18, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
-    { time:'11:00-12:00', title:'Juan Pablo / Stephania', attendees:2, org:'stephania.gonzalez@rappi.com', type:'1on1', note:'1:1 con Stephania Gonzalez. Seguimiento flujos Merchants y testing.' },
+    { time:'10:00-11:00', title:'Andres / Juan - Iniciativas de FRAUDE', attendees:2, org:'juan.bonansea@rappi.com', type:'1on1', note:'Reunion 1:1 con Andres De Las Casas (tentativo). Tema: iniciativas de FRAUDE. Organiza JP.' },
+    { time:'11:00-11:30', title:'Iniciativa Non Food', attendees:4, org:'juan.bonansea@rappi.com', type:'team', note:'Seguimiento iniciativa Non Food. Organiza JP. Con Sirley Rojas, Cristian Zapata y Diego Mesa. Contexto: kick off Non Food AI realizado Oct 14 — integracion Mi Tienda + Assembled para compensaciones, cancelaciones, errores tienda, conducta RT.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Juan Pablo / Maria', attendees:2, org:'m.granada@rappi.com', type:'1on1', note:'1:1 semanal con Mafe Granada. Espacio para dudas, avances y prioridades.' },
-    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 con Andres De Las Casas. Traer: status bots semana y proyectos activos.' },
-    { time:'16:30-17:00', title:'Alineemos JTBD Merchants - Mozzart', attendees:8, org:'jessica.torres@rappi.com', type:'team', note:'Sesion de alineacion JTBD Merchants con Jessica Torres. Con Elias Rivera, Guadalupe Martinez, Daniela Trigueros, Josefina Polivanoff y Sergio Pulgarin.' }
+    { time:'15:30-16:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas. Traer: status bots semana, iniciativas fraude y Non Food.' }
   ],
   wed: [
-    { time:'10:30-10:30', title:'Daily Automations', attendees:20, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
-    { time:'11:00-12:00', title:'CX Weekly Business Review', attendees:56, org:'eugenio.larosa@rappi.com', type:'team', note:'CX WBR semanal. Organiza Eugenio La Rosa. Reunion grande de toda el area CX (~56 personas). Metricas y actualizaciones semanales.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-15:00', title:'Bot Merchants', attendees:4, org:'andres.delascasas@rappi.com', type:'team', note:'Sesion de revision de bots Merchants. Equipo reducido.' },
-    { time:'14:00-15:00', title:'Capacitacion Agents', attendees:27, org:'andres.delascasas@rappi.com', type:'team', note:'Capacitacion para agentes. 27 personas del area CX.' },
-    { time:'15:00-15:30', title:'Revision cancelaciones Food Live', attendees:3, org:'andres.delascasas@rappi.com', type:'team', note:'Revision de flujos de cancelaciones en Food Live. Con equipo reducido.' }
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   thu: [
-    { time:'09:00-09:45', title:'CX Design Review', attendees:10, org:'andres.delascasas@rappi.com', type:'team', note:'CX Design Review semanal. Organiza Andres De Las Casas. Con Angela Osuna, Cristian Parada, Daniel Trejos, Anna Habermann, Mafe Granada y equipo. COMPLETADA.' },
-    { time:'10:30-10:30', title:'Daily Automations', attendees:20, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional. COMPLETADA.' },
-    { time:'12:30-13:15', title:'Diagnostico JTBD: AI Agents Merchants', attendees:7, org:'jessica.torres@rappi.com', type:'team', note:'Sesion de diagnostico JTBD sobre AI Agents para Merchants. Con Jessica Torres, Elias Rivera, Guadalupe Martinez y Stephania Gonzalez. COMPLETADA.' },
+    { time:'09:00-09:45', title:'CX Design Review', attendees:10, org:'andres.delascasas@rappi.com', type:'team', note:'CX Design Review semanal. Organiza Andres De Las Casas. Con Cristian Parada, Daniel Trejos, Anna Habermann, Mafe Granada, Jonathan Munoz, Victor Piedrahita y equipo.' },
+    { time:'10:00-11:00', title:'Cultura de respeto: prevencion del acoso', attendees:50, org:'SST Colombia', type:'learning', note:'Capacitacion virtual SST Colombia: Cero tolerancia a la discriminacion, violencia y acoso laboral y sexual. Sesion manana (10:00-11:00). Opcional.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:30-15:30', title:'Juan Pablo / Stephania', attendees:2, org:'stephania.gonzalez@rappi.com', type:'1on1', note:'1:1 Stephania Gonzalez. Agenda: bug flujo integracion aliados agendando sin integrar tienda, status portal WhatsApp medianos.' },
-    { time:'15:00-15:50', title:'Workshop Bot Soporte', attendees:15, org:'jdelgado@rappi.com', type:'team', note:'Workshop sobre sincronizacion bot-negocio. Organiza Juan Delgado. Agenda: Flujo Live de Merchants (ramas que generan liberaciones o cancelaciones), flujos bidireccionales bot-negocio, input metrics para alertar comportamiento incorrecto del bot. Con Andres DLC, Meiker Munera y equipo.' },
-    { time:'17:00-18:00', title:'Weekly Merchants - Automatizaciones/Procesos', attendees:10, org:'esbeydi.reynoso@rappi.com', type:'team', note:'Weekly Merchants de automatizaciones y procesos. Organiza Esbeydi Reynoso. Con Maria Dorantes, Mariapia Lindley, Elias Rivera, Diego Sanchez, Diego Aguo y Steph Gonzalez. Llevar status portal WhatsApp medianos y bug "Mi tienda no aparece".' }
+    { time:'15:00-16:00', title:'Cultura de respeto (sesion tarde)', attendees:50, org:'SST Colombia', type:'learning', note:'Segunda sesion SST Colombia: prevencion acoso y discriminacion. Sesion tarde (15:00-16:00). Opcional — elegir una de las dos.' }
   ],
   fri: [
-    { time:'10:30-10:30', title:'Daily Automations', attendees:21, org:'cristian.parada@rappi.com', type:'team', note:'Daily standup de automatizaciones. JP es opcional.' },
+    { time:'10:00-10:30', title:'Assembled Assist <> Rappi Weekly Sync', attendees:11, org:'assembled.com', type:'external', note:'Sync semanal con equipo Assembled. Con Monica y Adney de Assembled, Mafe Granada, Angela Osuna, Jonathan Munoz, Meiker Munera y JP. Agenda: Implementation Plan y notas.' },
+    { time:'12:00-12:40', title:'Input Metrics BOTs', attendees:9, org:'jdelgado@rappi.com', type:'team', note:'Revision de input metrics para validar que bots funcionan correctamente. Organiza Juan Delgado. Con Karen Marin, Daniela Marquez, Stephania Gonzalez, Angela Osuna, Mafe Granada y Meiker Munera. Objetivo: definir metricas de validacion de bots.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Weekly de QA AI con Mafe Granada, Catalina Symonds, Jessica Torres, Meiker Munera, Angela Osuna, Susana Paniagua y Guadalupe Martinez.' },
-    { time:'14:30-15:30', title:'Master Class - Evals Tool (Internal tooling)', attendees:21, org:'m.granada@rappi.com', type:'learning', note:'Master class sobre herramienta interna de evaluaciones. Organiza Mafe Granada. Con Elias Rivera, Jaime Gomez, Jessica Torres, Angela Osuna, Catalina Bello y equipo CX.' },
-    { time:'15:30-16:30', title:'Recorrido por Eagle Eye', attendees:28, org:'daniela.trigueros@rappi.com', type:'team', note:'Recorrido por herramienta Eagle Eye. Con equipo CX: Elias Rivera, Jaime Gomez, Jessica Torres, Angel Gil, Mafe Granada, Azul Manzano, Andres DLC y otros. 28 personas.' },
-    { time:'16:30-17:00', title:'Vale / Juan', attendees:2, org:'maria.dorantes@rappi.com', type:'1on1', note:'1:1 con Valeria Dorantes. Seguimiento portal WhatsApp y proximos pasos.' }
+    { time:'14:00-14:30', title:'Weekly - QA AI', attendees:9, org:'m.granada@rappi.com', type:'team', note:'Weekly de QA AI con Mafe Granada, Catalina Symonds, Jessica Torres, Meiker Munera, Angela Osuna, Susana Paniagua y Guadalupe Martinez.' }
   ]
 };
 
 const NOTES = [
+  {
+    id:168, title:'Semana 19-23 Oct — Kick Off Non Food AI + URG Ordenes Afectadas + Fraude + Input Metrics BOTs',
+    date:'19 Oct',
+    summary:'SEMANA 19-23 OCT 2026. Gmail no disponible — sin notas Gemini esta sesion (reautorizar en claude.ai > conectores). LUNES 19: Prioridades Semana Support Product (09:30, Andres DLC, 9 personas — Agenda: updates equipos, Gantt Q4 feedback, Gantt Diseno). URG CRITICO: Daniel Gallo convoco reunion urgente 13:30 — envio comunicado con detalle de ordenes afectadas (16 personas). Weekly Product + Ops RTs 17:00 (Karen Marin). CONTEXTO SLACK RECIENTE: Valeria Dorantes (en Workshop esta semana) confirmo que hoy salio compensaciones/cancelaciones en paises chicos en portal unificado, actualizo Gantt. Punto paso directo a humano: fix lanzado hoy desde WhatsApp y Unificado. Esbeydi pregunta si lo de n8n se puede hacer desde Agentos — JP confirma mayoria si, algunas cosas de n8n aun no existen en Agentos. MARTES 20: Andres/Juan iniciativas FRAUDE 10:00 (JP organiza, Andres tentativo). Iniciativa Non Food 11:00 (JP, Sirley Rojas, Cristian Zapata, Diego Mesa). 1:1 Andres DLC 15:30. KICK OFF NON FOOD (14 Oct): JP hizo kick off Non Food AI — integracion variantes al flujo de non food live: compensaciones/cancelaciones, errores tienda en app, store update, conducta inapropiada RT. Documentacion: Figma, Discovery spreadsheet, Assembled Prod. Cristian Zapata hizo integracion Mi Tienda - Assembled hace 3 semanas — JP pide empalme a Cristian Parada para que Diego Mesa agregue cambios. Diego Mesa solicito endpoints para store update. Sirley Rojas no fue sumada al kick-off — Cristian Parada sugiere sumar a Manu a futuros kick-offs. MIERCOLES 21: Dia sin reuniones — bloque completo de deep work. JUEVES 22: CX Design Review 09:00 (Andres DLC, 10 personas). SST Capacitacion acoso/discriminacion 10:00 o 15:00 (elegir una sesion). VIERNES 23: Assembled Sync 10:00, Input Metrics BOTs 12:00 (Juan Delgado — objetivo: definir metricas para validar bots), Weekly QA AI 14:00 (Mafe Granada).',
+    sections: [
+      'URG Lunes: Daniel Gallo convoco reunion urgente 13:30 sobre ordenes afectadas — revisar impacto y accion',
+      'Non Food AI: integrar compensaciones, cancelaciones, errores tienda, store update, conducta RT en flujo',
+      'Cristian Zapata debe hacer empalme Mi Tienda-Assembled para que Diego Mesa agregue cambios Non Food',
+      'Fix lanzado para paso directo a humano desde WhatsApp y Unificado — seguimiento con Valeria Dorantes',
+      'Assembled: Esbeydi reporta que aliados con integracion apagada no pueden reactivarla (Assembled no puede togglear)',
+      'Input Metrics BOTs Vie 12:00 con Juan Delgado — definir metricas de validacion bots',
+      'Miercoles 21: dia libre de reuniones — ideal para deep work y documentacion'
+    ],
+    actions: [
+      { text: 'URG: Revisar comunicado ordenes afectadas de reunion Daniel Gallo — definir accion producto', owner: 'JP', due: 'Lun 19' },
+      { text: 'Confirmar con Cristian Parada empalme Mi Tienda-Assembled para Non Food (diego.mesa agrega cambios)', owner: 'JP', due: 'Mar 20' },
+      { text: 'Reunion Fraude con Andres DLC 10:00 Mar 20 — preparar contexto y propuestas', owner: 'JP', due: 'Mar 20' },
+      { text: 'Seguimiento bug Assembled: aliados con integracion apagada no pueden reactivarla (Steph reporto Oct 16)', owner: 'JP', due: 'Mar 20' },
+      { text: 'Reautorizar Gmail en claude.ai > Configuracion > Conectores para restaurar notas Gemini', owner: 'JP', due: 'Lun 19' }
+    ]
+  },
   {
     id:167, title:'Jueves 17 Sep — Portal WhatsApp Medianos Lanzado + Segmentacion RTs Opcion 2 + Kick Off Aplazado',
     date:'17 Sep',
@@ -3285,19 +3288,17 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t1701', text:'[P0 HOY JUE] 1:1 STEPHANIA 14:30-15:30: Resolver flujo integracion aliados agendando citas sin integrar tienda en bot. Area encargada colapsada con citas. Revisar store_id en QA. Steph reporta issue con automatizacion que manda link de calendario incluso cuando no aplica.', phase:'build', priority:'P0', source:'Slack DM Steph JUE 17 Sep', day:'thu', completed:false },
-  { id:'t1702', text:'[P0 HOY JUE] WORKSHOP BOT SOPORTE 15:00-15:50: Con Juan Delgado. Agenda: Flujo de Live de Merchants — ramas que generan liberaciones/cancelaciones. Llevar flujos mapeados. Andres DLC tambien vera Flujo Live RTs con Meiker en misma sesion. Nota: 15:00 se solapa con 1:1 Steph (14:30-15:30).', phase:'build', priority:'P0', source:'Slack #quality_pod Mie 16 Sep 14:16 / Calendario', day:'thu', completed:false },
-  { id:'t1703', text:'[P0 HOY JUE] WEEKLY MERCHANTS 17:00-18:00: Esbeydi Reynoso organiza. Llevar: status lanzamiento portal WhatsApp medianos (AR probado), bug "Mi tienda no aparece" pendiente de fix Diego Mesa, proximos pasos paises grandes (CO/MX/BR) el 23/Sep.', phase:'build', priority:'P0', source:'Calendario Jue 17 Sep 17:00', day:'thu', completed:false },
-  { id:'t1704', text:'[P0 HOY JUE] RE-TESTEAR BUG "MI TIENDA NO APARECE": Diego Mesa trabajo en fix en vivo durante pruebas AR de hoy. Segun ultimo mensaje JP, bug persiste. Cuando Diego confirme fix, re-probar en Argentina. Impacto: 1 de 7 flujos del portal WhatsApp.', phase:'qa', priority:'P0', source:'Slack #temp-portal-unificado-dts-handoff-mozart JUE 17 Sep', day:'thu', completed:false },
-  { id:'t1705', text:'[P1 VIE] QUALITY POD — SEGUIMIENTO FLUJOS BOT: Andres DLC quiere sesiones adicionales para ver los +60 bots en vivo. Definir estrategia con Andres manana para cubrir flujos pendientes de RTs, Usuarios y Merchants. Juan Delgado confirmo que revisara casos adicionales.', phase:'build', priority:'P1', source:'Slack #quality_pod Mie 16 Sep 14:26-14:28', day:'fri', completed:false },
-  { id:'t1706', text:'[P1 VIE] MASTER CLASS EVALS TOOL 14:30-15:30: Asistir a master class herramienta interna de evaluaciones. Mafe Granada organiza. 21 personas. Tomar notas para aplicar al proceso QA bots.', phase:'qa', priority:'P1', source:'Calendario Vie 18 Sep 14:30', day:'fri', completed:false },
-  { id:'t1707', text:'[P1 VIE] RECORRIDO EAGLE EYE 15:30-16:30: Participar en recorrido herramienta Eagle Eye. 28 personas. Evaluar utilidad para casos de uso CX y AI Agents.', phase:'build', priority:'P1', source:'Calendario Vie 18 Sep 15:30', day:'fri', completed:false },
-  { id:'t1708', text:'[P1 SEMANA] SEGMENTACION RTs — SEGUIMIENTO: Angelica Patarroyo confirmo Opcion 2 (5 tiers + sub-tiers). Falta confirmacion de Eugenio La Rosa y Guadalupe Martinez. Endpoint de creacion en #cx-prod-eng-leads en progreso.', phase:'discovery', priority:'P1', source:'Slack #cx-management-team JUE 17 Sep 14:43', day:'thu', completed:false },
-  { id:'t1709', text:'[P2 SEMANA] KICK OFF APLAZADO — AGENDAR PROXIMA SEMANA: Sirley Rojas movio kick off 1 semana en Gantt. Coordinar con Andres DLC para agendar reunion semana del 21-25 Sep.', phase:'build', priority:'P2', source:'Slack #cx-prod-eng-leads JUE 17 Sep 14:00', day:'thu', completed:false },
-  { id:'t1710', text:'[P2 SEMANA] REAUTORIZAR GMAIL EN CLAUDE.AI: Gmail requiere reautorizacion. Ir a claude.ai > Configuracion > Conectores > Gmail > Reautorizar. Esto restaurara las notas Gemini en el Hub.', phase:'build', priority:'P2', source:'Sistema Hub — Gmail token expirado', day:'thu', completed:false },
-  { id:'t1600', text:'[COMPLETADO HOY JUE] CX DESIGN REVIEW 09:00-09:45: Revision semanal de diseno CX con Andres DLC, Angela Osuna, Cristian Parada y equipo.', phase:'design', priority:'P0', source:'Calendario Jue 17 Sep 09:00', day:'thu', completed:true },
-  { id:'t1601', text:'[COMPLETADO HOY JUE] DIAGNOSTICO JTBD AI AGENTS MERCHANTS 12:30-13:15: Sesion con Jessica Torres, Elias Rivera, Guadalupe Martinez. Jobs To Be Done para AI Agents Merchants.', phase:'discovery', priority:'P0', source:'Calendario Jue 17 Sep 12:30', day:'thu', completed:true },
-  { id:'t1602', text:'[COMPLETADO HOY JUE] PRUEBAS PORTAL WHATSAPP AR: JP probo 7 flujos en Argentina. 6 OK, 1 bug reportado. Diego Mesa trabajo fix en tiempo real.', phase:'qa', priority:'P0', source:'Slack #temp-portal-unificado-dts-handoff-mozart JUE 17 Sep', day:'thu', completed:true }
+  { id:'t1901', text:'[P0 HOY LUN] PRIORIDADES SEMANA 09:30-10:30: Support Product con Andres DLC. Llevar: status Non Food AI post kick-off Oct 14, iniciativa Fraude (reunion Mar 20), actualizacion Gantt Q4.', phase:'build', priority:'P0', source:'Calendario Lun 19 Oct 09:30', day:'mon', completed:false },
+  { id:'t1902', text:'[P0 HOY LUN] URG - ORDENES AFECTADAS 13:30: Daniel Gallo convoco reunion urgente. Revisar impacto en producto, definir comunicado y accion CX para ordenes afectadas. 16 personas.', phase:'build', priority:'P0', source:'Calendario Lun 19 Oct 13:30 — reunion urgente Daniel Gallo', day:'mon', completed:false },
+  { id:'t1903', text:'[P0 HOY LUN] REAUTORIZAR GMAIL EN CLAUDE.AI: Gmail requiere reautorizacion para restaurar notas Gemini en el Hub. Ir a claude.ai > Configuracion > Conectores > Gmail > Reautorizar.', phase:'build', priority:'P0', source:'Sistema Hub — Gmail token expirado', day:'mon', completed:false },
+  { id:'t1904', text:'[P1 MAR] REUNION FRAUDE CON ANDRES DLC 10:00-11:00: JP organiza. Andres DLC tentativo. Preparar: contexto iniciativas de fraude, propuestas de automatizacion, KPIs a monitorear.', phase:'discovery', priority:'P1', source:'Calendario Mar 20 Oct 10:00', day:'tue', completed:false },
+  { id:'t1905', text:'[P1 MAR] INICIATIVA NON FOOD 11:00-11:30: Seguimiento con Sirley Rojas, Cristian Zapata y Diego Mesa. Temas: empalme Mi Tienda-Assembled (Cris Zapata), endpoints store update (Diego Mesa), status integracion.', phase:'build', priority:'P1', source:'Calendario Mar 20 Oct 11:00', day:'tue', completed:false },
+  { id:'t1906', text:'[P1 MAR] BUG ASSEMBLED — INTEGRACION APAGADA: Esbeydi reporto Oct 16 que aliados con integracion apagada no pueden reactivarla (Assembled no puede togglear ni detecta integracion previa). Coordinar con Steph y equipo tech para solucion.', phase:'build', priority:'P1', source:'Slack Group DM Oct 16 — Stephania Gonzalez + Esbeydi', day:'tue', completed:false },
+  { id:'t1907', text:'[P1 MIE] DEEP WORK — DIA SIN REUNIONES: Miercoles 21 es dia libre. Ideal para documentacion Non Food, prep metricas bots, o avance en discovery fraude.', phase:'build', priority:'P1', source:'Calendario Mie 21 Oct — sin reuniones', day:'wed', completed:false },
+  { id:'t1908', text:'[P1 JUE] CX DESIGN REVIEW 09:00-09:45: Con Andres DLC, Cristian Parada, Daniel Trejos, Mafe Granada y equipo. Llevar: diseno flujos Non Food AI, propuesta metricas bots.', phase:'design', priority:'P1', source:'Calendario Jue 22 Oct 09:00', day:'thu', completed:false },
+  { id:'t1909', text:'[P1 VIE] INPUT METRICS BOTS 12:00-12:40: Con Juan Delgado. Objetivo: definir metricas de validacion para verificar comportamiento correcto de bots. Preparar propuesta de metricas por tipo de bot.', phase:'metrics', priority:'P1', source:'Calendario Vie 23 Oct 12:00', day:'fri', completed:false },
+  { id:'t1910', text:'[P2 VIE] WEEKLY QA AI 14:00-14:30: Con Mafe Granada y equipo. Revisar estado QA bots activos, Non Food integracion y proximos pasos.', phase:'qa', priority:'P2', source:'Calendario Vie 23 Oct 14:00', day:'fri', completed:false },
+  { id:'t1911', text:'[P2 SEMANA] ASSEMBLED SYNC VIE 10:00-10:30: Con Monica y Adney de Assembled. Llevar: bug integracion apagada, status Non Food, proximos pasos implementation plan.', phase:'build', priority:'P2', source:'Calendario Vie 23 Oct 10:00', day:'fri', completed:false }
 ];
 const DEFAULT_BOTS = [
   { id:'b1', name:'Merchant Live Bot', desc:'Automatizar soporte Merchant Live via Assemble con endpoints tech', phase:'discovery', tasks:13 },
@@ -3315,30 +3316,26 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d1701', text:'BUG "MI TIENDA NO APARECE" — DIEGO MESA: En portal WhatsApp medianos (CL/PE/AR — lanzado JUE 17). Automatizacion no redirige al bot correctamente cuando merchant busca su tienda. Diego Mesa trabaja fix en tiempo real durante pruebas AR. Pendiente re-testing por JP.', owner:'Diego Mesa', source:'Slack #temp-portal-unificado-dts-handoff-mozart JUE 17 Sep', status:'EN PROGRESO FIX — Re-testear cuando Diego confirme' },
-  { id:'d1702', text:'CIERRE DE INACTIVIDAD PORTAL WHATSAPP — DIEGO MESA: Pendiente implementacion. Valeria Dorantes lo menciona como pendiente ademas del bug "Mi tienda no aparece". Diego revisa cuando pueda.', owner:'Diego Mesa', source:'Slack #temp-portal-unificado-dts-handoff-mozart JUE 17 Sep', status:'PENDIENTE — Diego Mesa en otras iniciativas' },
-  { id:'d1703', text:'SEGMENTACION RTs — ANGELICA PATARROYO: Presento 2 opciones en #cx-management-team. Opcion 2 (5 tiers + sub-tiers) confirmada por Angelica. Falta confirmacion de Eugenio La Rosa y Guadalupe Martinez. Endpoint de creacion en #cx-prod-eng-leads pendiente.', owner:'Angelica Patarroyo', source:'Slack #cx-management-team JUE 17 Sep 14:43', status:'DECISION TOMADA OPCION 2 — Pendiente confirmacion Eugenio y Guadalupe' },
-  { id:'d1704', text:'KICK OFF INICIATIVA — SIRLEY ROJAS: Sirley informa que kick off no se realizo esta semana (en #cx-prod-eng-leads). Mueve en Gantt 1 semana. Reunion debe agendarse para semana del 21-25 Sep con Andres DLC y JP.', owner:'Sirley Rojas / Andres De Las Casas', source:'Slack #cx-prod-eng-leads JUE 17 Sep 14:00', status:'APLAZADO 1 SEMANA — Agendar sem 21-25 Sep' },
-  { id:'d1705', text:'FLUJO LIVE MERCHANTS +60 BOTS — JUAN DELGADO + ANDRES DLC: Andres DLC informa que hay +60 bots en vivo entre RTs, Usuarios y Merchants. Workshop hoy JUE 15:00 cubre Merchants (JP) y RTs (Meiker). Sesiones adicionales necesarias para cubrir todos.', owner:'Juan Delgado / Andres De Las Casas', source:'Slack #quality_pod Mie 16 Sep 14:26', status:'EN PROGRESO — Estrategia de sesiones adicionales a definir' },
-  { id:'d1706', text:'DEUDA CPGS — MARIANA ALVAREZ: Debate sobre politica de deuda CPGS en grupo DM. Mariana buscara sizing de 74 casos DSAT semana pasada relacionados con RT marcado con productos. Mafe propone esperar segmentacion para perdonar automaticamente.', owner:'Mariana Alvarez / Mafe Granada', source:'Slack Group DM Mar 15 Sep', status:'EN PROGRESO — Mariana trae sizing, decision post-segmentacion' },
-  { id:'d1707', text:'PORTAL WHATSAPP PAISES GRANDES — VALERIA DORANTES: Despliegue CL/PE/AR completado hoy JUE 17. Paises grandes (CO/MX/BR) programados para 23 Sep. Valeria coordina.', owner:'Valeria Dorantes', source:'Slack #temp-portal-unificado-dts-handoff-mozart', status:'PROXIMO: CO/MX/BR el 23 Sep' },
-  { id:'d1708', text:'ENDPOINT ASSEMBLED — DIEGO MESA: Endpoint PROD_assign_rt integrado. Cierre de inactividad pendiente. Confirmar integracion completa con flujos activos.', owner:'Diego Mesa', source:'Semana anterior', status:'MAYORIA COMPLETADO — Cierre inactividad pendiente' }
+  { id:'d1901', text:'EMPALME MI TIENDA - ASSEMBLED NON FOOD — CRISTIAN PARADA: JP solicito en kick-off Oct 14 que Cristian Parada haga empalme entre integracion Mi Tienda-Assembled (hecha por Cristian Zapata hace 3 semanas) para que Diego Mesa pueda agregar cambios Non Food.', owner:'Cristian Parada', source:'Slack #ai-automations Oct 14 — JP kick-off Non Food', status:'PENDIENTE EMPALME — Reunion Mar 20 para coordinar' },
+  { id:'d1902', text:'ENDPOINTS NON FOOD (STORE UPDATE) — DIEGO MESA: JP solicito endpoints a Diego Mesa para funcionalidad de store update en flujo Non Food AI. Pendiente entrega de endpoints.', owner:'Diego Mesa', source:'Slack #ai-automations Oct 14 — JP kick-off Non Food', status:'PENDIENTE — Diego Mesa debe proveer endpoints' },
+  { id:'d1903', text:'BUG ASSEMBLED INTEGRACION APAGADA — STEPHANIA / TECH: Aliados con integracion Assembled apagada no pueden reactivarla porque: Assembled no puede togglear la integracion, y no detecta que tienen una integracion previa (los manda a agendar cita nueva). JP fue informado Oct 16 via Steph.', owner:'Stephania Gonzalez / Tech', source:'Slack Group DM Oct 16 — Stephania Gonzalez', status:'EN ANALISIS — Pendiente definir solucion con tech' },
+  { id:'d1904', text:'PORTAL UNIFICADO MIGRACION — VALERIA DORANTES: Valeria en Workshop esta semana. Hoy Oct 19 salio compensaciones y cancelaciones en paises chicos. Fix lanzado para paso directo a humano desde WhatsApp y Unificado. Gantt actualizado.', owner:'Valeria Dorantes', source:'Slack Group DM Oct 19 — Valeria Dorantes', status:'EN PROGRESO — Paises chicos lanzados, grandes pendientes' },
+  { id:'d1905', text:'SIRLEY ROJAS — SUMA A KICK-OFFS: Sirley Rojas no fue sumada al kick-off Non Food Oct 14. Cristian Parada indica que para futuros kick-offs siempre sumar a Manu (Sirley). JP coordino espacio de actualizacion con Sirley.', owner:'JP / Cristian Parada', source:'Slack #ai-automations Oct 14 — Cristian Parada', status:'ACCION: Agendar update con Sirley esta semana' }
 ];
 const SLACK_FEED = [
-  { from: 'Meiker Munera en #cx-management-team (cc JP)', text: 'SEGMENTACION RTs DECISION (JUE 17 14:43): Meiker/Andres DLC consultan entre Opcion 1 (5 tiers generalizados) y Opcion 2 (5 tiers + sub-tiers). Angelica Patarroyo confirma Opcion 2 para mayor granularidad. Endpoint en #cx-prod-eng-leads pendiente. Eugenio y Guadalupe deben confirmar.', time: 'Jue 17 14:43', type: 'channel', actionable: true },
-  { from: 'Sirley Rojas en #cx-prod-eng-leads (cc JP + Andres DLC)', text: 'KICK OFF APLAZADO (JUE 17 14:00): Sirley informa que esta semana esta proxima a terminar sin kick off — mueve iniciativa 1 semana en Gantt. Reunion pendiente para proxima semana. JP y Andres DLC deben coordinar fecha.', time: 'Jue 17 14:00', type: 'channel', actionable: true },
-  { from: 'JP en #temp-portal-unificado-dts-handoff-mozart', text: 'PRUEBAS AR PORTAL WHATSAPP (JUE 17 09:47-11:22): JP prueba paises medianos en AR. Food Live OK, Integrations OK, Suspensions OK, Access OK, Compensations OK, Cancellations OK. BUG: "Mi tienda no aparece" no redirige al bot. Diego Mesa trabaja fix en tiempo real. Fix cerrado pero JP confirma bug persiste.', time: 'Jue 17 09:47', type: 'channel', actionable: true },
-  { from: 'Andres De Las Casas en #quality_pod (cc JP)', text: 'AGENDA WORKSHOP JUE 15:00 (Mie 16 14:16): Andres define plan para manana — Flujo Live Merchants con JP, Flujo Live RTs con Meiker. Enfocado en ramas que generan liberaciones o cancelaciones. Nota: +60 bots en vivo, no alcanzara cubrirlos todos.', time: 'Mie 16 14:16', type: 'channel', actionable: true },
-  { from: 'Mafe Granada en grupo DM (cc JP)', text: 'DEUDA RTs CPGS (Mar 15 14:09): Mafe aclaracion de proceso en grupo DM sobre deuda RTs — nunca ajustar marcaciones CN order/order modifications. Para CPGS pendiente sizing. Propone esperar segmentacion RTs para perdonar automaticamente. Mariana Alvarez buscara 74 casos DSAT.', time: 'Mar 15 14:09', type: 'dm', actionable: false },
-  { from: 'Mafe Granada en #automation-product-team (cc JP)', text: 'LLENAR DOCUMENTO (Mie 16 09:58): Mafe pide a Angela Osuna, Meiker y JP confirmar si ya llenaron el documento (referencia no especificada). Pendiente respuesta de JP.', time: 'Mie 16 09:58', type: 'channel', actionable: true },
-  { from: 'Sistema Hub', text: 'Hub actualizado JUE 17 Sep 15:45 COT. Portal WhatsApp medianos lanzado. Bug "Mi tienda no aparece" en fix. Gmail requiere reautorizacion en claude.ai conectores.', time: 'Jue 17 15:45', type: 'dm', actionable: false }
+  { from: 'Valeria Dorantes en Group DM (cc JP)', text: 'PORTAL UNIFICADO LUN 19: Hoy salio compensaciones y cancelaciones en paises chicos. Fix lanzado para paso directo a humano desde WhatsApp y Unificado. Gantt actualizado. (Valeria en Workshop toda la semana)', time: 'Lun 19 12:56', type: 'dm', actionable: false },
+  { from: 'Stephania Gonzalez en Group DM (cc JP)', text: 'PORTAL UNIFICADO: Confirma recepcion update de Valeria. Quedamos pendientes a fechas de proximos lanzamientos paises grandes.', time: 'Lun 19 13:06', type: 'dm', actionable: false },
+  { from: 'Esbeydi Reynoso en DM a JP', text: 'CONSULTA AGENTOS vs N8N: Esbeydi pregunta si lo que se hacia desde n8n se puede hacer desde Agentos. JP confirma: mayoria si, algunas cosas de n8n aun no existen en Agentos. Quiere crear workflow Slack <> Rappi Pedia.', time: 'Lun 19 14:46', type: 'dm', actionable: true },
+  { from: 'Stephania Gonzalez en Group DM (cc JP)', text: 'BUG ASSEMBLED INTEGRACION (Oct 16): Aliados con integracion apagada no pueden reactivarla — Assembled no mapea integracion previa y manda link para agendar cita nueva. Pregunta a JP si hay posibilidad de pasar a agente humano en estos casos mientras se resuelve en Mozart.', time: 'Oct 16 15:44', type: 'dm', actionable: true },
+  { from: 'JP en #ai-automations', text: 'KICK OFF NON FOOD AI (Oct 14): JP anuncia kick-off de Non Food. Variantes a integrar: Compensaciones/Cancelaciones, Errores tienda en app, Store Update, Conducta inapropiada RT. Pide a Cristian Parada empalme Mi Tienda-Assembled para que Diego Mesa agregue cambios. Sirley Rojas no fue sumada al kick-off — JP coordina update con ella.', time: 'Oct 14 16:42', type: 'channel', actionable: true },
+  { from: 'Sistema Hub', text: 'Hub actualizado Lun 19 Oct 2026 15:00 COT. Gmail requiere reautorizacion en claude.ai conectores para restaurar notas Gemini.', time: 'Lun 19 15:00', type: 'dm', actionable: false }
 ];
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-9:30', '11:30-13:00', '14:00-16:00'] },
-  { day: 'Mar', blocks: ['8:00-10:00', '12:00-13:00', '16:00-16:30'] },
-  { day: 'Mie', blocks: ['8:00-10:30', '12:00-13:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-12:30'] },
-  { day: 'Vie', blocks: ['8:00-10:30', '11:00-13:00', '16:30-18:00'] }
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-17:00'] },
+  { day: 'Mar', blocks: ['8:00-10:00', '11:30-13:00', '14:00-15:30', '16:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-13:00', '14:00-18:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00'] },
+  { day: 'Vie', blocks: ['8:00-10:00', '10:30-12:00', '14:30-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
 const PHASE_LABELS = { discovery:'Discovery', design:'Design', build:'Build', qa:'QA', metrics:'Metrics' };
