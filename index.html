@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 19-23 Oct 2026 · Actualizado 19 Oct 15:00 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 19-23 Oct 2026 · Actualizado 22 Oct 14:18 COT</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1486,7 +1486,8 @@ const EVENTS = {
     { time:'09:00-09:45', title:'CX Design Review', attendees:10, org:'andres.delascasas@rappi.com', type:'team', note:'CX Design Review semanal. Organiza Andres De Las Casas. Con Cristian Parada, Daniel Trejos, Anna Habermann, Mafe Granada, Jonathan Munoz, Victor Piedrahita y equipo.' },
     { time:'10:00-11:00', title:'Cultura de respeto: prevencion del acoso', attendees:50, org:'SST Colombia', type:'learning', note:'Capacitacion virtual SST Colombia: Cero tolerancia a la discriminacion, violencia y acoso laboral y sexual. Sesion manana (10:00-11:00). Opcional.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:00-16:00', title:'Cultura de respeto (sesion tarde)', attendees:50, org:'SST Colombia', type:'learning', note:'Segunda sesion SST Colombia: prevencion acoso y discriminacion. Sesion tarde (15:00-16:00). Opcional — elegir una de las dos.' }
+    { time:'15:00-16:00', title:'Cultura de respeto (sesion tarde)', attendees:50, org:'SST Colombia', type:'learning', note:'Segunda sesion SST Colombia: prevencion acoso y discriminacion. Sesion tarde (15:00-16:00). Opcional — elegir una de las dos.' },
+    { time:'15:30-16:30', title:'Fraude - checkout multiples order ids', attendees:6, org:'bruno.calatrone@rappi.com', type:'team', note:'Reunion sobre fraude en checkout con multiples order IDs. Organiza Bruno Calatrone. Con Andres DLC, Andres Salinas, Jordy Miguel y Gustavo Rozengardt.' }
   ],
   fri: [
     { time:'10:00-10:30', title:'Assembled Assist <> Rappi Weekly Sync', attendees:11, org:'assembled.com', type:'external', note:'Sync semanal con equipo Assembled. Con Monica y Adney de Assembled, Mafe Granada, Angela Osuna, Jonathan Munoz, Meiker Munera y JP. Agenda: Implementation Plan y notas.' },
@@ -1498,9 +1499,9 @@ const EVENTS = {
 
 const NOTES = [
   {
-    id:168, title:'Semana 19-23 Oct — Kick Off Non Food AI + URG Ordenes Afectadas + Fraude + Input Metrics BOTs',
-    date:'19 Oct',
-    summary:'SEMANA 19-23 OCT 2026. Gmail no disponible — sin notas Gemini esta sesion (reautorizar en claude.ai > conectores). LUNES 19: Prioridades Semana Support Product (09:30, Andres DLC, 9 personas — Agenda: updates equipos, Gantt Q4 feedback, Gantt Diseno). URG CRITICO: Daniel Gallo convoco reunion urgente 13:30 — envio comunicado con detalle de ordenes afectadas (16 personas). Weekly Product + Ops RTs 17:00 (Karen Marin). CONTEXTO SLACK RECIENTE: Valeria Dorantes (en Workshop esta semana) confirmo que hoy salio compensaciones/cancelaciones en paises chicos en portal unificado, actualizo Gantt. Punto paso directo a humano: fix lanzado hoy desde WhatsApp y Unificado. Esbeydi pregunta si lo de n8n se puede hacer desde Agentos — JP confirma mayoria si, algunas cosas de n8n aun no existen en Agentos. MARTES 20: Andres/Juan iniciativas FRAUDE 10:00 (JP organiza, Andres tentativo). Iniciativa Non Food 11:00 (JP, Sirley Rojas, Cristian Zapata, Diego Mesa). 1:1 Andres DLC 15:30. KICK OFF NON FOOD (14 Oct): JP hizo kick off Non Food AI — integracion variantes al flujo de non food live: compensaciones/cancelaciones, errores tienda en app, store update, conducta inapropiada RT. Documentacion: Figma, Discovery spreadsheet, Assembled Prod. Cristian Zapata hizo integracion Mi Tienda - Assembled hace 3 semanas — JP pide empalme a Cristian Parada para que Diego Mesa agregue cambios. Diego Mesa solicito endpoints para store update. Sirley Rojas no fue sumada al kick-off — Cristian Parada sugiere sumar a Manu a futuros kick-offs. MIERCOLES 21: Dia sin reuniones — bloque completo de deep work. JUEVES 22: CX Design Review 09:00 (Andres DLC, 10 personas). SST Capacitacion acoso/discriminacion 10:00 o 15:00 (elegir una sesion). VIERNES 23: Assembled Sync 10:00, Input Metrics BOTs 12:00 (Juan Delgado — objetivo: definir metricas para validar bots), Weekly QA AI 14:00 (Mafe Granada).',
+    id:168, title:'Semana 19-23 Oct — Non Food AI + URG Ordenes + Fraude Checkout + Input Metrics BOTs',
+    date:'22 Oct',
+    summary:'SEMANA 19-23 OCT 2026. Gmail no disponible — sin notas Gemini esta sesion (reautorizar en claude.ai > conectores). LUNES 19: Prioridades Semana Support Product (09:30, Andres DLC, 9 personas — Agenda: updates equipos, Gantt Q4 feedback, Gantt Diseno). URG CRITICO: Daniel Gallo convoco reunion urgente 13:30 — envio comunicado con detalle de ordenes afectadas (16 personas). Weekly Product + Ops RTs 17:00 (Karen Marin). CONTEXTO SLACK RECIENTE: Valeria Dorantes (en Workshop esta semana) confirmo que hoy salio compensaciones/cancelaciones en paises chicos en portal unificado, actualizo Gantt. Punto paso directo a humano: fix lanzado hoy desde WhatsApp y Unificado. Esbeydi pregunta si lo de n8n se puede hacer desde Agentos — JP confirma mayoria si, algunas cosas de n8n aun no existen en Agentos. MARTES 20: Andres/Juan iniciativas FRAUDE 10:00 (JP organiza, Andres tentativo). Iniciativa Non Food 11:00 (JP, Sirley Rojas, Cristian Zapata, Diego Mesa). 1:1 Andres DLC 15:30. KICK OFF NON FOOD (14 Oct): JP hizo kick off Non Food AI — integracion variantes al flujo de non food live: compensaciones/cancelaciones, errores tienda en app, store update, conducta inapropiada RT. Documentacion: Figma, Discovery spreadsheet, Assembled Prod. Cristian Zapata hizo integracion Mi Tienda - Assembled hace 3 semanas — JP pide empalme a Cristian Parada para que Diego Mesa agregue cambios. Diego Mesa solicito endpoints para store update. Sirley Rojas no fue sumada al kick-off — Cristian Parada sugiere sumar a Manu a futuros kick-offs. MIERCOLES 21: Dia sin reuniones — bloque completo de deep work. JUEVES 22: CX Design Review 09:00 (Andres DLC, 10 personas). SST Capacitacion acoso/discriminacion 10:00 o 15:00 (elegir una sesion). VIERNES 23: Assembled Sync 10:00, Input Metrics BOTs 12:00 (Juan Delgado — objetivo: definir metricas para validar bots), Weekly QA AI 14:00 (Mafe Granada). ACTUALIZACION JUE 22 (14:18 COT): NUEVO — Fraude - checkout multiples order ids 15:30-16:30, Bruno Calatrone organiza, con Andres DLC, Andres Salinas, Jordy Miguel y Gustavo Rozengardt. SLACK JUE 22: Steph Gonzalez DM — consulta sobre condicion por country code en ramas del orquestador para paises pequeños/medianos (Mozart, "mi tienda" no en app). JP orienta: condition por country code + macro cierre como default. Steph avisara antes de publicar.',
     sections: [
       'URG Lunes: Daniel Gallo convoco reunion urgente 13:30 sobre ordenes afectadas — revisar impacto y accion',
       'Non Food AI: integrar compensaciones, cancelaciones, errores tienda, store update, conducta RT en flujo',
@@ -1508,14 +1509,18 @@ const NOTES = [
       'Fix lanzado para paso directo a humano desde WhatsApp y Unificado — seguimiento con Valeria Dorantes',
       'Assembled: Esbeydi reporta que aliados con integracion apagada no pueden reactivarla (Assembled no puede togglear)',
       'Input Metrics BOTs Vie 12:00 con Juan Delgado — definir metricas de validacion bots',
-      'Miercoles 21: dia libre de reuniones — ideal para deep work y documentacion'
+      'Miercoles 21: dia libre de reuniones — ideal para deep work y documentacion',
+      'Fraude checkout JUE 22 15:30: Bruno Calatrone convoca sobre multiples order IDs — preparar contexto y propuesta',
+      'Slack JUE 22: Steph pide orientacion sobre orquestador paises pequeños/medianos en Mozart — JP oriento condition por country code'
     ],
     actions: [
       { text: 'URG: Revisar comunicado ordenes afectadas de reunion Daniel Gallo — definir accion producto', owner: 'JP', due: 'Lun 19' },
       { text: 'Confirmar con Cristian Parada empalme Mi Tienda-Assembled para Non Food (diego.mesa agrega cambios)', owner: 'JP', due: 'Mar 20' },
       { text: 'Reunion Fraude con Andres DLC 10:00 Mar 20 — preparar contexto y propuestas', owner: 'JP', due: 'Mar 20' },
       { text: 'Seguimiento bug Assembled: aliados con integracion apagada no pueden reactivarla (Steph reporto Oct 16)', owner: 'JP', due: 'Mar 20' },
-      { text: 'Reautorizar Gmail en claude.ai > Configuracion > Conectores para restaurar notas Gemini', owner: 'JP', due: 'Lun 19' }
+      { text: 'Reautorizar Gmail en claude.ai > Configuracion > Conectores para restaurar notas Gemini', owner: 'JP', due: 'Lun 19' },
+      { text: 'FRAUDE CHECKOUT JUE 15:30: Reunion Bruno Calatrone — preparar contexto multiples order IDs y propuesta accion producto', owner: 'JP', due: 'Jue 22' },
+      { text: 'Revisar propuesta Steph antes de publicar condition paises pequeños/medianos en orquestador Mozart', owner: 'JP', due: 'Jue 22' }
     ]
   },
   {
@@ -3298,7 +3303,8 @@ const DEFAULT_TASKS = [
   { id:'t1908', text:'[P1 JUE] CX DESIGN REVIEW 09:00-09:45: Con Andres DLC, Cristian Parada, Daniel Trejos, Mafe Granada y equipo. Llevar: diseno flujos Non Food AI, propuesta metricas bots.', phase:'design', priority:'P1', source:'Calendario Jue 22 Oct 09:00', day:'thu', completed:false },
   { id:'t1909', text:'[P1 VIE] INPUT METRICS BOTS 12:00-12:40: Con Juan Delgado. Objetivo: definir metricas de validacion para verificar comportamiento correcto de bots. Preparar propuesta de metricas por tipo de bot.', phase:'metrics', priority:'P1', source:'Calendario Vie 23 Oct 12:00', day:'fri', completed:false },
   { id:'t1910', text:'[P2 VIE] WEEKLY QA AI 14:00-14:30: Con Mafe Granada y equipo. Revisar estado QA bots activos, Non Food integracion y proximos pasos.', phase:'qa', priority:'P2', source:'Calendario Vie 23 Oct 14:00', day:'fri', completed:false },
-  { id:'t1911', text:'[P2 SEMANA] ASSEMBLED SYNC VIE 10:00-10:30: Con Monica y Adney de Assembled. Llevar: bug integracion apagada, status Non Food, proximos pasos implementation plan.', phase:'build', priority:'P2', source:'Calendario Vie 23 Oct 10:00', day:'fri', completed:false }
+  { id:'t1911', text:'[P2 SEMANA] ASSEMBLED SYNC VIE 10:00-10:30: Con Monica y Adney de Assembled. Llevar: bug integracion apagada, status Non Food, proximos pasos implementation plan.', phase:'build', priority:'P2', source:'Calendario Vie 23 Oct 10:00', day:'fri', completed:false },
+  { id:'t1912', text:'[P1 HOY JUE] FRAUDE CHECKOUT 15:30-16:30: Reunion con Bruno Calatrone, Andres DLC, Gustavo Rozengardt sobre fraude en checkout con multiples order IDs. Preparar contexto de casos, impacto y propuesta de accion producto.', phase:'discovery', priority:'P1', source:'Calendario Jue 22 Oct 15:30', day:'thu', completed:false }
 ];
 const DEFAULT_BOTS = [
   { id:'b1', name:'Merchant Live Bot', desc:'Automatizar soporte Merchant Live via Assemble con endpoints tech', phase:'discovery', tasks:13 },
@@ -3323,6 +3329,7 @@ const DEFAULT_DELEGATED = [
   { id:'d1905', text:'SIRLEY ROJAS — SUMA A KICK-OFFS: Sirley Rojas no fue sumada al kick-off Non Food Oct 14. Cristian Parada indica que para futuros kick-offs siempre sumar a Manu (Sirley). JP coordino espacio de actualizacion con Sirley.', owner:'JP / Cristian Parada', source:'Slack #ai-automations Oct 14 — Cristian Parada', status:'ACCION: Agendar update con Sirley esta semana' }
 ];
 const SLACK_FEED = [
+  { from: 'Stephania Gonzalez en DM a JP', text: 'ORQUESTADOR PAISES PEQUEÑOS JUE 22: Steph consulta sobre agregar condicion por country code en cada rama del orquestador para paises pequeños y medianos (en Mozart — "mi tienda" no aparece en app). Casos afectados: integraciones, compensaciones, suspensiones, portal. JP orienta: poner condition con country code por rama, default lo existente, coincidencia usa macro de cierre. Steph avisara a JP antes de publicar cambios.', time: 'Jue 22 09:15', type: 'dm', actionable: true },
   { from: 'Valeria Dorantes en Group DM (cc JP)', text: 'PORTAL UNIFICADO LUN 19: Hoy salio compensaciones y cancelaciones en paises chicos. Fix lanzado para paso directo a humano desde WhatsApp y Unificado. Gantt actualizado. (Valeria en Workshop toda la semana)', time: 'Lun 19 12:56', type: 'dm', actionable: false },
   { from: 'Stephania Gonzalez en Group DM (cc JP)', text: 'PORTAL UNIFICADO: Confirma recepcion update de Valeria. Quedamos pendientes a fechas de proximos lanzamientos paises grandes.', time: 'Lun 19 13:06', type: 'dm', actionable: false },
   { from: 'Esbeydi Reynoso en DM a JP', text: 'CONSULTA AGENTOS vs N8N: Esbeydi pregunta si lo que se hacia desde n8n se puede hacer desde Agentos. JP confirma: mayoria si, algunas cosas de n8n aun no existen en Agentos. Quiere crear workflow Slack <> Rappi Pedia.', time: 'Lun 19 14:46', type: 'dm', actionable: true },
@@ -3334,7 +3341,7 @@ const DEEP_WORK = [
   { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-17:00'] },
   { day: 'Mar', blocks: ['8:00-10:00', '11:30-13:00', '14:00-15:30', '16:00-18:00'] },
   { day: 'Mie', blocks: ['8:00-13:00', '14:00-18:00'] },
-  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00'] },
+  { day: 'Jue', blocks: ['8:00-9:00', '11:00-13:00', '14:00-15:00', '16:30-18:00'] },
   { day: 'Vie', blocks: ['8:00-10:00', '10:30-12:00', '14:30-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
