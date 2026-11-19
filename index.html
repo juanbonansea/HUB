@@ -1200,7 +1200,7 @@ async function checkGate(silent) {
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:28px;">
         <div>
           <div style="font-size:20px;font-weight:600;color:var(--text);margin-bottom:2px;" id="dashDateHeader"></div>
-          <div style="font-size:13px;color:var(--text-secondary)">Semana 9-13 Nov 2026 · Actualizado 13 Nov 13:18 COT</div>
+          <div style="font-size:13px;color:var(--text-secondary)">Semana 16-20 Nov 2026 · Actualizado 19 Nov</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
           <div style="display:flex;gap:6px;align-items:center;">
@@ -1447,44 +1447,43 @@ function saveData() {
   }));
 }
 
-const DAYS = ['Lun 9','Mar 10','Mie 11','Jue 12','Vie 13'];
+const DAYS = ['Lun 16','Mar 17','Mie 18','Jue 19','Vie 20'];
 const DAY_KEYS = ['mon','tue','wed','thu','fri'];
-const DAY_NAMES_LONG = ['Lunes 9 Noviembre','Martes 10 Noviembre','Miercoles 11 Noviembre','Jueves 12 Noviembre','Viernes 13 Noviembre'];
-const DAY_DATES = [9,10,11,12,13];
+const DAY_NAMES_LONG = ['Lunes 16 Noviembre','Martes 17 Noviembre','Miercoles 18 Noviembre','Jueves 19 Noviembre','Viernes 20 Noviembre'];
+const DAY_DATES = [16,17,18,19,20];
 
 // Dynamic today detection
 function getTodayIndex() {
   const now = new Date();
   const d = now.getDate();
   const m = now.getMonth(); // 0-indexed, November=10
-  if (m === 10 && d === 9) return 0; // Lun 9 Nov
-  if (m === 10 && d === 10) return 1; // Mar 10 Nov
-  if (m === 10 && d === 11) return 2; // Mie 11 Nov
-  if (m === 10 && d === 12) return 3; // Jue 12 Nov
-  if (m === 10 && d === 13) return 4; // Vie 13 Nov
+  if (m === 10 && d === 16) return 0; // Lun 16 Nov
+  if (m === 10 && d === 17) return 1; // Mar 17 Nov
+  if (m === 10 && d === 18) return 2; // Mie 18 Nov
+  if (m === 10 && d === 19) return 3; // Jue 19 Nov
+  if (m === 10 && d === 20) return 4; // Vie 20 Nov
   return -1; // outside this week
 }
 const TODAY_IDX = getTodayIndex();
 
 const EVENTS = {
   mon: [
-    { time:'10:00-11:00', title:'Shadowing Merchant (TU)', attendees:14, org:'carla.capristan@rappi.com', type:'shadowing', note:'Shadowing Food semanal. Organiza Carla Capristan. Ver gestion del agente en real time + lineamiento post evaluacion con supervisor. JP opcional — habia declinado.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:00-15:30', title:'SOS', attendees:5, org:'andres.delascasas@rappi.com', type:'team', note:'Reunion SOS convocada por Andres De Las Casas. Con Veronica Ferro, David Leon Z, Cristian Munoz, Roque Sandoval. Grabacion y Notas Gemini adjuntas en Drive.' }
-  ],
-  tue: [
-    { time:'10:00-10:30', title:'¡Horas Deal! 🚀', attendees:0, org:'internalcommunications@rappi.com', type:'learning', note:'Espacio quincenal de Drop Everything and Learn. Explorar Udemy Business — 70-20-10 modelo de desarrollo. Crear habito de aprendizaje formal.' },
+    { time:'09:30-10:30', title:'Prioridades de la Semana - Support Product', attendees:9, org:'andres.delascasas@rappi.com', type:'team', note:'Reunion semanal de prioridades. Organiza Andres De Las Casas. Con Cristian Parada, Daniel Trejos, Mafe Granada, Nicolas Bejarano, Meiker Munera, Andres Cobos (opc). Agenda: updates equipos, Gantt Q4 feedback, diseno.' },
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
-  wed: [
-    { time:'09:30-10:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas. Notas Gemini adjuntas en Drive. Temas: reactivacion y robo de cuenta en Andi, Blocked Funds, ATO analysis.' },
+  tue: [
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'15:30-16:00', title:'Kickoff: reactivacion y robo de cuenta en Andi', attendees:9, org:'juan.bonansea@rappi.com', type:'team', note:'Kickoff organizado por JP. Con Andres DLC, Mauricio Patiño, Veronica Ferro, Mafe Granada, David Leon Z, Jordy Miguel, Cristian Zapata, Cristian Parada. Tema: skill de reactivacion y manejo de robo de cuenta en Andi.' }
+    { time:'14:00-15:00', title:'AI Office Hours', attendees:0, org:'internalcommunications@rappi.com', type:'learning', note:'Espacio opcional para resolver dudas o blockers relacionados con AI. Organiza Matheus Rodrigues. Si no hay dudas, no es necesario conectarse.' }
+  ],
+  wed: [
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   thu: [
-    { time:'09:00-09:45', title:'CX Design Review', attendees:10, org:'andres.delascasas@rappi.com', type:'team', note:'CX Design Review semanal. Con Cristian Parada, Daniel Trejos, Anna Habermann, Mafe Granada, Jonathan Munoz, Victor Piedrahita, Sergio Pena y equipo. Notas Gemini adjuntas.' },
-    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' },
-    { time:'16:00-17:00', title:'Support - Rest Success WS', attendees:14, org:'ivan.correa@rappi.com', type:'team', note:'Workshop de soporte Restaurant Success. Organiza Ivan Correa. Con Diego Sanchez, Eugenio LaRosa, F. Diaz, Lina Santos, Elias Rivera, JP, Andres DLC, Karen Marin, Felipe Campos y equipo. Documento offline adjunto.' }
+    { time:'09:00-09:45', title:'CX Design Review', attendees:12, org:'andres.delascasas@rappi.com', type:'team', note:'CX Design Review semanal. Con Cristian Parada, Daniel Trejos, Mafe Granada, Meiker Munera, Andres Cobos, Jonathan Munoz, Victor Piedrahita, Sergio Pena, Natalia Intencipa. Notas Gemini adjuntas en Drive.' },
+    { time:'10:00-10:30', title:'WhatsApp Confirmation Challenge', attendees:6, org:'bruno.calatrone@rappi.com', type:'team', note:'Reunion convocada por Bruno Calatrone. Con Andres DLC, Alejandra Salamanca, Jordy Miguel, Hector Arias y JP. Notas Gemini adjuntas. Foco: challenge de confirmacion ATO por WhatsApp.' },
+    { time:'10:30-11:00', title:'Juan Pablo / Andres', attendees:2, org:'andres.delascasas@rappi.com', type:'1on1', note:'1:1 semanal con Andres De Las Casas. Notas Gemini adjuntas en Drive. Sesion movida por Andres desde martes. Temas: ATO, WhatsApp Confirmation Challenge, user_reactivation.' },
+    { time:'11:00-11:30', title:'ATO', attendees:5, org:'andres.delascasas@rappi.com', type:'team', note:'Reunion ATO. Con Andres DLC, Nicol Villa, Jorge Solis, Kevin Gonzalez. Notas Gemini adjuntas.' },
+    { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
   ],
   fri: [
     { time:'13:00-14:00', title:'Lunch', attendees:0, type:'break' }
@@ -1492,6 +1491,26 @@ const EVENTS = {
 };
 
 const NOTES = [
+  {
+    id:171, title:'Semana 16-20 Nov — CX Design Review + WhatsApp Confirmation Challenge + ATO Progress',
+    date:'19 Nov',
+    summary:'SEMANA 16-20 NOV 2026. Gmail sin autorizacion — sin notas Gemini (reautorizar en claude.ai > Conectores). LUNES 16: Prioridades Semana Support Product 09:30 (Andres DLC, 9 personas — Gantt Q4, updates). MARTES 17: Dia casi libre, AI Office Hours 14:00 (opc). MIERCOLES 18: Dia libre — deep work. Andres DLC movio 1:1 de hoy para manana. JUEVES 19: CX Design Review 09:00 + WhatsApp Confirmation Challenge 10:00 (Bruno Calatrone) + 1:1 Andres DLC 10:30 + ATO 11:00. SLACK: Bruno confirmo que tiene la tabla para calcular ATO — trae datos hoy. William Patiño en dev con ajuste user_reactivation — probando autobloqueo 48h. Yurani trajo volumen WhatsApp CO (Infobip) 30 dias: 1.93M enviados, 72% entregados, 19% expirados. JP calculo: 2do mensaje $2.500-3.400/mes — se paga contra ATO.',
+    sections: [
+      'CX DESIGN REVIEW JUE 19 NOV 09:00-09:45: Con Andres DLC, Cristian Parada, Daniel Trejos, Mafe Granada, Meiker Munera, Andres Cobos, Jonathan Munoz, Victor Piedrahita, Sergio Pena, Natalia Intencipa. Notas Gemini adjuntas.',
+      'WHATSAPP CONFIRMATION CHALLENGE JUE 19 NOV 10:00-10:30: Bruno Calatrone convoca. Con Andres DLC, Alejandra Salamanca, Jordy Miguel, Hector Arias. Notas Gemini adjuntas. Foco: challenge de confirmacion ATO por WhatsApp.',
+      'ATO DATA — BRUNO CALATRONE (Slack Jue 19 10:43): Bruno ya encontro la tabla para calcular el ATO. Trae la data hoy. CO: $30k/mes ATO, 1.6M OTP/mes, ROI WhatsApp CO positivo.',
+      'USER_REACTIVATION DEV — WILLIAM PATIÑO (Slack Jue 19): Ajuste en dev listo (02:34). Prueba JP 09:18: usuario 151000087442, autobloqueado Nov 17 14:35 (<48h), LOOKS_BAD, still_blocked:true, sin tag self_blocked. William revisando. Verificacion siguiente: >48h (despues de 14:35 Jue).',
+      'VOLUMEN WHATSAPP CO — YURANI SALAMANCA (Slack Mie 18 15:40): Infobip CO, 30 dias (19 Oct - 17 Nov): 1.93M enviados (~64k/dia). Entregados: 1.40M (72%). Expirados: 358k (19%). Con error: 158k (8%). JP calculo: 2do mensaje $2.500-3.400/mes — se paga contra el ATO.',
+      'SIGNUP_SECURITY_ALERT_2 UTILITY — YURANI (Slack Jue 19): 303k mensajes/mes en CO. JP pregunto: que dice, cuando sale, quien lo administra. Si ya es aviso de seguridad, puede ayudar a reducir ATO sin crear plantilla nueva.',
+      'GMAIL SIN AUTORIZACION: Notas Gemini de reuniones no disponibles. Reautorizar en claude.ai > Configuracion > Conectores > Gmail.'
+    ],
+    actions: [
+      { text: 'Verificar con William Patiño: user_reactivation para usuario autobloqueado >48h (prueba despues de 14:35 Jue)', owner: 'JP', due: 'Jue 19' },
+      { text: 'Revisar tabla ATO que trae Bruno Calatrone hoy — cerrar calculo ROI WhatsApp CO', owner: 'JP', due: 'Jue 19' },
+      { text: 'Follow-up signup_security_alert_2 UTILITY (303k/mes) con Yurani: que dice y cuando sale', owner: 'JP', due: 'Jue 19' },
+      { text: 'Reautorizar Gmail en claude.ai > Configuracion > Conectores para restaurar notas Gemini en Hub', owner: 'JP', due: 'HOY' }
+    ]
+  },
   {
     id:170, title:'Semana 9-13 Nov — Kickoff Reactivacion Andi + Blocked Funds + ATO Analysis',
     date:'13 Nov',
@@ -3327,14 +3346,12 @@ const _NOTES_ARCHIVED = [
 ];
 
 const DEFAULT_TASKS = [
-  { id:'t2101', text:'[P0 HOY VIE] BLOCKED FUNDS — DECISION CON FRAUDE: Confirmar con Andres DLC y Bruno Calatrone si el motor de fraude puede levantar la restriccion Blocked Funds. Pasa en MX y CO (issue "no puedo hacer pedidos"). Hoy agentes van a RappiPay — potencial automatizar via skill Andi.', phase:'build', priority:'P0', source:'Slack DM Vie 13 Nov — William Patiño + Bruno Calatrone + JP', day:'fri', completed:false },
-  { id:'t2102', text:'[P0 HOY VIE] REGLA user-reactivation-v2 CON WILLIAM PATIÑO: Responder sobre Blocked Funds — que responde el motor para usuario con solo blocked_funds activa. Si responde LOOKS_OK sin tags, Andi le diria que no tiene restricciones (caso a evitar). William configuro need_remedy en dev.', phase:'build', priority:'P0', source:'Slack DM Vie 13 Nov — William Patiño', day:'fri', completed:false },
-  { id:'t2103', text:'[P0 HOY VIE] HANDOFF COLA FRAUDE — CONFIRMAR CON M.GRANADA: Cuando Andi hace handoff por Blocked Funds, debe ir a cola de fraude (no handoff general). Confirmar con Mafe Granada como se enruta — issueType u otro campo.', phase:'build', priority:'P0', source:'Slack #cx-subpod-users Vie 13 Nov — JP + m.granada', day:'fri', completed:false },
-  { id:'t2104', text:'[P0 SEMANA] REAUTORIZAR GMAIL EN CLAUDE.AI: Gmail requiere reautorizacion para restaurar notas Gemini en el Hub. Ir a claude.ai > Configuracion > Conectores > Gmail > Reautorizar.', phase:'build', priority:'P0', source:'Sistema Hub — Gmail token expirado', day:'fri', completed:false },
-  { id:'t2105', text:'[P1 LUN] FOLLOW-UP SOS (REUNION LUN 9): Revisar grabacion y notas Gemini adjuntas del SOS del lunes. Con Andres DLC, Veronica Ferro, David Leon Z, Cristian Munoz, Roque Sandoval. Extraer accion items pendientes.', phase:'build', priority:'P1', source:'Calendario Lun 9 Nov 15:00', day:'mon', completed:false },
-  { id:'t2106', text:'[P1 LUN] ATO ROI CALCULO — ESPERAR DATOS BRUNO: Bruno Calatrone trae ATO por mes+pais y parte de codigos compartidos. CO $30k/mes ATO (58% del riesgo global $52k). Con esos datos cerrar calculo ROI WhatsApp para CO. Si son mensuales, 2do WhatsApp se paga solo.', phase:'discovery', priority:'P1', source:'Slack DM Vie 13 Nov — Bruno Calatrone', day:'mon', completed:false },
-  { id:'t2107', text:'[P1 MIE] DEEP WORK DISPONIBLE MARTES: Martes 10 casi libre (solo Horas Deal 10-10:30). Bloque ideal: documentacion skill reactivacion Andi, prep siguiente 1:1 Andres DLC, seguimiento kickoff reactivacion.', phase:'build', priority:'P1', source:'Calendario Mar 10 Nov', day:'tue', completed:false },
-  { id:'t2108', text:'[P1 MIE] FOLLOW-UP KICKOFF REACTIVACION ANDI: Kickoff MIE 15:30 con 9 personas. Consolidar acuerdos y proximos pasos: skill reactivacion + manejo robo de cuenta. Coordinar con William Patiño, Jordy Miguel y David Leon Z.', phase:'build', priority:'P1', source:'Calendario Mie 11 Nov 15:30', day:'wed', completed:false }
+  { id:'t2201', text:'[P0 HOY JUE] USER_REACTIVATION AUTOBLOQUEO >48H — WILLIAM PATIÑO: Prueba despues de 14:35 con usuario autobloqueado >48h. Dev: ajuste listo. Prueba anterior (<48h) devolvio LOOKS_BAD, still_blocked:true sin tag self_blocked. Verificar si caso >48h da user_unblocked correctamente.', phase:'build', priority:'P0', source:'Slack DM Jue 19 Nov — William Patiño + JP', day:'thu', completed:false },
+  { id:'t2202', text:'[P0 HOY JUE] ATO DATA — BRUNO CALATRONE: Bruno tiene la tabla para calcular ATO (Slack 10:43). Esperar que la comparta hoy y cerrar calculo ROI WhatsApp CO. CO: $30k/mes ATO, 1.6M OTP/mes. 2do WA $2.500-3.400/mes.', phase:'discovery', priority:'P0', source:'Slack DM Jue 19 Nov — Bruno Calatrone', day:'thu', completed:false },
+  { id:'t2203', text:'[P0 SEMANA] REAUTORIZAR GMAIL EN CLAUDE.AI: Gmail requiere reautorizacion para restaurar notas Gemini en el Hub. Ir a claude.ai > Configuracion > Conectores > Gmail > Reautorizar.', phase:'build', priority:'P0', source:'Sistema Hub — Gmail token expirado', day:'thu', completed:false },
+  { id:'t2204', text:'[P1 HOY JUE] SIGNUP_SECURITY_ALERT_2 UTILITY — YURANI: 303k mensajes/mes CO. Preguntar: que dice el mensaje, cuando sale, quien lo administra. Si ya es aviso de seguridad, puede ayudar a reducir ATO sin crear plantilla nueva.', phase:'discovery', priority:'P1', source:'Group DM Yurani/Andres/JP Jue 19 Nov', day:'thu', completed:false },
+  { id:'t2205', text:'[P1 LUN] FOLLOW-UP PRIORIDADES SEMANA: Revisar notas Gemini de la reunion Prioridades Semana Support Product (Lun 16 09:30). Con Andres DLC, Cristian Parada, Daniel Trejos, Mafe Granada, Nicolas Bejarano, Meiker Munera. Extraer accion items pendientes.', phase:'build', priority:'P1', source:'Calendario Lun 16 Nov 09:30', day:'mon', completed:false },
+  { id:'t2206', text:'[P1 MIE] DEEP WORK — MIERCOLES LIBRE: Dia casi sin reuniones. Bloque ideal: documentacion skill reactivacion Andi, prep CX Design Review Jue, seguimiento WhatsApp Confirmation Challenge.', phase:'build', priority:'P1', source:'Calendario Mie 18 Nov', day:'wed', completed:false }
 ];
 const DEFAULT_BOTS = [
   { id:'b1', name:'Merchant Live Bot', desc:'Automatizar soporte Merchant Live via Assemble con endpoints tech', phase:'discovery', tasks:13 },
@@ -3352,24 +3369,24 @@ const DEFAULT_PROJECTS = [
 ];
 
 const DEFAULT_DELEGATED = [
-  { id:'d2101', text:'ATO DATOS POR MES+PAIS + CODIGOS COMPARTIDOS — BRUNO CALATRONE: JP solicito a Bruno datos ATO desglosados por mes y pais, mas la parte que viene de compartir el codigo (para cerrar calculo ROI WhatsApp CO). CO ya confirmado: $30k/mes, 58% del riesgo global $52k.', owner:'Bruno Calatrone', source:'Slack DM Vie 13 Nov — Bruno Calatrone + JP', status:'PENDIENTE — Bruno trae datos esta semana' },
-  { id:'d2102', text:'REGLA user-reactivation-v2 BLOCKED FUNDS — WILLIAM PATIÑO: William configuro blocked_funds como need_remedy en dev. Pendiente: (1) confirmar que responde para usuario con solo blocked_funds activa, (2) clarificar comportamiento autobloqueo 48h y (3) tags disponibles para que Andi sepa que se levanto.', owner:'William Mauricio Patiño', source:'Slack DM Vie 13 Nov — William Patiño + JP', status:'EN PROGRESO — Configurado need_remedy en dev, pendiente clarificaciones' },
-  { id:'d2103', text:'ENRUTAMIENTO COLA FRAUDE DESDE ANDI — M.GRANADA: JP pidio a Mafe Granada confirmar como se enruta desde Andi a la cola de fraude cuando hay Blocked Funds. Usar issueType u otro campo. Hoy la skill usa el handoff general.', owner:'Mafe Granada', source:'Slack #cx-subpod-users Vie 13 Nov — JP + m.granada', status:'PENDIENTE RESPUESTA — JP espera confirmacion de Mafe' },
-  { id:'d2104', text:'PORTAL VALE — CUENTA TEST — TEMP PORTAL UNIFICADO: JP pidio a Vale una cuenta para probar flujo en portal unificado DTS handoff Mozart.', owner:'Vale (Valeria Dorantes)', source:'Slack #temp-portal-unificado-dts-handoff-mozart Vie 13 Nov', status:'PENDIENTE — Esperando cuenta de prueba de Vale' }
+  { id:'d2201', text:'ATO TABLA DE CALCULO — BRUNO CALATRONE: Bruno Calatrone encontro la tabla para calcular el ATO (Slack Jue 19 10:43). Trae la data hoy. CO ya confirmado: $30k/mes ATO, 58% del riesgo global $52k. Pendiente: datos por mes+pais para cerrar ROI WhatsApp CO.', owner:'Bruno Calatrone', source:'Slack DM Jue 19 Nov — Bruno Calatrone + JP', status:'EN PROGRESO — Bruno trae datos hoy' },
+  { id:'d2202', text:'REGLA user-reactivation-v2 AUTOBLOQUEO — WILLIAM PATIÑO: Ajuste en dev listo (Jue 19 02:34). Prueba JP 09:18 — usuario <48h: LOOKS_BAD, still_blocked:true, sin tag self_blocked. William revisando. Pendiente: confirmar comportamiento >48h despues de 14:35 Jue.', owner:'William Mauricio Patiño', source:'Slack DM Jue 19 Nov — William Patiño + JP', status:'EN PROGRESO — Ajuste en dev, pendiente prueba >48h' },
+  { id:'d2203', text:'VOLUMEN WHATSAPP CO — SIGNUP_SECURITY_ALERT_2 — YURANI SALAMANCA: Yurani trajo volumen Infobip CO (Mie 18): 1.93M enviados, 72% entregados. JP pregunto sobre signup_security_alert_2 UTILITY (303k/mes): que dice el mensaje, cuando sale, quien lo administra. Pendiente respuesta.', owner:'Yurani Salamanca', source:'Group DM Yurani/Andres/JP Mie-Jue Nov', status:'PENDIENTE RESPUESTA — JP espera info sobre signup_security_alert_2' }
 ];
 const SLACK_FEED = [
-  { from: 'JP en DM con William Patiño', text: 'BLOCKED FUNDS SKILL ANDI: Mauro, comparto lo que probamos en dev simulando respuestas del motor. Blocked Funds — si motor responde LOOKS_OK sin tags, Andi le dice "no encontramos bloqueo activo" y manda a revisar metodo de pago. Es el caso a evitar. La decision de levantar Blocked Funds es de fraude: confirmar con Andres y Bruno. Mientras tanto, si el motor dice "sin restriccion", Andi consulta GET /restriction...', time: 'Vie 13 Nov 15:06', type: 'dm', actionable: true },
-  { from: 'Bruno Calatrone en DM a JP', text: 'ATO ANALYSIS: Lo pais con mayor incidencia de ATO es CO. Representa 58% del riesgo de ATO global. CO $30k USD / Global $52k USD. Pendiente: datos por mes+pais e parte que viene de compartir el codigo.', time: 'Vie 13 Nov 13:16', type: 'dm', actionable: true },
-  { from: 'JP en DM con William Patiño', text: 'AUTOBLOQUEO 48H: En el flujo de Bruno, autobloqueo solo se levanta si pasaron 48h. En Andi puede pasar: usuario se autobloquea por robo de cuenta y al rato escribe para reactivar. Con la accion unblocked que configuraste, user-reactivation-v2 respeta esas 48h? Si pide reactivar antes, que responde?', time: 'Vie 13 Nov 12:20', type: 'dm', actionable: true },
-  { from: 'JP en #cx-subpod-users', text: 'HANDOFF FRAUDE ANDI: Dos cosas que confirmas Cata. 1. Handoff a fraude: cuando la skill pase a un agente, que vaya directo a la cola de fraude. @m.granada como se enruta eso desde Andi — se usa el issueType o con otro campo? Hoy la skill usa el handoff general. 2. Retirar Blocked Funds: la skill le pide al motor de fraude que revise y levante restricciones del usuario. Confirmar con fraude que el motor incluye Blocked Funds.', time: 'Vie 13 Nov 12:14', type: 'channel', actionable: true },
-  { from: 'William Mauricio Patiño en DM a JP', text: 'REGLA user-reactivation-v2: La configure como need_remedy. Si desean como looks_bad me cuentan y lo ajusto. Es un promedio mensual para linea de contracargos solamente. Sobre el autobloqueo: si el tag user_unblocked ya responde en dev confirmado.', time: 'Vie 13 Nov 14:49', type: 'dm', actionable: true },
-  { from: 'Sistema Hub', text: 'Hub actualizado Vie 13 Nov 2026 13:18 COT. Gmail requiere reautorizacion en claude.ai > Configuracion > Conectores > Gmail para restaurar notas Gemini de reuniones.', time: 'Vie 13 Nov 13:18', type: 'dm', actionable: false }
+  { from: 'Bruno Calatrone en DM a JP', text: 'ATO TABLA: Juan! Ya encontramos la tabla para poder calcular el 2. Hoy te comparto la data. (CO $30k/mes, 1.6M OTP — ROI WA CO positivo)', time: 'Jue 19 Nov 10:43', type: 'dm', actionable: true },
+  { from: 'Yurani Salamanca en Group DM (Yurani/Andres/JP)', text: 'WHATSAPP CO INFOBIP 30 DIAS: Total enviados ~1.93M (~64k/dia). Entregados: 1.40M (72%). Expirados: 358k (19%). Con error: 158k (8%). JP calculo: 2do mensaje costaria $2.500-3.400/mes — se paga contra el ATO.', time: 'Mie 18 Nov 15:40', type: 'dm', actionable: true },
+  { from: 'Yurani Salamanca en Group DM', text: 'TWILIO SMS CONFIG: Para SMS no es solo cambiar un template, en Twilio toca cambiar la configuracion (default a custom template). Los 2FA se mandan por cualquier canal — fraude lo requiere y no hay forma de dividirlos para el costo.', time: 'Mie 18 Nov 14:41', type: 'dm', actionable: true },
+  { from: 'William Mauricio Patino en DM a JP', text: 'USER_REACTIVATION DEV LISTO: Hola, ya esta en dev el ajuste, lo podemos probar, quedo pendiente!', time: 'Jue 19 Nov 02:34', type: 'dm', actionable: true },
+  { from: 'Andres De Las Casas en DM a JP', text: 'RESCHEDULED: Te movi para manana (1:1 movido de Mie 18 a Jue 19).', time: 'Mie 18 Nov 16:03', type: 'dm', actionable: false },
+  { from: 'Yurani Salamanca en Group DM', text: 'LOGIN DEVICE DESCONOCIDO: Es un mensaje que enviamos cuando detectamos un inicio de sesion en un device desconocido. (signup_security_alert_2 UTILITY — 303k/mes CO)', time: 'Jue 19 Nov 09:54', type: 'dm', actionable: true },
+  { from: 'Sistema Hub', text: 'Hub actualizado Jue 19 Nov 2026. Gmail requiere reautorizacion en claude.ai > Configuracion > Conectores > Gmail para restaurar notas Gemini de reuniones.', time: 'Jue 19 Nov', type: 'dm', actionable: false }
 ];
 const DEEP_WORK = [
-  { day: 'Lun', blocks: ['8:00-10:00', '11:00-13:00', '14:00-15:00', '15:30-18:00'] },
-  { day: 'Mar', blocks: ['8:00-10:00', '10:30-13:00', '14:00-18:00'] },
-  { day: 'Mie', blocks: ['8:00-9:30', '10:00-13:00', '14:00-15:30', '16:00-18:00'] },
-  { day: 'Jue', blocks: ['10:00-13:00', '14:00-16:00', '17:00-18:00'] },
+  { day: 'Lun', blocks: ['8:00-9:30', '11:00-13:00', '14:00-18:00'] },
+  { day: 'Mar', blocks: ['8:00-13:00', '15:00-18:00'] },
+  { day: 'Mie', blocks: ['8:00-13:00', '14:00-18:00'] },
+  { day: 'Jue', blocks: ['11:30-13:00', '14:00-18:00'] },
   { day: 'Vie', blocks: ['8:00-13:00', '14:00-18:00'] }
 ];
 const PHASES = ['discovery','design','build','qa','metrics'];
